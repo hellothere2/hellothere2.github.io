@@ -4,10 +4,18 @@ var random;  //https://hellothere2.github.io/
 
 function clearresults(){
 
-document.getElementById('out').innerHTML = " "
+document.getElementById('out').innerHTML = " ";
 
 }
 
+function cleartable(){
+  document.getElementById('inftable').innerHTML = " ";
+document.getElementById('hctable').innerHTML = " ";
+document.getElementById('lctable').innerHTML = " ";
+document.getElementById('cogtable').innerHTML = " ";
+document.getElementById('galleytable').innerHTML = " ";
+document.getElementById('IBLStable').innerHTML = " ";
+}
 
 
 
@@ -373,6 +381,136 @@ function joust() {
 
   }
   document.getElementById('out').innerHTML +=("Number of tilts run: " + tilt + ". " + JousterA + " broken lances: " + LancesBrokenA + ". " + JousterB + " broken lances: " + LancesBroken + " <br />");
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function movement(){
+
+
+var ficost = 1;
+var hcost = 2;
+var forcost = 2;
+var tuncost = 2;
+var mocost = 3;
+var swacost = 3;
+var descost = 3;
+
+
+  if (document.getElementById('m1').checked) {
+    var travel = (document.getElementById('m1').value);
+  } else var travel = (document.getElementById('m2').value); //check which radio button is selected.
+
+
+
+
+
+if(travel == "land"){
+
+var field = document.getElementById('iFieldTiles').value;
+var hill = document.getElementById('iTundraTiles').value;
+var forest = document.getElementById('iForestTiles').value;
+var tundra = document.getElementById('iTundraTiles').value;
+var mountain = document.getElementById('iFieldTiles').value;
+var swamp = document.getElementById('iSwampTiles').value;
+var desert = document.getElementById('iDesertTiles').value;
+var ocean = document.getElementById('iOceanTiles').value;
+
+
+///This part calulates the speed of each type
+
+var infantry = document.getElementById('iinf').value;
+if(infantry<21){
+  infantryspeed = 15;
+} else infantryspeed = 12;
+infttc = (field*ficost)+(hill*hcost)+(forest*forcost)+(tundra*tuncost)+(mountain*mocost)+(swamp*swacost)+(desert*descost);
+var inftime = (infttc/infantryspeed)*24;
+document.getElementById('inftable').innerHTML += inftime;
+
+
+
+var heavycav = document.getElementById('ihcav').value;
+
+if(heavycav<21){
+  heavycavspeed = 30;
+} else heavycavspeed = 18;
+heavycavttc = (field*ficost)+(hill*hcost)+(forest*forcost)+(tundra*tuncost)+(mountain*mocost)+(swamp*swacost)+(desert*descost);
+var hcavtime = (heavycavttc/heavycavspeed)*24;
+document.getElementById('hctable').innerHTML += hcavtime;
+
+
+var lightcav = document.getElementById('ilcav').value;
+
+if(lightcav<21){
+  lightcavspeed = 30;
+} else lightcavspeed = 24;
+lightcavttc = (field*ficost)+(hill*hcost)+(forest*forcost)+(tundra*tuncost)+(mountain*mocost)+(swamp*swacost)+(desert*descost);
+var lcavtime = (lightcavttc/lightcavspeed)*24;
+document.getElementById('lctable').innerHTML += lcavtime;
+
+
+
+
+
+
+} else if(travel == "water"){
+
+
+var field = document.getElementById('iFieldTiles').value;
+var hill = document.getElementById('iTundraTiles').value;
+var forest = document.getElementById('iForestTiles').value;
+var tundra = document.getElementById('iTundraTiles').value;
+var mountain = document.getElementById('iFieldTiles').value;
+var swamp = document.getElementById('iSwampTiles').value;
+var desert = document.getElementById('iDesertTiles').value;
+var ocean = document.getElementById('iOceanTiles').value;
+
+
+///This part calulates the speed of each type
+var cog = document.getElementById('icog').value;
+if(cog<21){
+  var cs = 0;
+} else cs = (cog-20)/5;
+var cogspeed = Math.max(64-cs, 16);
+var cttc = ocean *1;
+var ctime = (cttc/cogspeed)*24;
+document.getElementById('cogtable').innerHTML += ctime;
+
+var galley = document.getElementById('igalley').value;
+if(galley<21){
+  var gs = 0;
+} else gs = (galley-20)/5;
+var galleyspeed = Math.max(48-gs, 16);
+var gttc = ocean *1;
+var gtime = (gttc/galleyspeed)*24;
+document.getElementById('galleytable').innerHTML += gtime;
+
+var IBLS = document.getElementById('iIBlongship').value;
+if(IBLS<21){
+  var iblss = 0;
+} else iblss = (IBlS-20)/5;
+var IBLSspeed = Math.max(48-iblss, 16);
+var IBLSttc = ocean * 1;
+var IBLStime = (IBLSttc/IBLSspeed)*24;
+document.getElementById('IBLStable').innerHTML += IBLStime;
+
+
+
+
+
+
+}
 
 
 }
