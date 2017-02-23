@@ -55,7 +55,6 @@ article {
   <li><a href="index.html">Home</a></li>
   <li><a href="duel.html">Duel</a></li>
   <li><a href="joust.html">Joust</a></li>
-  <li><a href="joust2.html">Tweaked Joust</a></li>
   <li><a href="https://www.reddit.com/r/ironthronepowers/">ITP</a></li>
   <li><a href="ITPhotlinks.html">ITP quick links</a></li>
   <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">ITP Wiki</a></li>
@@ -86,6 +85,20 @@ Hit "Submit Joust Values" to generate a full JOUST. You can copy and paste the r
     Contestant 2 Skill bonus:<br>
     <input type="number" id="JousterSkillB" value="1"><br>
     <br>
+    <input type="radio" name="malus" id="mal0" value="0" checked> Do not allow maluses to go below 0<br>
+    <input type="radio" name="malus" id="malneg" value="-1000"> Allow maluses to go negative<br>
+    <br>
+    Roll injury saves when the difference between rolls is greater than or equal to...<br>
+    <input type="radio" name="ds" id="ds19" value="19"> 19<br>
+    <input type="radio" name="ds" id="ds18" value="18"> 18<br>
+    <input type="radio" name="ds" id="ds17" value="17" checked> 17<br>
+    <input type="radio" name="ds" id="ds16" value="16"> 16<br>
+    <br>
+    On a D20 injury save, death occurs on between 1 and...<br>
+    <input type="radio" name="dsdn" id="ds2" value="2"> 2<br>
+    <input type="radio" name="dsdn" id="ds3" value="3"> 3<br>
+    <input type="radio" name="dsdn" id="ds4" value="4" checked> 4<br>
+    <input type="radio" name="dsdn" id="ds5" value="5"> 5<br>
     <input type="submit" value="Submit Joust Values">
   </form>
   </fieldset>
@@ -99,12 +112,14 @@ Hit "Submit Joust Values" to generate a full JOUST. You can copy and paste the r
   The difference between the rolls is used to determine what happens.<br>
   This occurs until one player is forced to make a death save, until 7 tilts have passed, or until on of the contestants gets tired out.<br>
   Death and serious injury is a possiblity in jousts.
-  When you click the Submit button, the whole page will be erased exept for the text involving the duel.<br>
+  When you click the Submit button, the whole page will be erased exept for the text involving the joust.<br>
   To return back, simply refresh the page when you are done.
 </p>
 
 
 <h2>JOUST RULES</h2>
+<p>The standard settings should be:<br>
+Skill set to 0 on both jousters, maluses not allowed to go below zero, check for injuries on 17+, and death occurs between 1-4.</p>
 
 <a href="https://www.reddit.com/r/IronThronePowers/comments/2vp30m/meta_new_jousting_rules_proposal_test/">LINK TO STANDARD JOUSTING RULES</a>
 
