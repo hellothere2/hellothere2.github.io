@@ -72,7 +72,7 @@ article {
 the program will automatically fill them in, and you might not like the results...<br>
 Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the results :) </p>
 <fieldset id="DuelContestants">
-  <form onsubmit="dickbutt()">
+  <form>
     <legend>Duel Contestants - Enter info to customize:</legend>
     Contestant 1 name:<br>
     <input type="text" id="firstname" value="Fighter A"><br>
@@ -91,10 +91,18 @@ Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the res
     <br>
     <input type="radio" name="bluntduel" id="bF" value="75" checked> Normal Weapons<br>
     <input type="radio" name="bluntduel" id="bT" value="50"> Blunt Weapons<br>
-    <input type="submit" value="Submit Duel Values">
-  </form>
+    <input type="button" value="Submit Duel Values" onclick="dickbutt()">
+    <input type="button" value="Clear Results" onclick="clearresults()">
+    </form>
   </fieldset>
 
+
+<h2>Results</h2>
+<div id="out">
+
+<p> </p>
+
+</div>
 
 
 
