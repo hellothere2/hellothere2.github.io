@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+  <!-- basic.html -->
+  <title>population.html</title>
+  <meta charset = "UTF-8" />
+
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: green;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+
+</head>
+
+<div class="container">
+
+<header>Hello_There2's Useful Links and Tools</header>
+
+<div>
+<nav>Navigation
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="duel.html">Duel</a></li>
+  <li><a href="joust.html">Joust</a></li>
+  <li><a href="movementcalculator.html">Movement Calc</a></li>
+  <li><a href="https://www.reddit.com/r/ironthronepowers/">ITP</a></li>
+  <li><a href="ITPhotlinks.html">ITP Quick Links</a></li>
+  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">ITP Wiki</a></li>
+  <li><a href="https://ironthronepowersmap.github.io/">ITP Map</a></li>
+  <li><a href="population.html">Population Growth Models</a></li>
+  <li><a href="politics.html">Political Science terms</a></li>
+</ul>
+</nav>
+</div>
+
+
+
+
+<article>
+  <h1>Population Growth Models</h1>
+<h2>Lotka-Volterra Equation</h2>
+</article>
+
+
+<article>
+
+<h1>Logistic Growth Equation</h1>
+  <h3>Usage Instructions</h3>
+<p>Enter the relevant information in the appropriate boxes.<br>
+You can copy and paste the results :) <br>
+To get a population prediction, enter values in the Initial Population, Population Ceiling, Annual Percent Growth Rate, and years passed fields.<br>
+To find Maximum Population, go fuck yourself because I can't figure out the formula. Please tell me if you know it. It's driving me crazy.<br>
+To find the growth rate of a population, enter two population figures. The chronologically first value should be placed in the initial population field, while the later population figure is placed in the Current Population field. Enter the amount of years between the two statistics in the "years passed" field.</p>
+<p>Growth Rate example:<br>
+Canada had a population of 35.16 million in 2013, and a population of 34.75 million in 2012. Enter 34.75 in the Initial Population, 35.16 in Current Population, and 1 in Years Passed. The result given is 0.0118. Rounded this is 0.012, or 1.2% annual change, the official population growth statistic if you search on Google.</p>
+<p>Population Prediction example:<br>
+Google's population statistics on Canada are out of date, with the last entry being 2013. Let's see if we can accurately predict Canada's 2017 population. Canada had a population of 35.16 million in 2013. Enter 35.16 in the Initial Population, and 4 in Years Passed, and the last recorded growth rate was 1.2% so enter 1.2 in the Growth Rate. We have no idea what the fuck the fucking carrying capacity for Canada is, so this formula is completely useless right now, but if we had the carrying capacity of Canada, we would be able to accurately predict the population. You could accurately model historical population growth if you wanted to, though. That's what the guy who inveted the equation did. He accurately modeled the US population for some 50 years into the future, with a margin of error of less than 1%. Pretty cool, yeah? IT WOULD BE NICE IF WE HAD THE CARRYING CAPACITY FORMULA IS ALL I'M SAYING.</p>
+<fieldset id="logisticgrowthfieldset">
+  <form>
+    Initial Population:<br>
+    <input type="number" id="initialpopulation" value="0"><br>
+    Population Ceiling (carrying capacity):<br>
+    <input type="number" id="K" value="0"><br>
+    Annual Percent Growth Rate:<br>
+    <input type="number" id="r" value="0"><br>
+    Years passed:<br>
+    <input type="number" id="time" value="0"><br>
+  Current Population:<br>
+    <input type="number" id="currentpop" value="0"><br>
+    <br>
+    <input type="button" value="Predict Population" onclick="LogisticGrowth()">
+    <input type="button" value="Find Max Population" onclick="findmaxpop()">
+    <input type="button" value="Find Growth Rate" onclick="findgrowthrate()">
+    <input type="button" value="Clear Results" onclick="clearresults()">
+    </form>
+  </fieldset>
+
+
+<h2>Results</h2>
+<div id="out">
+
+
+
+</div>
+
+
+</article>
+
+
+<footer>Made by <a href="https://www.reddit.com/user/Hello_There2/">/u/hello_there2</a>. <a href="https://github.com/hellothere2">Check out my Github!</a></footer>
+
+</div>
+
+
+<script id="populationscript" src="population.js"></script>
+
+
+</html>
