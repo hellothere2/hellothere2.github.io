@@ -98,15 +98,15 @@ tr:nth-child(even) {
 <p>Enter the relevant information in the appropriate boxes.<br>
 You can copy and paste the results :) <br>
 To get a population prediction, enter values in the Initial Population, Population Ceiling, Annual Percent Growth Rate, and years passed fields.<br>
-To find Maximum Population, go fuck yourself because I can't figure out the formula. Please tell me if you know it. It's driving me crazy.<br>
-To find the growth rate of a population, enter two population figures. The chronologically first value should be placed in the initial population field, while the later population figure is placed in the Current Population field. Enter the amount of years between the two statistics in the "years passed" field.</p>
-<p>Growth Rate example:<br>
-Canada had a population of 34.75 million in 2012, and a population of 35.16 million in 2013. Enter 34.75 in the Initial Population, 35.16 in Current Population, and 1 in Years Passed. The result given is 0.0118. Rounded this is 0.012, or 1.2% annual change, the official population growth statistic if you search on Google.</p>
+To find Maximum Population, I can't figure out the formula. Please tell me if you know it. It's driving me crazy.<br>
+
+
 <p>Carrying Capacity example:<br>
-To get Canada's carrying capacity (population ceiling), we'll need a larger smaple size than one year. If Canada had a population of 32.89 million in 2007 and 35.16 in 2013, and a growth rate of 1.2%, what is the estimated population ceiling of Canada based on this information? Enter 34.75 into Initial Population, 1.2 into the Annual Percent Growth Rate, 1 into Years Passed, and 35.16 into current population. The result given is 35.16, the current population in 2013. So why has Canada grown? This is explained below.</p>
+To get Canada's carrying capacity (population ceiling), we'll need a larger smaple size than one year. If Canada had a population of 32.89 million in 2007 and 35.16 in 2013, and a growth rate of 1.2%, what is the estimated population ceiling of Canada based on this information? Enter 34.75 into Initial Population, 1.2 into the Annual Percent Growth Rate, 1 into Years Passed, and 35.16 into current population. The result given is 35.16, the current population in 2013 because my equation is broken.</p>
+
 <p>Population Prediction example:<br>
-Google's population statistics on Canada are out of date, with the last entry being 2013. Let's see if we can accurately predict Canada's 2017 population. Canada had a population of 35.16 million in 2013. Enter 35.16 in the Initial Population, and 4 in Years Passed, and the last recorded growth rate was 1.2% so enter 1.2 in the Growth Rate. Since the Canada already reached its carrying capacity, it will not experience natural growth. </p>
-<p>Why does Canada experience growth? Domestic Canadian births is a known population problem in the country. In fact, it's so bad that Canada is forced to sustain immigration rates of ~5-10% in order to sustain population growth. This is a serious issue in Canada and is commonly discussed in their domestic politics.</p>
+Google's population statistics on Canada are out of date, with the last entry being 2013. Let's see if we can accurately predict Canada's 2017 population. Canada had a population of 35.16 million in 2013. Enter 35.16 in the Initial Population, and 4 in Years Passed, and the last recorded growth rate was 1.2% so enter 1.2 in the Growth Rate. </p>
+
 <fieldset id="logisticgrowthfieldset">
   <form>
     Initial Population:<br>
@@ -122,11 +122,29 @@ Google's population statistics on Canada are out of date, with the last entry be
     <br>
     <input type="button" value="Predict Population" onclick="LogisticGrowth()">
     <input type="button" value="Find Max Population" onclick="findmaxpop()">
-    <input type="button" value="Find Growth Rate" onclick="findgrowthrate()">
     <input type="button" value="Clear Results" onclick="clearresults()">
     </form>
   </fieldset>
 
+
+<h2>Growth Rate</h2>
+To find the growth rate of a population, enter two population figures. The chronologically first value should be placed in the initial population field, while the later population figure is placed in the Current Population field. Enter the amount of years between the two statistics in the "years passed" field.</p>
+
+<p>Example:<br>
+Canada had a population of 34.75 million in 2012, and a population of 35.16 million in 2013. Enter 34.75 in the Initial Population, 35.16 in Current Population, and 1 in Years Passed. The result given is 0.0118. Rounded this is 0.012, or 1.2% annual change, the official population growth statistic if you search on Google.</p>
+<fieldset id="growthratefieldset">
+  <form>
+    Initial Population:<br>
+    <input type="number" id="initialpopulation" value="0"><br>
+    Years passed:<br>
+    <input type="number" id="time" value="0"><br>
+  Current Population:<br>
+    <input type="number" id="currentpop" value="0"><br>
+    <br>
+    <input type="button" value="Find Growth Rate" onclick="findgrowthrate()">
+    <input type="button" value="Clear Results" onclick="clearresults()">
+    </form>
+  </fieldset>
 
 <h2>Results</h2>
 <div id="out">

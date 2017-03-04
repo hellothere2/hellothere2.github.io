@@ -82,7 +82,5 @@ function findgrowthrate(){
 			growthrate = Math.round(growthrate * 100000) / 100000;
 
 	document.getElementById('out').innerHTML += "Growth rate = " + growthrate + " ";
-	growthrate = growthrate * 100;
-	document.getElementById('out').innerHTML += "or " + growthrate + "% annual growth rate. </br>";
 
 }
