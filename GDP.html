@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+  <!-- basic.html -->
+  <title>GDP Calculator</title>
+  <meta charset = "UTF-8" />
+
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: green;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+</style>
+
+</head>
+
+<div class="container">
+
+<header>Hello_There2's Useful Links and Tools</header>
+
+<div>
+<nav>Navigation
+<ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="duel.html">Duel</a></li>
+  <li><a href="joust.html">Joust</a></li>
+  <li><a href="movementcalculator.html">Movement Calc</a></li>
+  <li><a href="https://www.reddit.com/r/ironthronepowers/">ITP</a></li>
+  <li><a href="ITPhotlinks.html">ITP Quick Links</a></li>
+  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">ITP Wiki</a></li>
+  <li><a href="https://ironthronepowersmap.github.io/">ITP Map</a></li>
+  <li><a href="population.html">Population Growth Models</a></li>
+  <li><a href="GDP.html">GDP Calculator</a></li>
+  <li><a href="politics.html">Political Science terms</a></li>
+</ul>
+</nav>
+</div>
+
+
+<article>
+
+<h1>GDP Calculator</h1>
+  <h3>Usage Instructions</h3>
+<p>Enter the relevant information in the appropriate boxes.<br>
+  To calculate a value, you must enter all the other values. <br>So for example, to calculate GDP every value must be filled out except for GDP, and you must indicate that you want to calculate GDP by selecting the "Find GDP" button. You can copy and paste the results :) </p>
+<fieldset id="fieldset1">
+  <form>
+    <legend>Values</legend>
+    Gross Domestic Product (GDP)<br>
+    <input type="number" name="Values" id="iGDP" value="0"><br>
+    Consumption:<br>
+    <input type="number" name="Values" id="iConsumption" value="0"><br>
+    Investment:<br>
+    <input type="number" name="Values" id="iInvestment" value="0"><br>
+    Exports:<br>
+    <input type="number" name="Values" id="iExports" value="0"><br>
+    Imports:<br>
+    <input type="number" name="Values" id="iImports" value="0"><br>
+    Government Spending:<br>
+    <input type="number" name="Values" id="iGovernmentSpending" value="0"><br>
+    <br>
+    <input type="radio" name="type" id="m1" value="" checked> Find GDP<br>
+    <input type="radio" name="type" id="m2" value=""> Find Government Spending<br>
+    <input type="radio" name="type" id="m3" value=""> Find Consumption<br>
+    <input type="radio" name="type" id="m4" value=""> Find Investment<br>
+    <input type="radio" name="type" id="m5" value=""> Find Exports<br>
+    <input type="radio" name="type" id="m6" value=""> Find Imports<br>
+    <input type="button" value="Calculate" onclick="calculateGDP()">
+    <input type="button" value="Clear Results" onclick="cleartable()">
+    </form>
+  </fieldset>
+
+
+
+<h2>Results</h2>
+  <table id="out">
+  <tr>
+    <th>Item</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Government Spending</td>
+    <td id="GovernmentSpending"> </td>
+  </tr>
+  <tr>
+    <td>GDP</td>
+    <td id="GDPtable"> </td>
+  </tr>
+  <tr>
+    <td>Consumption</td>
+    <td id="ConsumptionTable"> </td>
+  </tr>
+  <tr>
+    <td>Investment</td>
+    <td id="InvestmentTable"> </td>
+  </tr>
+  <tr>
+    <td>Exports</td>
+    <td id="ExportsTable"> </td>
+  </tr>
+  <tr>
+    <td>Imports</td>
+    <td id="ImportsTable"> </td>
+  </tr>
+</table>
+</article>
+
+
+<footer>Made by <a href="https://www.reddit.com/user/Hello_There2/">/u/hello_there2</a>. <a href="https://github.com/hellothere2">Check out my Github</a></footer>
+
+</div>
+<script id="GDP" src="GDP.js"></script>
+</html>
