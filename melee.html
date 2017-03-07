@@ -88,8 +88,13 @@ Hit "Generate Melee" to generate a MELEE. You can copy and paste the results :) 
     Dice Size:<br>
     <input type="number" id="iWeaponStrength" value="50"> Minimum 4<br>
     <br>
+    Run a whole melee or just one round at a time?<br>
     <input type="radio" name="MeleeRadioButton" id="SingleRound"> Run a single round<br>
     <input type="radio" name="MeleeRadioButton" id="MultipleRounds" checked> Run the full melee<br>
+    <br>
+    Eliminate contestants via Threshold or by the lowest roll?<br>
+    <input type="radio" name="MeleeRadioButton2" id="EliminateViaThreshold" checked> Eliminate via Threshold<br>
+    <input type="radio" name="MeleeRadioButton2" id="EliminateViaOther"> Eliminate the lowest roll<br>
     <input type="button" value="Generate Melee" onclick="melee()">
     <input type="button" value="Clear Results" onclick="clearresults()">
     </form>

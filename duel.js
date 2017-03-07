@@ -1,12 +1,12 @@
-var random;  //https://hellothere2.github.io/
+var random; //https://hellothere2.github.io/
 
 
 
-function clearresults(){
+function clearresults() {
   document.getElementById('out').innerHTML = " ";
 }
 
-function cleartable(){
+function cleartable() {
   document.getElementById('inftable').innerHTML = " ";
   document.getElementById('hctable').innerHTML = " ";
   document.getElementById('lctable').innerHTML = " ";
@@ -46,7 +46,7 @@ function dickbutt() {
   } else var WeaponStrength = parseInt(document.getElementById('bF').value); //check which radio button is selected.
 
 
-document.getElementById('out').innerHTML += "<br />"
+  document.getElementById('out').innerHTML += "<br />"
 
 
   while (HPA > DuelStopsAt || HPB > DuelStopsAt) {
@@ -60,25 +60,25 @@ document.getElementById('out').innerHTML += "<br />"
 
 
     if (AttackA > AttackB) {
-      document.getElementById('out').innerHTML +=(FighterA + " hits " + FighterB + "!" + " <br />");
+      document.getElementById('out').innerHTML += (FighterA + " hits " + FighterB + "!" + " <br />");
       difference = AttackA - AttackB;
       HPB = HPB - difference;
-      document.getElementById('out').innerHTML +=(FighterB + " has " + HPB + " HP remaining." + " <br />");
+      document.getElementById('out').innerHTML += (FighterB + " has " + HPB + " HP remaining." + " <br />");
       if (HPB <= DuelStopsAt) {
-        document.getElementById('out').innerHTML +=(FighterB + " has fallen. " + FighterA + " wins!" + " <br />");
+        document.getElementById('out').innerHTML += (FighterB + " has fallen. " + FighterA + " wins!" + " <br />");
         break;
       }
     } else if (AttackB > AttackA) {
-      document.getElementById('out').innerHTML +=(FighterB + " hits " + FighterA + "!" + " <br />");
+      document.getElementById('out').innerHTML += (FighterB + " hits " + FighterA + "!" + " <br />");
       difference = AttackB - AttackA;
       HPA = HPA - difference;
-      document.getElementById('out').innerHTML +=(FighterA + " has " + HPA + " HP remaining." + " <br />")
+      document.getElementById('out').innerHTML += (FighterA + " has " + HPA + " HP remaining." + " <br />")
       if (HPA <= DuelStopsAt) {
-        document.getElementById('out').innerHTML +=(FighterA + " has fallen. " + FighterB + " wins!" + " <br />");
+        document.getElementById('out').innerHTML += (FighterA + " has fallen. " + FighterB + " wins!" + " <br />");
         break;
       }
     } else if (AttackA = AttackB) {
-      document.getElementById('out').innerHTML +=("The Duelists struggle in combat." + " <br />");
+      document.getElementById('out').innerHTML += ("The Duelists struggle in combat." + " <br />");
     }
 
   }
@@ -117,39 +117,41 @@ function joust() {
 
   document.getElementById('out').innerHTML += "<br />"
 
-    if (document.getElementById('mal0').checked) {
+  if (document.getElementById('mal0').checked) {
     var maluseslimit = parseInt(document.getElementById('mal0').value);
   } else var maluseslimit = parseInt(document.getElementById('malneg').value); //check which radio button is selected.
 
 
-    if (document.getElementById('ds19').checked) { //check which radio button is selected.
+  if (document.getElementById('ds19').checked) { //check which radio button is selected.
     var deathnumber = parseInt(document.getElementById('ds19').value);
   } else if (document.getElementById('ds18').checked) {
-    var deathnumber = parseInt(document.getElementById('ds18').value); 
-  }  else if (document.getElementById('ds17').checked) {
-    var deathnumber = parseInt(document.getElementById('ds17').value); 
-  }  else if (document.getElementById('ds16').checked) {
-    var deathnumber = parseInt(document.getElementById('ds16').value); }
+    var deathnumber = parseInt(document.getElementById('ds18').value);
+  } else if (document.getElementById('ds17').checked) {
+    var deathnumber = parseInt(document.getElementById('ds17').value);
+  } else if (document.getElementById('ds16').checked) {
+    var deathnumber = parseInt(document.getElementById('ds16').value);
+  }
 
 
-    if (document.getElementById('ds2').checked) { //check which radio button is selected.
+  if (document.getElementById('ds2').checked) { //check which radio button is selected.
     var deathsavedienumber = parseInt(document.getElementById('ds2').value);
   } else if (document.getElementById('ds3').checked) {
-    var deathsavedienumber = parseInt(document.getElementById('ds3').value); 
-  }  else if (document.getElementById('ds4').checked) {
-    var deathsavedienumber = parseInt(document.getElementById('ds4').value); 
-  }  else if (document.getElementById('ds5').checked) {
-    var deathsavedienumber = parseInt(document.getElementById('ds5').value); }
+    var deathsavedienumber = parseInt(document.getElementById('ds3').value);
+  } else if (document.getElementById('ds4').checked) {
+    var deathsavedienumber = parseInt(document.getElementById('ds4').value);
+  } else if (document.getElementById('ds5').checked) {
+    var deathsavedienumber = parseInt(document.getElementById('ds5').value);
+  }
 
 
   while (tilt < 7) {
 
     AttackA = Math.ceil(Math.random() * 20) + SkillA;
     // Get a random number between 1-20 and add Skill
-    document.getElementById('out').innerHTML +=("They clash! <br />")
-    document.getElementById('out').innerHTML +=(JousterA + " got: " + AttackA + " <br />");
+    document.getElementById('out').innerHTML += ("They clash! <br />")
+    document.getElementById('out').innerHTML += (JousterA + " got: " + AttackA + " <br />");
     AttackB = Math.ceil(Math.random() * 20) + SkillB;
-    document.getElementById('out').innerHTML +=(JousterB + " got: " + AttackB + " <br />");
+    document.getElementById('out').innerHTML += (JousterB + " got: " + AttackB + " <br />");
     // Dice are rolled, now let's see what their effect is.
 
 
@@ -158,108 +160,108 @@ function joust() {
     if (AttackA > AttackB) {
       var difference = AttackA - AttackB;
       if (difference >= deathnumber) {
-        document.getElementById('out').innerHTML +=(JousterA + " has unhorsed " + JousterB + ". " + JousterA + " wins the joust!" + " <br />")
-        document.getElementById('out').innerHTML +=(JousterB + " makes a death save..." + " <br />")
+        document.getElementById('out').innerHTML += (JousterA + " has unhorsed " + JousterB + ". " + JousterA + " wins the joust!" + " <br />")
+        document.getElementById('out').innerHTML += (JousterB + " makes a death save..." + " <br />")
         DeathSaveB = Math.ceil(Math.random() * 20) + SkillB;
         if (DeathSaveB >= 1 && DeathSaveB <= deathsavedienumber) {
-          document.getElementById('out').innerHTML +=(JousterB + " has been killed in the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterB + " has been killed in the joust!" + " <br />")
           break;
         } else if (DeathSaveB >= (deathsavedienumber + 1) && DeathSaveB <= 7) {
-          document.getElementById('out').innerHTML +=(JousterB + " has been maimed in the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterB + " has been maimed in the joust!" + " <br />")
           break;
         } else if (DeathSaveB >= 8 && DeathSaveB <= 10) {
-          document.getElementById('out').innerHTML +=(JousterB + " has been severely injured in the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterB + " has been severely injured in the joust!" + " <br />")
           break;
         } else if (DeathSaveB > 10) {
-          document.getElementById('out').innerHTML +=(JousterB + " has been injured in the joust, but remains alive!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterB + " has been injured in the joust, but remains alive!" + " <br />")
           break;
         }
         ///end of death saves
       } else if (difference >= 15 && difference <= 17) {
-        document.getElementById('out').innerHTML +=(JousterA + " has unhorsed " + JousterB + ". " + JousterA + " wins the joust!" + " <br />")
+        document.getElementById('out').innerHTML += (JousterA + " has unhorsed " + JousterB + ". " + JousterA + " wins the joust!" + " <br />")
         break;
       } else if (difference >= 11 && difference <= 14) {
-        document.getElementById('out').innerHTML +=(JousterA + "'s lance has broken against " + JousterB + "." + " <br />");
+        document.getElementById('out').innerHTML += (JousterA + "'s lance has broken against " + JousterB + "." + " <br />");
         SkillB = SkillB - 3;
         if (SkillB < maluseslimit) {
           SkillB = maluseslimit;
         }
-        document.getElementById('out').innerHTML +=(JousterB + "'s rolls are now modified by " + SkillB + " <br />");
+        document.getElementById('out').innerHTML += (JousterB + "'s rolls are now modified by " + SkillB + " <br />");
         LancesBrokenA = LancesBrokenA + 1;
         if (LancesBrokenA >= 3) {
-          document.getElementById('out').innerHTML +=(JousterA + " has broken 3 or more lances. " + JousterA + " wins the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterA + " has broken 3 or more lances. " + JousterA + " wins the joust!" + " <br />")
           break;
         }
         tilt = tilt + 1;
         if (SkillA > SkillB) {
           MalusDifference = SkillA - SkillB;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         } else if (SkillA < SkillB) {
           MalusDifference = SkillB - SkillA;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         }
       } else if (difference >= 7 && difference <= 10) {
-        document.getElementById('out').innerHTML +=(JousterA + " has landed a strong hit against " + JousterB + "." + " <br />");
+        document.getElementById('out').innerHTML += (JousterA + " has landed a strong hit against " + JousterB + "." + " <br />");
         SkillB = SkillB - 2;
         if (SkillB < maluseslimit) {
           SkillB = maluseslimit;
         }
-        document.getElementById('out').innerHTML +=(JousterB + "'s rolls are now modified by " + SkillB + " <br />");
+        document.getElementById('out').innerHTML += (JousterB + "'s rolls are now modified by " + SkillB + " <br />");
         tilt = tilt + 1;
         if (SkillA > SkillB) {
           MalusDifference = SkillA - SkillB;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         } else if (SkillA < SkillB) {
           MalusDifference = SkillB - SkillA;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         }
       } else if (difference >= 3 && difference <= 6) {
-        document.getElementById('out').innerHTML +=(JousterA + " has landed a hit against " + JousterB + "." + " <br />");
+        document.getElementById('out').innerHTML += (JousterA + " has landed a hit against " + JousterB + "." + " <br />");
         SkillB = SkillB - 1;
         if (SkillB < maluseslimit) {
           SkillB = maluseslimit;
         }
-        document.getElementById('out').innerHTML +=(JousterB + "'s rolls are now modified by " + SkillB + " <br />");
+        document.getElementById('out').innerHTML += (JousterB + "'s rolls are now modified by " + SkillB + " <br />");
         tilt = tilt + 1;
         if (SkillA > SkillB) {
           MalusDifference = SkillA - SkillB;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         } else if (SkillA < SkillB) {
           MalusDifference = SkillB - SkillA;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         }
       } else if (difference <= 2) {
-        document.getElementById('out').innerHTML +=(JousterA + " has landed a glancing hit against " + JousterB + " OR has missed." + " <br />");
+        document.getElementById('out').innerHTML += (JousterA + " has landed a glancing hit against " + JousterB + " OR has missed." + " <br />");
         tilt = tilt + 1;
       }
 
@@ -268,117 +270,117 @@ function joust() {
     } else if (AttackB > AttackA) {
       var difference = AttackB - AttackA;
       if (difference >= deathnumber) {
-        document.getElementById('out').innerHTML +=(JousterB + " has unhorsed " + JousterA + ". " + JousterB + " wins the joust!" + " <br />")
-        document.getElementById('out').innerHTML +=(JousterA + " makes a death save..." + " <br />")
+        document.getElementById('out').innerHTML += (JousterB + " has unhorsed " + JousterA + ". " + JousterB + " wins the joust!" + " <br />")
+        document.getElementById('out').innerHTML += (JousterA + " makes a death save..." + " <br />")
         DeathSaveA = Math.ceil(Math.random() * 20) + SkillA;
         if (DeathSaveA >= 1 && DeathSaveA <= deathsavedienumber) {
-          document.getElementById('out').innerHTML +=(JousterA + " has been killed in the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterA + " has been killed in the joust!" + " <br />")
           break;
         } else if (DeathSaveA >= (deathsavedienumber + 1) && DeathSaveA <= 7) {
-          document.getElementById('out').innerHTML +=(JousterA + " has been maimed in the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterA + " has been maimed in the joust!" + " <br />")
           break;
         } else if (DeathSaveA >= 8 && DeathSaveA <= 10) {
-          document.getElementById('out').innerHTML +=(JousterA + " has been severely injured in the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterA + " has been severely injured in the joust!" + " <br />")
           break;
         } else if (DeathSaveA > 10) {
-          document.getElementById('out').innerHTML +=(JousterA + " has been injured in the joust, but remains alive!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterA + " has been injured in the joust, but remains alive!" + " <br />")
           break;
         }
         ///end of death saves
       } else if (difference >= 15 && difference <= 17) {
-        document.getElementById('out').innerHTML +=(JousterB + " has unhorsed " + JousterA + ". " + JousterB + " wins the joust!" + " <br />")
+        document.getElementById('out').innerHTML += (JousterB + " has unhorsed " + JousterA + ". " + JousterB + " wins the joust!" + " <br />")
         break;
       } else if (difference >= 11 && difference <= 14) {
-        document.getElementById('out').innerHTML +=(JousterB + "'s lance has broken against " + JousterA + "." + " <br />");
+        document.getElementById('out').innerHTML += (JousterB + "'s lance has broken against " + JousterA + "." + " <br />");
         SkillA = SkillA - 3;
         if (SkillA < maluseslimit) {
           SkillA = maluseslimit;
         }
-        document.getElementById('out').innerHTML +=(JousterA + "'s rolls are now modified by " + SkillA + " <br />");
+        document.getElementById('out').innerHTML += (JousterA + "'s rolls are now modified by " + SkillA + " <br />");
         LancesBrokenB = LancesBrokenB + 1;
         if (LancesBrokenB >= 3) {
-          document.getElementById('out').innerHTML +=(JousterB + " has broken 3 or more lances. " + JousterB + " wins the joust!" + " <br />")
+          document.getElementById('out').innerHTML += (JousterB + " has broken 3 or more lances. " + JousterB + " wins the joust!" + " <br />")
           break;
         }
         tilt = tilt + 1;
         if (SkillA > SkillB) {
           MalusDifference = SkillA - SkillB;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         } else if (SkillA < SkillB) {
           MalusDifference = SkillB - SkillA;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         }
       } else if (difference >= 7 && difference <= 10) {
-        document.getElementById('out').innerHTML +=(JousterB + " has landed a strong hit against " + JousterA + "." + " <br />");
+        document.getElementById('out').innerHTML += (JousterB + " has landed a strong hit against " + JousterA + "." + " <br />");
         SkillA = SkillA - 2;
         if (SkillA < maluseslimit) {
           SkillA = maluseslimit;
         }
-        document.getElementById('out').innerHTML +=(JousterA + "'s rolls are now modified by " + SkillA + " <br />");
+        document.getElementById('out').innerHTML += (JousterA + "'s rolls are now modified by " + SkillA + " <br />");
         tilt = tilt + 1;
         if (SkillA > SkillB) {
           MalusDifference = SkillA - SkillB;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         } else if (SkillA < SkillB) {
           MalusDifference = SkillB - SkillA;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         }
       } else if (difference >= 3 && difference <= 6) {
-        document.getElementById('out').innerHTML +=(JousterB + " has landed a hit against " + JousterA + "." + " <br />");
+        document.getElementById('out').innerHTML += (JousterB + " has landed a hit against " + JousterA + "." + " <br />");
         SkillA = SkillA - 1;
         if (SkillA < maluseslimit) {
           SkillA = maluseslimit;
         }
-        document.getElementById('out').innerHTML +=(JousterA + "'s rolls are now modified by " + SkillA + " <br />");
+        document.getElementById('out').innerHTML += (JousterA + "'s rolls are now modified by " + SkillA + " <br />");
         tilt = tilt + 1;
         if (SkillA > SkillB) {
           MalusDifference = SkillA - SkillB;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterA + "'s Malus is 10+ above the Malus of " + JousterB + ". " + JousterA + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         } else if (SkillA < SkillB) {
           MalusDifference = SkillB - SkillA;
           if (MalusDifference >= 10) {
-            document.getElementById('out').innerHTML +=(JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
+            document.getElementById('out').innerHTML += (JousterB + "'s Malus is 10+ above the Malus of " + JousterA + ". " + JousterB + " wins!" + " <br />")
             break;
           } else if (MalusDifference < 10) {
-            document.getElementById('out').innerHTML +=("Malus difference is under 10." + " <br />")
+            document.getElementById('out').innerHTML += ("Malus difference is under 10." + " <br />")
           }
         }
       } else if (difference <= 2) {
-        document.getElementById('out').innerHTML +=(JousterB + " has landed a glancing hit against " + JousterA + " OR has missed." + " <br />");
+        document.getElementById('out').innerHTML += (JousterB + " has landed a glancing hit against " + JousterA + " OR has missed." + " <br />");
         tilt = tilt + 1;
       }
     } else if (AttackA = AttackB) {
-      document.getElementById('out').innerHTML +=("The Jousters ride past, neither hitting the other." + " <br />");
+      document.getElementById('out').innerHTML += ("The Jousters ride past, neither hitting the other." + " <br />");
       tilt = tilt + 1;
     }
 
   }
-  document.getElementById('out').innerHTML +=("Number of tilts run: " + tilt + ". " + JousterA + " broken lances: " + LancesBrokenA + ". " + JousterB + " broken lances: " + LancesBroken + " <br />");
+  document.getElementById('out').innerHTML += ("Number of tilts run: " + tilt + ". " + JousterA + " broken lances: " + LancesBrokenA + ". " + JousterB + " broken lances: " + LancesBroken + " <br />");
 
 
 }
@@ -394,16 +396,16 @@ function joust() {
 
 
 
-function movement(){
+function movement() {
 
 
-var ficost = 1;
-var hcost = 2;
-var forcost = 2;
-var tuncost = 2;
-var mocost = 3;
-var swacost = 3;
-var descost = 3;
+  var ficost = 1;
+  var hcost = 2;
+  var forcost = 2;
+  var tuncost = 2;
+  var mocost = 3;
+  var swacost = 3;
+  var descost = 3;
 
 
   if (document.getElementById('m1').checked) {
@@ -414,94 +416,94 @@ var descost = 3;
 
 
 
-if(travel == "land"){
+  if (travel == "land") {
 
-var field = document.getElementById('iFieldTiles').value;
-var hill = document.getElementById('iTundraTiles').value;
-var forest = document.getElementById('iForestTiles').value;
-var tundra = document.getElementById('iTundraTiles').value;
-var mountain = document.getElementById('iFieldTiles').value;
-var swamp = document.getElementById('iSwampTiles').value;
-var desert = document.getElementById('iDesertTiles').value;
-var ocean = document.getElementById('iOceanTiles').value;
-
-
-///This part calulates the speed of each type
-
-var infantry = document.getElementById('iinf').value;
-if(infantry<21){
-  infantryspeed = 15;
-} else infantryspeed = 12;
-infttc = (field*ficost)+(hill*hcost)+(forest*forcost)+(tundra*tuncost)+(mountain*mocost)+(swamp*swacost)+(desert*descost);
-var inftime = (infttc/infantryspeed)*24;
-document.getElementById('inftable').innerHTML += inftime;
+    var field = document.getElementById('iFieldTiles').value;
+    var hill = document.getElementById('iTundraTiles').value;
+    var forest = document.getElementById('iForestTiles').value;
+    var tundra = document.getElementById('iTundraTiles').value;
+    var mountain = document.getElementById('iFieldTiles').value;
+    var swamp = document.getElementById('iSwampTiles').value;
+    var desert = document.getElementById('iDesertTiles').value;
+    var ocean = document.getElementById('iOceanTiles').value;
 
 
+    ///This part calulates the speed of each type
 
-var heavycav = document.getElementById('ihcav').value;
-
-if(heavycav<21){
-  heavycavspeed = 30;
-} else heavycavspeed = 18;
-heavycavttc = (field*ficost)+(hill*hcost)+(forest*forcost)+(tundra*tuncost)+(mountain*mocost)+(swamp*swacost)+(desert*descost);
-var hcavtime = (heavycavttc/heavycavspeed)*24;
-document.getElementById('hctable').innerHTML += hcavtime;
-
-
-var lightcav = document.getElementById('ilcav').value;
-
-if(lightcav<21){
-  lightcavspeed = 30;
-} else lightcavspeed = 24;
-lightcavttc = (field*ficost)+(hill*hcost)+(forest*forcost)+(tundra*tuncost)+(mountain*mocost)+(swamp*swacost)+(desert*descost);
-var lcavtime = (lightcavttc/lightcavspeed)*24;
-document.getElementById('lctable').innerHTML += lcavtime;
+    var infantry = document.getElementById('iinf').value;
+    if (infantry < 21) {
+      infantryspeed = 15;
+    } else infantryspeed = 12;
+    infttc = (field * ficost) + (hill * hcost) + (forest * forcost) + (tundra * tuncost) + (mountain * mocost) + (swamp * swacost) + (desert * descost);
+    var inftime = (infttc / infantryspeed) * 24;
+    document.getElementById('inftable').innerHTML += inftime;
 
 
+
+    var heavycav = document.getElementById('ihcav').value;
+
+    if (heavycav < 21) {
+      heavycavspeed = 30;
+    } else heavycavspeed = 18;
+    heavycavttc = (field * ficost) + (hill * hcost) + (forest * forcost) + (tundra * tuncost) + (mountain * mocost) + (swamp * swacost) + (desert * descost);
+    var hcavtime = (heavycavttc / heavycavspeed) * 24;
+    document.getElementById('hctable').innerHTML += hcavtime;
+
+
+    var lightcav = document.getElementById('ilcav').value;
+
+    if (lightcav < 21) {
+      lightcavspeed = 30;
+    } else lightcavspeed = 24;
+    lightcavttc = (field * ficost) + (hill * hcost) + (forest * forcost) + (tundra * tuncost) + (mountain * mocost) + (swamp * swacost) + (desert * descost);
+    var lcavtime = (lightcavttc / lightcavspeed) * 24;
+    document.getElementById('lctable').innerHTML += lcavtime;
 
 
 
 
-} else if(travel == "water"){
 
 
-  var field = document.getElementById('iFieldTiles').value;
-  var hill = document.getElementById('iTundraTiles').value;
-  var forest = document.getElementById('iForestTiles').value;
-  var tundra = document.getElementById('iTundraTiles').value;
-  var mountain = document.getElementById('iFieldTiles').value;
-  var swamp = document.getElementById('iSwampTiles').value;
-  var desert = document.getElementById('iDesertTiles').value;
-  var ocean = document.getElementById('iOceanTiles').value;
+  } else if (travel == "water") {
 
 
-  ///This part calulates the speed of each type
-  var cog = document.getElementById('icog').value;
-  if(cog<21){
-    var cs = 0;
-  } else cs = (cog-20)/5;
-  var cogspeed = Math.max(64-cs, 16);
-  var cttc = ocean *1;
-  var ctime = (cttc/cogspeed)*24;
-  document.getElementById('cogtable').innerHTML += ctime;
+    var field = document.getElementById('iFieldTiles').value;
+    var hill = document.getElementById('iTundraTiles').value;
+    var forest = document.getElementById('iForestTiles').value;
+    var tundra = document.getElementById('iTundraTiles').value;
+    var mountain = document.getElementById('iFieldTiles').value;
+    var swamp = document.getElementById('iSwampTiles').value;
+    var desert = document.getElementById('iDesertTiles').value;
+    var ocean = document.getElementById('iOceanTiles').value;
 
-  var galley = document.getElementById('igalley').value;
-  if(galley<21){
-    var gs = 0;
-  } else gs = (galley-20)/5;
-  var galleyspeed = Math.max(48-gs, 16);
-  var gttc = ocean *1;
-  var gtime = (gttc/galleyspeed)*24;
-  document.getElementById('galleytable').innerHTML += gtime;
 
-  var IBLS = document.getElementById('iIBlongship').value;
-  if(IBLS<21){
-    var iblss = 0;
-  } else iblss = (IBlS-20)/5;
-  var IBLSspeed = Math.max(48-iblss, 16);
-  var IBLSttc = ocean * 1;
-  var IBLStime = (IBLSttc/IBLSspeed)*24;
-  document.getElementById('IBLStable').innerHTML += IBLStime;
+    ///This part calulates the speed of each type
+    var cog = document.getElementById('icog').value;
+    if (cog < 21) {
+      var cs = 0;
+    } else cs = (cog - 20) / 5;
+    var cogspeed = Math.max(64 - cs, 16);
+    var cttc = ocean * 1;
+    var ctime = (cttc / cogspeed) * 24;
+    document.getElementById('cogtable').innerHTML += ctime;
+
+    var galley = document.getElementById('igalley').value;
+    if (galley < 21) {
+      var gs = 0;
+    } else gs = (galley - 20) / 5;
+    var galleyspeed = Math.max(48 - gs, 16);
+    var gttc = ocean * 1;
+    var gtime = (gttc / galleyspeed) * 24;
+    document.getElementById('galleytable').innerHTML += gtime;
+
+    var IBLS = document.getElementById('iIBlongship').value;
+    if (IBLS < 21) {
+      var iblss = 0;
+    } else iblss = (IBlS - 20) / 5;
+    var IBLSspeed = Math.max(48 - iblss, 16);
+    var IBLSttc = ocean * 1;
+    var IBLStime = (IBLSttc / IBLSspeed) * 24;
+    document.getElementById('IBLStable').innerHTML += IBLStime;
   }
 }
 
@@ -532,72 +534,132 @@ function melee() {
 
   document.getElementById('out').innerHTML += "The melee will now begin. <br>";
 
-  if (document.getElementById('SingleRound').checked) {
-  var Attack = new Array(OriginalNumberOfContestants);
-  var FUCKINGENDTHEMELEEALREADY = false;
 
-    while (NumberOfContestants > 1) {
-      for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
-        var Participant = document.getElementById('member' + i3).value;
-        var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
-        if (Participant != "Contestant Disqualified") {
-          Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
-          document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
-          if (Attack[i3] < Threshold) {
-            document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
-            document.getElementById('member' + i3).value = "Contestant Disqualified";
-            NumberOfContestants -= 1;
-          } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+
+  if (document.getElementById('EliminateViaThreshold').checked) {
+document.getElementById('out').innerHTML += "Eliminate by Threshold <br>";
+
+    if (document.getElementById('SingleRound').checked) {
+
+      var Attack = new Array(OriginalNumberOfContestants);
+      var FUCKINGENDTHEMELEEALREADY = false;
+
+      while (NumberOfContestants > 1) {
+        for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
+          var Participant = document.getElementById('member' + i3).value;
+          var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+          if (Participant != "Contestant Disqualified") {
+            Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
+            document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
+            if (Attack[i3] < Threshold) {
+              document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
+              document.getElementById('member' + i3).value = "Contestant Disqualified";
+              NumberOfContestants -= 1;
+            } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+          }
+          if (MeleeSkill >= Threshold) {
+            document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
+            FUCKINGENDTHEMELEEALREADY = true;
+            break;
+          }
         }
-          if (MeleeSkill>=Threshold){
-          document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
-          FUCKINGENDTHEMELEEALREADY = true;
+        if (FUCKINGENDTHEMELEEALREADY == true) {
+          break;
+        }
+        break;
+      }
+
+    } else if (document.getElementById('MultipleRounds').checked) {
+      var round = 1;
+      var Attack = new Array(OriginalNumberOfContestants);
+      var FUCKINGENDTHEMELEEALREADY = false;
+
+      while (NumberOfContestants > 1) {
+        document.getElementById('out').innerHTML += "Round " + round + "<br>";
+        round = round + 1;
+        for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
+          var Participant = document.getElementById('member' + i3).value;
+          var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+
+          if (Participant != "Contestant Disqualified") {
+            Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
+            document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
+            if (Attack[i3] < Threshold) {
+              document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
+              document.getElementById('member' + i3).value = "Contestant Disqualified";
+              NumberOfContestants -= 1;
+            } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+          }
+          if (MeleeSkill >= Threshold) {
+            document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
+            FUCKINGENDTHEMELEEALREADY = true;
+            break;
+          }
+        }
+        if (FUCKINGENDTHEMELEEALREADY == true) {
+          break;
+        }
+
+      }
+
+      for (i4 = 0; i4 < OriginalNumberOfContestants; i4++) {
+        var NameCheck = document.getElementsByName('ContestantNamesList')[i4].value;
+        if (NameCheck != "Contestant Disqualified") {
+          document.getElementById('out').innerHTML += "The winner is " + NameCheck;
           break;
         }
       }
-      if(FUCKINGENDTHEMELEEALREADY ==true){
+    }
+
+  } else if (document.getElementById('EliminateViaOther').checked) {
+
+  document.getElementById('out').innerHTML += "Eliminate by other <br>";
+
+    if (document.getElementById('SingleRound').checked) {
+      var round = 1;
+      var Attack = new Array(OriginalNumberOfContestants);
+
+      while (NumberOfContestants > 1) {
+        document.getElementById('out').innerHTML += "Round " + round + "<br>";
+        round = round + 1;
+        for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
+          var Participant = document.getElementById('member' + i3).value;
+          var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+
+          if (Participant != "Contestant Disqualified") {
+            Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
+            document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
+          } 
+        }
+        Attack.sort(function(a, b){return a-b});
+        if(Attack[0]<Attack[1]){
+            document.getElementById('out').innerHTML += "Lowest roll is " + Attack[0] + "<br>";
+          } else document.getElementById('out').innerHTML += "Error<br>";
         break;
       }
-      break;
-    }
-  } else if(document.getElementById('MultipleRounds').checked){
-    var round = 1;
-    var Attack = new Array(OriginalNumberOfContestants);
-    var FUCKINGENDTHEMELEEALREADY = false;
 
-    while (NumberOfContestants > 1) {
-      document.getElementById('out').innerHTML += "Round " + round + "<br>";
-      round = round + 1;
-      for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
-        var Participant = document.getElementById('member' + i3).value;
-        var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+    } else if (document.getElementById('MultipleRounds').checked) {
 
-        if (Participant != "Contestant Disqualified") {
-          Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
-          document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
-          if (Attack[i3] < Threshold) {
-            document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
-            document.getElementById('member' + i3).value = "Contestant Disqualified";
-            NumberOfContestants -= 1;
-          } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+      var round = 1;
+      var Attack = new Array(OriginalNumberOfContestants);
+
+      while (NumberOfContestants > 1) {
+        document.getElementById('out').innerHTML += "Round " + round + "<br>";
+        round = round + 1;
+        for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
+          var Participant = document.getElementById('member' + i3).value;
+          var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+
+          if (Participant != "Contestant Disqualified") {
+            Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
+            document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
+          } 
         }
-          if (MeleeSkill>=Threshold){
-          document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
-          FUCKINGENDTHEMELEEALREADY = true;
+        Attack.sort(function(a, b){return a-b});
+        if(Attack[0]<Attack[1]){
+            document.getElementById('out').innerHTML += "Lowest roll is " + Attack[0] + "<br>";
+          } else document.getElementById('out').innerHTML += "Error<br>";
           break;
-        }
-      }
-      if(FUCKINGENDTHEMELEEALREADY ==true){
-        break;
-      }
-
-    }
-
-    for (i4 = 0; i4 < OriginalNumberOfContestants; i4++) {
-      var NameCheck = document.getElementsByName('ContestantNamesList')[i4].value;
-      if (NameCheck != "Contestant Disqualified") {
-        document.getElementById('out').innerHTML += "The winner is " + NameCheck;
-        break;
       }
     }
   }
@@ -607,34 +669,34 @@ function melee() {
 
 
 
-function addFields(){
-    // Number of inputs to create
-    var number = parseInt(document.getElementById("member").value);
-    // Container <div> where dynamic content will be placed
-    var container = document.getElementById("ContestantInputs");
-    // Clear previous contents of the container
-    while (container.hasChildNodes()) {
-        container.removeChild(container.lastChild);
-    }
-    for (im=0;im<number;im++){
-        // Append a node with a random text
-        container.appendChild(document.createTextNode("Melee Contestant " + (im+1) + "'s name followed by Contestant's skill modifier:"));
-        // Create an <input> element, set its type and name attributes
-        var input = document.createElement("input");
-        input.type = "text";
-        input.id = "member" + im; ///member1, member2, member3, etc.
-        input.name = "ContestantNamesList"
-        var dickbuttcreampie = im+1
-        input.value = "Contestant"+dickbuttcreampie;
-        container.appendChild(input);
-        // Create an <input> element, set its type and name attributes
-        var input2 = document.createElement("input");
-        input2.type = "number";
-        input2.id = "member" + im + "skill"; ///member1skill, member2skill, member3skill, etc.
-        input2.name = "ContestantSkillValues"
-        input2.value = 0;
-        container.appendChild(input2);
-        // Append a line break 
-        container.appendChild(document.createElement("br"));
-    }
+function addFields() {
+  // Number of inputs to create
+  var number = parseInt(document.getElementById("member").value);
+  // Container <div> where dynamic content will be placed
+  var container = document.getElementById("ContestantInputs");
+  // Clear previous contents of the container
+  while (container.hasChildNodes()) {
+    container.removeChild(container.lastChild);
+  }
+  for (im = 0; im < number; im++) {
+    // Append a node with a random text
+    container.appendChild(document.createTextNode("Melee Contestant " + (im + 1) + "'s name followed by Contestant's skill modifier:"));
+    // Create an <input> element, set its type and name attributes
+    var input = document.createElement("input");
+    input.type = "text";
+    input.id = "member" + im; ///member1, member2, member3, etc.
+    input.name = "ContestantNamesList"
+    var dickbuttcreampie = im + 1
+    input.value = "Contestant" + dickbuttcreampie;
+    container.appendChild(input);
+    // Create an <input> element, set its type and name attributes
+    var input2 = document.createElement("input");
+    input2.type = "number";
+    input2.id = "member" + im + "skill"; ///member1skill, member2skill, member3skill, etc.
+    input2.name = "ContestantSkillValues"
+    input2.value = 0;
+    container.appendChild(input2);
+    // Append a line break 
+    container.appendChild(document.createElement("br"));
+  }
 }
