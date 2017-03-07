@@ -531,47 +531,76 @@ function melee() {
   }
 
   document.getElementById('out').innerHTML += "The melee will now begin. <br>";
-  var round = 1;
+
+  if (document.getElementById('SingleRound').checked) {
   var Attack = new Array(OriginalNumberOfContestants);
   var FUCKINGENDTHEMELEEALREADY = false;
 
-  while (NumberOfContestants > 1) {
-    document.getElementById('out').innerHTML += "Round " + round + "<br>";
-    round = round + 1;
-    for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
-      var Participant = document.getElementById('member' + i3).value;
-      var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
-
-      if (Participant != "Contestant Disqualified") {
-        Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
-        document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
-        if (Attack[i3] < Threshold) {
-          document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
-          document.getElementById('member' + i3).value = "Contestant Disqualified";
-          NumberOfContestants -= 1;
-        } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+    while (NumberOfContestants > 1) {
+      for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
+        var Participant = document.getElementById('member' + i3).value;
+        var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+        if (Participant != "Contestant Disqualified") {
+          Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
+          document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
+          if (Attack[i3] < Threshold) {
+            document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
+            document.getElementById('member' + i3).value = "Contestant Disqualified";
+            NumberOfContestants -= 1;
+          } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+        }
+          if (MeleeSkill>=Threshold){
+          document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
+          FUCKINGENDTHEMELEEALREADY = true;
+          break;
+        }
       }
-        if (MeleeSkill>=Threshold){
-        document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
-        FUCKINGENDTHEMELEEALREADY = true;
+      if(FUCKINGENDTHEMELEEALREADY ==true){
+        break;
+      }
+      break;
+    }
+  } else if(document.getElementById('MultipleRounds').checked){
+    var round = 1;
+    var Attack = new Array(OriginalNumberOfContestants);
+    var FUCKINGENDTHEMELEEALREADY = false;
+
+    while (NumberOfContestants > 1) {
+      document.getElementById('out').innerHTML += "Round " + round + "<br>";
+      round = round + 1;
+      for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
+        var Participant = document.getElementById('member' + i3).value;
+        var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+
+        if (Participant != "Contestant Disqualified") {
+          Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
+          document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
+          if (Attack[i3] < Threshold) {
+            document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
+            document.getElementById('member' + i3).value = "Contestant Disqualified";
+            NumberOfContestants -= 1;
+          } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+        }
+          if (MeleeSkill>=Threshold){
+          document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
+          FUCKINGENDTHEMELEEALREADY = true;
+          break;
+        }
+      }
+      if(FUCKINGENDTHEMELEEALREADY ==true){
+        break;
+      }
+
+    }
+
+    for (i4 = 0; i4 < OriginalNumberOfContestants; i4++) {
+      var NameCheck = document.getElementsByName('ContestantNamesList')[i4].value;
+      if (NameCheck != "Contestant Disqualified") {
+        document.getElementById('out').innerHTML += "The winner is " + NameCheck;
         break;
       }
     }
-    if(FUCKINGENDTHEMELEEALREADY ==true){
-      break;
-    }
-
   }
-
-
-  for (i4 = 0; i4 < OriginalNumberOfContestants; i4++) {
-    var NameCheck = document.getElementsByName('ContestantNamesList')[i4].value;
-    if (NameCheck != "Contestant Disqualified") {
-      document.getElementById('out').innerHTML += "The winner is " + NameCheck;
-      break;
-    }
-  }
-
 }
 
 
