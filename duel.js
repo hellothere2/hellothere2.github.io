@@ -595,12 +595,15 @@ function addFields(){
         input.type = "text";
         input.id = "member" + im; ///member1, member2, member3, etc.
         input.name = "ContestantNamesList"
+        var dickbuttcreampie = im+1
+        input.value = "Contestant"+dickbuttcreampie;
         container.appendChild(input);
         // Create an <input> element, set its type and name attributes
         var input2 = document.createElement("input");
         input2.type = "number";
         input2.id = "member" + im + "skill"; ///member1skill, member2skill, member3skill, etc.
         input2.name = "ContestantSkillValues"
+        input2.value = 0;
         container.appendChild(input2);
         // Append a line break 
         container.appendChild(document.createElement("br"));
