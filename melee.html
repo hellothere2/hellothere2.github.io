@@ -2,7 +2,7 @@
 <html lang = "en">
 <head>
   <!-- basic.html -->
-  <title>Duel Automator</title>
+  <title>Melee Automator</title>
   <meta charset = "UTF-8" />
 
 <style>
@@ -71,32 +71,24 @@ article {
 
 <article>
 
-<h1>Duel Automator</h1>
+<h1>Melee Automator</h1>
   <h3>Usage Instructions</h3>
-<p>Enter the relevant DUEL information in the appropriate boxes. If you do not specify values,<br>
-the program will automatically fill them in, and you might not like the results...<br>
-Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the results :) </p>
-<fieldset id="DuelContestants">
+<p>
+Enter the relevant MELEE information in the appropriate boxes.<br>
+Hit "Generate Melee" to generate a full MELEE. You can copy and paste the results :) </p>
+<fieldset id="fieldset2">
   <form>
-    <legend>Duel Contestants - Enter info to customize:</legend>
-    Contestant 1 name:<br>
-    <input type="text" id="firstname" value="Fighter A"><br>
-    Contestant 1 health:<br>
-    <input type="number" id="HPA" value="50"><br>
-    Contestant 1 Skill bonus:<br>
-    <input type="number" id="SkillA" value="1"><br>
-    Contestant 2 name:<br>
-    <input type="text" id="secondname" value="Fighter B"><br>
-    Contestant 2 health:<br>
-    <input type="number" id="HPB" value="50"><br>
-    Contestant 2 Skill bonus:<br>
-    <input type="number" id="SkillB" value="1"><br>
-    HP to stop duel at:<br>
-    <input type="number" id="Dueltype" value="0"> 0 = To the death<br>
+    <legend>Melee Contestants - Enter info to customize:</legend>
+    <input type="number" id="member" name="member" value="">Number of Members<br>
+    <input type="button" id="filldetails" onclick="addFields()" value="Generate Fields"><br>
+    Contestant Information<br>
+    <div id="ContestantInputs"></div><br>
+    Threshold:<br>
+    <input type="number" id="iThreshold" value="2"> Minimum 2<br>
+    Dice Size:<br>
+    <input type="number" id="iWeaponStrength" value="50"> Minimum 4<br>
     <br>
-    <input type="radio" name="bluntduel" id="bF" value="75" checked> Normal Weapons<br>
-    <input type="radio" name="bluntduel" id="bT" value="50"> Blunt Weapons<br>
-    <input type="button" value="Submit Duel Values" onclick="dickbutt()">
+    <input type="button" value="Generate Melee" onclick="melee()">
     <input type="button" value="Clear Results" onclick="clearresults()">
     </form>
   </fieldset>
@@ -113,11 +105,9 @@ Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the res
 
 
 <h2>Notes</h2>
-<p>Default HP value is 50, default skill bonus is 0. Duels function by rolling a d75 + Skill for each player (d50 if blunt weapons).<br>
-  The difference between the attack rolls is taken from the lower roll's HP pool.<br>
-  This occurs until one player reaches the "HP to stop duel at" number OR LOWER.<br>
-  This means that you can still die in a friendly duel, since the other duelist could roll high<br>
-  and take away health past the target HP. <br>
+<p>Melees function by rolling a d50 + Skill for each player (d75 if sharp weapons).<br>
+  If a contestant rolls lower than the specified threshold, they are eliminated from the melee.<br>
+  In order for the code to work, skill bonuses must not be greater than or equal to the threshold.
 </p>
 
 </article>

@@ -3,18 +3,16 @@ var random;  //https://hellothere2.github.io/
 
 
 function clearresults(){
-
-document.getElementById('out').innerHTML = " ";
-
+  document.getElementById('out').innerHTML = " ";
 }
 
 function cleartable(){
   document.getElementById('inftable').innerHTML = " ";
-document.getElementById('hctable').innerHTML = " ";
-document.getElementById('lctable').innerHTML = " ";
-document.getElementById('cogtable').innerHTML = " ";
-document.getElementById('galleytable').innerHTML = " ";
-document.getElementById('IBLStable').innerHTML = " ";
+  document.getElementById('hctable').innerHTML = " ";
+  document.getElementById('lctable').innerHTML = " ";
+  document.getElementById('cogtable').innerHTML = " ";
+  document.getElementById('galleytable').innerHTML = " ";
+  document.getElementById('IBLStable').innerHTML = " ";
 }
 
 
@@ -467,50 +465,144 @@ document.getElementById('lctable').innerHTML += lcavtime;
 } else if(travel == "water"){
 
 
-var field = document.getElementById('iFieldTiles').value;
-var hill = document.getElementById('iTundraTiles').value;
-var forest = document.getElementById('iForestTiles').value;
-var tundra = document.getElementById('iTundraTiles').value;
-var mountain = document.getElementById('iFieldTiles').value;
-var swamp = document.getElementById('iSwampTiles').value;
-var desert = document.getElementById('iDesertTiles').value;
-var ocean = document.getElementById('iOceanTiles').value;
+  var field = document.getElementById('iFieldTiles').value;
+  var hill = document.getElementById('iTundraTiles').value;
+  var forest = document.getElementById('iForestTiles').value;
+  var tundra = document.getElementById('iTundraTiles').value;
+  var mountain = document.getElementById('iFieldTiles').value;
+  var swamp = document.getElementById('iSwampTiles').value;
+  var desert = document.getElementById('iDesertTiles').value;
+  var ocean = document.getElementById('iOceanTiles').value;
 
 
-///This part calulates the speed of each type
-var cog = document.getElementById('icog').value;
-if(cog<21){
-  var cs = 0;
-} else cs = (cog-20)/5;
-var cogspeed = Math.max(64-cs, 16);
-var cttc = ocean *1;
-var ctime = (cttc/cogspeed)*24;
-document.getElementById('cogtable').innerHTML += ctime;
+  ///This part calulates the speed of each type
+  var cog = document.getElementById('icog').value;
+  if(cog<21){
+    var cs = 0;
+  } else cs = (cog-20)/5;
+  var cogspeed = Math.max(64-cs, 16);
+  var cttc = ocean *1;
+  var ctime = (cttc/cogspeed)*24;
+  document.getElementById('cogtable').innerHTML += ctime;
 
-var galley = document.getElementById('igalley').value;
-if(galley<21){
-  var gs = 0;
-} else gs = (galley-20)/5;
-var galleyspeed = Math.max(48-gs, 16);
-var gttc = ocean *1;
-var gtime = (gttc/galleyspeed)*24;
-document.getElementById('galleytable').innerHTML += gtime;
+  var galley = document.getElementById('igalley').value;
+  if(galley<21){
+    var gs = 0;
+  } else gs = (galley-20)/5;
+  var galleyspeed = Math.max(48-gs, 16);
+  var gttc = ocean *1;
+  var gtime = (gttc/galleyspeed)*24;
+  document.getElementById('galleytable').innerHTML += gtime;
 
-var IBLS = document.getElementById('iIBlongship').value;
-if(IBLS<21){
-  var iblss = 0;
-} else iblss = (IBlS-20)/5;
-var IBLSspeed = Math.max(48-iblss, 16);
-var IBLSttc = ocean * 1;
-var IBLStime = (IBLSttc/IBLSspeed)*24;
-document.getElementById('IBLStable').innerHTML += IBLStime;
+  var IBLS = document.getElementById('iIBlongship').value;
+  if(IBLS<21){
+    var iblss = 0;
+  } else iblss = (IBlS-20)/5;
+  var IBLSspeed = Math.max(48-iblss, 16);
+  var IBLSttc = ocean * 1;
+  var IBLStime = (IBLSttc/IBLSspeed)*24;
+  document.getElementById('IBLStable').innerHTML += IBLStime;
+  }
+}
 
 
 
 
 
+
+
+///function melee() is dependant on function addFields()
+
+
+function melee() {
+
+  var NumberOfContestants = parseInt(document.getElementById('member').value);
+  var OriginalNumberOfContestants = parseInt(document.getElementById('member').value);
+  var Threshold = parseInt(document.getElementById('iThreshold').value);
+  var WeaponStrength = parseInt(document.getElementById('iWeaponStrength').value);
+
+  document.getElementById('out').innerHTML += "The following is a list of all the participants of the melee and their skill modifiers.<br>";
+
+
+  for (i2 = 0; i2 < NumberOfContestants; i2++) {
+    var bullshit = document.getElementById('member' + i2).value;
+    var bullshit2 = parseInt(document.getElementById('member' + i2 + 'skill').value);
+    document.getElementById('out').innerHTML += "Name: " + bullshit + ". Skill: " + bullshit2 + "<br>";
+  }
+
+  document.getElementById('out').innerHTML += "The melee will now begin. <br>";
+  var round = 1;
+  var Attack = new Array(OriginalNumberOfContestants);
+  var FUCKINGENDTHEMELEEALREADY = false;
+
+  while (NumberOfContestants > 1) {
+    document.getElementById('out').innerHTML += "Round " + round + "<br>";
+    round = round + 1;
+    for (i3 = 0; i3 < OriginalNumberOfContestants; i3++) {
+      var Participant = document.getElementById('member' + i3).value;
+      var MeleeSkill = parseInt(document.getElementsByName('ContestantSkillValues')[i3].value);
+
+      if (Participant != "Contestant Disqualified") {
+        Attack[i3] = Math.ceil(Math.random() * WeaponStrength) + MeleeSkill;
+        document.getElementById('out').innerHTML += Participant + " got " + Attack[i3] + "<br>";
+        if (Attack[i3] < Threshold) {
+          document.getElementById('out').innerHTML += Participant + " rolled lower than the Threshold and is removed from the melee.<br>";
+          document.getElementById('member' + i3).value = "Contestant Disqualified";
+          NumberOfContestants -= 1;
+        } else document.getElementById('out').innerHTML += Participant + " remains in the melee and moves on to the next round.<br>";
+      }
+        if (MeleeSkill>=Threshold){
+        document.getElementById('out').innerHTML += "Skill value of " + Participant + " will make them always roll higher than Threshold, causing a never-ending Melee. Closing Program.<br>";
+        FUCKINGENDTHEMELEEALREADY = true;
+        break;
+      }
+    }
+    if(FUCKINGENDTHEMELEEALREADY ==true){
+      break;
+    }
+
+  }
+
+
+  for (i4 = 0; i4 < OriginalNumberOfContestants; i4++) {
+    var NameCheck = document.getElementsByName('ContestantNamesList')[i4].value;
+    if (NameCheck != "Contestant Disqualified") {
+      document.getElementById('out').innerHTML += "The winner is " + NameCheck;
+      break;
+    }
+  }
 
 }
 
 
+
+
+
+function addFields(){
+    // Number of inputs to create
+    var number = parseInt(document.getElementById("member").value);
+    // Container <div> where dynamic content will be placed
+    var container = document.getElementById("ContestantInputs");
+    // Clear previous contents of the container
+    while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+    }
+    for (im=0;im<number;im++){
+        // Append a node with a random text
+        container.appendChild(document.createTextNode("Melee Contestant " + (im+1) + "'s name followed by Contestant's skill modifier:"));
+        // Create an <input> element, set its type and name attributes
+        var input = document.createElement("input");
+        input.type = "text";
+        input.id = "member" + im; ///member1, member2, member3, etc.
+        input.name = "ContestantNamesList"
+        container.appendChild(input);
+        // Create an <input> element, set its type and name attributes
+        var input2 = document.createElement("input");
+        input2.type = "number";
+        input2.id = "member" + im + "skill"; ///member1skill, member2skill, member3skill, etc.
+        input2.name = "ContestantSkillValues"
+        container.appendChild(input2);
+        // Append a line break 
+        container.appendChild(document.createElement("br"));
+    }
 }
