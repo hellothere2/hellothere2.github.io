@@ -19,20 +19,65 @@ header, footer {
     text-align: center;
 }
 
-nav {
-    float: left;
-    max-width: 160px;
+ul {
+    list-style-type: none;
     margin: 0;
-    padding: 1em;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+li {
+    float: left;
 }
-   
-nav ul a {
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: black;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f8f8;
+    min-width: 160px;
+    box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.active {
+    background-color: green;
+    color: white;
+}
+
+.activeDropdown {
+    background-color: #f0f0f0;
+    color: white;
 }
 
 article {
@@ -50,20 +95,24 @@ article {
 <header>IronThronePowers Quick Links</header>
 
 <div>
-<nav>Navigation
 <ul>
-  <li><a href="index.html">Home</a></li>
-  <li><a href="duel.html">Duel</a></li>
-  <li><a href="joust.html">Joust</a></li>
-  <li><a href="movementcalculator.html">Movement Calc</a></li>
-  <li><a href="https://www.reddit.com/r/ironthronepowers/">ITP</a></li>
-  <li><a href="ITPhotlinks.html">ITP Quick Links</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">ITP Wiki</a></li>
-  <li><a href="https://ironthronepowersmap.github.io/">ITP Map</a></li>
+  <li class="active"><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">IronThronePowers</a>
+      <div class="dropdown-content">
+        <a href="https://www.reddit.com/r/ironthronepowers/">Subreddit</a>
+        <a href="duel.html">Duel</a>
+        <a href="joust.html">Joust</a>
+        <a href="melee.html">Melee Automator</a>
+        <a href="movementcalculator.html">Movement Calc</a>
+        <a class="activeDropdown" href="ITPhotlinks.html">Quick Links</a>
+        <a href="https://www.reddit.com/r/IronThronePowers/wiki/index">Wiki</a>
+        <a href="https://ironthronepowersmap.github.io/">Map</a>
+      </div>
+    </li>
   <li><a href="population.html">Population Growth Models</a></li>
   <li><a href="GDP.html">GDP Calculator</a></li>
   <li><a href="politics.html">Political Science terms</a></li>
-  <li><a href="melee.html">Melee Automator</a></li>
 </ul>
 </nav>
 </div>
@@ -79,46 +128,64 @@ article {
   </p>
 
 <h2>Claims and Characters</h2>
-  <li><a href="https://docs.google.com/spreadsheets/d/1fmTM7nBBAaeeHPycnqTKyGXNxOwLJ7QK8nUx0rVoD-o/edit?usp=sharing">Claims List</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/comments/54oh89/wall_wall_beyond_secondary_characters_claim_post/">Wall And Beyond Claims</a></li>
-  <li><a href="https://docs.google.com/spreadsheets/d/1RGzlyaXJlSaf1qAZ7YUXr8PDO_tP42MGBcYkJ1ZyNok/edit#gid=0">Available Single Characters</a></li>
-  <li><a href="http://www.reddit.com/r/IronThronePowers/wiki/houses">House Wikis</a></li>
-  <li><a href="https://docs.google.com/spreadsheets/d/1nM5VIUBGDjGIhVE7P4XZTW6U6XEzDD6KHk4DbXEc5WQ/edit#gid=0">Player Almanac</a></li>
-  <li><a href="https://docs.google.com/spreadsheets/d/1R1AiKMAC4RcuTZWzDWF1mBfgJrDZX7F2lAAadmWsfJE/edit">Appearance Almanac</a></li>
+<dl>
+
+  <dt><a href="https://docs.google.com/spreadsheets/d/1fmTM7nBBAaeeHPycnqTKyGXNxOwLJ7QK8nUx0rVoD-o/edit?usp=sharing">Claims List</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/54oh89/wall_wall_beyond_secondary_characters_claim_post/">Wall And Beyond Claims</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1RGzlyaXJlSaf1qAZ7YUXr8PDO_tP42MGBcYkJ1ZyNok/edit#gid=0">Available Single Characters</a></dt>
+  <dt><a href="http://www.reddit.com/r/IronThronePowers/wiki/houses">House Wikis</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1nM5VIUBGDjGIhVE7P4XZTW6U6XEzDD6KHk4DbXEc5WQ/edit#gid=0">Player Almanac</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1R1AiKMAC4RcuTZWzDWF1mBfgJrDZX7F2lAAadmWsfJE/edit">Appearance Almanac</a></dt>
+
+</dl>
+
 
 <h2>Game Resources</h2>
-  <li><a href="https://ironthronepowersmap.github.io/">Game Map</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/comments/4u1gdp/meta_beginners_guide/">Beginner's Guide</a></li>
-  <li><a href="https://docs.google.com/spreadsheets/d/11_5NoLO6pC0Bq_erXxr6BpDUjiRjZvEXfnDQ0hgNRhE/edit?usp=sharing">Economy Sheet</a></li>
-  <li><a href="https://docs.google.com/spreadsheets/d/1xom5-ZPrpPBFDx7i-SWanWbVt1ZLcuDOga2NRkRCbiU/edit?usp=sharing">Events Calendar</a></li>
-  <li><a href="https://docs.google.com/spreadsheets/d/16pNrpEd5Dq7HukDjH8pYPVsdXYmxyoKtG6RQtz4Xq0w/edit?usp=sharing">Movement Calculator</a></li>
-  <li><a href="https://communityoficeandfire.slack.com/">Community Slack Chat</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/comments/4lz4hy/meta_list_of_slacks_slackbot_commands/">Slack Chat Slackbot Commands</a></li>
+<dl>
+
+<dt><a href="https://ironthronepowersmap.github.io/">Game Map</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/4u1gdp/meta_beginners_guide/">Beginner's Guide</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/11_5NoLO6pC0Bq_erXxr6BpDUjiRjZvEXfnDQ0hgNRhE/edit?usp=sharing">Economy Sheet</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1xom5-ZPrpPBFDx7i-SWanWbVt1ZLcuDOga2NRkRCbiU/edit?usp=sharing">Events Calendar</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/16pNrpEd5Dq7HukDjH8pYPVsdXYmxyoKtG6RQtz4Xq0w/edit?usp=sharing">Movement Calculator</a></dt>
+  <dt><a href="https://communityoficeandfire.slack.com/">Community Slack Chat</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/4lz4hy/meta_list_of_slacks_slackbot_commands/">Slack Chat Slackbot Commands</a></dt>
+</dl>
+  
 
 <h2>Rules</h2>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">Main Rules Page</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/land_combat">Land Combat</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/naval_combat">Naval Combat</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/econonomy">Economy and other misc.</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/calculations">Calculations Page</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/troopcomps">Troop Compositions</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/tags">Post Tags</a></li>
-  <li><a href="https://docs.google.com/document/d/1jiepoW8V0YWOWbtcbbTUPhBxMCzqEqN_NJKT0_IPi6s/edit?usp=sharing">Moderator Code of Conduct</a></li>
-  <li><a href="https://docs.google.com/document/d/15UhdwLikG2PNF0mfJDb9NgghkSNRdL4PVggwdcqu02c/edit?usp=sharing">Complaints Process</a></li>
+<dl>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">Main Rules Page</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/land_combat">Land Combat</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/naval_combat">Naval Combat</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/econonomy">Economy and other misc.</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/calculations">Calculations Page</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/troopcomps">Troop Compositions</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/tags">Post Tags</a></dt>
+  <dt><a href="https://docs.google.com/document/d/1jiepoW8V0YWOWbtcbbTUPhBxMCzqEqN_NJKT0_IPi6s/edit?usp=sharing">Moderator Code of Conduct</a></dt>
+  <dt><a href="https://docs.google.com/document/d/15UhdwLikG2PNF0mfJDb9NgghkSNRdL4PVggwdcqu02c/edit?usp=sharing">Complaints Process</a></dt>
+</dl>
+  
 
   <h2>Related</h2>
-  <li><a href="https://www.reddit.com/r/ASOIAF">A Song of Ice And Fire subreddit</a></li>
-  <li><a href="https://www.reddit.com/r/IronThroneRP">IronThroneRP subreddit</a></li>
-  <li><a href="https://www.reddit.com/r/FireAndBloodRP">FireAndBloodRP subreddit</a></li>
-  <li><a href="https://www.reddit.com/r/GameOfThrones">Game of Thrones subreddit</a></li>
-  <li><a href="https://www.reddit.com/r/CK2GameOfThrones">CK2 Game of Thrones mod subreddit</a></li>
-  <li><a href="http://www.johnjennetteart.com/">John Jennete Art</a></li>
+  <dl>
+  <dt><a href="https://www.reddit.com/r/ASOIAF">A Song of Ice And Fire subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThroneRP">IronThroneRP subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/FireAndBloodRP">FireAndBloodRP subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/GameOfThrones">Game of Thrones subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/CK2GameOfThrones">CK2 Game of Thrones mod subreddit</a></dt>
+  <dt><a href="http://www.johnjennetteart.com/">John Jennete Art</a></dt>
+  </dl>
+
 
   <h2>Useful Posts</h2>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/comments/5v7fd0/meta_post_time_dispersion_statistics/">What time do most people post at?</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/comments/4r06p2/meta_the_grand_script_bazaar/?ref=search_posts">JSfiddle Automation... the precursor to this site</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/comments/5uvhqn/meta_tag_usage_statistics/?ref=search_posts">Post tag usage statistics</a></li>
-  <li><a href="">Empty</a></li>
+  <dl>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/5v7fd0/meta_post_time_dispersion_statistics/">What time do most people post at?</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/4r06p2/meta_the_grand_script_bazaar/?ref=search_posts">JSfiddle Automation... the precursor to this site</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/5uvhqn/meta_tag_usage_statistics/?ref=search_posts">Post tag usage statistics</a></dt>
+  <dt><a href="">Empty</a></dt>
+  </dl>
+  
 
 
 </article>

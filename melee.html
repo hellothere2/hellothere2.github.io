@@ -19,20 +19,65 @@ header, footer {
     text-align: center;
 }
 
-nav {
-    float: left;
-    max-width: 160px;
+ul {
+    list-style-type: none;
     margin: 0;
-    padding: 1em;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+li {
+    float: left;
 }
-   
-nav ul a {
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: black;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f8f8;
+    min-width: 160px;
+    box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.active {
+    background-color: green;
+    color: white;
+}
+
+.activeDropdown {
+    background-color: #f0f0f0;
+    color: white;
 }
 
 article {
@@ -50,20 +95,24 @@ article {
 <header>Hello_There2's Useful Links and Tools</header>
 
 <div>
-<nav>Navigation
 <ul>
   <li><a href="index.html">Home</a></li>
-  <li><a href="duel.html">Duel</a></li>
-  <li><a href="joust.html">Joust</a></li>
-  <li><a href="movementcalculator.html">Movement Calc</a></li>
-  <li><a href="https://www.reddit.com/r/ironthronepowers/">ITP</a></li>
-  <li><a href="ITPhotlinks.html">ITP Quick Links</a></li>
-  <li><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">ITP Wiki</a></li>
-  <li><a href="https://ironthronepowersmap.github.io/">ITP Map</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">IronThronePowers</a>
+      <div class="dropdown-content">
+        <a href="https://www.reddit.com/r/ironthronepowers/">Subreddit</a>
+        <a href="duel.html">Duel</a>
+        <a href="joust.html">Joust</a>
+        <a class="activeDropdown" href="melee.html">Melee Automator</a>
+        <a href="movementcalculator.html">Movement Calc</a>
+        <a href="ITPhotlinks.html">Quick Links</a>
+        <a href="https://www.reddit.com/r/IronThronePowers/wiki/index">Wiki</a>
+        <a href="https://ironthronepowersmap.github.io/">Map</a>
+      </div>
+    </li>
   <li><a href="population.html">Population Growth Models</a></li>
   <li><a href="GDP.html">GDP Calculator</a></li>
   <li><a href="politics.html">Political Science terms</a></li>
-  <li><a href="melee.html">Melee Automator</a></li>
 </ul>
 </nav>
 </div>
