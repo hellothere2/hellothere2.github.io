@@ -129,9 +129,9 @@ li.dropdown {
     <legend>Force A:</legend>
     <input type="text" id="Force_A_Name" value="Force A"> Name of Force A (usually the House Name)<br>
     CV:<br>
-    <input type="number" id="CV" name="fuckingworkalready" value="50"> CV in percent<br>
+    <input type="number" id="Force_A_Strength" value="2500"> Total number of soldiers.<br>
     <br>
-    <input type="radio" id="Afaction_type_Braavos" name="afaction_type"> Braavos<br>
+    <input type="radio" id="Afaction_type_Braavos" name="afaction_type" checked> Braavos<br>
     <input type="radio" id="Afaction_type_Pentos" name="afaction_type"> Pentos<br>
     <input type="radio" id="Afaction_type_Lorath" name="afaction_type"> Lorath<br>
     <input type="radio" id="Afaction_type_Qohor" name="afaction_type"> Qohor<br>
@@ -139,15 +139,15 @@ li.dropdown {
     <input type="radio" id="Afaction_type_Volantis" name="afaction_type"> Volantis<br>
     <input type="radio" id="Afaction_type_Myr" name="afaction_type"> Myr<br>
     <input type="radio" id="Afaction_type_Lys" name="afaction_type"> Lys<br>
-    <input type="radio" id="Afaction_type_Lys" name="afaction_type"> Tyrosh<br>
+    <input type="radio" id="Afaction_type_Tyrosh" name="afaction_type"> Tyrosh<br>
     <br>
     <br>
     <legend>Force B:</legend>
     <input type="text" id="Force_B_Name" value="Force B"> Name of Force B (usually the House Name)<br>
     CV:<br>
-    <input type="number" id="CV" name="fuckingworkalready" value="50"> CV in percent<br>
+    <input type="number" id="Force_B_Strength" value="2500"> Total number of soldiers.<br>
     <br>
-    <input type="radio" id="Bfaction_type_Braavos" name="bfaction_type"> Braavos<br>
+    <input type="radio" id="Bfaction_type_Braavos" name="bfaction_type" checked> Braavos<br>
     <input type="radio" id="Bfaction_type_Pentos" name="bfaction_type"> Pentos<br>
     <input type="radio" id="Bfaction_type_Lorath" name="bfaction_type"> Lorath<br>
     <input type="radio" id="Bfaction_type_Qohor" name="bfaction_type"> Qohor<br>
@@ -155,7 +155,7 @@ li.dropdown {
     <input type="radio" id="Bfaction_type_Volantis" name="bfaction_type"> Volantis<br>
     <input type="radio" id="Bfaction_type_Myr" name="bfaction_type"> Myr<br>
     <input type="radio" id="Bfaction_type_Lys" name="bfaction_type"> Lys<br>
-    <input type="radio" id="Bfaction_type_Lys" name="bfaction_type"> Tyrosh<br>
+    <input type="radio" id="Bfaction_type_Tyrosh" name="bfaction_type"> Tyrosh<br>
     <br>
     <input type="button" value="Submit" onclick="battlemechanics()">
     <input type="button" value="Clear Results" onclick="clearresults()">
@@ -166,7 +166,6 @@ li.dropdown {
 <h2>Results</h2>
 <div id="out">
 
-<p> </p>
 
 </div>
 </article>

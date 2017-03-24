@@ -6,333 +6,547 @@ function clearresults() {
   document.getElementById('out').innerHTML = " ";
 }
 
-function cleartable() {
-  document.getElementById('inftable').innerHTML = " ";
-  document.getElementById('hctable').innerHTML = " ";
-  document.getElementById('lctable').innerHTML = " ";
-  document.getElementById('cogtable').innerHTML = " ";
-  document.getElementById('galleytable').innerHTML = " ";
-  document.getElementById('IBLStable').innerHTML = " ";
-}
-
-
-
 
 
 function battlemechanics() {
 
-var ForceA = document.getElementById('Force_A_Name').value;
-var ForceB = document.getElementById('Force_B_Name').value;
-var cv = parseInt(document.getElementById('CV').value);
+  var ForceA = document.getElementById('Force_A_Name').value;
+  var ForceB = document.getElementById('Force_B_Name').value;
 
-if (cv < 7.5){
-  document.getElementById('out').innerHTML += "Error: CV less than 7.5. <br />"
-} else if (cv <12.5 && cv>7.5){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll = roll1;
-  document.getElementById('out').innerHTML += "1d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 17.5 && cv > 12.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2;
-  document.getElementById('out').innerHTML += "1d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 22.5 && cv > 17.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2;
-  document.getElementById('out').innerHTML += "2d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 27.5 && cv > 22.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 5);
-  roll = roll1 + roll2 + roll3;
-  document.getElementById('out').innerHTML += "2d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 32.5 && cv > 27.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2 + roll3;
-  document.getElementById('out').innerHTML += "3d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 37.5 && cv > 32.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 5);
-  roll = roll1 + roll2 + roll3 + roll4;
-  document.getElementById('out').innerHTML += "3d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 42.5 && cv > 37.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2 + roll3 + roll4;
-  document.getElementById('out').innerHTML += "4d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 47.5 && cv > 42.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 5);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5;
-  document.getElementById('out').innerHTML += "4d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 52.5 && cv > 47.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5;
-  document.getElementById('out').innerHTML += "5d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 57.5 && cv > 52.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 5);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6;
-  document.getElementById('out').innerHTML += "5d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 62.5 && cv > 57.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6;
-  document.getElementById('out').innerHTML += "6d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 67.5 && cv > 62.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 10);
-  roll7 = Math.ceil(Math.random() * 5);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6 + roll7;
-  document.getElementById('out').innerHTML += "6d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 72.5 && cv > 67.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 10);
-  roll7 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6 + roll7;
-  document.getElementById('out').innerHTML += "7d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 77.5 && cv > 72.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 10);
-  roll7 = Math.ceil(Math.random() * 10);
-  roll8 = Math.ceil(Math.random() * 5);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6 + roll7 + roll8;
-  document.getElementById('out').innerHTML += "7d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 82.5 && cv > 77.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 10);
-  roll7 = Math.ceil(Math.random() * 10);
-  roll8 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6 + roll7 + roll8;
-  document.getElementById('out').innerHTML += "8d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 87.5 && cv > 82.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 10);
-  roll7 = Math.ceil(Math.random() * 10);
-  roll8 = Math.ceil(Math.random() * 10);
-  roll9 = Math.ceil(Math.random() * 5);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6 + roll7 + roll8 + roll9;
-  document.getElementById('out').innerHTML += "8d10 + 1d5 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv < 92.5 && cv > 87.6){
-  roll1 = Math.ceil(Math.random() * 10);
-  roll2 = Math.ceil(Math.random() * 10);
-  roll3 = Math.ceil(Math.random() * 10);
-  roll4 = Math.ceil(Math.random() * 10);
-  roll5 = Math.ceil(Math.random() * 10);
-  roll6 = Math.ceil(Math.random() * 10);
-  roll7 = Math.ceil(Math.random() * 10);
-  roll8 = Math.ceil(Math.random() * 10);
-  roll9 = Math.ceil(Math.random() * 10);
-  roll = roll1 + roll2 + roll3 + roll4 + roll5 + roll6 + roll7 + roll8 + roll9;
-  document.getElementById('out').innerHTML += "9d10 <br />"
-  document.getElementById('out').innerHTML += "result = " + roll + " <br />"
-} else if (cv > 92.5){
-  document.getElementById('out').innerHTML += "Error: CV is higher than 92.5. <br />"
+  var Force_A_Strength = parseInt(document.getElementById('Force_A_Strength').value);
+  var Force_B_Strength = parseInt(document.getElementById('Force_B_Strength').value);
+
+
+  //Troop Composition Database
+
+  //Braavos
+  var troopcompositiondatabase_Braavos00 = 55; //INF Percentage
+  var troopcompositiondatabase_Braavos01 = 4; //INF CV
+  var troopcompositiondatabase_Braavos02 = 4; //INF ACV
+  var troopcompositiondatabase_Braavos10 = 35; //Ranged inf Percentage
+  var troopcompositiondatabase_Braavos11 = 5; //Ranged inf CV
+  var troopcompositiondatabase_Braavos12 = 9; //ranged inf ACV
+  var troopcompositiondatabase_Braavos20 = 10; //cav Percentage
+  var troopcompositiondatabase_Braavos21 = 5; //cav CV
+  var troopcompositiondatabase_Braavos22 = 9; //cav ACV
+
+  //Pentos
+  var troopcompositiondatabase_Pentos00 = 50; //INF Percentage
+  var troopcompositiondatabase_Pentos01 = 4; //INF CV
+  var troopcompositiondatabase_Pentos02 = 5; //INF ACV
+  var troopcompositiondatabase_Pentos10 = 30; //Ranged inf Percentage
+  var troopcompositiondatabase_Pentos11 = 4; //Ranged inf CV
+  var troopcompositiondatabase_Pentos12 = 8; //ranged inf ACV
+  var troopcompositiondatabase_Pentos20 = 20; //cav Percentage
+  var troopcompositiondatabase_Pentos21 = 5; //cav CV
+  var troopcompositiondatabase_Pentos22 = 5; //cav ACV
+
+  //Lorath
+  var troopcompositiondatabase_Lorath00 = 55; //INF Percentage
+  var troopcompositiondatabase_Lorath01 = 4; //INF CV
+  var troopcompositiondatabase_Lorath02 = 5; //INF ACV
+  var troopcompositiondatabase_Lorath10 = 35; //Ranged inf Percentage
+  var troopcompositiondatabase_Lorath11 = 4; //Ranged inf CV
+  var troopcompositiondatabase_Lorath12 = 7; //ranged inf ACV
+  var troopcompositiondatabase_Lorath20 = 10; //cav Percentage
+  var troopcompositiondatabase_Lorath21 = 5; //cav CV
+  var troopcompositiondatabase_Lorath22 = 6; //cav ACV
+
+  //Qohor
+  var troopcompositiondatabase_Qohor00 = 50; //INF Percentage
+  var troopcompositiondatabase_Qohor01 = 3; //INF CV
+  var troopcompositiondatabase_Qohor02 = 4; //INF ACV
+  var troopcompositiondatabase_Qohor10 = 30; //Ranged inf Percentage
+  var troopcompositiondatabase_Qohor11 = 5; //Ranged inf CV
+  var troopcompositiondatabase_Qohor12 = 9; //ranged inf ACV
+  var troopcompositiondatabase_Qohor20 = 20; //cav Percentage
+  var troopcompositiondatabase_Qohor21 = 5; //cav CV
+  var troopcompositiondatabase_Qohor22 = 6; //cav ACV
+
+  //Norvos
+  var troopcompositiondatabase_Norvos00 = 50; //INF Percentage
+  var troopcompositiondatabase_Norvos01 = 3; //INF CV
+  var troopcompositiondatabase_Norvos02 = 4; //INF ACV
+  var troopcompositiondatabase_Norvos10 = 30; //Ranged inf Percentage
+  var troopcompositiondatabase_Norvos11 = 5; //Ranged inf CV
+  var troopcompositiondatabase_Norvos12 = 10; //ranged inf ACV
+  var troopcompositiondatabase_Norvos20 = 20; //cav Percentage
+  var troopcompositiondatabase_Norvos21 = 5; //cav CV
+  var troopcompositiondatabase_Norvos22 = 4; //cav ACV
+
+  //Volantis
+  var troopcompositiondatabase_Volantis00 = 60; //INF Percentage
+  var troopcompositiondatabase_Volantis01 = 4; //INF CV
+  var troopcompositiondatabase_Volantis02 = 6; //INF ACV
+  var troopcompositiondatabase_Volantis10 = 20; //Ranged inf Percentage
+  var troopcompositiondatabase_Volantis11 = 4; //Ranged inf CV
+  var troopcompositiondatabase_Volantis12 = 8; //ranged inf ACV
+  var troopcompositiondatabase_Volantis20 = 20; //cav Percentage
+  var troopcompositiondatabase_Volantis21 = 7; //cav CV
+  var troopcompositiondatabase_Volantis22 = 4; //cav ACV
+
+
+  //Myr
+  var troopcompositiondatabase_Myr00 = 50; //INF Percentage
+  var troopcompositiondatabase_Myr01 = 4; //INF CV
+  var troopcompositiondatabase_Myr02 = 4; //INF ACV
+  var troopcompositiondatabase_Myr10 = 30; //Ranged inf Percentage
+  var troopcompositiondatabase_Myr11 = 5; //Ranged inf CV
+  var troopcompositiondatabase_Myr12 = 10; //ranged inf ACV
+  var troopcompositiondatabase_Myr20 = 20; //cav Percentage
+  var troopcompositiondatabase_Myr21 = 5; //cav CV
+  var troopcompositiondatabase_Myr22 = 4; //cav ACV
+
+  //Lys
+  var troopcompositiondatabase_Lys00 = 50; //INF Percentage
+  var troopcompositiondatabase_Lys01 = 4; //INF CV
+  var troopcompositiondatabase_Lys02 = 5; //INF ACV
+  var troopcompositiondatabase_Lys10 = 35; //Ranged inf Percentage
+  var troopcompositiondatabase_Lys11 = 5; //Ranged inf CV
+  var troopcompositiondatabase_Lys12 = 7; //ranged inf ACV
+  var troopcompositiondatabase_Lys20 = 15; //cav Percentage
+  var troopcompositiondatabase_Lys21 = 5; //cav CV
+  var troopcompositiondatabase_Lys22 = 6; //cav ACV
+
+  //Tyrosh
+  var troopcompositiondatabase_Tyrosh00 = 60; //INF Percentage
+  var troopcompositiondatabase_Tyrosh01 = 5; //INF CV
+  var troopcompositiondatabase_Tyrosh02 = 6; //INF ACV
+  var troopcompositiondatabase_Tyrosh10 = 25; //Ranged inf Percentage
+  var troopcompositiondatabase_Tyrosh11 = 4; //Ranged inf CV
+  var troopcompositiondatabase_Tyrosh12 = 6; //ranged inf ACV
+  var troopcompositiondatabase_Tyrosh20 = 15; //cav Percentage
+  var troopcompositiondatabase_Tyrosh21 = 4; //cav CV
+  var troopcompositiondatabase_Tyrosh22 = 5; //cav ACV
+
+  //above this is fine
+
+  //End of Database
+
+
+  // Determine the troop composition of Force A
+  if (document.getElementById('Afaction_type_Braavos').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Braavos. <br />"
+    var Force_A_Faction = "Braavos";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Braavos00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Braavos01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Braavos02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Braavos10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Braavos11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Braavos12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Braavos20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Braavos21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Braavos22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Pentos').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Pentos. <br />"
+    var Force_A_Faction = "Pentos";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Pentos00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Pentos01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Pentos02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Pentos10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Pentos11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Pentos12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Pentos20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Pentos21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Pentos22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Lorath').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Lorath. <br />"
+    var Force_A_Faction = "Lorath";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Lorath00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Lorath01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Lorath02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Lorath10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Lorath11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Lorath12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Lorath20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Lorath21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Lorath22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Qohor').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Qohor. <br />"
+    var Force_A_Faction = "Qohor";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Qohor00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Qohor01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Qohor02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Qohor10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Qohor11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Qohor12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Qohor20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Qohor21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Qohor22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Norvos').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Norvos. <br />"
+    var Force_A_Faction = "Norvos";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Norvos00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Norvos01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Norvos02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Norvos10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Norvos11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Norvos12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Norvos20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Norvos21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Norvos22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Volantis').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Volantis. <br />"
+    var Force_A_Faction = "Volantis";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Volantis00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Volantis01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Volantis02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Volantis10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Volantis11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Volantis12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Volantis20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Volantis21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Volantis22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Myr').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Myr. <br />"
+    var Force_A_Faction = "Myr";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Myr00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Myr01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Myr02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Myr10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Myr11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Myr12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Myr20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Myr21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Myr22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Lys').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Lys. <br />"
+    var Force_A_Faction = "Lys";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Lys00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Lys01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Lys02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Lys10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Lys11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Lys12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Lys20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Lys21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Lys22; //cav ACV
+  } else if (document.getElementById('Afaction_type_Tyrosh').checked) {
+    document.getElementById('out').innerHTML += ForceA + " is faction type Tyrosh. <br />"
+    var Force_A_Faction = "Tyrosh";
+    var troopcompositiondatabase_ForceA00 = troopcompositiondatabase_Tyrosh00; //INF Percentage
+    var troopcompositiondatabase_ForceA01 = troopcompositiondatabase_Tyrosh01; //INF CV
+    var troopcompositiondatabase_ForceA02 = troopcompositiondatabase_Tyrosh02; //INF ACV
+    var troopcompositiondatabase_ForceA10 = troopcompositiondatabase_Tyrosh10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceA11 = troopcompositiondatabase_Tyrosh11; //Ranged inf CV
+    var troopcompositiondatabase_ForceA12 = troopcompositiondatabase_Tyrosh12; //ranged inf ACV
+    var troopcompositiondatabase_ForceA20 = troopcompositiondatabase_Tyrosh20; //cav Percentage
+    var troopcompositiondatabase_ForceA21 = troopcompositiondatabase_Tyrosh21; //cav CV
+    var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Tyrosh22; //cav ACV
+  }
+
+document.getElementById('out').innerHTML += " Landmark 1 <br />";
+
+  ///Determine the troop composition of Force b
+  if (document.getElementById('Bfaction_type_Braavos').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Braavos. <br />"
+    var Force_B_Faction = "Braavos";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Braavos00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Braavos01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Braavos02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Braavos10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Braavos11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Braavos12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Braavos20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Braavos21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Braavos22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Pentos').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Pentos. <br />"
+    var Force_B_Faction = "Pentos";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Pentos00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Pentos01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Pentos02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Pentos10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Pentos11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Pentos12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Pentos20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Pentos21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Pentos22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Lorath').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Lorath. <br />"
+    var Force_B_Faction = "Lorath";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Lorath00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Lorath01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Lorath02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Lorath10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Lorath11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Lorath12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Lorath20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Lorath21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Lorath22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Qohor').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Qohor. <br />"
+    var Force_B_Faction = "Qohor";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Qohor00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Qohor01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Qohor02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Qohor10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Qohor11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Qohor12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Qohor20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Qohor21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Qohor22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Norvos').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Norvos. <br />"
+    var Force_B_Faction = "Norvos";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Norvos00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Norvos01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Norvos02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Norvos10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Norvos11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Norvos12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Norvos20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Norvos21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Norvos22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Volantis').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Volantis. <br />"
+    var Force_B_Faction = "Volantis";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Volantis00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Volantis01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Volantis02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Volantis10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Volantis11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Volantis12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Volantis20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Volantis21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Volantis22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Myr').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Myr. <br />"
+    var Force_B_Faction = "Myr";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Myr00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Myr01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Myr02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Myr10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Myr11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Myr12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Myr20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Myr21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Myr22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Lys').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Lys. <br />"
+    var Force_B_Faction = "Lys";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Lys00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Lys01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Lys02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Lys10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Lys11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Lys12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Lys20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Lys21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Lys22; //cav ACV
+  } else if (document.getElementById('Bfaction_type_Tyrosh').checked) {
+    document.getElementById('out').innerHTML += ForceB + " is faction type Tyrosh. <br />"
+    var Force_B_Faction = "Tyrosh";
+    var troopcompositiondatabase_ForceB00 = troopcompositiondatabase_Tyrosh00; //INF Percentage
+    var troopcompositiondatabase_ForceB01 = troopcompositiondatabase_Tyrosh01; //INF CV
+    var troopcompositiondatabase_ForceB02 = troopcompositiondatabase_Tyrosh02; //INF ACV
+    var troopcompositiondatabase_ForceB10 = troopcompositiondatabase_Tyrosh10; //Ranged inf Percentage
+    var troopcompositiondatabase_ForceB11 = troopcompositiondatabase_Tyrosh11; //Ranged inf CV
+    var troopcompositiondatabase_ForceB12 = troopcompositiondatabase_Tyrosh12; //ranged inf ACV
+    var troopcompositiondatabase_ForceB20 = troopcompositiondatabase_Tyrosh20; //cav Percentage
+    var troopcompositiondatabase_ForceB21 = troopcompositiondatabase_Tyrosh21; //cav CV
+    var troopcompositiondatabase_ForceB22 = troopcompositiondatabase_Tyrosh22; //cav ACV
+  }
+
+
+document.getElementById('out').innerHTML += " Landmark 2 <br />";
+
+
+
+
+  //Force A CV
+
+document.getElementById('out').innerHTML += Force_A_Strength + " = total manpower of force a <br />";
+  var Force_A_Number_Of_Infantry = Force_A_Strength * (troopcompositiondatabase_ForceA00 * 0.01);
+  document.getElementById('out').innerHTML += Force_A_Number_Of_Infantry + " = number of infantry in force a <br />";
+  var Force_A_Number_Of_RangedInfantry = Force_A_Strength * (troopcompositiondatabase_ForceA10 * 0.01);
+  document.getElementById('out').innerHTML += Force_A_Number_Of_RangedInfantry + " = number of ranged inf in force a <br />";
+  var Force_A_Number_Of_Cavalry = Force_A_Strength * (troopcompositiondatabase_ForceA20 * 0.01);
+  document.getElementById('out').innerHTML += Force_A_Number_Of_Cavalry + " = number of cav in force a <br />";
+  var Force_A_CV_Numerical = (Force_A_Number_Of_Infantry * troopcompositiondatabase_ForceA01) + (Force_A_Number_Of_RangedInfantry * troopcompositiondatabase_ForceA11) + (Force_A_Number_Of_Cavalry * troopcompositiondatabase_ForceA21);
+  document.getElementById('out').innerHTML += Force_A_CV_Numerical + " = CV of force a <br />";
+
+
+  //Force B CV
+  document.getElementById('out').innerHTML += Force_B_Strength + " = total manpower of force b <br />";
+  var Force_B_Number_Of_Infantry = Force_B_Strength * (troopcompositiondatabase_ForceB00 * 0.01);
+  var Force_B_Number_Of_RangedInfantry = Force_B_Strength * (troopcompositiondatabase_ForceB10 * 0.01);
+  var Force_B_Number_Of_Cavalry = Force_B_Strength * (troopcompositiondatabase_ForceB20 * 0.01);
+  var Force_B_CV_Numerical = (Force_B_Number_Of_Infantry * troopcompositiondatabase_ForceB01) + (Force_B_Number_Of_RangedInfantry * troopcompositiondatabase_ForceB11) + (Force_B_Number_Of_Cavalry * troopcompositiondatabase_ForceB21);
+  document.getElementById('out').innerHTML += Force_B_Number_Of_Infantry + " = number of infantry in force b <br />";
+  document.getElementById('out').innerHTML += Force_B_Number_Of_RangedInfantry + " = number of ranged inf in force b <br />";
+  document.getElementById('out').innerHTML += Force_B_Number_Of_Cavalry + " = number of cav in force b <br />";
+  document.getElementById('out').innerHTML += Force_B_CV_Numerical + " = CV of force b <br />";
+
+  //Force CV Percentile
+  var Total_CV = Force_A_CV_Numerical + Force_B_CV_Numerical;
+  var cv_a = (Force_A_CV_Numerical / Total_CV) * 100;
+  var cv_b = (Force_B_CV_Numerical / Total_CV) * 100;
+
+  document.getElementById('out').innerHTML += Total_CV + " = Total CV of both forces combined <br />";
+  document.getElementById('out').innerHTML += cv_a + " = CV of force a as a percentile of total CV <br />";
+  document.getElementById('out').innerHTML += cv_b + " = CV of force b as a percentile of total CV <br />";
+
+  //Force A Make a roll based on CV
+
+  document.getElementById('out').innerHTML += "Force A makes a roll based on their CV. <br />";
+
+  if (cv_a < 7.5) {
+    document.getElementById('out').innerHTML += "Error: CV less than 7.5. <br />"
+  } else if (cv_a < 12.5 && cv_a > 7.5) {
+    roll = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    document.getElementById('out').innerHTML += "1d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 17.5 && cv_a > 12.6) {
+    roll = Math.floor(Math.random() * (15 - 2 + 1) + 2);
+    document.getElementById('out').innerHTML += "1d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 22.5 && cv_a > 17.6) {
+    roll = Math.floor(Math.random() * (20 - 2 + 1) + 2);
+    document.getElementById('out').innerHTML += "2d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 27.5 && cv_a > 22.6) {
+    roll = Math.floor(Math.random() * (25 - 3 + 1) + 3);
+    document.getElementById('out').innerHTML += "2d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 32.5 && cv_a > 27.6) {
+    roll = Math.floor(Math.random() * (30 - 3 + 1) + 3);
+    document.getElementById('out').innerHTML += "3d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 37.5 && cv_a > 32.6) {
+    roll = Math.floor(Math.random() * (35 - 4 + 1) + 4);
+    document.getElementById('out').innerHTML += "3d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 42.5 && cv_a > 37.6) {
+    roll = Math.floor(Math.random() * (40 - 4 + 1) + 4);
+    document.getElementById('out').innerHTML += "4d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 47.5 && cv_a > 42.6) {
+    roll = Math.floor(Math.random() * (45 - 5 + 1) + 5);
+    document.getElementById('out').innerHTML += "4d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 52.5 && cv_a > 47.6) {
+    roll = Math.floor(Math.random() * (50 - 5 + 1) + 5);
+    document.getElementById('out').innerHTML += "5d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 57.5 && cv_a > 52.6) {
+    roll = Math.floor(Math.random() * (55 - 6 + 1) + 6);
+    document.getElementById('out').innerHTML += "5d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 62.5 && cv_a > 57.6) {
+    roll = Math.floor(Math.random() * (60 - 6 + 1) + 6);
+    document.getElementById('out').innerHTML += "6d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 67.5 && cv_a > 62.6) {
+    roll = Math.floor(Math.random() * (65 - 7 + 1) + 7);
+    document.getElementById('out').innerHTML += "6d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 72.5 && cv_a > 67.6) {
+    roll = Math.floor(Math.random() * (70 - 7 + 1) + 7);
+    document.getElementById('out').innerHTML += "7d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 77.5 && cv_a > 72.6) {
+    roll = Math.floor(Math.random() * (75 - 8 + 1) + 8);
+    document.getElementById('out').innerHTML += "7d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 82.5 && cv_a > 77.6) {
+    roll = Math.floor(Math.random() * (80 - 8 + 1) + 8);
+    document.getElementById('out').innerHTML += "8d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 87.5 && cv_a > 82.6) {
+    roll = Math.floor(Math.random() * (85 - 9 + 1) + 9);
+    document.getElementById('out').innerHTML += "8d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a < 92.5 && cv_a > 87.6) {
+    roll = Math.floor(Math.random() * (90 - 9 + 1) + 9);
+    document.getElementById('out').innerHTML += "9d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + roll + " <br />"
+  } else if (cv_a > 92.5) {
+    document.getElementById('out').innerHTML += "Error: CV is higher than 92.5. <br />"
+  }
+
+
+  //Force B Make a roll based on CV
+  document.getElementById('out').innerHTML += "Force B makes a roll based on their CV. <br />";
+
+  if (cv_b < 7.5) {
+    document.getElementById('out').innerHTML += "Error: CV less than 7.5. <br />"
+  } else if (cv_b < 12.5 && cv_b > 7.5) {
+    rollb = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    document.getElementById('out').innerHTML += "1d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 17.5 && cv_b > 12.6) {
+    rollb = Math.floor(Math.random() * (15 - 2 + 1) + 2);
+    document.getElementById('out').innerHTML += "1d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 22.5 && cv_b > 17.6) {
+    rollb = Math.floor(Math.random() * (20 - 2 + 1) + 2);
+    document.getElementById('out').innerHTML += "2d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 27.5 && cv_b > 22.6) {
+    rollb = Math.floor(Math.random() * (25 - 3 + 1) + 3);
+    document.getElementById('out').innerHTML += "2d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 32.5 && cv_b > 27.6) {
+    rollb = Math.floor(Math.random() * (30 - 3 + 1) + 3);
+    document.getElementById('out').innerHTML += "3d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 37.5 && cv_b > 32.6) {
+    rollb = Math.floor(Math.random() * (35 - 4 + 1) + 4);
+    document.getElementById('out').innerHTML += "3d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 42.5 && cv_b > 37.6) {
+    rollb = Math.floor(Math.random() * (40 - 4 + 1) + 4);
+    document.getElementById('out').innerHTML += "4d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 47.5 && cv_b > 42.6) {
+    rollb = Math.floor(Math.random() * (45 - 5 + 1) + 5);
+    document.getElementById('out').innerHTML += "4d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 52.5 && cv_b > 47.6) {
+    rollb = Math.floor(Math.random() * (50 - 5 + 1) + 5);
+    document.getElementById('out').innerHTML += "5d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 57.5 && cv_b > 52.6) {
+    rollb = Math.floor(Math.random() * (55 - 6 + 1) + 6);
+    document.getElementById('out').innerHTML += "5d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 62.5 && cv_b > 57.6) {
+    rollb = Math.floor(Math.random() * (60 - 6 + 1) + 6);
+    document.getElementById('out').innerHTML += "6d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 67.5 && cv_b > 62.6) {
+    rollb = Math.floor(Math.random() * (65 - 7 + 1) + 7);
+    document.getElementById('out').innerHTML += "6d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 72.5 && cv_b > 67.6) {
+    rollb = Math.floor(Math.random() * (70 - 7 + 1) + 7);
+    document.getElementById('out').innerHTML += "7d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 77.5 && cv_b > 72.6) {
+    rollb = Math.floor(Math.random() * (75 - 8 + 1) + 8);
+    document.getElementById('out').innerHTML += "7d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 82.5 && cv_b > 77.6) {
+    rollb = Math.floor(Math.random() * (80 - 8 + 1) + 8);
+    document.getElementById('out').innerHTML += "8d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 87.5 && cv_b > 82.6) {
+    rollb = Math.floor(Math.random() * (85 - 9 + 1) + 9);
+    document.getElementById('out').innerHTML += "8d10 + 1d5 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b < 92.5 && cv_b > 87.6) {
+    rollb = Math.floor(Math.random() * (90 - 9 + 1) + 9);
+    document.getElementById('out').innerHTML += "9d10 <br />"
+    document.getElementById('out').innerHTML += "result = " + rollb + " <br />"
+  } else if (cv_b > 92.5) {
+    document.getElementById('out').innerHTML += "Error: CV is higher than 92.5. <br />"
+  }
+
+
+
+
 }
 
 
 
-
-
-//Troop Composition Database
-
-//Braavos
-int troopcompositiondatabase_Braavos [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Braavos[0][0] = 55; //INF Percentage
-troopcompositiondatabase_Braavos[0][1] = 4; //INF CV
-troopcompositiondatabase_Braavos[0][2] = 4; //INF ACV
-troopcompositiondatabase_Braavos[1][0] = 35; //Ranged inf Percentage
-troopcompositiondatabase_Braavos[1][1] = 5; //Ranged inf CV
-troopcompositiondatabase_Braavos[1][2] = 9; //ranged inf ACV
-troopcompositiondatabase_Braavos[2][0] = 35; //cav Percentage
-troopcompositiondatabase_Braavos[2][1] = 5; //cav CV
-troopcompositiondatabase_Braavos[2][2] = 9; //cav ACV
-
-//Pentos
-int troopcompositiondatabase_Pentos [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Pentos[0][0] = 50; //INF Percentage
-troopcompositiondatabase_Pentos[0][1] = 4; //INF CV
-troopcompositiondatabase_Pentos[0][2] = 5; //INF ACV
-troopcompositiondatabase_Pentos[1][0] = 30; //Ranged inf Percentage
-troopcompositiondatabase_Pentos[1][1] = 4; //Ranged inf CV
-troopcompositiondatabase_Pentos[1][2] = 8; //ranged inf ACV
-troopcompositiondatabase_Pentos[2][0] = 20; //cav Percentage
-troopcompositiondatabase_Pentos[2][1] = 5; //cav CV
-troopcompositiondatabase_Pentos[2][2] = 5; //cav ACV
-
-//Lorath
-int troopcompositiondatabase_Lorath [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Lorath[0][0] = 55; //INF Percentage
-troopcompositiondatabase_Lorath[0][1] = 4; //INF CV
-troopcompositiondatabase_Lorath[0][2] = 5; //INF ACV
-troopcompositiondatabase_Lorath[1][0] = 35; //Ranged inf Percentage
-troopcompositiondatabase_Lorath[1][1] = 4; //Ranged inf CV
-troopcompositiondatabase_Lorath[1][2] = 7; //ranged inf ACV
-troopcompositiondatabase_Lorath[2][0] = 10; //cav Percentage
-troopcompositiondatabase_Lorath[2][1] = 5; //cav CV
-troopcompositiondatabase_Lorath[2][2] = 6; //cav ACV
-
-//Qohor
-int troopcompositiondatabase_Qohor [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Qohor[0][0] = 50; //INF Percentage
-troopcompositiondatabase_Qohor[0][1] = 3; //INF CV
-troopcompositiondatabase_Qohor[0][2] = 4; //INF ACV
-troopcompositiondatabase_Qohor[1][0] = 30; //Ranged inf Percentage
-troopcompositiondatabase_Qohor[1][1] = 5; //Ranged inf CV
-troopcompositiondatabase_Qohor[1][2] = 9; //ranged inf ACV
-troopcompositiondatabase_Qohor[2][0] = 20; //cav Percentage
-troopcompositiondatabase_Qohor[2][1] = 5; //cav CV
-troopcompositiondatabase_Qohor[2][2] = 6; //cav ACV
-
-//Norvos
-int troopcompositiondatabase_Norvos [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Norvos[0][0] = 50; //INF Percentage
-troopcompositiondatabase_Norvos[0][1] = 3; //INF CV
-troopcompositiondatabase_Norvos[0][2] = 4; //INF ACV
-troopcompositiondatabase_Norvos[1][0] = 30; //Ranged inf Percentage
-troopcompositiondatabase_Norvos[1][1] = 5; //Ranged inf CV
-troopcompositiondatabase_Norvos[1][2] = 10; //ranged inf ACV
-troopcompositiondatabase_Norvos[2][0] = 20; //cav Percentage
-troopcompositiondatabase_Norvos[2][1] = 5; //cav CV
-troopcompositiondatabase_Norvos[2][2] = 4; //cav ACV
-
-//Volantis
-int troopcompositiondatabase_Volantis [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Volantis[0][0] = 60; //INF Percentage
-troopcompositiondatabase_Volantis[0][1] = 4; //INF CV
-troopcompositiondatabase_Volantis[0][2] = 6; //INF ACV
-troopcompositiondatabase_Volantis[1][0] = 20; //Ranged inf Percentage
-troopcompositiondatabase_Volantis[1][1] = 4; //Ranged inf CV
-troopcompositiondatabase_Volantis[1][2] = 8; //ranged inf ACV
-troopcompositiondatabase_Volantis[2][0] = 20; //cav Percentage
-troopcompositiondatabase_Volantis[2][1] = 7; //cav CV
-troopcompositiondatabase_Volantis[2][2] = 4; //cav ACV
-
-
-//Myr
-int troopcompositiondatabase_Myr [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Myr[0][0] = 50; //INF Percentage
-troopcompositiondatabase_Myr[0][1] = 4; //INF CV
-troopcompositiondatabase_Myr[0][2] = 4; //INF ACV
-troopcompositiondatabase_Myr[1][0] = 30; //Ranged inf Percentage
-troopcompositiondatabase_Myr[1][1] = 5; //Ranged inf CV
-troopcompositiondatabase_Myr[1][2] = 10; //ranged inf ACV
-troopcompositiondatabase_Myr[2][0] = 20; //cav Percentage
-troopcompositiondatabase_Myr[2][1] = 5; //cav CV
-troopcompositiondatabase_Myr[2][2] = 4; //cav ACV
-
-//Lys
-int troopcompositiondatabase_Lys [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Lys[0][0] = 50; //INF Percentage
-troopcompositiondatabase_Lys[0][1] = 4; //INF CV
-troopcompositiondatabase_Lys[0][2] = 5; //INF ACV
-troopcompositiondatabase_Lys[1][0] = 35; //Ranged inf Percentage
-troopcompositiondatabase_Lys[1][1] = 5; //Ranged inf CV
-troopcompositiondatabase_Lys[1][2] = 7; //ranged inf ACV
-troopcompositiondatabase_Lys[2][0] = 15; //cav Percentage
-troopcompositiondatabase_Lys[2][1] = 5; //cav CV
-troopcompositiondatabase_Lys[2][2] = 6; //cav ACV
-
-//Tyrosh
-int troopcompositiondatabase_Tyrosh [][] = new int[4][3]; //4 rows by 3 columns.
-troopcompositiondatabase_Tyrosh[0][0] = 60; //INF Percentage
-troopcompositiondatabase_Tyrosh[0][1] = 5; //INF CV
-troopcompositiondatabase_Tyrosh[0][2] = 6; //INF ACV
-troopcompositiondatabase_Tyrosh[1][0] = 25; //Ranged inf Percentage
-troopcompositiondatabase_Tyrosh[1][1] = 4; //Ranged inf CV
-troopcompositiondatabase_Tyrosh[1][2] = 6; //ranged inf ACV
-troopcompositiondatabase_Tyrosh[2][0] = 15; //cav Percentage
-troopcompositiondatabase_Tyrosh[2][1] = 4; //cav CV
-troopcompositiondatabase_Tyrosh[2][2] = 5; //cav ACV
-
-//End of Database
-
-
-if (document.getElementById('Afaction_type_Braavos').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Braavos. <br />"
-  var Force_A_Faction = "Braavos";
-} else if (document.getElementById('Afaction_type_Pentos').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Pentos. <br />"
-  var Force_A_Faction = "Pentos";
-} else if (document.getElementById('Afaction_type_Lorath').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Lorath. <br />"
-  var Force_A_Faction = "Lorath";
-} else if (document.getElementById('Afaction_type_Qohor').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Qohor. <br />"
-  var Force_A_Faction = "Qohor";
-} else if (document.getElementById('Afaction_type_Norvos').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Norvos. <br />"
-  var Force_A_Faction = "Norvos";
-} else if (document.getElementById('Afaction_type_Volantis').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Volantis. <br />"
-  var Force_A_Faction = "Volantis";
-} else if (document.getElementById('Afaction_type_Myr').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Myr. <br />"
-  var Force_A_Faction = "Myr";
-} else if (document.getElementById('Afaction_type_Lys').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Lys. <br />"
-  var Force_A_Faction = "Lys";
-} else if (document.getElementById('Afaction_type_Tyrosh').checked){
-  document.getElementById('out').innerHTML += ForceA + " is faction type Tyrosh. <br />"
-  var Force_A_Faction = "Tyrosh";
-}
-
-}
