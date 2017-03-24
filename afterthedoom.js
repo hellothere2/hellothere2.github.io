@@ -17,6 +17,8 @@ function battlemechanics() {
   var Force_B_Strength = parseInt(document.getElementById('Force_B_Strength').value);
 
 
+document.getElementById('out').innerHTML += "Loading Troop Composition Database... <br />";
+
   //Troop Composition Database
 
   //Braavos
@@ -120,6 +122,8 @@ function battlemechanics() {
   var troopcompositiondatabase_Tyrosh22 = 5; //cav ACV
 
   //above this is fine
+
+document.getElementById('out').innerHTML += "Database Loaded. Determining faction of forces...<br />";
 
   //End of Database
 
@@ -235,8 +239,6 @@ function battlemechanics() {
     var troopcompositiondatabase_ForceA22 = troopcompositiondatabase_Tyrosh22; //cav ACV
   }
 
-document.getElementById('out').innerHTML += " Landmark 1 <br />";
-
   ///Determine the troop composition of Force b
   if (document.getElementById('Bfaction_type_Braavos').checked) {
     document.getElementById('out').innerHTML += ForceB + " is faction type Braavos. <br />"
@@ -349,47 +351,58 @@ document.getElementById('out').innerHTML += " Landmark 1 <br />";
   }
 
 
-document.getElementById('out').innerHTML += " Landmark 2 <br />";
-
-
-
+document.getElementById('out').innerHTML += "Applied Troop Composition to forces. <br /> <br />";
 
   //Force A CV
 
-document.getElementById('out').innerHTML += Force_A_Strength + " = total manpower of force a <br />";
+document.getElementById('out').innerHTML += "The total manpower of " + ForceA + " is " + Force_A_Strength + "<br />";
   var Force_A_Number_Of_Infantry = Force_A_Strength * (troopcompositiondatabase_ForceA00 * 0.01);
-  document.getElementById('out').innerHTML += Force_A_Number_Of_Infantry + " = number of infantry in force a <br />";
+  var Force_A_Number_Of_Infantry = Math.round(Force_A_Number_Of_Infantry);
+  document.getElementById('out').innerHTML += "The number of infantry in " + ForceA + " is " + Force_A_Number_Of_Infantry + "<br />";
   var Force_A_Number_Of_RangedInfantry = Force_A_Strength * (troopcompositiondatabase_ForceA10 * 0.01);
-  document.getElementById('out').innerHTML += Force_A_Number_Of_RangedInfantry + " = number of ranged inf in force a <br />";
+  var Force_A_Number_Of_RangedInfantry = Math.round(Force_A_Number_Of_RangedInfantry);
+  document.getElementById('out').innerHTML += "The number of ranged infantry in " + ForceA + " is " + Force_A_Number_Of_RangedInfantry + "<br />";
   var Force_A_Number_Of_Cavalry = Force_A_Strength * (troopcompositiondatabase_ForceA20 * 0.01);
-  document.getElementById('out').innerHTML += Force_A_Number_Of_Cavalry + " = number of cav in force a <br />";
+  var Force_A_Number_Of_Cavalry = Math.round(Force_A_Number_Of_Cavalry);
+  document.getElementById('out').innerHTML += "The number of cavalry in " + ForceA + " is " + Force_A_Number_Of_Cavalry + " <br />";
   var Force_A_CV_Numerical = (Force_A_Number_Of_Infantry * troopcompositiondatabase_ForceA01) + (Force_A_Number_Of_RangedInfantry * troopcompositiondatabase_ForceA11) + (Force_A_Number_Of_Cavalry * troopcompositiondatabase_ForceA21);
-  document.getElementById('out').innerHTML += Force_A_CV_Numerical + " = CV of force a <br />";
+  document.getElementById('out').innerHTML += "The total CV of " + ForceA + " is " + Force_A_CV_Numerical + "<br />";
 
+document.getElementById('out').innerHTML += "<br />";
 
   //Force B CV
-  document.getElementById('out').innerHTML += Force_B_Strength + " = total manpower of force b <br />";
   var Force_B_Number_Of_Infantry = Force_B_Strength * (troopcompositiondatabase_ForceB00 * 0.01);
+  var Force_B_Number_Of_Infantry = Math.round(Force_B_Number_Of_Infantry);
   var Force_B_Number_Of_RangedInfantry = Force_B_Strength * (troopcompositiondatabase_ForceB10 * 0.01);
+  var Force_B_Number_Of_RangedInfantry = Math.round(Force_B_Number_Of_RangedInfantry);
   var Force_B_Number_Of_Cavalry = Force_B_Strength * (troopcompositiondatabase_ForceB20 * 0.01);
+  var Force_B_Number_Of_Cavalry = Math.round(Force_B_Number_Of_Cavalry);
   var Force_B_CV_Numerical = (Force_B_Number_Of_Infantry * troopcompositiondatabase_ForceB01) + (Force_B_Number_Of_RangedInfantry * troopcompositiondatabase_ForceB11) + (Force_B_Number_Of_Cavalry * troopcompositiondatabase_ForceB21);
-  document.getElementById('out').innerHTML += Force_B_Number_Of_Infantry + " = number of infantry in force b <br />";
-  document.getElementById('out').innerHTML += Force_B_Number_Of_RangedInfantry + " = number of ranged inf in force b <br />";
-  document.getElementById('out').innerHTML += Force_B_Number_Of_Cavalry + " = number of cav in force b <br />";
-  document.getElementById('out').innerHTML += Force_B_CV_Numerical + " = CV of force b <br />";
+  document.getElementById('out').innerHTML += "The total manpower of " + ForceB + " is " + Force_B_Strength + "<br />";
+  document.getElementById('out').innerHTML += "The number of infantry in " + ForceB + " is " + Force_B_Number_Of_Infantry + "<br />";
+  document.getElementById('out').innerHTML += "The number of ranged infantry in " + ForceB + " is " + Force_B_Number_Of_RangedInfantry + "<br />";
+  document.getElementById('out').innerHTML += "The number of cavalry in " + ForceB + " is " + Force_B_Number_Of_Cavalry + " <br />";
+  document.getElementById('out').innerHTML += "The total CV of " + ForceB + " is " + Force_B_CV_Numerical + "<br />";
+
+document.getElementById('out').innerHTML += "<br />";
 
   //Force CV Percentile
   var Total_CV = Force_A_CV_Numerical + Force_B_CV_Numerical;
   var cv_a = (Force_A_CV_Numerical / Total_CV) * 100;
   var cv_b = (Force_B_CV_Numerical / Total_CV) * 100;
 
-  document.getElementById('out').innerHTML += Total_CV + " = Total CV of both forces combined <br />";
-  document.getElementById('out').innerHTML += cv_a + " = CV of force a as a percentile of total CV <br />";
-  document.getElementById('out').innerHTML += cv_b + " = CV of force b as a percentile of total CV <br />";
+  document.getElementById('out').innerHTML += "The Total CV present on the battlefield is " + Total_CV + "<br />";
+  document.getElementById('out').innerHTML += ForceA + " represents " + cv_a + "% of that number. <br />";
+  document.getElementById('out').innerHTML += ForceB + " represents " + cv_b + "% of that number. <br />";
+
+document.getElementById('out').innerHTML += "<br />";
+
+
+document.getElementById('out').innerHTML += "Both forces make a roll based on CV <br />";
 
   //Force A Make a roll based on CV
 
-  document.getElementById('out').innerHTML += "Force A makes a roll based on their CV. <br />";
+  document.getElementById('out').innerHTML += ForceA + " makes a roll based on their CV. <br />";
 
   if (cv_a < 7.5) {
     document.getElementById('out').innerHTML += "Error: CV less than 7.5. <br />"
@@ -467,7 +480,7 @@ document.getElementById('out').innerHTML += Force_A_Strength + " = total manpowe
 
 
   //Force B Make a roll based on CV
-  document.getElementById('out').innerHTML += "Force B makes a roll based on their CV. <br />";
+  document.getElementById('out').innerHTML += ForceB + " makes a roll based on their CV. <br />";
 
   if (cv_b < 7.5) {
     document.getElementById('out').innerHTML += "Error: CV less than 7.5. <br />"
