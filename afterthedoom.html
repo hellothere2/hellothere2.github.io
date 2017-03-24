@@ -2,7 +2,7 @@
 <html lang = "en">
 <head>
   <!-- basic.html -->
-  <title>Duel Automator</title>
+  <title>After The Doom</title>
   <meta charset = "UTF-8" />
 
 <style>
@@ -102,7 +102,7 @@ li.dropdown {
       <a href="javascript:void(0)" class="dropbtn">IronThronePowers</a>
       <div class="dropdown-content">
         <a href="https://www.reddit.com/r/ironthronepowers/">Subreddit</a>
-        <a class="activeDropdown" href="duel.html">Duel</a>
+        <a href="duel.html">Duel</a>
         <a href="joust.html">Joust</a>
         <a href="melee.html">Melee Automator</a>
         <a href="movementcalculator.html">Movement Calc</a>
@@ -111,7 +111,7 @@ li.dropdown {
         <a href="https://ironthronepowersmap.github.io/">Map</a>
       </div>
     </li>
-  <li><a href="afterthedoom.html">After The Doom</a></li>
+  <li><a class="active" href="afterthedoom.html">After The Doom</a></li>
   <li><a href="population.html">Population Growth Models</a></li>
   <li><a href="GDP.html">GDP Calculator</a></li>
   <li><a href="politics.html">Political Science terms</a></li>
@@ -122,32 +122,15 @@ li.dropdown {
 
 <article>
 
-<h1>Duel Automator</h1>
+<h1>Battles</h1>
   <h3>Usage Instructions</h3>
-<p>Enter the relevant DUEL information in the appropriate boxes. If you do not specify values,<br>
-the program will automatically fill them in, and you might not like the results...<br>
-Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the results :) </p>
-<fieldset id="DuelContestants">
+<fieldset id="dummyform">
   <form>
-    <legend>Duel Contestants - Enter info to customize:</legend>
-    Contestant 1 name:<br>
-    <input type="text" id="firstname" value="Fighter A"><br>
-    Contestant 1 health:<br>
-    <input type="number" id="HPA" value="50"><br>
-    Contestant 1 Skill bonus:<br>
-    <input type="number" id="SkillA" value="1"><br>
-    Contestant 2 name:<br>
-    <input type="text" id="secondname" value="Fighter B"><br>
-    Contestant 2 health:<br>
-    <input type="number" id="HPB" value="50"><br>
-    Contestant 2 Skill bonus:<br>
-    <input type="number" id="SkillB" value="1"><br>
-    HP to stop duel at:<br>
-    <input type="number" id="Dueltype" value="0"> 0 = To the death<br>
+    <legend>Enter data:</legend>
+    CV:<br>
+    <input type="number" id="CV" name="fuckingworkalready" value="50"> CV in percent<br>
     <br>
-    <input type="radio" name="bluntduel" id="bF" value="75" checked> Normal Weapons<br>
-    <input type="radio" name="bluntduel" id="bT" value="50"> Blunt Weapons<br>
-    <input type="button" value="Submit Duel Values" onclick="dickbutt()">
+    <input type="button" value="Submit" onclick="battlemechanics()">
     <input type="button" value="Clear Results" onclick="clearresults()">
     </form>
   </fieldset>
@@ -159,18 +142,6 @@ Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the res
 <p> </p>
 
 </div>
-
-
-
-
-<h2>Notes</h2>
-<p>Default HP value is 50, default skill bonus is 0. Duels function by rolling a d75 + Skill for each player (d50 if blunt weapons).<br>
-  The difference between the attack rolls is taken from the lower roll's HP pool.<br>
-  This occurs until one player reaches the "HP to stop duel at" number OR LOWER.<br>
-  This means that you can still die in a friendly duel, since the other duelist could roll high<br>
-  and take away health past the target HP. <br>
-</p>
-
 </article>
 
 
@@ -180,7 +151,7 @@ Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the res
 
 
 
-<script id="duel" src="duel.js"></script>
+<script id="afterthedoom" src="afterthedoom.js"></script>
 
 
 
