@@ -26,7 +26,8 @@ var cv = parseInt(document.getElementById('CV').value);
 if (cv < 7.5){
   document.getElementById('out').innerHTML += "Error: CV less than 7.5. <br />"
 } else if (cv <12.5 && cv>7.5){
-  roll = Math.ceil(Math.random() * 10);
+  roll1 = Math.ceil(Math.random() * 10);
+  roll = roll1;
   document.getElementById('out').innerHTML += "1d10 <br />"
   document.getElementById('out').innerHTML += "result = " + roll + " <br />"
 } else if (cv < 17.5 && cv > 12.6){
