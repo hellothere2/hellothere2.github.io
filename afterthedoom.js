@@ -558,6 +558,24 @@ document.getElementById('out').innerHTML += "Both forces make a roll based on CV
 
 
 
+//Casualties
+
+document.getElementById('out').innerHTML += "Determining casualties...<br />";
+
+
+var Force_A_Casualties = (rollb * 0.01) * Force_A_Strength;
+var Force_B_Casualties = (roll * 0.01) * Force_B_Strength;
+
+document.getElementById('out').innerHTML += ForceA + " suffered " + Force_A_Casualties + " casualties. <br />";
+document.getElementById('out').innerHTML += ForceB + " suffered " + Force_B_Casualties + " casualties. <br />";
+
+if (roll > rollb){
+  document.getElementById('out').innerHTML += ForceA + " rolled higher than " + ForceB + " and has therefore won the battle. <br />";
+} else if (roll < rollb){
+  document.getElementById('out').innerHTML += ForceB + " rolled higher than " + ForceA + " and has therefore won the battle. <br />";
+} else if (roll == rollb){
+  document.getElementById('out').innerHTML += ForceA + " and " + ForceB + " have landed the same roll, ending the battle in a stalemate. <br />";
+} else document.getElementById('out').innerHTML += "I don't know how you did it, but you did. You found an error in my code. Please let me know, thanks! <br />";
 
 }
 
