@@ -91,9 +91,14 @@ body, html {
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="scripts">
   <h3 class="w3-center">SCRIPTS</h3>
-  <p class="w3-center"><em>The real gud shit</em></p>
+  <p class="w3-center"><em>The real gud shit. This is what you came for.<br>
+    <a href="#duelautomator">Duel Automator</a>
+    <br>
+    <a href="#joustautomator">Joust Automator</a>
+    <br>
+    <a href="#meleeautomator">Melee Automator<a></em></p>
 
-<h1>Duel Automator</h1>
+<h1 id="duelautomator">Duel Automator</h1>
 <p>Default HP value is 50, default skill bonus is 0. Duels function by rolling a d75 + Skill for each player (d50 if blunt weapons).<br>
   The difference between the attack rolls is taken from the lower roll's HP pool.<br>
   This occurs until one player reaches the "HP to stop duel at" number OR LOWER.<br>
@@ -126,22 +131,114 @@ Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the res
     <input type="radio" name="bluntduel" id="bF" value="75" checked> Normal Weapons<br>
     <input type="radio" name="bluntduel" id="bT" value="50"> Blunt Weapons<br>
     <input type="button" value="Submit Duel Values" onclick="dickbutt()">
-    <input type="button" value="Clear Results" onclick="clearresults()">
+    <input type="button" value="Clear Results" onclick="clearduelresults()">
     </form>
+    <h2>Results</h2>
+    <div id="duelout">
+    <p> </p>
+    </div>
   </fieldset>
 
 
-<h2>Duel Results</h2>
-<div id="out">
 
-<p> </p>
+<h1 id="joustautomator">Joust Automator</h1>
+<p>Default skill value is 0. Jousts function by rolling a d20 + Skill for each player.<br>
+  The difference between the rolls is used to determine what happens.<br>
+  This occurs until one player is forced to make a death save, until 7 tilts have passed, or until on of the contestants gets tired out.<br>
+  Death and serious injury is a possiblity in jousts.
+</p>
 
-</div>
+
+<h2>JOUST RULES</h2>
+<p>The standard settings should be:<br>
+Skill set to 0 on both jousters, maluses not allowed to go below zero, check for injuries on 17+, and death occurs between 1-4.</p>
+
+<a href="https://www.reddit.com/r/IronThronePowers/comments/2vp30m/meta_new_jousting_rules_proposal_test/">LINK TO STANDARD JOUSTING RULES</a>
+
+  <h3>Usage Instructions</h3>
+<p>Enter the relevant JOUST information in the appropriate boxes. If you do not specify values,<br>
+the program will automatically fill them in, and you might not like the results...<br>
+Hit "Submit Joust Values" to generate a full JOUST. You can copy and paste the results :) </p>
+
+
+<fieldset id="JoustContestants">
+  <form>
+    <legend>Joust Contestants - Enter info to customize:</legend>
+    Contestant 1 name:<br>
+    <input type="text" id="JousterA" value="Jouster A"><br>
+    Contestant 1 Skill bonus:<br>
+    <input type="number" id="JousterSkillA" value="1"><br>
+    Contestant 2 name:<br>
+    <input type="text" id="JousterB" value="Jouster B"><br>
+    Contestant 2 Skill bonus:<br>
+    <input type="number" id="JousterSkillB" value="1"><br>
+    <br>
+    <input type="radio" name="malus" id="mal0" value="0" checked> Do not allow maluses to go below 0<br>
+    <input type="radio" name="malus" id="malneg" value="-1000"> Allow maluses to go negative<br>
+    <br>
+    Roll injury saves when the difference between rolls is greater than or equal to...<br>
+    <input type="radio" name="ds" id="ds19" value="19"> 19<br>
+    <input type="radio" name="ds" id="ds18" value="18"> 18<br>
+    <input type="radio" name="ds" id="ds17" value="17" checked> 17<br>
+    <input type="radio" name="ds" id="ds16" value="16"> 16<br>
+    <br>
+    On a D20 injury save, death occurs on between 1 and...<br>
+    <input type="radio" name="dsdn" id="ds2" value="2"> 2<br>
+    <input type="radio" name="dsdn" id="ds3" value="3"> 3<br>
+    <input type="radio" name="dsdn" id="ds4" value="4" checked> 4<br>
+    <input type="radio" name="dsdn" id="ds5" value="5"> 5<br>
+    <input type="button" value="Submit Joust Values" onclick="joust()">
+    <input type="button" value="Clear Results" onclick="clearjoustresults()">
+  </form>
+  <h2>Results</h2>
+    <div id="joustout">
+    <p> </p>
+    </div>
+  </fieldset>
+
+
+<h1 id="meleeautomator">Melee Automator</h1>
+<p>Melees function by rolling a d50 + Skill for each player (d75 if sharp weapons).<br>
+  If a contestant rolls lower than the specified threshold, they are eliminated from the melee.<br>
+  In order for the code to work, skill bonuses must not be greater than or equal to the threshold.
+</p>
+  <h3>Usage Instructions</h3>
+<p>
+Enter the relevant MELEE information in the appropriate boxes.<br>
+Hit "Generate Melee" to generate a MELEE. You can copy and paste the results :) </p>
+<fieldset id="fieldset2">
+  <form>
+    <legend>Melee Contestants - Enter info to customize:</legend>
+    <input type="number" id="member" name="member" value="3">Number of Members<br>
+    <input type="button" id="filldetails" onclick="addFields()" value="Generate Fields"><br>
+    Contestant Information<br>
+    <div id="ContestantInputs"></div><br>
+    Threshold:<br>
+    <input type="number" id="iThreshold" value="2"> Minimum 2<br>
+    Dice Size:<br>
+    <input type="number" id="iWeaponStrength" value="50"> Minimum 4<br>
+    <br>
+    Run a whole melee or just one round at a time?<br>
+    <input type="radio" name="MeleeRadioButton" id="SingleRound"> Run a single round<br>
+    <input type="radio" name="MeleeRadioButton" id="MultipleRounds" checked> Run the full melee<br>
+    <br>
+    Eliminate contestants via Threshold or by the lowest roll?<br>
+    <input type="radio" name="MeleeRadioButton2" id="EliminateViaThreshold" checked> Eliminate via Threshold<br>
+    <input type="radio" name="MeleeRadioButton2" id="EliminateViaOther"> Eliminate the lowest roll<br>
+    <input type="button" value="Generate Melee" onclick="melee()">
+    <input type="button" value="Clear Results" onclick="clearmeleeresults()">
+    </form>
+    <h2>Results</h2>
+    <div id="meleeout">
+
+    <p> </p>
+
+    </div>
+  </fieldset>
+
 <script id="duel" src="duel.js"></script>
-</div>
 
-
-
+<br>
 
 <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container w3-opacity-min">
@@ -161,6 +258,7 @@ Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the res
   <p class="w3-center"><em>Tag Usage statistics: which post tags users are most likely to use</em></p><br>
 <img src="images/itptagusage.png" width=100%><br>
 
+</div>
 </div>
 
 
