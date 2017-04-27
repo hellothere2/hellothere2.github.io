@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<title>IronThronePowers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('images/Ironthrone.jpg');
+    min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("images/Gameofthronesbanners.jpg");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("images/mapofwesteros.png");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+    <a href="#scripts" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> SCRIPTS</a>
+    <a href="#analytics" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> ANALYTICS</a>
+    <a href="#links" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> LINKS</a>
+    <a href="https://www.reddit.com/user/Hello_There2/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i>REDDIT</a>
+    <a href="https://github.com/hellothere2" class="w3-bar-item w3-button">GITHUB</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-search"></i>
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+    <a href="#scripts" class="w3-bar-item w3-button" onclick="toggleFunction()">SCRIPTS</a>
+    <a href="#analytics" class="w3-bar-item w3-button" onclick="toggleFunction()">ANALYTICS</a>
+    <a href="#links" class="w3-bar-item w3-button" onclick="toggleFunction()">LINKS</a>
+    <a href="https://www.reddit.com/user/Hello_There2/" class="w3-bar-item w3-button">REDDIT</a>
+    <a href="https://github.com/hellothere2" class="w3-bar-item w3-button" onclick="toggleFunction()">GITHUB</a>
+    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Iron <span class="w3-hide-small">Throne Powers</span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="scripts">
+  <h3 class="w3-center">SCRIPTS</h3>
+  <p class="w3-center"><em>The real gud shit</em></p>
+
+<h1>Duel Automator</h1>
+<p>Default HP value is 50, default skill bonus is 0. Duels function by rolling a d75 + Skill for each player (d50 if blunt weapons).<br>
+  The difference between the attack rolls is taken from the lower roll's HP pool.<br>
+  This occurs until one player reaches the "HP to stop duel at" number OR LOWER.<br>
+  This means that you can still die in a friendly duel, since the other duelist could roll high<br>
+  and take away health past the target HP. <br>
+</p>
+
+  <h3>Usage Instructions</h3>
+<p>Enter the relevant DUEL information in the appropriate boxes. If you do not specify values,<br>
+the program will automatically fill them in, and you might not like the results...<br>
+Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the results :) </p>
+<fieldset id="DuelContestants">
+  <form>
+    <legend>Duel Contestants - Enter info to customize:</legend>
+    Contestant 1 name:<br>
+    <input type="text" id="firstname" value="Fighter A"><br>
+    Contestant 1 health:<br>
+    <input type="number" id="HPA" value="50"><br>
+    Contestant 1 Skill bonus:<br>
+    <input type="number" id="SkillA" value="1"><br>
+    Contestant 2 name:<br>
+    <input type="text" id="secondname" value="Fighter B"><br>
+    Contestant 2 health:<br>
+    <input type="number" id="HPB" value="50"><br>
+    Contestant 2 Skill bonus:<br>
+    <input type="number" id="SkillB" value="1"><br>
+    HP to stop duel at:<br>
+    <input type="number" id="Dueltype" value="0"> 0 = To the death<br>
+    <br>
+    <input type="radio" name="bluntduel" id="bF" value="75" checked> Normal Weapons<br>
+    <input type="radio" name="bluntduel" id="bT" value="50"> Blunt Weapons<br>
+    <input type="button" value="Submit Duel Values" onclick="dickbutt()">
+    <input type="button" value="Clear Results" onclick="clearresults()">
+    </form>
+  </fieldset>
+
+
+<h2>Duel Results</h2>
+<div id="out">
+
+<p> </p>
+
+</div>
+<script id="duel" src="duel.js"></script>
+</div>
+
+
+
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">ANALYTICS</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="analytics">
+  <h3 class="w3-center">ANALYTICS</h3>
+  <p class="w3-center"><em>Time dispersion statistics: when users are most likely to post</em></p><br>
+
+  <img src="images/itptimebar.png" width=100%><br>
+  <img src="images/itptimeline.png" width=100%><br>
+
+  <p class="w3-center"><em>Tag Usage statistics: which post tags users are most likely to use</em></p><br>
+<img src="images/itptagusage.png" width=100%><br>
+
+</div>
+
+
+
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">LINKS</span>
+  </div>
+</div>
+
+
+<!-- Container (Links Section) -->
+<div class="w3-content w3-container w3-padding-64" id="links">
+  <h3 class="w3-center">LINKS</h3>
+  <p class="w3-center"><em>Links</em></p><br>
+
+ <p>
+    Welcome to my collection of quick links, compiled to provide convenience. Right now, it's basically only the sidebar links. Please let me know if you have other suggestions! Might as well have the website do more than one thing, right?<br>
+    ~Hello_There2
+  </p>
+
+  <h2>Claims and Characters</h2>
+<dl>
+
+  <dt><a href="https://docs.google.com/spreadsheets/d/1fmTM7nBBAaeeHPycnqTKyGXNxOwLJ7QK8nUx0rVoD-o/edit?usp=sharing">Claims List</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/54oh89/wall_wall_beyond_secondary_characters_claim_post/">Wall And Beyond Claims</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1RGzlyaXJlSaf1qAZ7YUXr8PDO_tP42MGBcYkJ1ZyNok/edit#gid=0">Available Single Characters</a></dt>
+  <dt><a href="http://www.reddit.com/r/IronThronePowers/wiki/houses">House Wikis</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1nM5VIUBGDjGIhVE7P4XZTW6U6XEzDD6KHk4DbXEc5WQ/edit#gid=0">Player Almanac</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1R1AiKMAC4RcuTZWzDWF1mBfgJrDZX7F2lAAadmWsfJE/edit">Appearance Almanac</a></dt>
+
+</dl>
+
+
+<h2>Game Resources</h2>
+<dl>
+
+<dt><a href="https://ironthronepowersmap.github.io/">Game Map</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/4u1gdp/meta_beginners_guide/">Beginner's Guide</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/11_5NoLO6pC0Bq_erXxr6BpDUjiRjZvEXfnDQ0hgNRhE/edit?usp=sharing">Economy Sheet</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/1xom5-ZPrpPBFDx7i-SWanWbVt1ZLcuDOga2NRkRCbiU/edit?usp=sharing">Events Calendar</a></dt>
+  <dt><a href="https://docs.google.com/spreadsheets/d/16pNrpEd5Dq7HukDjH8pYPVsdXYmxyoKtG6RQtz4Xq0w/edit?usp=sharing">Movement Calculator</a></dt>
+  <dt><a href="https://communityoficeandfire.slack.com/">Community Slack Chat</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/4lz4hy/meta_list_of_slacks_slackbot_commands/">Slack Chat Slackbot Commands</a></dt>
+</dl>
+  
+
+<h2>Rules</h2>
+<dl>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/index">Main Rules Page</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/land_combat">Land Combat</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/naval_combat">Naval Combat</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/econonomy">Economy and other misc.</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/calculations">Calculations Page</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/troopcomps">Troop Compositions</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/wiki/tags">Post Tags</a></dt>
+  <dt><a href="https://docs.google.com/document/d/1jiepoW8V0YWOWbtcbbTUPhBxMCzqEqN_NJKT0_IPi6s/edit?usp=sharing">Moderator Code of Conduct</a></dt>
+  <dt><a href="https://docs.google.com/document/d/15UhdwLikG2PNF0mfJDb9NgghkSNRdL4PVggwdcqu02c/edit?usp=sharing">Complaints Process</a></dt>
+</dl>
+  
+
+  <h2>Related</h2>
+  <dl>
+  <dt><a href="https://www.reddit.com/r/ASOIAF">A Song of Ice And Fire subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThroneRP">IronThroneRP subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/FireAndBloodRP">FireAndBloodRP subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/GameOfThrones">Game of Thrones subreddit</a></dt>
+  <dt><a href="https://www.reddit.com/r/CK2GameOfThrones">CK2 Game of Thrones mod subreddit</a></dt>
+  <dt><a href="http://www.johnjennetteart.com/">John Jennete Art</a></dt>
+  </dl>
+
+
+  <h2>Useful Posts</h2>
+  <dl>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/5v7fd0/meta_post_time_dispersion_statistics/">What time do most people post at?</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/4r06p2/meta_the_grand_script_bazaar/?ref=search_posts">JSfiddle Automation... the precursor to this site</a></dt>
+  <dt><a href="https://www.reddit.com/r/IronThronePowers/comments/5uvhqn/meta_tag_usage_statistics/?ref=search_posts">Post tag usage statistics</a></dt>
+  <dt><a href="">Empty</a></dt>
+  </dl>
+
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Made by /u/hello_there2. Check out my <a href="https://github.com/hellothere2">Github</a>!</p>
+</footer>
+
+</body>
+</html>
