@@ -4,6 +4,9 @@ function clearblackopresults() {
 	document.getElementById('blackopout').innerHTML = " ";
 }
 
+
+//extraction/exfiltration mission
+
 function blackop(){
 
 	var ActingCountry = document.getElementById("boActor").value;
@@ -11,11 +14,19 @@ function blackop(){
 	var Funding = document.getElementById("boFunding").value;
 
 	if (document.getElementById('bo1').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will perform a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will perform a Black Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " agents will disguise themselves as " + TargetCountry + " operatives and commit an act of war against our military. ";
+
 
 	} else if (document.getElementById('bo2').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a covert strategic reconnaissance operation to gain intelligence on " + TargetCountry + ". <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a clendestine strategic reconnaissance operation to gain intelligence on " + TargetCountry + ". <br>";
+		document.getElementById('blackopout').innerHTML += "The operation will be collecting strategic intelligence for forming policy and military plans at national and international levels. "
 		document.getElementById('blackopout').innerHTML += "The mission is to obtain, by visual observation and other detection methods, information about the activities and resources of " + TargetCountry + " and to secure data concerning the meteorological, hydrographic, or geographic characteristics of the area. ";
+		document.getElementById('blackopout').innerHTML += "Several methods shall be used to obtain intel. First, the detection, identification, evaluation, and location of foreign electromagnetic radiations. "
+		document.getElementById('blackopout').innerHTML += "Second, reconnaissance by visual observation from the air and through the use of airborne sensors such as radar. ";
+		document.getElementById('blackopout').innerHTML += "Third, the interception and processing and analysis of foreign telemetry. ";
+		document.getElementById('blackopout').innerHTML += "Fourth, the interception and processing and analysis of foreign communications (digital or radio). ";
+		document.getElementById('blackopout').innerHTML += "And finally, intelligence will also be gained through the secret observation of " + TargetCountry + " by any covert agents available. <br>";
 
 	} else if (document.getElementById('bo3').checked){
 		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
