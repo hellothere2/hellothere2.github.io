@@ -29,27 +29,24 @@ function blackop(){
 		document.getElementById('blackopout').innerHTML += "And finally, intelligence will also be gained through the secret observation of " + TargetCountry + " by any covert agents available. <br>";
 
 	} else if (document.getElementById('bo3').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out an Aerial interdiction operation against " + TargetCountry + ". <br>";
 
 	} else if (document.getElementById('bo4').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out an assassination in " + TargetCountry + " to kill the leader of their nation. <br>";
 
 	} else if (document.getElementById('bo5').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a covert operation in " + TargetCountry + " where our troops will enact deep-cover measures to ensure their presence in the event of enemy takeover. <br>";
 
 	} else if (document.getElementById('bo6').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will perform a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will perform a black operation to commit acts of arson against " + TargetCountry + ". <br>";
 
 	} else if (document.getElementById('bo7').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a clandestine operation to facilitate the sale of arms to " + TargetCountry + ", bypassing any sanctions or embargoes and avoiding international condemnation. <br>";
 
 	} else if (document.getElementById('bo8').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will conduct counter-intelligence operations to protect against espionage, sabotage, assassinations, and other intelligence activities from " + TargetCountry + ". <br>";
 
-	} else if (document.getElementById('bo9').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
-
-	} else if (document.getElementById('bo10').checked) {
+	} else if (document.getElementById('bo9').checked) {
 	document.getElementById('blackopout').innerHTML += ActingCountry + " will perform a covert operation to establish a cell in " + TargetCountry + ". <br>";
 	document.getElementById('blackopout').innerHTML += ActingCountry + " nationals living abroad in " + TargetCountry + " will be contacted for the purpose of creating an intelligence cell. ";
 	document.getElementById('blackopout').innerHTML += "Our citizens abroad will be contacted through our ambassadors over social media and in person. ";
@@ -59,13 +56,15 @@ function blackop(){
 	document.getElementById('blackopout').innerHTML += "When training is complete, the recruits will infiltrate the military and intelligence bodies of " + TargetCountry + " by applying for various positions within. ";
 	document.getElementById('blackopout').innerHTML += "Over the next few years they will remain dormant and gain trust until instructed. ";
 	document.getElementById('blackopout').innerHTML += "The new recruits will be further instructed to make connections and build their own webs of like-minded people in other areas such as law enforcement and legislative bodies. <br>";
+	
+	} else if (document.getElementById('bo10').checked){
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will covertly fund insurgents inside " + TargetCountry + " to conduct military operations against " + TargetCountry + ". <br>";
+
 	} else if (document.getElementById('bo11').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will carry out a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
+		document.getElementById('blackopout').innerHTML += ActingCountry + " will conduct out a covert operation to supply " + TargetCountry + " without anyone noticing. <br>";
+	}
 
-	} else if (document.getElementById('bo12').checked){
-		document.getElementById('blackopout').innerHTML += ActingCountry + " will perform a False Flag black operation to paint " + TargetCountry + " as militarily aggressive against our nation. <br>";
-
-	} else {
+	else {
 		document.getElementById('blackopout').innerHTML += "Error. <br>"
 	}
 
