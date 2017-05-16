@@ -6,12 +6,28 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+   integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+   crossorigin=""/>
+
+ <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+   integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+   crossorigin=""></script>
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
     height: 100%;
     color: #777;
     line-height: 1.8;
+}
+
+#map { height: 500px; }
+
+.centerthefuckingtextpls{
+  text-align: center;;
 }
 
 /* Create a Parallax Effect */
@@ -36,7 +52,7 @@ body, html {
 
 /* Third image (Contact) */
 .bgimg-3 {
-    background-image: url("images/PutinPropaganda.jpg");
+    background-image: url("images/Cartographer.jpg");
     min-height: 400px;
 }
 
@@ -59,8 +75,9 @@ body, html {
       <i class="fa fa-bars"></i>
     </a>
     <a href="index.html" class="w3-bar-item w3-button">HOME</a>
-    <a href="#scripts" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> SCRIPTS</a>
+    <a href="#content" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> CONTENT</a>
     <a href="#analytics" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> ANALYTICS</a>
+    <a href="#maps" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> MAPS</a>
     <a href="https://www.reddit.com/user/Hello_There2/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i>REDDIT</a>
     <a href="https://github.com/hellothere2" class="w3-bar-item w3-button">GITHUB</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
@@ -70,8 +87,9 @@ body, html {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#scripts" class="w3-bar-item w3-button" onclick="toggleFunction()">SCRIPTS</a>
+    <a href="#content" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTENT</a>
     <a href="#analytics" class="w3-bar-item w3-button" onclick="toggleFunction()">ANALYTICS</a>
+    <a href="#maps" class="w3-bar-item w3-button" onclick="toggleFunction()">MAPS</a>
     <a href="https://www.reddit.com/user/Hello_There2/" class="w3-bar-item w3-button">REDDIT</a>
     <a href="https://github.com/hellothere2" class="w3-bar-item w3-button" onclick="toggleFunction()">GITHUB</a>
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
@@ -85,6 +103,48 @@ body, html {
   </div>
 </div>
 
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="content">
+  <h3 class="w3-center">CONTENT</h3>
+  <p class="w3-center"><em>A collection of content and scripts to use for worldpowers</em></p>
+
+<h1 id="SMPelectionautomator">SMP First-Past The Post Election Automator</h1>
+<p>Single Member Plurality (SMP), also known as First-Past-The-Post is a Majoritarian electoral system used in a small number of elections including the UK's House of Commons, the USA, Canada, and India.<br>
+The country is divided into single-member constituencies, usually of equal size. These are usually referred to as ridings or regions. There is only a single member attributed to this constituency (riding), therefore allowing easy translation of constituencies to seats in the country's legislature. Voters select a single candidate, usually marking his or her name with a X on the ballot. To win, a candidate only needs to achieve more votes than everyone else. </p>
+  <h3>Usage Instructions</h3>
+<p>
+Enter the relevant election information in the appropriate boxes. This script will only generate stats for the winner of the election. You should base the seats of the other parties on the rolls displayed in the Results section.<br>
+Hit "Generate" to generate a First-Past the Post election. You can copy and paste the results :) </p>
+<fieldset id="fieldset2" width=100%>
+  <form>
+    <input type="number" id="ElectionThreshold" value="3">Election Threshold (percent of votes)<br>
+    <input type="number" id="NumberOfConstituencies" value="100">Number of Constituencies<br>
+    <input type="number" id="member" name="member" value="3">Number of Parties<br>
+    <input type="button" id="filldetails" onclick="addFields()" value="Generate Fields"><br>
+    <br>
+    Party Information<br>
+    <div id="PartyInputs"></div><br><br>
+    <input type="button" value="Generate" onclick="SMPelection()">
+    <input type="button" value="Clear Results" onclick="clearSMPelectionresults()">
+    </form>
+    <h2>Results</h2>
+    <div id="SMPelectionout">
+
+    <p> </p>
+
+    </div>
+  </fieldset>
+
+  <script id="duel" src="worldpowers.js"></script>
+
+
+
+
+<h1>US Presidential Elections</h1>
+<p>I find <a href="http://www.270towin.com/"> this website </a> to be very useful for quickly punching out US elections. You can chose which states are democrat or republican and quickly create a quality post with a map.</p>
+
+</div>
+
 <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
@@ -95,10 +155,139 @@ body, html {
 <!-- Container (Analytics Section) -->
 <div class="w3-content w3-container w3-padding-64" id="analytics">
   <h3 class="w3-center">ANALYTICS</h3>
-  <p class="w3-center"><em>World Powers History and Analytics</em></p>
-  <p>Counted 258 unique usernames. Data taken from 17763 entries. The chart only includes players who exceeded 2% of the total posts made during Season 4. The most active player was De_Dingledangler. Congratulations. <a href="Worldpowershistory.xlsx">Download the complete history spreadhseet here.</a> (Last updated May 10 2017). History spreadsheet also includes: tag usage analytics, player activity analytics, curated history, and a history of the IG West Bank Conflict.</p><br>
+  <p class="w3-center"><em>User Activity Statistics: the top 37 active players.</em></p>
+  <p>Counted 246 unique usernames. Data taken from 17083 entries. The chart only includes players who exceeded 1% of the total posts made during Season 4. This means the image is a pie graph of the top active players. The most active player was De_Dingledangler. Congratulations. <a href="Worldpowershistory.xlsx">Download the complete history spreadhseet here.</a> (Last updated May 1 2017)</p><br>
+
+  <img src="images/wp active users may 1 2017.png" width=100%><br>
+
+  <p class="w3-center"><em>Tag Usage statistics: which post tags users are most likely to use</em></p><br>
+<img src="images/wp tags may 1 2017.png" width=100%><br>
+
 </div>
 
+<!-- Third Parallax Image with Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">MAPS</span>
+  </div>
+</div>
+
+
+<!-- Container (Maps Section) -->
+<div class="w3-content w3-container w3-padding-64" id="maps">
+  <h3 class="w3-center">MAPS</h3>
+  <p class="w3-center"><em>Useful maps for WP use</em></p>
+
+ <div id="map"></div>
+
+ <script>
+
+var map = L.map('map', {
+    crs: L.CRS.Simple
+});
+
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent(e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
+
+
+var UKClaimant = "Pepsiisgood1997"
+
+
+
+var London = L.marker([77.13672, 131.12891]).addTo(map).bindPopup("London");
+var Dadesville = L.marker([66.14844, 72.44531]).addTo(map).bindPopup("Dadesville");
+
+var UK = "United Kingdom. <br> Claimant = " + UKClaimant;
+
+var UKPolygon = L.polygon([
+[75.73828, 127.22266],
+[75.66016, 127.59766],
+[76.36328, 131.46484],
+[76.83984, 132.31641],
+[77.43359, 132.19141],
+[78.1582, 132.54102],
+[78.52148, 132.16602],
+[78.52148, 131.68164],
+[78.70898, 131.52148],
+[79.16992, 131.3457],
+[79.64258, 131.20508],
+[80.06836, 130.64648],
+[80.16602, 130.38867],
+[81.00977, 130.13086],
+[81.20898, 129.88477],
+[81.33789, 129.7832],
+[81.54492, 129.40039],
+[82.00586, 129.34961],
+[82.60742, 129.76758],
+[82.99805, 130.00977],
+[83.24023, 129.91602],
+[83.36523, 128.38867],
+[84.03711, 129.08008],
+[84.25586, 129.10742],
+[84.54492, 129.31445],
+[84.80664, 129.03711],
+[84.80273, 128.81445],
+[84.25977, 128.68164],
+[84.24805, 127.63086],
+[83.90039, 127.41211],
+[83.48633, 127.11133],
+[84.19727, 126.83008],
+[83.86523, 126.11914],
+[83.25586, 125.77148],
+[82.45703, 125.79297],
+[81.33203, 126.59766],
+[80.71484, 126.29297],
+[79.95703, 125.43359],
+[79.71484, 125.60547],
+[79.62891, 126.05859],
+[79.90527, 126.13379],
+[79.91309, 126.27051],
+[79.55176, 126.50684],
+[79.5459, 126.58887],
+[79.62988, 126.64941],
+[79.6377, 126.77246],
+[79.53613, 126.91895],
+[79.7627, 127.06152],
+[80.03516, 127.53516],
+[78.88672, 127.91797],
+[77.55078, 127.39453]
+]).addTo(map).bindPopup(UK);
+
+
+
+var bounds = [[1,2.6], [100,260]];
+var image = L.imageOverlay('images/WP2042_s4.png', bounds).addTo(map);
+map.fitBounds(bounds);
+
+
+
+var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(mymap);
+
+
+ </script>
+    
+
+  <img src="images/blank vic2 map.png" width=100%><br>
+  <img src="images/Modern Day Map.png" width=100%><br>
+  <img src="images/old blank world map.png" width=100%><br>
+  <img src="images/WikipediaWorldMap.png" width=100%><br>
+
+</div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
@@ -116,23 +305,3 @@ body, html {
 
 </body>
 </html>
-
-
-<!--   <div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">14+</span><br>
-    Partners
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">55+</span><br>
-    Projects Done
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">89+</span><br>
-    Happy Clients
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">150+</span><br>
-    Meetings
-  </div>
-</div> -->

@@ -4,6 +4,9 @@ function clearblackopresults() {
 	document.getElementById('blackopout').innerHTML = " ";
 }
 
+function clearSMPelectionresults() {
+  document.getElementById('SMPelectionout').innerHTML = " ";
+}
 
 //extraction/exfiltration mission
 
@@ -71,4 +74,85 @@ function blackop(){
 
 	document.getElementById('blackopout').innerHTML += "This operation has been given $" + Funding + " million in allocated funds. <br>"
 
+}
+
+
+
+function SMPelection(){
+
+	//Variables defined in worldpowers.html
+	var NumberOfConstituencies = parseInt(document.getElementById("NumberOfConstituencies").value);
+	var OriginalNumber = parseInt(document.getElementById('member').value);
+	var Threshold = parseInt(document.getElementById('ElectionThreshold').value);
+	var Poll = new Array(OriginalNumber); //Array to store dice rolls in
+
+
+	//for loop to parse a dice roll value for each participant. ie Poll[0] stores the dice roll for member0;
+	for (i3 = 0; i3 < OriginalNumber; i3++) {
+		var Participant = document.getElementById('member' + i3).value;
+		var Skill = parseInt(document.getElementsByName('PartySkillValues')[i3].value);
+		Poll[i3] = Math.ceil(Math.random() * 100) + Skill; //Dice rolls
+		document.getElementById('SMPelectionout').innerHTML += Participant + " got " + Poll[i3] + "<br>"; 
+	}
+
+	//setting up more variables for the second for loop
+	var highest = Math.max.apply(Math, Poll); //get highest value in the array
+	
+	var bonus = Math.round(NumberOfConstituencies/10);
+	var plurality = Math.ceil(Math.random() * NumberOfConstituencies) + bonus;
+	if (plurality >= NumberOfConstituencies){
+		var plurality = plurality - bonus;
+	}
+	var plurality = plurality * 0.01;
+	var thing = Math.round(NumberOfConstituencies * plurality);
+
+	for (i = 0; i < OriginalNumber; i++){ 
+		var Participant = document.getElementById('member' + i).value; //ex: Participant = member0 
+		var Leader = document.getElementById('member' + i + "leader").value; //ex: Leader = member0leader
+		if (Poll[i] != highest){ //if current array value is equal to the highest value, that guy won
+			//dud
+		} else document.getElementById('SMPelectionout').innerHTML += Participant + " achieved a plurality at " + (plurality*100)  + "% of the votes and has won the election with " + thing + " constituencies. The leader of the party, " + Leader  + ", has become the Prime Minister of the country by commanding confidence of the legislature. <br>";
+	}
+}
+
+
+function addFields() {
+  // Number of inputs to create
+  var number = parseInt(document.getElementById("member").value);
+  // Container <div> where dynamic content will be placed
+  var container = document.getElementById("PartyInputs");
+  // Clear previous contents of the container
+  while (container.hasChildNodes()) {
+    container.removeChild(container.lastChild);
+  }
+  for (im = 0; im < number; im++) {
+    // Append a node with a random text
+    container.appendChild(document.createTextNode("Election Party " + (im + 1) + "'s name, Party's Leader, and vote modifier: "));
+    // Create an <input> element, set its type and name attributes
+    var input = document.createElement("input");
+    input.type = "text";
+    input.id = "member" + im; ///member1, member2, member3, etc.
+    input.name = "PartyNamesList";
+    var dickbuttcreampie = im + 1;
+    input.value = "Party" + dickbuttcreampie;
+    container.appendChild(input);
+    // Create an <input> element, set its type and name attributes
+    var input2 = document.createElement("input");
+    input2.type = "text";
+    input2.id = "member" + im + "leader"; ///member1leader, member2leader, member3leader, etc.
+    input2.name = "PartyLeadersList";
+    var dickbuttcreampie = im + 1;
+    input2.value = "Party" + dickbuttcreampie + " leader";
+    container.appendChild(input2);
+    // Append a line break 
+    // Create an <input> element, set its type and name attributes
+    var input3 = document.createElement("input");
+    input3.type = "number";
+    input3.id = "member" + im + "skill"; ///member1skill, member2skill, member3skill, etc.
+    input3.name = "PartySkillValues";
+    input3.value = 0;
+    container.appendChild(input3);
+    // Append a line break 
+    container.appendChild(document.createElement("br"));
+  }
 }
