@@ -60,30 +60,6 @@ body, html {
 
 <div id="map"></div>
 
- <script>
-
-var map = L.map('map', {
-    crs: L.CRS.Simple
-});
-
-
-var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent(e.latlng.toString())
-        .openOn(map);
-}
-
-map.on('click', onMapClick);
-
-var bounds = [[1,2.6], [100,260]];
-var image = L.imageOverlay('images/WP2042_s4.png', bounds).addTo(map);
-map.fitBounds(bounds);
-
-</script>
-
 <script src="interactivemap.js"></script>
 
 </div>
