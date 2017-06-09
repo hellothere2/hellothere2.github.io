@@ -327,6 +327,11 @@ Hit "Calculate" to generate results below.</p>
     <legend>Force A:</legend>
     <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br>
     <input type="number" id="Force_A_Strength" value="2500"> Total number of soldiers.<br>
+    <input type="number" id="Force_A_input_lightinf" value="20"> % light inf.<br>
+    <input type="number" id="Force_A_input_heavyinf" value="20"> % heavy inf.<br>
+    <input type="number" id="Force_A_input_rangedinf" value="20"> % ranged inf.<br>
+    <input type="number" id="Force_A_input_lightcav" value="20"> % light cav.<br>
+    <input type="number" id="Force_A_input_heavycav" value="20"> % heavy cav.<br>
     <br>
     <input type="radio" id="Afaction_type_North" name="afaction_type" checked> North<br>
     <input type="radio" id="Afaction_type_Vale" name="afaction_type"> Vale<br>
@@ -337,11 +342,17 @@ Hit "Calculate" to generate results below.</p>
     <input type="radio" id="Afaction_type_Reach" name="afaction_type"> Reach<br>
     <input type="radio" id="Afaction_type_Stormlands" name="afaction_type"> Stormlands<br>
     <input type="radio" id="Afaction_type_Dorne" name="afaction_type"> Dorne<br>
+    <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
     <br>
-    <br>
-    <legend>Force B:</legend>
+    <legend>Force B (Defender in Siege):</legend>
     <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br>
     <input type="number" id="Force_B_Strength" value="2500"> Total number of soldiers.<br>
+    <input type="number" id="Force_B_input_lightinf" value="20"> % light inf.<br>
+    <input type="number" id="Force_B_input_heavyinf" value="20"> % heavy inf.<br>
+    <input type="number" id="Force_B_input_rangedinf" value="20"> % ranged inf.<br>
+    <input type="number" id="Force_B_input_lightcav" value="20"> % light cav.<br>
+    <input type="number" id="Force_B_input_heavycav" value="20"> % heavy cav.<br>
+    <input type="number" id="DV" value="1"> Defensive bonus from holdfast. <br>
     <br>
     <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked> North<br>
     <input type="radio" id="Bfaction_type_Vale" name="bfaction_type"> Vale<br>
@@ -352,6 +363,10 @@ Hit "Calculate" to generate results below.</p>
     <input type="radio" id="Bfaction_type_Reach" name="bfaction_type"> Reach<br>
     <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type"> Stormlands<br>
     <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type"> Dorne<br>
+    <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
+    <br>
+    <input type="radio" id="Combat_Type_Field" name="combattype" checked> Not a siege assault<br>
+    <input type="radio" id="Combat_Type_Siege" name="combattype"> Siege assault<br>
     <br>
     <input type="button" value="Submit" onclick="battlemechanics()">
     <input type="button" value="Clear Results" onclick="clearresults()">
