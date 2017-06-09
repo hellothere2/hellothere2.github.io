@@ -98,7 +98,9 @@ body, html {
     <br>
     <a href="#meleeautomator">Melee Automator<a>
     <br>
-    <a href="#movement">Movement Calculator<a></em></p>
+    <a href="#movement">Movement Calculator<a>
+    <br>
+    <a href="#landcombat">Land Combat Script<a></em></p>
 
 <h1 id="duelautomator">Duel Automator</h1>
 <p>Default HP value is 50, default skill bonus is 0. Duels function by rolling a d75 + Skill for each player (d50 if blunt weapons).<br>
@@ -308,6 +310,56 @@ Hit "Calculate" to generate results below.</p>
   </tr>
 </table>
   </fieldset>
+
+
+<br>
+
+
+<h1 id="landcombat">Land Combat</h1>
+  <h3>Usage Instructions</h3>
+  So far there are no sieges. This is purely land combat in the field.
+  <br>Every troop has a CV (Combat Value) that is used to judge their strength in battle.
+  <br>Troops are split up by five different types: light infantry, heavy infantry, ranged infantry, light cavalry, and heavy cavalry. Each type has a different CV, and infantry and cavalry have different movement speeds. Each region of Westeros has different amounts of each type of troop, and different CV values for those troop types. Some regions are missing certain troop types, or have other, unique ones.<br>
+  All the troop compositions and CVs can be found <a href="https://www.reddit.com/r/IronThronePowers/wiki/troopcomps">here</a>. <br>
+  This script currently does not perform death or retreat checks, although it does provide the necessary information for you to do them yourself. These are required to be run after a battle takes place, depending on what happened. Click <a href="https://www.reddit.com/r/IronThronePowers/wiki/land_combat">here</a> for the full rules and details.
+<fieldset id="landcombatform">
+  <form>
+    <legend>Force A:</legend>
+    <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br>
+    <input type="number" id="Force_A_Strength" value="2500"> Total number of soldiers.<br>
+    <br>
+    <input type="radio" id="Afaction_type_North" name="afaction_type" checked> North<br>
+    <input type="radio" id="Afaction_type_Vale" name="afaction_type"> Vale<br>
+    <input type="radio" id="Afaction_type_IronIsles" name="afaction_type"> Iron Isles<br>
+    <input type="radio" id="Afaction_type_Riverlands" name="afaction_type"> Riverlands<br>
+    <input type="radio" id="Afaction_type_Westerlands" name="afaction_type"> Westerlands<br>
+    <input type="radio" id="Afaction_type_Crownlands" name="afaction_type"> Crownlands<br>
+    <input type="radio" id="Afaction_type_Reach" name="afaction_type"> Reach<br>
+    <input type="radio" id="Afaction_type_Stormlands" name="afaction_type"> Stormlands<br>
+    <input type="radio" id="Afaction_type_Dorne" name="afaction_type"> Dorne<br>
+    <br>
+    <br>
+    <legend>Force B:</legend>
+    <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br>
+    <input type="number" id="Force_B_Strength" value="2500"> Total number of soldiers.<br>
+    <br>
+    <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked> North<br>
+    <input type="radio" id="Bfaction_type_Vale" name="bfaction_type"> Vale<br>
+    <input type="radio" id="Bfaction_type_IronIsles" name="bfaction_type"> Iron Isles<br>
+    <input type="radio" id="Bfaction_type_Riverlands" name="bfaction_type"> Riverlands<br>
+    <input type="radio" id="Bfaction_type_Westerlands" name="bfaction_type"> Westerlands<br>
+    <input type="radio" id="Bfaction_type_Crownlands" name="bfaction_type"> Crownlands<br>
+    <input type="radio" id="Bfaction_type_Reach" name="bfaction_type"> Reach<br>
+    <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type"> Stormlands<br>
+    <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type"> Dorne<br>
+    <br>
+    <input type="button" value="Submit" onclick="battlemechanics()">
+    <input type="button" value="Clear Results" onclick="clearresults()">
+    </form>
+    <h2>Results</h2>
+    <div id="battleout"></div>
+  </fieldset>
+<script id="itplandcombat" src="itplandcombat.js"></script>
 
 
 <br>

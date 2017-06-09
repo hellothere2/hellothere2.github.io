@@ -136,7 +136,7 @@ td, th {
   <h3>Usage Instructions</h3>
 <p>Enter the relevant information in the appropriate boxes.<br>
   To calculate a value, you must enter all the other values. <br>So for example, to calculate GDP every value must be filled out except for GDP, and you must indicate that you want to calculate GDP by selecting the "Find GDP" button. You can copy and paste the results :) </p>
-<fieldset id="fieldset1">
+<fieldset id="GDPfieldset">
   <form>
     <legend>Values</legend>
     Gross Domestic Product (GDP)<br>
@@ -161,41 +161,42 @@ td, th {
     <input type="button" value="Calculate" onclick="calculateGDP()">
     <input type="button" value="Clear Results" onclick="cleartable()">
     </form>
+    <h2>Results</h2>
+    <table id="GDPout">
+    <tr>
+      <th>Item</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Government Spending</td>
+      <td id="GovernmentSpending"> </td>
+    </tr>
+    <tr>
+      <td>GDP</td>
+      <td id="GDPtable"> </td>
+    </tr>
+    <tr>
+      <td>Consumption</td>
+      <td id="ConsumptionTable"> </td>
+    </tr>
+    <tr>
+      <td>Investment</td>
+      <td id="InvestmentTable"> </td>
+    </tr>
+    <tr>
+      <td>Exports</td>
+      <td id="ExportsTable"> </td>
+    </tr>
+    <tr>
+      <td>Imports</td>
+      <td id="ImportsTable"> </td>
+    </tr>
+  </table>
   </fieldset>
 
 
 
-<h2>Results</h2>
-  <table id="out">
-  <tr>
-    <th>Item</th>
-    <th>Value</th>
-  </tr>
-  <tr>
-    <td>Government Spending</td>
-    <td id="GovernmentSpending"> </td>
-  </tr>
-  <tr>
-    <td>GDP</td>
-    <td id="GDPtable"> </td>
-  </tr>
-  <tr>
-    <td>Consumption</td>
-    <td id="ConsumptionTable"> </td>
-  </tr>
-  <tr>
-    <td>Investment</td>
-    <td id="InvestmentTable"> </td>
-  </tr>
-  <tr>
-    <td>Exports</td>
-    <td id="ExportsTable"> </td>
-  </tr>
-  <tr>
-    <td>Imports</td>
-    <td id="ImportsTable"> </td>
-  </tr>
-</table>
+
 </article>
 
 

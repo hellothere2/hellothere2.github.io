@@ -20,6 +20,7 @@ var bounds = [[1,2.6], [100,260]];
 
 var Map_2042 = L.imageOverlay('images/WP2042_s4.png', bounds);
 	Map_2047 = L.imageOverlay('images/WP2047_s4.png', bounds).addTo(map);
+	BlankMap = L.imageOverlay('images/WPLeafletMap.png', bounds);
 
 map.fitBounds(bounds);
 
@@ -50,12 +51,14 @@ var Oceania = new L.layerGroup().addTo(map);
 //Capitals List
 London = L.marker([77.13672, 131.12891]).addTo(cities).bindPopup("London");
 Dadesville = L.marker([66.14844, 72.44531]).addTo(cities).bindPopup("Dadesville");
+Gibraltar = L.marker([63.4375, 127.25391]).addTo(cities).bindPopup("Gibraltar");
 
 
 
 var baseMaps = {
 	"Season 4 2042": Map_2042,
-	"Season 4 2047": Map_2047
+	"Season 4 2047": Map_2047,
+	"Blank Map": BlankMap
 }
 
 var overlayMaps = {
@@ -78,642 +81,639 @@ var overlayMaps = {
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
+//Everything above this works
+
+var countrieslist = [
+	"Afghanistan", //0
+	"Albania", //1
+	"Algeria", //2
+	"Andorra", //3
+	"Angola", //4
+	"Antigua_and_Barbuda", //5
+	"Argentina", //6
+	"Armenia", //7
+	"Aruba", //8
+	"Australia", //9
+	"Austria", //10
+	"Azerbaijan", //11
+	"Bahamas", //12
+	"Bahrain", //13
+	"Bangladesh", //14
+	"Barbados", //15
+	"Belarus", //16
+	"Belgium", //17
+	"Belize", //18
+	"Benin", //19
+	"Bhutan", //20
+	"Bolivia", //21
+	"Bosnia_and_Herzegovina", //22
+	"Botswana", //23
+	"Brazil", //24
+	"Brunei", //25
+	"Bulgaria", //26
+	"Burkina_Faso", //27
+	"Burma", //28
+	"Burundi", //29
+	"Cambodia", //30
+	"Cameroon", //31
+	"Canada", //32
+	"Cabo_Verde", //33
+	"Central_African_Republic", //34
+	"Chad", //35
+	"Chile", //36
+	"China", //37
+	"Colombia", //38
+	"Comoros", //39
+	"Democratic_Republic_Of_Congo", //40
+	"Congo", //41
+	"Corsica", //42
+	"Costa_Rica", //43
+	"Croatia", //44
+	"Cuba", //45
+	"Curacao", //46
+	"Cyprus", //47
+	"Czechia", //48
+	"Denmark", //49
+	"Djibouti", //50
+	"Dominica", //51
+	"Dominican_Republic", //52
+	"East_Timor", //53
+	"Ecuador", //54
+	"Egypt", //55
+	"El_Salvador", //56
+	"Equatorial_Guinea", //57
+	"Eritrea", //58
+	"Estonia", //59
+	"Ethiopia", //60
+	"Fiji", //61
+	"Finland", //62
+	"France", //63
+	"Gabon", //64
+	"Gambia", //65
+	"Georgia", //66
+	"Germany", //67
+	"Ghana", //68
+	"Greece", //69
+	"Grenada", //70
+	"Guatemala", //71
+	"Guinea", //72
+	"Guinea_Bissau", //73
+	"Guyana", //74
+	"Haiti", //75
+	"Holy_See", //76
+	"Honduras", //77
+	"Hungary", //78
+	"Iceland", //79
+	"India", //80
+	"Indonesia", //81
+	"Iran", //82
+	"Iraq", //83
+	"Ireland", //84
+	"Israel", //85
+	"Italy", //86
+	"Ivory_Coast", //87
+	"Jamaica", //88
+	"Japan", //89
+	"Jordan", //90
+	"Kazakhstan", //91
+	"Kenya", //92
+	"Kiribati", //93
+	"Kosovo", //94
+	"Kuwait", //95
+	"Kyrgyzstan", //96
+	"Laos", //97
+	"Latvia", //98
+	"Lebanon", //99
+	"Lesotho", //100
+	"Liberia", //101
+	"Libya", //102
+	"Liechtenstein", //103
+	"Lithuania", //104
+	"Luxembourg", //105
+	"Macau", //106
+	"Macedonia", //107
+	"Madagascar", //108
+	"Malawi", //109
+	"Malaysia", //110
+	"Maldives", //111
+	"Mali", //112
+	"Malta", //113
+	"Marshall_Islands", //114
+	"Mauritania", //115
+	"Mauritius", //116
+	"Mexico", //117
+	"Micronesia", //118
+	"Moldova", //119
+	"Monaco", //120
+	"Mongolia", //121
+	"Montenegro", //122
+	"Morocco", //123
+	"Mozambique", //124
+	"Namibia", //125
+	"Nauru", //126
+	"Nepal", //127
+	"Netherlands", //128
+	"New_Zealand", //129
+	"Nicaragua", //130
+	"Niger", //131
+	"Nigeria", //132
+	"North_Korea", //133
+	"Norway", //134
+	"Oman", //135
+	"Pakistan", //136
+	"Palau", //137
+	"Palestine", //138
+	"Panama", //139
+	"Papua_New_Guinea", //140
+	"Paraguay", //141
+	"Peru", //142
+	"Philippines", //143
+	"Poland", //144
+	"Portugal", //145
+	"Qatar", //146
+	"Romania", //147
+	"Russia", //148
+	"Rwanda", //149
+	"Saint_Kitts_and_Nevis", //150
+	"Saint_Lucia", //151
+	"Saint_Vincent_and_the_Grenadines", //152
+	"Samoa", //153
+	"San_Marino", //154
+	"Sao_Tome_and_Principe", //155
+	"Saudi_Arabia", //156
+	"Senegal", //157
+	"Serbia", //158
+	"Seychelles", //159
+	"Sierra_Leone", //160
+	"Singapore", //161
+	"Sint_Maarten", //162
+	"Slovakia", //163
+	"Slovenia", //164
+	"Solomon_Islands", //165
+	"Somalia", //166
+	"Somaliland", //167
+	"South_Africa", //168
+	"South_Korea", //169
+	"South_Sudan", //170
+	"Spain", //171
+	"Sri_Lanka", //172
+	"Sudan", //173
+	"Suriname", //174
+	"Swaziland", //175
+	"Sweden", //176
+	"Switzerland", //177
+	"Syria", //178
+	"Taiwan", //179
+	"Tajikistan", //180
+	"Tanzania", //181
+	"Thailand", //182
+	"Timor_Leste", //183
+	"Togo", //184
+	"Tonga", //185
+	"Trinidad_and_Tobago", //186
+	"Tunisia", //187
+	"Turkey", //188
+	"Turkmenistan", //189
+	"Tuvalu", //190
+	"Uganda", //191
+	"Ukraine", //192
+	"United_Arab_Emirates", //193
+	"United_Kingdom", //194
+	"Uruguay", //195
+	"Uzbekistan", //196
+	"Vanuatu", //197
+	"Venezuela", //198
+	"Vietnam", //199
+	"West_Sahara", //200
+	"Yemen", //201
+	"Zambia", //202
+	"Zimbabwe" //203
+]; //this is fine
 
 
-//Claims List
-var Afghanistan_Claimant = "Unclaimed";
-var Albania_Claimant = "Unclaimed";
-var Algeria_Claimant = "Unclaimed";
-var Andorra_Claimant = "Unclaimed";
-var Angola_Claimant = "Unclaimed";
-var Antigua_and_Barbuda_Claimant = "Unclaimed";
-var Argentina_Claimant = "Unclaimed";
-var Armenia_Claimant = "Unclaimed";
-var Aruba_Claimant = "Unclaimed";
-var Australia_Claimant = "Unclaimed";
-var Austria_Claimant = "Unclaimed";
-var Azerbaijan_Claimant = "Unclaimed";
-var Bahamas_Claimant = "Unclaimed";
-var Bahrain_Claimant = "Unclaimed";
-var Bangladesh_Claimant = "Unclaimed";
-var Barbados_Claimant = "Unclaimed";
-var Belarus_Claimant = "Unclaimed";
-var Belgium_Claimant = "Unclaimed";
-var Belize_Claimant = "Unclaimed";
-var Benin_Claimant = "Unclaimed";
-var Bhutan_Claimant = "Unclaimed";
-var Bolivia_Claimant = "Unclaimed";
-var Bosnia_and_Herzegovina_Claimant = "Unclaimed";
-var Botswana_Claimant = "Unclaimed";
-var Brazil_Claimant = "Unclaimed";
-var Brunei_Claimant = "Unclaimed";
-var Bulgaria_Claimant = "Unclaimed";
-var Burkina_Faso_Claimant = "Unclaimed";
-var Burma_Claimant = "Unclaimed";
-var Burundi_Claimant = "Unclaimed";
-var Cambodia_Claimant = "Unclaimed";
-var Cameroon_Claimant = "Unclaimed";
-var Canada_Claimant = "redark0";
-var Cabo_Verde_Claimant = "Unclaimed";
-var Central_African_Republic_Claimant = "Unclaimed";
-var Chad_Claimant = "Unclaimed";
-var Chile_Claimant = "Unclaimed";
-var China_Claimant = "Unclaimed";
-var Colombia_Claimant = "Unclaimed";
-var Comoros_Claimant = "Unclaimed";
-var Democratic_Republic_Of_Congo_Claimant = "Unclaimed";
-var Congo_Claimant = "Unclaimed";
-var Corsica_Claimant = "Unclaimed";
-var Costa_Rica_Claimant = "Unclaimed";
-var Croatia_Claimant = "Unclaimed";
-var Cuba_Claimant = "Unclaimed";
-var Curacao_Claimant = "Unclaimed";
-var Cyprus_Claimant = "Unclaimed";
-var Czechia_Claimant = "Unclaimed";
-var Denmark_Claimant = "Unclaimed";
-var Djibouti_Claimant = "Unclaimed";
-var Dominica_Claimant = "Unclaimed";
-var Dominican_Republic_Claimant = "Unclaimed";
-var East_Timor_Claimant = "Unclaimed";
-var Ecuador_Claimant = "Unclaimed";
-var Egypt_Claimant = "Unclaimed";
-var El_Salvador_Claimant = "Unclaimed";
-var Equatorial_Guinea_Claimant = "Unclaimed";
-var Eritrea_Claimant = "Unclaimed";
-var Estonia_Claimant = "Unclaimed";
-var Ethiopia_Claimant = "Unclaimed";
-var Fiji_Claimant = "Unclaimed";
-var Finland_Claimant = "Unclaimed";
-var France_Claimant = "Unclaimed";
-var Gabon_Claimant = "Unclaimed";
-var Gambia_Claimant = "Unclaimed";
-var Georgia_Claimant = "Unclaimed";
-var Germany_Claimant = "Unclaimed";
-var Ghana_Claimant = "Unclaimed";
-var Greece_Claimant = "Unclaimed";
-var Grenada_Claimant = "Unclaimed";
-var Guatemala_Claimant = "Unclaimed";
-var Guinea_Claimant = "Unclaimed";
-var Guinea_Bissau_Claimant = "Unclaimed";
-var Guyana_Claimant = "Unclaimed";
-var Haiti_Claimant = "Unclaimed";
-var Holy_See_Claimant = "Unclaimed";
-var Honduras_Claimant = "Unclaimed";
-var Hong_Kong_Claimant = "Unclaimed";
-var Hungary_Claimant = "Unclaimed";
-var Iceland_Claimant = "Unclaimed";
-var India_Claimant = "Unclaimed";
-var Indonesia_Claimant = "Unclaimed";
-var Iran_Claimant = "Unclaimed";
-var Iraq_Claimant = "Unclaimed";
-var Ireland_Claimant = "Unclaimed";
-var Israel_Claimant = "Hello_There2";
-var Italy_Claimant = "Unclaimed";
-var Ivory_Coast_Claimant = "Unclaimed";
-var Jamaica_Claimant = "Unclaimed";
-var Japan_Claimant = "Unclaimed";
-var Jordan_Claimant = "Unclaimed";
-var Kazakhstan_Claimant = "Unclaimed";
-var Kenya_Claimant = "Unclaimed";
-var Kiribati_Claimant = "Unclaimed";
-var Kosovo_Claimant = "Unclaimed";
-var Kuwait_Claimant = "Unclaimed";
-var Kyrgyzstan_Claimant = "Unclaimed";
-var Laos_Claimant = "Unclaimed";
-var Latvia_Claimant = "Unclaimed";
-var Lebanon_Claimant = "Unclaimed";
-var Lesotho_Claimant = "Unclaimed";
-var Liberia_Claimant = "Unclaimed";
-var Libya_Claimant = "Unclaimed";
-var Liechtenstein_Claimant = "Unclaimed";
-var Lithuania_Claimant = "Unclaimed";
-var Luxembourg_Claimant = "Unclaimed";
-var Macau_Claimant = "Unclaimed";
-var Macedonia_Claimant = "Unclaimed";
-var Madagascar_Claimant = "Unclaimed";
-var Malawi_Claimant = "Unclaimed";
-var Malaysia_Claimant = "Unclaimed";
-var Maldives_Claimant = "Unclaimed";
-var Mali_Claimant = "Unclaimed";
-var Malta_Claimant = "Unclaimed";
-var Marshall_Islands_Claimant = "Unclaimed";
-var Mauritania_Claimant = "Unclaimed";
-var Mauritius_Claimant = "Unclaimed";
-var Mexico_Claimant = "Unclaimed";
-var Micronesia_Claimant = "Unclaimed";
-var Moldova_Claimant = "Unclaimed";
-var Monaco_Claimant = "Unclaimed";
-var Mongolia_Claimant = "Unclaimed";
-var Montenegro_Claimant = "Unclaimed";
-var Morocco_Claimant = "Unclaimed";
-var Mozambique_Claimant = "Unclaimed";
-var Namibia_Claimant = "Unclaimed";
-var Nauru_Claimant = "Unclaimed";
-var Nepal_Claimant = "Unclaimed";
-var Netherlands_Claimant = "Unclaimed";
-var New_Zealand_Claimant = "Unclaimed";
-var Nicaragua_Claimant = "Unclaimed";
-var Niger_Claimant = "Unclaimed";
-var Nigeria_Claimant = "Unclaimed";
-var North_Korea_Claimant = "Unclaimed";
-var Norway_Claimant = "Unclaimed";
-var Oman_Claimant = "Unclaimed";
-var Pakistan_Claimant = "Unclaimed";
-var Palau_Claimant = "Unclaimed";
-var Palestine_Claimant = "Unclaimed";
-var Panama_Claimant = "Unclaimed";
-var Papua_New_Guinea_Claimant = "Unclaimed";
-var Paraguay_Claimant = "Unclaimed";
-var Peru_Claimant = "Unclaimed";
-var Philippines_Claimant = "Unclaimed";
-var Poland_Claimant = "Unclaimed";
-var Portugal_Claimant = "Unclaimed";
-var Qatar_Claimant = "Unclaimed";
-var Quebec_Claimant = "Unclaimed";
-var Romania_Claimant = "Unclaimed";
-var Russia_Claimant = "Unclaimed";
-var Rwanda_Claimant = "Unclaimed";
-var Saint_Kitts_and_Nevis_Claimant = "Unclaimed";
-var Saint_Lucia_Claimant = "Unclaimed";
-var Saint_Vincent_and_the_Grenadines_Claimant = "Unclaimed";
-var Samoa_Claimant = "Unclaimed";
-var San_Marino_Claimant = "Unclaimed";
-var Sao_Tome_and_Principe_Claimant = "Unclaimed";
-var Saudi_Arabia_Claimant = "Unclaimed";
-var Senegal_Claimant = "Unclaimed";
-var Serbia_Claimant = "Unclaimed";
-var Seychelles_Claimant = "Unclaimed";
-var Sierra_Leone_Claimant = "Unclaimed";
-var Singapore_Claimant = "Unclaimed";
-var Sint_Maarten_Claimant = "Unclaimed";
-var Slovakia_Claimant = "Unclaimed";
-var Slovenia_Claimant = "Unclaimed";
-var Solomon_Islands_Claimant = "Unclaimed";
-var Somalia_Claimant = "Unclaimed";
-var Somaliland_Claimant = "Unclaimed";
-var South_Africa_Claimant = "Unclaimed";
-var South_Korea_Claimant = "Unclaimed";
-var South_Sudan_Claimant = "Unclaimed";
-var Spain_Claimant = "Unclaimed";
-var Sri_Lanka_Claimant = "Unclaimed";
-var Sudan_Claimant = "Unclaimed";
-var Suriname_Claimant = "Unclaimed";
-var Swaziland_Claimant = "Unclaimed";
-var Sweden_Claimant = "Unclaimed";
-var Switzerland_Claimant = "Unclaimed";
-var Syria_Claimant = "Unclaimed";
-var Taiwan_Claimant = "Unclaimed";
-var Tajikistan_Claimant = "Unclaimed";
-var Tanzania_Claimant = "Unclaimed";
-var Thailand_Claimant = "Unclaimed";
-var Timor_Leste_Claimant = "Unclaimed";
-var Togo_Claimant = "Unclaimed";
-var Tonga_Claimant = "Unclaimed";
-var Trinidad_and_Tobago_Claimant = "Unclaimed";
-var Tunisia_Claimant = "Unclaimed";
-var Turkey_Claimant = "Unclaimed";
-var Turkmenistan_Claimant = "Unclaimed";
-var Tuvalu_Claimant = "Unclaimed";
-var Uganda_Claimant = "Unclaimed";
-var Ukraine_Claimant = "Unclaimed";
-var United_Arab_Emirates_Claimant = "Unclaimed";
-var United_Kingdom_Claimant = "Pepsiisgood1997";
-var Uruguay_Claimant = "Unclaimed";
-var Uzbekistan_Claimant = "Unclaimed";
-var Vanuatu_Claimant = "Unclaimed";
-var Venezuela_Claimant = "Unclaimed";
-var Vietnam_Claimant = "Unclaimed";
-var West_Sahara_Claimant = "Unclaimed";
-var Yemen_Claimant = "Unclaimed";
-var Zambia_Claimant = "Unclaimed";
-var Zimbabwe_Claimant = "Unclaimed";
+var ClaimsList = [
+	"Unclaimed", //Afghanistan
+	"Unclaimed", //Albania
+	"Unclaimed", //Algeria
+	"Unclaimed", //Andorra
+	"Unclaimed", //Angola
+	"Unclaimed", //Antigua_and_Barbuda
+	"Unclaimed", //Argentina
+	"Unclaimed", //Armenia
+	"Unclaimed", //Aruba
+	"Unclaimed", //Australia
+	"Unclaimed", //Austria
+	"Unclaimed", //Azerbaijan
+	"Unclaimed", //Bahamas
+	"Unclaimed", //Bahrain
+	"Unclaimed", //Bangladesh
+	"Unclaimed", //Barbados
+	"Unclaimed", //Belarus
+	"Unclaimed", //Belgium
+	"Unclaimed", //Belize
+	"Unclaimed", //Benin
+	"Unclaimed", //Bhutan
+	"Unclaimed", //Bolivia
+	"Unclaimed", //Bosnia_and_Herzegovina
+	"Unclaimed", //Botswana
+	"Unclaimed", //Brazil
+	"Unclaimed", //Brunei
+	"Unclaimed", //Bulgaria
+	"Unclaimed", //Burkina_Faso
+	"Unclaimed", //Burma
+	"Unclaimed", //Burundi
+	"Unclaimed", //Cambodia
+	"Unclaimed", //Cameroon
+	"Unclaimed", //Canada
+	"Unclaimed", //Cabo_Verde
+	"Unclaimed", //Central_African_Republic
+	"Unclaimed", //Chad
+	"Unclaimed", //Chile
+	"Unclaimed", //China
+	"Unclaimed", //Colombia
+	"Unclaimed", //Comoros
+	"Unclaimed", //Democratic_Republic_Of_Congo
+	"Unclaimed", //Congo
+	"Unclaimed", //Costa_Rica
+	"Unclaimed", //Croatia
+	"Unclaimed", //Cuba
+	"Unclaimed", //Curacao
+	"Unclaimed", //Cyprus
+	"Unclaimed", //Czech republic
+	"Unclaimed", //Denmark
+	"Unclaimed", //Djibouti
+	"Unclaimed", //Dominica
+	"Unclaimed", //Dominican_Republic
+	"Unclaimed", //East_Timor
+	"Unclaimed", //Ecuador
+	"Unclaimed", //Egypt
+	"Unclaimed", //El_Salvador
+	"Unclaimed", //Equatorial_Guinea
+	"Unclaimed", //Eritrea
+	"Unclaimed", //Estonia
+	"Unclaimed", //Ethiopia
+	"Unclaimed", //Falklands
+	"Unclaimed", //Fiji
+	"Unclaimed", //Finland
+	"Unclaimed", //France
+	"Unclaimed", //Gabon
+	"Unclaimed", //Gambia
+	"Unclaimed", //Georgia
+	"Unclaimed", //Germany
+	"Unclaimed", //Ghana
+	"Unclaimed", //Greece
+	"Unclaimed", //Grenada
+	"Unclaimed", //Guatemala
+	"Unclaimed", //Guinea
+	"Unclaimed", //Guinea_Bissau
+	"Unclaimed", //Guyana
+	"Unclaimed", //Haiti
+	"Unclaimed", //Holy_See
+	"Unclaimed", //Honduras
+	"Unclaimed", //Hungary
+	"Unclaimed", //Iceland
+	"Unclaimed", //India
+	"Unclaimed", //Indonesia
+	"Unclaimed", //Iran
+	"Unclaimed", //Iraq
+	"Unclaimed", //Ireland
+	"Unclaimed", //Israel
+	"Unclaimed", //Italy
+	"Unclaimed", //Ivory_Coast
+	"Unclaimed", //Jamaica
+	"Unclaimed", //Japan
+	"Unclaimed", //Jordan
+	"Unclaimed", //Kazakhstan
+	"Unclaimed", //Kenya
+	"Unclaimed", //Kiribati
+	"Unclaimed", //Kosovo
+	"Unclaimed", //Kuwait
+	"Unclaimed", //Kyrgyzstan
+	"Unclaimed", //Laos
+	"Unclaimed", //Latvia
+	"Unclaimed", //Lebanon
+	"Unclaimed", //Lesotho
+	"Unclaimed", //Liberia
+	"Unclaimed", //Libya
+	"Unclaimed", //Liechtenstein
+	"Unclaimed", //Lithuania
+	"Unclaimed", //Luxembourg
+	"Unclaimed", //Macau
+	"Unclaimed", //Macedonia
+	"Unclaimed", //Madagascar
+	"Unclaimed", //Malawi
+	"Unclaimed", //Malaysia
+	"Unclaimed", //Maldives
+	"Unclaimed", //Mali
+	"Unclaimed", //Malta
+	"Unclaimed", //Marshall_Islands
+	"Unclaimed", //Mauritania
+	"Unclaimed", //Mauritius
+	"Unclaimed", //Mexico
+	"Unclaimed", //Micronesia
+	"Unclaimed", //Moldova
+	"Unclaimed", //Monaco
+	"Unclaimed", //Mongolia
+	"Unclaimed", //Montenegro
+	"Unclaimed", //Morocco
+	"Unclaimed", //Mozambique
+	"Unclaimed", //Namibia
+	"Unclaimed", //Nauru
+	"Unclaimed", //Nepal
+	"Unclaimed", //Netherlands
+	"Unclaimed", //New_Zealand
+	"Unclaimed", //Nicaragua
+	"Unclaimed", //Niger
+	"Unclaimed", //Nigeria
+	"Unclaimed", //North_Korea
+	"Unclaimed", //Norway
+	"Unclaimed", //Oman
+	"Unclaimed", //Pakistan
+	"Unclaimed", //Palau
+	"Unclaimed", //Palestine
+	"Unclaimed", //Panama
+	"Unclaimed", //Papua_New_Guinea
+	"Unclaimed", //Paraguay
+	"Unclaimed", //Peru
+	"Unclaimed", //Philippines
+	"Unclaimed", //Poland
+	"Unclaimed", //Portugal
+	"Unclaimed", //Qatar
+	"Unclaimed", //Romania
+	"Unclaimed", //Russia
+	"Unclaimed", //Rwanda
+	"Unclaimed", //Saint_Kitts_and_Nevis
+	"Unclaimed", //Saint_Lucia
+	"Unclaimed", //Saint_Vincent_and_the_Grenadines
+	"Unclaimed", //Samoa
+	"Unclaimed", //San_Marino
+	"Unclaimed", //Sao_Tome_and_Principe
+	"Unclaimed", //Saudi_Arabia
+	"Unclaimed", //Senegal
+	"Unclaimed", //Serbia
+	"Unclaimed", //Seychelles
+	"Unclaimed", //Sierra_Leone
+	"Unclaimed", //Singapore
+	"Unclaimed", //Sint_Maarten
+	"Unclaimed", //Slovakia
+	"Unclaimed", //Slovenia
+	"Unclaimed", //Solomon_Islands
+	"Unclaimed", //Somalia
+	"Unclaimed", //Somaliland
+	"Unclaimed", //South_Africa
+	"Unclaimed", //South_Korea
+	"Unclaimed", //South_Sudan
+	"Unclaimed", //Spain
+	"Unclaimed", //Sri_Lanka
+	"Unclaimed", //Sudan
+	"Unclaimed", //Suriname
+	"Unclaimed", //Swaziland
+	"Unclaimed", //Sweden
+	"Unclaimed", //Switzerland
+	"Unclaimed", //Syria
+	"Unclaimed", //Taiwan
+	"Unclaimed", //Tajikistan
+	"Unclaimed", //Tanzania
+	"Unclaimed", //Thailand
+	"Unclaimed", //Timor_Leste
+	"Unclaimed", //Togo
+	"Unclaimed", //Tonga
+	"Unclaimed", //Trinidad_and_Tobago
+	"Unclaimed", //Tunisia
+	"Unclaimed", //Turkey
+	"Unclaimed", //Turkmenistan
+	"Unclaimed", //Tuvalu
+	"Unclaimed", //Uganda
+	"Unclaimed", //Ukraine
+	"Unclaimed", //United_Arab_Emirates
+	"Unclaimed", //United_Kingdom
+	"Unclaimed", //Uruguay
+	"Unclaimed", //Uzbekistan
+	"Unclaimed", //Vanuatu
+	"Unclaimed", //Venezuela
+	"Unclaimed", //Vietnam
+	"Unclaimed", //West_Sahara
+	"Unclaimed", //Yemen
+	"Unclaimed", //Zambia
+	"Unclaimed" //Zimbabwe
+]; //this is fine
+
+var AnnexList = [
+	"Sovereign", //Afghanistan
+	"Sovereign", //Albania
+	"Sovereign", //Algeria
+	"Sovereign", //Andorra
+	"Sovereign", //Angola
+	"Sovereign", //Antigua_and_Barbuda
+	"Sovereign", //Argentina
+	"Sovereign", //Armenia
+	"Sovereign", //Aruba
+	"Sovereign", //Australia
+	"Sovereign", //Austria
+	"Sovereign", //Azerbaijan
+	"Sovereign", //Bahamas
+	"Sovereign", //Bahrain
+	"Sovereign", //Bangladesh
+	"Sovereign", //Barbados
+	"Sovereign", //Belarus
+	"Sovereign", //Belgium
+	"Sovereign", //Belize
+	"Sovereign", //Benin
+	"Sovereign", //Bhutan
+	"Sovereign", //Bolivia
+	"Sovereign", //Bosnia_and_Herzegovina
+	"Sovereign", //Botswana
+	"Sovereign", //Brazil
+	"Sovereign", //Brunei
+	"Sovereign", //Bulgaria
+	"Sovereign", //Burkina_Faso
+	"Sovereign", //Burma
+	"Sovereign", //Burundi
+	"Sovereign", //Cambodia
+	"Sovereign", //Cameroon
+	"Sovereign", //Canada
+	"Sovereign", //Cabo_Verde
+	"Sovereign", //Central_African_Republic
+	"Sovereign", //Chad
+	"Sovereign", //Chile
+	"Sovereign", //China
+	"Sovereign", //Colombia
+	"Sovereign", //Comoros
+	"Sovereign", //Democratic_Republic_Of_Congo
+	"Sovereign", //Congo
+	"Sovereign", //Costa_Rica
+	"Sovereign", //Croatia
+	"Sovereign", //Cuba
+	"Sovereign", //Curacao
+	"Sovereign", //Cyprus
+	"Sovereign", //Czech republic
+	"Sovereign", //Denmark
+	"Sovereign", //Djibouti
+	"Sovereign", //Dominica
+	"Sovereign", //Dominican_Republic
+	"Sovereign", //East_Timor
+	"Sovereign", //Ecuador
+	"Sovereign", //Egypt
+	"Sovereign", //El_Salvador
+	"Sovereign", //Equatorial_Guinea
+	"Sovereign", //Eritrea
+	"Sovereign", //Estonia
+	"Sovereign", //Ethiopia
+	"Sovereign", //Falklands
+	"Sovereign", //Fiji
+	"Sovereign", //Finland
+	"Sovereign", //France
+	"Sovereign", //Gabon
+	"Sovereign", //Gambia
+	"Sovereign", //Georgia
+	"Sovereign", //Germany
+	"Sovereign", //Ghana
+	"Sovereign", //Greece
+	"Sovereign", //Grenada
+	"Sovereign", //Guatemala
+	"Sovereign", //Guinea
+	"Sovereign", //Guinea_Bissau
+	"Sovereign", //Guyana
+	"Sovereign", //Haiti
+	"Sovereign", //Holy_See
+	"Sovereign", //Honduras
+	"Sovereign", //Hungary
+	"Sovereign", //Iceland
+	"Sovereign", //India
+	"Sovereign", //Indonesia
+	"Sovereign", //Iran
+	"Sovereign", //Iraq
+	"Sovereign", //Ireland
+	"Sovereign", //Israel
+	"Sovereign", //Italy
+	"Sovereign", //Ivory_Coast
+	"Sovereign", //Jamaica
+	"Sovereign", //Japan
+	"Sovereign", //Jordan
+	"Sovereign", //Kazakhstan
+	"Sovereign", //Kenya
+	"Sovereign", //Kiribati
+	"Sovereign", //Kosovo
+	"Sovereign", //Kuwait
+	"Sovereign", //Kyrgyzstan
+	"Sovereign", //Laos
+	"Sovereign", //Latvia
+	"Sovereign", //Lebanon
+	"Sovereign", //Lesotho
+	"Sovereign", //Liberia
+	"Sovereign", //Libya
+	"Sovereign", //Liechtenstein
+	"Sovereign", //Lithuania
+	"Sovereign", //Luxembourg
+	"Sovereign", //Macau
+	"Sovereign", //Macedonia
+	"Sovereign", //Madagascar
+	"Sovereign", //Malawi
+	"Sovereign", //Malaysia
+	"Sovereign", //Maldives
+	"Sovereign", //Mali
+	"Sovereign", //Malta
+	"Sovereign", //Marshall_Islands
+	"Sovereign", //Mauritania
+	"Sovereign", //Mauritius
+	"Sovereign", //Mexico
+	"Sovereign", //Micronesia
+	"Sovereign", //Moldova
+	"Sovereign", //Monaco
+	"Sovereign", //Mongolia
+	"Sovereign", //Montenegro
+	"Sovereign", //Morocco
+	"Sovereign", //Mozambique
+	"Sovereign", //Namibia
+	"Sovereign", //Nauru
+	"Sovereign", //Nepal
+	"Sovereign", //Netherlands
+	"Sovereign", //New_Zealand
+	"Sovereign", //Nicaragua
+	"Sovereign", //Niger
+	"Sovereign", //Nigeria
+	"Sovereign", //North_Korea
+	"Sovereign", //Norway
+	"Sovereign", //Oman
+	"Sovereign", //Pakistan
+	"Sovereign", //Palau
+	"Sovereign", //Palestine
+	"Sovereign", //Panama
+	"Sovereign", //Papua_New_Guinea
+	"Sovereign", //Paraguay
+	"Sovereign", //Peru
+	"Sovereign", //Philippines
+	"Sovereign", //Poland
+	"Sovereign", //Portugal
+	"Sovereign", //Qatar
+	"Sovereign", //Romania
+	"Sovereign", //Russia
+	"Sovereign", //Rwanda
+	"Sovereign", //Saint_Kitts_and_Nevis
+	"Sovereign", //Saint_Lucia
+	"Sovereign", //Saint_Vincent_and_the_Grenadines
+	"Sovereign", //Samoa
+	"Sovereign", //San_Marino
+	"Sovereign", //Sao_Tome_and_Principe
+	"Sovereign", //Saudi_Arabia
+	"Sovereign", //Senegal
+	"Sovereign", //Serbia
+	"Sovereign", //Seychelles
+	"Sovereign", //Sierra_Leone
+	"Sovereign", //Singapore
+	"Sovereign", //Sint_Maarten
+	"Sovereign", //Slovakia
+	"Sovereign", //Slovenia
+	"Sovereign", //Solomon_Islands
+	"Sovereign", //Somalia
+	"Sovereign", //Somaliland
+	"Sovereign", //South_Africa
+	"Sovereign", //South_Korea
+	"Sovereign", //South_Sudan
+	"Sovereign", //Spain
+	"Sovereign", //Sri_Lanka
+	"Sovereign", //Sudan
+	"Sovereign", //Suriname
+	"Sovereign", //Swaziland
+	"Sovereign", //Sweden
+	"Sovereign", //Switzerland
+	"Sovereign", //Syria
+	"Sovereign", //Taiwan
+	"Sovereign", //Tajikistan
+	"Sovereign", //Tanzania
+	"Sovereign", //Thailand
+	"Sovereign", //Timor_Leste
+	"Sovereign", //Togo
+	"Sovereign", //Tonga
+	"Sovereign", //Trinidad_and_Tobago
+	"Sovereign", //Tunisia
+	"Sovereign", //Turkey
+	"Sovereign", //Turkmenistan
+	"Sovereign", //Tuvalu
+	"Sovereign", //Uganda
+	"Sovereign", //Ukraine
+	"Sovereign", //United_Arab_Emirates
+	"Sovereign", //United_Kingdom
+	"Sovereign", //Uruguay
+	"Sovereign", //Uzbekistan
+	"Sovereign", //Vanuatu
+	"Sovereign", //Venezuela
+	"Sovereign", //Vietnam
+	"Sovereign", //West_Sahara
+	"Sovereign", //Yemen
+	"Sovereign", //Zambia
+	"Sovereign" //Zimbabwe
+]; //this is fine
 
 
+var countriesinfo = []; //this line is fine
+
+for (i = 0; i < 205; i++) {
+	countriesinfo[i] = countrieslist[i] + ". <br>Claimant: " + ClaimsList[i] + ".<br>Controlled/Annexed by: " + AnnexList[i] + '.<br> <a href="https://reddit.com/r/worldpowers/wiki/'+ countrieslist[i] + '">Wiki</a>'; 
+}
 
 
-///Country Info List
-var Afghanistan_info = "Afghanistan <br> Claimant = " + Afghanistan_Claimant;
-var Albania_info = "Albania <br> Claimant = " + Albania_Claimant;
-var Algeria_info = "Algeria <br> Claimant = " + Algeria_Claimant;
-var Andorra_info = "Andorra <br> Claimant = " + Andorra_Claimant;
-var Angola_info = "Angola <br> Claimant = " + Angola_Claimant;
-var Antigua_and_Barbuda_info = "Antigua and Barbuda <br> Claimant = " + Antigua_and_Barbuda_Claimant;
-var Argentina_info = "Argentina <br> Claimant = " + Argentina_Claimant;
-var Armenia_info = "Armenia <br> Claimant = " + Armenia_Claimant;
-var Aruba_info = "Aruba <br> Claimant = " + Aruba_Claimant;
-var Australia_info = "Australia <br> Claimant = " + Australia_Claimant;
-var Austria_info = "Austria <br> Claimant = " + Austria_Claimant;
-var Azerbaijan_info = "Azerbaijan <br> Claimant = " + Azerbaijan_Claimant;
-var Bahamas_info = "Bahamas <br> Claimant = " + Bahamas_Claimant;
-var Bahrain_info = "Bahrain <br> Claimant = " + Bahrain_Claimant;
-var Bangladesh_info = "Bangladesh <br> Claimant = " + Bangladesh_Claimant;
-var Barbados_info = "Barbados <br> Claimant = " + Barbados_Claimant;
-var Belarus_info = "Belarus <br> Claimant = " + Belarus_Claimant;
-var Belgium_info = "Belgium <br> Claimant = " + Belgium_Claimant;
-var Belize_info = "Belize <br> Claimant = " + Belize_Claimant;
-var Benin_info = "Benin <br> Claimant = " + Benin_Claimant;
-var Bhutan_info = "Bhutan <br> Claimant = " + Bhutan_Claimant;
-var Bolivia_info = "Bolivia <br> Claimant = " + Bolivia_Claimant;
-var Bosnia_and_Herzegovina_info = "Bosnia and Herzegovina <br> Claimant = " + Bosnia_and_Herzegovina_Claimant;
-var Botswana_info = "Botswana <br> Claimant = " + Botswana_Claimant;
-var Brazil_info = "Brazil <br> Claimant = " + Brazil_Claimant;
-var Brunei_info = "Brunei <br> Claimant = " + Brunei_Claimant;
-var Bulgaria_info = "Bulgaria <br> Claimant = " + Bulgaria_Claimant;
-var Burkina_Faso_info = "Burkina Faso <br> Claimant = " + Burkina_Faso_Claimant;
-var Burma_info = "Burma <br> Claimant = " + Burma_Claimant;
-var Burundi_info = "Burundi <br> Claimant = " + Burundi_Claimant;
-var Cambodia_info = "Cambodia <br> Claimant = " + Cambodia_Claimant;
-var Cameroon_info = "Cameroon <br> Claimant = " + Cameroon_Claimant;
-var Canada_info = "Canada <br> Claimant = " + Canada_Claimant;
-var Cabo_Verde_info = "Cabo Verde <br> Claimant = " + Cabo_Verde_Claimant;
-var Central_African_Republic_info = "Central African Republic <br> Claimant = " + Central_African_Republic_Claimant;
-var Chad_info = "Chad <br> Claimant = " + Chad_Claimant;
-var Chile_info = "Chile <br> Claimant = " + Chile_Claimant;
-var China_info = "China <br> Claimant = " + China_Claimant;
-var Colombia_info = "Colombia <br> Claimant = " + Colombia_Claimant;
-var Comoros_info = "Comoros <br> Claimant = " + Comoros_Claimant;
-var Democratic_Republic_Of_Congo_info = "Democratic Republic of Congo <br> Claimant = " + Democratic_Republic_Of_Congo_Claimant;
-var Congo_info = "Congo <br> Claimant = " + Congo_Claimant;
-var Corsica_info = "Corsica <br> Claimant = " + Corsica_Claimant;
-var Costa_Rica_info = "Costa Rica <br> Claimant = " + Costa_Rica_Claimant;
-var Croatia_info = "Croatia <br> Claimant = " + Croatia_Claimant;
-var Cuba_info = "Cuba <br> Claimant = " + Cuba_Claimant;
-var Curacao_info = "Curacao <br> Claimant = " + Curacao_Claimant;
-var Cyprus_info = "Cyprus <br> Claimant = " + Cyprus_Claimant;
-var Czechia_info = "Czechia <br> Claimant = " + Czechia_Claimant;
-var Denmark_info = "Denmark <br> Claimant = " + Denmark_Claimant;
-var Djibouti_info = "Djibouti <br> Claimant = " + Djibouti_Claimant;
-var Dominica_info = "Dominica <br> Claimant = " + Dominica_Claimant;
-var Dominican_Republic_info = "Dominican Republic <br> Claimant = " + Dominican_Republic_Claimant;
-var East_Timor_info = "East Timor <br> Claimant = " + East_Timor_Claimant;
-var Ecuador_info = "Ecuador <br> Claimant = " + Ecuador_Claimant;
-var Egypt_info = "Egypt <br> Claimant = " + Egypt_Claimant;
-var El_Salvador_info = "El Salvador <br> Claimant = " + El_Salvador_Claimant;
-var Equatorial_Guinea_info = "Equatorial Guinea <br> Claimant = " + Equatorial_Guinea_Claimant;
-var Eritrea_info = "Eritrea <br> Claimant = " + Eritrea_Claimant;
-var Estonia_info = "Estonia <br> Claimant = " + Estonia_Claimant;
-var Ethiopia_info = "Ethiopia <br> Claimant = " + Ethiopia_Claimant;
-var Falklands_info = "Falkland Isles";
-var Fiji_info = "Fiji <br> Claimant = " + Fiji_Claimant;
-var Finland_info = "Finland <br> Claimant = " + Finland_Claimant;
-var France_info = "France <br> Claimant = " + France_Claimant;
-var Gabon_info = "Gabon <br> Claimant = " + Gabon_Claimant;
-var Gambia_info = "Gambia <br> Claimant = " + Gambia_Claimant;
-var Georgia_info = "Georgia <br> Claimant = " + Georgia_Claimant;
-var Germany_info = "Germany <br> Claimant = " + Germany_Claimant;
-var Ghana_info = "Ghana <br> Claimant = " + Ghana_Claimant;
-var Greece_info = "Greece <br> Claimant = " + Greece_Claimant;
-var Grenada_info = "Grenada <br> Claimant = " + Grenada_Claimant;
-var Guatemala_info = "Guatemala <br> Claimant = " + Guatemala_Claimant;
-var Guinea_info = "Guinea <br> Claimant = " + Guinea_Claimant;
-var Guinea_Bissau_info = "Guinea Bissau <br> Claimant = " + Guinea_Bissau_Claimant;
-var Guyana_info = "Guyana <br> Claimant = " + Guyana_Claimant;
-var Haiti_info = "Haiti <br> Claimant = " + Haiti_Claimant;
-var Halaib_Triangle_info = "Hala'ib Triangle <br> Unclaimable";
-var Holy_See_info = "Holy See <br> Claimant = " + Holy_See_Claimant;
-var Honduras_info = "Honduras <br> Claimant = " + Honduras_Claimant;
-var Hong_Kong_info = "Hong Kong <br> Claimant = " + Hong_Kong_Claimant;
-var Hungary_info = "Hungary <br> Claimant = " + Hungary_Claimant;
-var Iceland_info = "Iceland <br> Claimant = " + Iceland_Claimant;
-var India_info = "India <br> Claimant = " + India_Claimant;
-var Indonesia_info = "Indonesia <br> Claimant = " + Indonesia_Claimant;
-var Iran_info = "Iran <br> Claimant = " + Iran_Claimant;
-var Iraq_info = "Iraq <br> Claimant = " + Iraq_Claimant;
-var Ireland_info = "Ireland <br> Claimant = " + Ireland_Claimant;
-var Israel_info = "Israel <br> Claimant = " + Israel_Claimant;
-var Italy_info = "Italy <br> Claimant = " + Italy_Claimant;
-var Ivory_Coast_info = "Ivory Coast <br> Claimant = " + Ivory_Coast_Claimant;
-var Jamaica_info = "Jamaica <br> Claimant = " + Jamaica_Claimant;
-var Japan_info = "Japan <br> Claimant = " + Japan_Claimant;
-var Jordan_info = "Jordan <br> Claimant = " + Jordan_Claimant;
-var Kazakhstan_info = "Kazakhstan <br> Claimant = " + Kazakhstan_Claimant;
-var Kenya_info = "Kenya <br> Claimant = " + Kenya_Claimant;
-var Kiribati_info = "Kiribati <br> Claimant = " + Kiribati_Claimant;
-var Kosovo_info = "Kosovo <br> Claimant = " + Kosovo_Claimant;
-var Kuwait_info = "Kuwait <br> Claimant = " + Kuwait_Claimant;
-var Kyrgyzstan_info = "Kyrgyzstan <br> Claimant = " + Kyrgyzstan_Claimant;
-var Laos_info = "Laos <br> Claimant = " + Laos_Claimant;
-var Latvia_info = "Latvia <br> Claimant = " + Latvia_Claimant;
-var Lebanon_info = "Lebanon <br> Claimant = " + Lebanon_Claimant;
-var Lesotho_info = "Lesotho <br> Claimant = " + Lesotho_Claimant;
-var Liberia_info = "Liberia <br> Claimant = " + Liberia_Claimant;
-var Libya_info = "Libya <br> Claimant = " + Libya_Claimant;
-var Liechtenstein_info = "Liechtenstein <br> Claimant = " + Liechtenstein_Claimant;
-var Lithuania_info = "Lithuania <br> Claimant = " + Lithuania_Claimant;
-var Luxembourg_info = "Luxembourg <br> Claimant = " + Luxembourg_Claimant;
-var Macau_info = "Macau <br> Claimant = " + Macau_Claimant;
-var Macedonia_info = "Macedonia <br> Claimant = " + Macedonia_Claimant;
-var Madagascar_info = "Madagascar <br> Claimant = " + Madagascar_Claimant;
-var Malawi_info = "Malawi <br> Claimant = " + Malawi_Claimant;
-var Malaysia_info = "Malaysia <br> Claimant = " + Malaysia_Claimant;
-var Maldives_info = "Maldives <br> Claimant = " + Maldives_Claimant;
-var Mali_info = "Mali <br> Claimant = " + Mali_Claimant;
-var Malta_info = "Malta <br> Claimant = " + Malta_Claimant;
-var Marshall_Islands_info = "Marshall Islands <br> Claimant = " + Marshall_Islands_Claimant;
-var Mauritania_info = "Mauritania <br> Claimant = " + Mauritania_Claimant;
-var Mauritius_info = "Mauritius <br> Claimant = " + Mauritius_Claimant;
-var Mexico_info = "Mexico <br> Claimant = " + Mexico_Claimant;
-var Micronesia_info = "Micronesia <br> Claimant = " + Micronesia_Claimant;
-var Moldova_info = "Moldova <br> Claimant = " + Moldova_Claimant;
-var Monaco_info = "Monaco <br> Claimant = " + Monaco_Claimant;
-var Mongolia_info = "Mongolia <br> Claimant = " + Mongolia_Claimant;
-var Montenegro_info = "Montenegro <br> Claimant = " + Montenegro_Claimant;
-var Morocco_info = "Morocco <br> Claimant = " + Morocco_Claimant;
-var Mozambique_info = "Mozambique <br> Claimant = " + Mozambique_Claimant;
-var Namibia_info = "Namibia<br> Claimant = " + Namibia_Claimant;
-var Nauru_info = "Nauru <br> Claimant = " + Nauru_Claimant;
-var Nepal_info = "Nepal <br> Claimant = " + Nepal_Claimant;
-var Netherlands_info = "Netherlands <br> Claimant = " + Netherlands_Claimant;
-var New_Zealand_info = "New Zealand <br> Claimant = " + New_Zealand_Claimant;
-var Nicaragua_info = "Nicaragua <br> Claimant = " + Nicaragua_Claimant;
-var Niger_info = "Niger <br> Claimant = " + Niger_Claimant;
-var Nigeria_info = "Nigeria <br> Claimant = " + Nigeria_Claimant;
-var North_Korea_info = "North Korea <br> Claimant = " + North_Korea_Claimant;
-var Norway_info = "Norway <br> Claimant = " + Norway_Claimant;
-var Oman_info = "Oman <br> Claimant = " + Oman_Claimant;
-var Pakistan_info = "Pakistan <br> Claimant = " + Pakistan_Claimant;
-var Palau_info = "Palau <br> Claimant = " + Palau_Claimant;
-var Palestine_info = "Palestine <br> Claimant = " + Palestine_Claimant;
-var Panama_info = "Panama <br> Claimant = " + Panama_Claimant;
-var Papua_New_Guinea_info = "Papua New Guinea <br> Claimant = " + Papua_New_Guinea_Claimant;
-var Paraguay_info = "Paraguay <br> Claimant = " + Paraguay_Claimant;
-var Peru_info = "Peru <br> Claimant = " + Peru_Claimant;
-var Philippines_info = "Philippines <br> Claimant = " + Philippines_Claimant;
-var Poland_info = "Poland <br> Claimant = " + Poland_Claimant;
-var Portugal_info = "Portugal <br> Claimant = " + Portugal_Claimant;
-var Qatar_info = "Qatar <br> Claimant = " + Qatar_Claimant;
-var Quebec_info = "Quebec <br> Claimant = " + Quebec_Claimant;
-var Romania_info = "Romania <br> Claimant = " + Romania_Claimant;
-var Russia_info = "Russia <br> Claimant = " + Russia_Claimant;
-var Rwanda_info = "Rwanda <br> Claimant = " + Rwanda_Claimant;
-var Sinai_info = "Sinai <br> Unclaimable";
-var Saint_Kitts_and_Nevis_info = "Saint Kitts and Nevis <br> Claimant = " + Saint_Kitts_and_Nevis_Claimant;
-var Saint_Lucia_info = "Saint Lucia <br> Claimant = " + Saint_Lucia_Claimant;
-var Saint_Vincent_and_the_Grenadines_info = "Saint Vincent and the Grenadines <br> Claimant = " + Saint_Vincent_and_the_Grenadines_Claimant;
-var Samoa_info = "Samoa <br> Claimant = " + Samoa_Claimant;
-var San_Marino_info = "San Marino <br> Claimant = " + San_Marino_Claimant;
-var Sao_Tome_and_Principe_info = "Sao Tome and Principe <br> Claimant = " + Sao_Tome_and_Principe_Claimant;
-var Saudi_Arabia_info = "Saudi Arabia <br> Claimant = " + Saudi_Arabia_Claimant;
-var Senegal_info = "Senegal <br> Claimant = " + Senegal_Claimant;
-var Serbia_info = "Serbia <br> Claimant = " + Serbia_Claimant;
-var Seychelles_info = "Seychelles <br> Claimant = " + Seychelles_Claimant;
-var Sierra_Leone_info = "Sierra Leone <br> Claimant = " + Sierra_Leone_Claimant;
-var Singapore_info = "Singapore <br> Claimant = " + Singapore_Claimant;
-var Sint_Maarten_info = "Sint Maarten <br> Claimant = " + Sint_Maarten_Claimant;
-var Slovakia_info = "Slovakia <br> Claimant = " + Slovakia_Claimant;
-var Slovenia_info = "Slovenia <br> Claimant = " + Slovenia_Claimant;
-var Solomon_Islands_info = "Solomon Islands <br> Claimant = " + Solomon_Islands_Claimant;
-var Somalia_info = "Somalia <br> Claimant = " + Somalia_Claimant;
-var Somaliland_info = "Somaliland <br> Claimant = " + Somaliland_Claimant;
-var South_Africa_info = "South Africa <br> Claimant = " + South_Africa_Claimant;
-var South_Korea_info = "South Korea <br> Claimant = " + South_Korea_Claimant;
-var South_Sudan_info = "South Sudan <br> Claimant = " + South_Sudan_Claimant;
-var Spain_info = "Spain <br> Claimant = " + Spain_Claimant;
-var Sri_Lanka_info = "Sri Lanka <br> Claimant = " + Sri_Lanka_Claimant;
-var Sudan_info = "Sudan <br> Claimant = " + Sudan_Claimant;
-var Suriname_info = "Suriname <br> Claimant = " + Suriname_Claimant;
-var Swaziland_info = "Swaziland <br> Claimant = " + Swaziland_Claimant;
-var Sweden_info = "Sweden <br> Claimant = " + Sweden_Claimant;
-var Switzerland_info = "Switzerland <br> Claimant = " + Switzerland_Claimant;
-var Syria_info = "Syria <br> Claimant = " + Syria_Claimant;
-var Taiwan_info = "Taiwan <br> Claimant = " + Taiwan_Claimant;
-var Tajikistan_info = "Tajikistan <br> Claimant = " + Tajikistan_Claimant;
-var Tanzania_info = "Tanzania <br> Claimant = " + Tanzania_Claimant;
-var Thailand_info = "Thailand <br> Claimant = " + Thailand_Claimant;
-var Timor_Leste_info = "Timor Leste <br> Claimant = " + Timor_Leste_Claimant;
-var Togo_info = "Togo <br> Claimant = " + Togo_Claimant;
-var Tonga_info = "Tonga <br> Claimant = " + Tonga_Claimant;
-var Trinidad_and_Tobago_info = "Trinidad and Tobago <br> Claimant = " + Trinidad_and_Tobago_Claimant;
-var Tunisia_info = "Tunisia <br> Claimant = " + Tunisia_Claimant;
-var Turkey_info = "Turkey <br> Claimant = " + Turkey_Claimant;
-var Turkmenistan_info = "Turkmenistan <br> Claimant = " + Turkmenistan_Claimant;
-var Tuvalu_info = "Tuvalu <br> Claimant = " + Tuvalu_Claimant;
-var Uganda_info = "Uganda <br> Claimant = " + Uganda_Claimant;
-var Ukraine_info = "Ukraine <br> Claimant = " + Ukraine_Claimant;
-var United_Arab_Emirates_info = "United Arab Emirates <br> Claimant = " + United_Arab_Emirates_Claimant;
-var United_Kingdom_info = "United Kingdom <br> Claimant = " + United_Kingdom_Claimant;
-var Uruguay_info = "Uruguay <br> Claimant = " + Uruguay_Claimant;
-var Uzbekistan_info = "Uzbekistan <br> Claimant = " + Uzbekistan_Claimant;
-var Vanuatu_info = "Vanuatu <br> Claimant = " + Vanuatu_Claimant;
-var Venezuela_info = "Venezuela <br> Claimant = " + Venezuela_Claimant;
-var Vietnam_info = "Vietnam <br> Claimant = " + Vietnam_Claimant;
-var West_Sahara_info = "West Sahara <br> Claimant = " + West_Sahara_Claimant;
-var Yemen_info = "Yemen <br> Claimant = " + Yemen_Claimant;
-var Zambia_info = "Zambia <br> Claimant = " + Zambia_Claimant;
-var Zimbabwe_info = "Zimbabwe <br> Claimant = " + Zimbabwe_Claimant;
-
-
-///Annexation Status
-var Afghanistan_Annexed_Owner = "N/A";
-var Albania_Annexed_Owner = "N/A";
-var Algeria_Annexed_Owner = "N/A";
-var Andorra_Annexed_Owner = "N/A";
-var Angola_Annexed_Owner = "N/A";
-var Antigua_and_Barbuda_Annexed_Owner = "N/A";
-var Argentina_Annexed_Owner = "N/A";
-var Armenia_Annexed_Owner = "N/A";
-var Aruba_Annexed_Owner = "N/A";
-var Australia_Annexed_Owner = "N/A";
-var Austria_Annexed_Owner = "N/A";
-var Azerbaijan_Annexed_Owner = "N/A";
-var Bahamas_Annexed_Owner = "N/A";
-var Bahrain_Annexed_Owner = "N/A";
-var Bangladesh_Annexed_Owner = "N/A";
-var Barbados_Annexed_Owner = "N/A";
-var Belarus_Annexed_Owner = "N/A";
-var Belgium_Annexed_Owner = "N/A";
-var Belize_Annexed_Owner = "N/A";
-var Benin_Annexed_Owner = "N/A";
-var Bhutan_Annexed_Owner = "N/A";
-var Bolivia_Annexed_Owner = "N/A";
-var Bosnia_and_Herzegovina_Annexed_Owner = "N/A";
-var Botswana_Annexed_Owner = "N/A";
-var Brazil_Annexed_Owner = "N/A";
-var Brunei_Annexed_Owner = "N/A";
-var Bulgaria_Annexed_Owner = "N/A";
-var Burkina_Faso_Annexed_Owner = "N/A";
-var Burma_Annexed_Owner = "N/A";
-var Burundi_Annexed_Owner = "N/A";
-var Cambodia_Annexed_Owner = "N/A";
-var Cameroon_Annexed_Owner = "N/A";
-var Canada_Annexed_Owner = "N/A";
-var Cabo_Verde_Annexed_Owner = "N/A";
-var Central_African_Republic_Annexed_Owner = "N/A";
-var Chad_Annexed_Owner = "N/A";
-var Chile_Annexed_Owner = "N/A";
-var China_Annexed_Owner = "N/A";
-var Colombia_Annexed_Owner = "N/A";
-var Comoros_Annexed_Owner = "N/A";
-var Democratic_Republic_Of_Congo_Annexed_Owner = "N/A";
-var Congo_Annexed_Owner = "N/A";
-var Corsica_Annexed_Owner = "France";
-var Costa_Rica_Annexed_Owner = "N/A";
-var Croatia_Annexed_Owner = "N/A";
-var Cuba_Annexed_Owner = "N/A";
-var Curacao_Annexed_Owner = "N/A";
-var Cyprus_Annexed_Owner = "N/A";
-var Czechia_Annexed_Owner = "N/A";
-var Denmark_Annexed_Owner = "N/A";
-var Djibouti_Annexed_Owner = "N/A";
-var Dominica_Annexed_Owner = "N/A";
-var Dominican_Republic_Annexed_Owner = "N/A";
-var East_Timor_Annexed_Owner = "N/A";
-var Ecuador_Annexed_Owner = "N/A";
-var Egypt_Annexed_Owner = "N/A";
-var El_Salvador_Annexed_Owner = "N/A";
-var Equatorial_Guinea_Annexed_Owner = "N/A";
-var Eritrea_Annexed_Owner = "N/A";
-var Estonia_Annexed_Owner = "N/A";
-var Ethiopia_Annexed_Owner = "N/A";
-var Falklands_Annexed_Owner = "United Kingdom";
-var Fiji_Annexed_Owner = "N/A";
-var Finland_Annexed_Owner = "N/A";
-var France_Annexed_Owner = "N/A";
-var Gabon_Annexed_Owner = "N/A";
-var Gambia_Annexed_Owner = "N/A";
-var Georgia_Annexed_Owner = "N/A";
-var Germany_Annexed_Owner = "N/A";
-var Ghana_Annexed_Owner = "N/A";
-var Greece_Annexed_Owner = "N/A";
-var Grenada_Annexed_Owner = "N/A";
-var Guatemala_Annexed_Owner = "N/A";
-var Guinea_Annexed_Owner = "N/A";
-var Guinea_Bissau_Annexed_Owner = "N/A";
-var Guyana_Annexed_Owner = "N/A";
-var Haiti_Annexed_Owner = "N/A";
-var Halaib_Triangle_Annexed_Owner = "Egypt";
-var Holy_See_Annexed_Owner = "N/A";
-var Honduras_Annexed_Owner = "N/A";
-var Hong_Kong_Annexed_Owner = "N/A";
-var Hungary_Annexed_Owner = "N/A";
-var Iceland_Annexed_Owner = "Denmark";
-var India_Annexed_Owner = "N/A";
-var Indonesia_Annexed_Owner = "N/A";
-var Iran_Annexed_Owner = "N/A";
-var Iraq_Annexed_Owner = "N/A";
-var Ireland_Annexed_Owner = "N/A";
-var Israel_Annexed_Owner = "N/A";
-var Italy_Annexed_Owner = "N/A";
-var Ivory_Coast_Annexed_Owner = "N/A";
-var Jamaica_Annexed_Owner = "N/A";
-var Japan_Annexed_Owner = "N/A";
-var Jordan_Annexed_Owner = "N/A";
-var Kazakhstan_Annexed_Owner = "N/A";
-var Kenya_Annexed_Owner = "N/A";
-var Kiribati_Annexed_Owner = "N/A";
-var Kosovo_Annexed_Owner = "Albania";
-var Kuwait_Annexed_Owner = "N/A";
-var Kyrgyzstan_Annexed_Owner = "N/A";
-var Laos_Annexed_Owner = "N/A";
-var Latvia_Annexed_Owner = "N/A";
-var Lebanon_Annexed_Owner = "N/A";
-var Lesotho_Annexed_Owner = "N/A";
-var Liberia_Annexed_Owner = "N/A";
-var Libya_Annexed_Owner = "N/A";
-var Liechtenstein_Annexed_Owner = "N/A";
-var Lithuania_Annexed_Owner = "N/A";
-var Luxembourg_Annexed_Owner = "N/A";
-var Macau_Annexed_Owner = "N/A";
-var Macedonia_Annexed_Owner = "Albania";
-var Madagascar_Annexed_Owner = "N/A";
-var Malawi_Annexed_Owner = "N/A";
-var Malaysia_Annexed_Owner = "N/A";
-var Maldives_Annexed_Owner = "N/A";
-var Mali_Annexed_Owner = "N/A";
-var Malta_Annexed_Owner = "N/A";
-var Marshall_Islands_Annexed_Owner = "N/A";
-var Mauritania_Annexed_Owner = "N/A";
-var Mauritius_Annexed_Owner = "N/A";
-var Mexico_Annexed_Owner = "N/A";
-var Micronesia_Annexed_Owner = "N/A";
-var Moldova_Annexed_Owner = "N/A";
-var Monaco_Annexed_Owner = "N/A";
-var Mongolia_Annexed_Owner = "N/A";
-var Montenegro_Annexed_Owner = "N/A";
-var Morocco_Annexed_Owner = "N/A";
-var Mozambique_Annexed_Owner = "N/A";
-var Namibia_Annexed_Owner = "N/A";
-var Nauru_Annexed_Owner = "N/A";
-var Nepal_Annexed_Owner = "N/A";
-var Netherlands_Annexed_Owner = "N/A";
-var New_Zealand_Annexed_Owner = "N/A";
-var Nicaragua_Annexed_Owner = "N/A";
-var Niger_Annexed_Owner = "N/A";
-var Nigeria_Annexed_Owner = "N/A";
-var North_Korea_Annexed_Owner = "N/A";
-var Norway_Annexed_Owner = "N/A";
-var Oman_Annexed_Owner = "N/A";
-var Pakistan_Annexed_Owner = "N/A";
-var Palau_Annexed_Owner = "N/A";
-var Palestine_Annexed_Owner = "N/A";
-var Panama_Annexed_Owner = "N/A";
-var Papua_New_Guinea_Annexed_Owner = "N/A";
-var Paraguay_Annexed_Owner = "N/A";
-var Peru_Annexed_Owner = "N/A";
-var Philippines_Annexed_Owner = "N/A";
-var Poland_Annexed_Owner = "N/A";
-var Portugal_Annexed_Owner = "N/A";
-var Qatar_Annexed_Owner = "N/A";
-var Quebec_Annexed_Owner = "Canada";
-var Romania_Annexed_Owner = "N/A";
-var Russia_Annexed_Owner = "N/A";
-var Rwanda_Annexed_Owner = "N/A";
-var Sinai_Annexed_Owner = "Egypt";
-var Saint_Kitts_and_Nevis_Annexed_Owner = "N/A";
-var Saint_Lucia_Annexed_Owner = "N/A";
-var Saint_Vincent_and_the_Grenadines_Annexed_Owner = "N/A";
-var Samoa_Annexed_Owner = "N/A";
-var San_Marino_Annexed_Owner = "N/A";
-var Sao_Tome_and_Principe_Annexed_Owner = "N/A";
-var Saudi_Arabia_Annexed_Owner = "N/A";
-var Senegal_Annexed_Owner = "N/A";
-var Serbia_Annexed_Owner = "N/A";
-var Seychelles_Annexed_Owner = "N/A";
-var Sierra_Leone_Annexed_Owner = "N/A";
-var Singapore_Annexed_Owner = "N/A";
-var Sint_Maarten_Annexed_Owner = "N/A";
-var Slovakia_Annexed_Owner = "N/A";
-var Slovenia_Annexed_Owner = "N/A";
-var Solomon_Islands_Annexed_Owner = "N/A";
-var Somalia_Annexed_Owner = "N/A";
-var Somaliland_Annexed_Owner = "Somalia";
-var South_Africa_Annexed_Owner = "N/A";
-var South_Korea_Annexed_Owner = "N/A";
-var South_Sudan_Annexed_Owner = "N/A";
-var Spain_Annexed_Owner = "N/A";
-var Sri_Lanka_Annexed_Owner = "N/A";
-var Sudan_Annexed_Owner = "N/A";
-var Suriname_Annexed_Owner = "N/A";
-var Swaziland_Annexed_Owner = "N/A";
-var Sweden_Annexed_Owner = "N/A";
-var Switzerland_Annexed_Owner = "N/A";
-var Syria_Annexed_Owner = "N/A";
-var Taiwan_Annexed_Owner = "N/A";
-var Tajikistan_Annexed_Owner = "N/A";
-var Tanzania_Annexed_Owner = "N/A";
-var Thailand_Annexed_Owner = "N/A";
-var Timor_Leste_Annexed_Owner = "N/A";
-var Togo_Annexed_Owner = "N/A";
-var Tonga_Annexed_Owner = "N/A";
-var Trinidad_and_Tobago_Annexed_Owner = "N/A";
-var Tunisia_Annexed_Owner = "N/A";
-var Turkey_Annexed_Owner = "N/A";
-var Turkmenistan_Annexed_Owner = "N/A";
-var Tuvalu_Annexed_Owner = "N/A";
-var Uganda_Annexed_Owner = "N/A";
-var Ukraine_Annexed_Owner = "N/A";
-var United_Arab_Emirates_Annexed_Owner = "N/A";
-var United_Kingdom_Annexed_Owner = "N/A";
-var Uruguay_Annexed_Owner = "N/A";
-var Uzbekistan_Annexed_Owner = "N/A";
-var Vanuatu_Annexed_Owner = "N/A";
-var Venezuela_Annexed_Owner = "N/A";
-var Vietnam_Annexed_Owner = "N/A";
-var West_Sahara_Annexed_Owner = "N/A"
-var Yemen_Annexed_Owner = "N/A";
-var Zambia_Annexed_Owner = "N/A";
-var Zimbabwe_Annexed_Owner = "N/A";
-
+//The section above is the part in question
 
 
 //Countries
@@ -812,7 +812,7 @@ var Afghanistan = L.polygon([[63.22803, 175.08301], [63.09375, 175.08057], [63.0
 	[63.36816, 176.40918], [63.23535, 176.40527], [63.05273, 176.36133], [63, 176.23242],
 	[62.91016, 176.09082], [62.86572, 176.08838], [62.8667, 175.77002], [62.90918, 175.7666],
 	[63.04492, 175.63037], [63.05078, 175.26758], [63.09229, 175.26514], [63.22998, 175.12451]
-	 ], {color: 'white'}).addTo(Asia).bindPopup(Afghanistan_info + "<br> Annexed by: " + Afghanistan_Annexed_Owner);
+	], {color: 'white'}).addTo(Asia).bindPopup(countriesinfo[0]);
 
 var Albania = L.polygon([ [66.48389, 145.61426], [66.48682, 145.65088], [66.62061, 145.79199], [66.85107, 145.79541], 
 	[66.85205, 145.93213], [66.8999, 145.97559], [66.94189, 145.98047], [66.94141, 146.06787], 
@@ -828,7 +828,7 @@ var Albania = L.polygon([ [66.48389, 145.61426], [66.48682, 145.65088], [66.6206
 	[68.72705, 145.05908], [68.36719, 145.06641], [68.36084, 145.2417], [68.18262, 145.24414], 
 	[68.17773, 145.19922], [68.13086, 145.15137], [67.79688, 145.02734], [67.45703, 144.97656], 
 	[66.97656, 145.04688], [66.77539, 145.16406], [66.72461, 145.4375], [66.68945, 145.47363], 
-	[66.67334, 145.49854], [66.4834, 145.50293] ], {color: 'black'}).addTo(Europe).bindPopup(Albania_info + "<br> Annexed by: " + Albania_Annexed_Owner);
+	[66.67334, 145.49854], [66.4834, 145.50293] ], {color: 'black'}).addTo(Europe).bindPopup(countriesinfo[1]);
 
 var Algeria = L.polygon([[58.55664, 137.95215], [58.4209, 138.00391], [58.36816, 138.08691], [58.0918, 138.19043],
 	[57.90723, 138.27344], [57.27637, 138.27344], [57.27148, 138.2334], [57.08398, 138.23828],
@@ -882,12 +882,43 @@ var Algeria = L.polygon([[58.55664, 137.95215], [58.4209, 138.00391], [58.36816,
 	[60.61621, 137.22363], [60.52686, 137.22559], [60.4834, 137.27148], [60.47363, 137.35938], 
 	[60.43359, 137.35645], [60.38672, 137.41113], [60.34375, 137.49805], [60.29883, 137.54785], 
 	[60.29102, 137.63379], [60.20313, 137.72461], [60.02148, 137.73242], [58.69922, 138.05078], 
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Algeria_info + "<br> Annexed by: " + Algeria_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[2]);
+
+var Angola = L.polygon([ 
+	[31.56055, 140.07031], [31.55664, 140.29297], [31.65039, 140.47998], [31.64844, 143.08789], 
+	[31.45898, 143.17773], [31.14453, 143.1875], [31.00977, 143.23438], [30.91992, 143.27539], 
+	[30.86328, 143.36914], [30.59473, 143.36816], [30.59277, 143.45605], [30.50684, 143.45703], 
+	[30.45117, 143.54883], [30.36719, 143.55469], [30.23633, 143.60156], [30.18164, 143.64258], 
+	[30.18359, 143.72852], [30, 143.77832], [30.00488, 143.86621], [30.04199, 143.86816], 
+	[30.0459, 144.19238], [30.09082, 144.23438], [30.09473, 145.05957], [30.22852, 145.10059], 
+	[30.41309, 145.1084], [30.41406, 145.19531], [30.5459, 145.19629], [30.5498, 145.15234], 
+	[30.72656, 145.1582], [30.82373, 145.20117], [30.82227, 145.93262], [30.59668, 145.93262], 
+	[30.5957, 146.84766], [30.32324, 146.84863], //drc east
+	[30.31934, 146.80273], [30.04785, 146.80566], [30.04395, 146.84277], [29.8584, 146.8886], 
+	[29.44727, 146.88672], [29.44727, 146.85156], [28.85938, 146.85352], [28.80859, 146.9375], 
+	[28.71777, 146.94043], [28.70898, 147.03125], [28.5752, 147.11914], [28.3916, 147.16113], 
+	[27.70801, 147.16797], [27.70703, 147.20703], [27.75879, 147.30273], [27.84082, 147.30957], 
+	[27.8457, 147.44043], [27.80273, 147.44531], [27.80176, 147.85156], [27.88672, 147.9043], 
+	[27.88672, 148.22266], [27.8457, 148.2207], [27.8457, 148.30859], [27.9375, 148.39746], //katanga south
+	[26.74609, 148.4043], [26.65332, 148.31445], [26.38184, 148.30957], [26.37988, 146.94238], 
+	[24.04297, 146.94336], [23.99121, 147.02734], [23.81348, 147.0332], [23.0332, 147.80957], 
+	[22.98438, 147.99121], [22.94287, 147.99268], //Zambia
+	[22.94043, 147.90186], [22.89648, 147.90039], 
+	[22.85156, 147.71484], [22.75977, 147.25977], [22.71094, 146.98438], [22.66992, 146.75195], 
+	[22.66406, 146.44141], [22.66211, 145.93555], [22.75391, 145.83594], [22.75977, 145.06055], 
+	[22.80469, 145.05664], [22.80664, 144.65234], [22.85254, 144.55762], [23.0293, 144.50684], 
+	[23.12598, 144.41797], [23.12109, 141.16504], [23.21191, 141.07227], [23.21582, 140.9873], 
+	[23.30957, 140.89551], [23.39844, 140.8877], [23.40332, 140.66406], [23.44434, 140.65918], 
+	[23.44629, 140.52246], [23.39844, 140.43066], [23.31055, 140.42773], [23.30957, 140.34277], 
+	[23.2207, 140.24316], [23.21777, 139.97559], [23.2627, 139.97266], [23.2627, 139.74707], 
+	[23.2207, 139.74316], [23.2168, 139.60547], //namibia
+	[23.21875, 139.21875], [31.25, 139.125], [31.50391, 139.85547]
+	], {color: 'blue'}).addTo(map).bindPopup(countriesinfo[4]);
 
 var Australia = L.polygon([[20.25, 209.25], [7.5, 211.75], [7.125, 226.5625], [4.59375, 232.71875], 
 	[1.125, 235.40625], [1.84375, 238.5625], [15.75, 242.75], [22.75, 241.59375], 
 	[27.59375, 235.90625], [28.45313, 233.15625], [28.51563, 227.17188], [28.10938, 222.5], 
-	[24.59375, 215.6875]], {color: 'orange'}).addTo(Oceania).bindPopup(Australia_info + "<br> Annexed by: " + Australia_Annexed_Owner);
+	[24.59375, 215.6875]], {color: 'orange'}).addTo(Oceania).bindPopup(countriesinfo[9]);
 
 var Benin = L.polygon([ 
 	[40.54395, 133.23584], [41.45313, 133.23242], [41.45923, 133.19043], [42.41309, 133.19141],
@@ -909,7 +940,44 @@ var Benin = L.polygon([
 	[42.74219, 132.23242], [42.64648, 132.36133], [42.55273, 132.40527], [40.72754, 132.41113], 
 	[40.54004, 132.54199], [40.49707, 132.54785], //togo 
 	[40.28906, 132.63281], [40.30078, 133.17969],//
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Benin_info + "<br> Annexed by: " + Benin_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[19]);
+
+var Botswana = L.polygon([ 
+	[19.50391, 152.16797], [19.54883, 152.03125], [19.59961, 151.97656], [19.7793, 151.97461],
+	[19.77734, 151.84961], [19.86914, 151.79492], [19.87305, 151.71289], [19.91309, 151.70996], 
+	[19.91699, 151.30176], [19.95996, 151.24805], [20.04883, 151.24609], [20.09668, 151.15723], 
+	[20.1875, 151.1543], [20.28369, 151.02002], [20.50977, 151.02051], [20.51172, 151.06006], 
+	[20.74023, 151.06348], [20.78516, 151.01611], [20.7876, 150.74561], [21.01172, 150.74219], 
+	[21.05957, 150.69727], [21.10254, 150.60156], [21.10938, 150.47168], [21.15332, 150.38086], 
+	[21.24609, 150.3291], [21.24609, 150.24512], [21.33447, 150.18701], [21.3374, 150.10547], 
+	[21.4248, 150.10059], [21.47705, 149.96924], [21.52441, 149.9209], [21.70117, 149.82813], 
+	[21.92676, 149.82422], [22.01758, 149.77637], [22.02637, 149.69043], [22.1582, 149.68555], 
+	[22.3418, 149.46387], [22.47852, 149.45801], [22.57422, 149.32324], [22.66992, 149.27832], //zimbabwe northwest
+	[22.98242, 149.13428], [22.80469, 149.21387], [22.80176, 149.00195], [22.75586, 148.91211], 
+	[22.62305, 148.81641], [22.62402, 148.49023], [22.53027, 148.40527], [22.52539, 148.31348],
+	[22.43945, 148.3125], [22.30371, 148.17285], [22.30078, 148.08496], [22.34766, 148.04492], 
+	[22.4834, 148.03809], [22.5752, 147.90527], [22.65625, 147.89648], [22.66992, 147.67578], 
+	[22.62305, 147.67188], [22.57617, 147.43945], [22.5332, 147.25977], [22.39453, 146.48242], 
+	[22.43652, 146.20898], [22.43359, 146.25195], [19.59668, 146.25], [19.59473, 145.51953], [17.48779, 145.5188], //namibia
+	[17.35254, 145.6582], [17.34375, 145.74121], [17.24902, 145.83594], [16.98633, 145.93262], 
+	[16.93066, 146.02051], [16.70703, 146.0293], [16.61133, 146.10938], [16.3457, 146.11133], 
+	[16.25195, 146.06641], [16.20508, 145.97852], [15.88086, 145.97852], [15.88086, 146.79883], 
+	[16.01367, 146.80078], [16.02148, 147.02734], [16.19922, 147.0752], [16.24512, 147.12402], 
+	[16.25098, 147.20801], [16.33984, 147.26074], [16.34082, 147.34961], [16.43066, 147.35156], 
+	[16.52637, 147.48828], [16.70508, 147.49023], [16.75488, 147.58008], [16.98242, 147.58008], 
+	[17.07129, 147.6709], [17.06934, 147.99219], [17.02441, 148.07813], [16.89355, 148.18066], 
+	[16.88672, 148.26758], [16.80078, 148.27148], [16.79883, 148.54199], [16.70996, 148.63965], 
+	[16.66406, 148.77344], [16.66211, 149.04785], [16.74707, 149.09375], [16.75195, 149.18359], 
+	[16.71094, 149.1875], [16.70898, 149.36523], [16.75586, 149.45313], [16.84277, 149.54688], 
+	[16.94043, 149.59082], [17.30859, 149.72754], [17.48535, 149.73633], [17.52832, 149.78223], 
+	[17.5332, 149.91699], [17.58008, 149.91992], [17.57715, 150.10645], [17.62695, 150.18945], 
+	[17.71484, 150.19629], [17.84766, 150.33008], [17.85352, 150.41992], [17.99219, 150.46094], 
+	[18.21777, 150.46973], [18.31152, 150.51465], [18.53711, 150.74316], [18.54297, 150.9248], 
+	[18.62695, 150.92969], [18.67773, 150.97266], [18.72363, 151.14941], [18.77148, 151.20215], 
+	[18.85742, 151.19824], [19.00098, 151.38184], [19.13721, 151.42871], [19.13867, 151.65918], 
+	[19.22949, 151.93262], [19.36621, 151.93945], [19.40723, 151.98047], [19.45801, 152.25391], 
+	[19.50037, 152.25623] //south africa northeast
+	], {color: 'blue'}).addTo(South_Africa_Layer).bindPopup(countriesinfo[23]);
 
 var Burkina_Faso = L.polygon([
 	[46.54492, 131.35742], [46.45117, 131.49023], [46.22754, 131.49707], [46.13379, 131.53906], 
@@ -945,7 +1013,21 @@ var Burkina_Faso = L.polygon([
 	[46.5918, 129.80078], [46.5918, 130.06738], [46.7207, 130.2168], [46.78125, 130.38281],
 	[46.81836, 130.39648], [46.90332, 130.53516], [47.00195, 130.67188], [46.99902, 131.1709],
 	[46.95703, 131.1748], [46.95117, 131.30664], [46.91187, 131.35657] //Mali
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Burkina_Faso_info + "<br> Annexed by: " + Burkina_Faso_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[27]);
+
+var Burundi = L.polygon([ 
+	[32.65723, 152.48486], [32.65967, 152.5249], [32.74658, 152.57813], [32.75293, 152.66797],
+	[32.93457, 152.80664], [33.11426, 152.90137], [33.16553, 152.98584], [33.34326, 153.0376], 
+	[33.39063, 153.08057], [33.39355, 153.17334], [33.52881, 153.17236], [33.52979, 153.31006], 
+	[33.76074, 153.30615], [33.76074, 153.17871], [33.80225, 153.16943], [33.80518, 153.03711], 
+	[34.0332, 153.03516], [34.03418, 153.08008], [34.21436, 153.08447], //tanzania north
+	[34.21777, 152.90173], [34.17664, 152.89417], [34.17609, 152.71878], [34.21622, 152.7128], 
+	[34.21716, 152.67047], [33.9931, 152.66821], [33.90228, 152.57538], [33.8963, 152.26065], 
+	[33.9856, 152.25635], [33.98657, 152.17017], [34.03369, 152.16394], [34.03345, 152.03113], //Rwanda 
+	[33.9458, 152.02673], [33.80371, 152.02832], [33.71387, 152.11865], [33.70996, 152.16504], 
+	[33.62158, 152.16699], [33.62305, 152.11768], [33.48438, 152.11719], [33.32715, 152.1582], 
+	[33.07031, 152.16797], [32.66602, 152.29883] //DRC south
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[29]);
 
 var Canada = L.polygon([[99.97754, 30.38379], [95.22656, 30.38721], [95.25391, 31.75586], [94.98633, 31.67773], 
 	[94.79297, 32.03516], [94.66797, 32.03906], [94.11719, 32.73828], [94.10156, 32.80469], 
@@ -986,7 +1068,8 @@ var Canada = L.polygon([[99.97754, 30.38379], [95.22656, 30.38721], [95.25391, 3
 	[97.1875, 74.92969], [98.02344, 75.60156], [98.75, 77.77344], [98.04688, 79.75],
 	[97.58594, 80.64063], [96.91406, 82.10156], [95, 82.22656], [95.07813, 82.59961],
 	[95.41406, 82.85938], [96.40234, 84.55859], [96.25391, 84.82422], [96.52734, 85.13672],
-	[97.25195, 84.98828], [97.65625, 85.29102], [98.58594, 85.49414], [99.97754, 84.69971]], {color: 'red'}).addTo(North_America).bindPopup(Canada_info + "<br> Annexed by: " + Canada_Annexed_Owner);
+	[97.25195, 84.98828], [97.65625, 85.29102], [98.58594, 85.49414], [99.97754, 84.69971]
+	], {color: 'red'}).addTo(North_America).bindPopup(countriesinfo[32]);
 
 var Canada2 = L.polygon([[82.24854, 81.85986], [82.11621, 81.85889], [82.11621, 82.0835], [82.2041, 82.13623], //Maritime Canada
 	[82.24854, 82.2749], [82.24951, 82.49658], [82.02051, 82.72656], [81.10742, 82.73047], 
@@ -1003,7 +1086,8 @@ var Canada2 = L.polygon([[82.24854, 81.85986], [82.11621, 81.85889], [82.11621, 
 	[84.30469, 85.64648], [83.65234, 85.64453], [82.96875, 85.35547], [82.78906, 84.67578], 
 	[82.9248, 83.78809], [82.89795, 83.68604], [82.85254, 83.59082], [82.8457, 83.37402], 
 	[82.75781, 83.27344], [82.7627, 82.92285], [82.84375, 82.8623], [82.80176, 82.54492], 
-	[82.75488, 82.36035], [82.44238, 82.31934], [82.34521, 82.12891], [82.25, 81.90283]], {color: 'red'}).addTo(North_America).bindPopup(Canada_info + "<br> Annexed by: " + Canada_Annexed_Owner);
+	[82.75488, 82.36035], [82.44238, 82.31934], [82.34521, 82.12891], [82.25, 81.90283]
+	], {color: 'red'}).addTo(North_America).bindPopup(countriesinfo[32]);
 
 var Canada3 = L.polygon([[95.45313, 85], [95.42969, 85.73438], [91.70313, 88.125], [89.64063, 90.04688], //Labrador
 	[86.82813, 91.80469], [86.65479, 91.33789], [86.65332, 85.62012], [86.74609, 83.97461], 
@@ -1019,7 +1103,7 @@ var Canada3 = L.polygon([[95.45313, 85], [95.42969, 85.73438], [91.70313, 88.125
 	[90.50928, 85.66797], [90.68945, 85.61719], [90.90723, 85.56641], [91.37305, 85.42969], 
 	[91.78613, 85.60938], [91.96094, 85.61523], [92.4248, 85.6582], [92.81677, 85.30127], 
 	[93.57617, 85.30786], [93.80273, 85.23926], [94.03516, 85.07031], [94.31055, 84.93457], 
-	[94.85352, 84.92285], [94.99023, 84.89893], [95.4458, 85.00146]], {color: 'red'}).addTo(North_America).bindPopup(Canada_info + "<br> Annexed by: " + Canada_Annexed_Owner);
+	[94.85352, 84.92285], [94.99023, 84.89893], [95.4458, 85.00146]], {color: 'red'}).addTo(North_America).bindPopup(countriesinfo[32]);
 
 var Cameroon = L.polygon([
 	[40.50098, 141.79883], [40.59082, 141.84668], [40.72754, 141.85449], [40.81445, 141.89551], 
@@ -1073,7 +1157,7 @@ var Cameroon = L.polygon([
 	[38.56445, 142.12793], [38.6582, 142.12158], [38.74658, 142.03174], [39.0708, 142.02979], 
 	[39.1626, 141.93652], [39.16504, 141.854], [39.25977, 141.76367], [39.71191, 141.75293], 
 	[39.71826, 141.67358], [40.21875, 141.66357], [40.31299, 141.53857], [40.35791, 141.5346] //CAR
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Cameroon_info + "<br> Annexed by: " + Cameroon_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[31]);
 
 var Central_African_Republic = L.polygon([ 
 
@@ -1139,7 +1223,7 @@ var Central_African_Republic = L.polygon([
 	[42.28223, 148.54492], [42.28613, 148.4082], [42.32617, 148.40723], [42.33008, 148.22559],
 	[42.33105, 148.08496], [42.46484, 148.08496], [42.51563, 147.99365], [42.60449, 147.99609],
 	[42.64844, 148.04395], [42.65283, 148.12891], [42.69922, 148.1792] // south sudan, northbound
-	], {color: 'blue'}).addTo(Central_Africa).bindPopup(Central_African_Republic_info + "<br> Annexed by: " + Central_African_Republic_Annexed_Owner);
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[34]);
 
 var Chad = L.polygon([
 	[53.01025, 141.98828], [53.24023, 142.44189], [53.32617, 142.49463], [53.33057, 142.62891], [53.3252, 142.80566], 
@@ -1193,11 +1277,146 @@ var Chad = L.polygon([
 	[50.81079, 142.54395], [50.98828, 142.62891], [51.0415, 142.63013], [51.31445, 142.36035],
 	[51.5918, 142.35449], [51.67773, 142.22461], [51.76367, 142.2168], [51.86816, 142.08105],
 	[52.54492, 142.07715], [52.73535, 141.99609]//niger north
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Chad_info + "<br> Annexed by: " + Chad_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[35]);
 
-var Corsica = L.polygon([[69.46094, 138.08594], [68.8125, 138.17969], [68.625, 138.16016], [68.21875, 138.03125], 
-	[67.94629, 137.80371], [67.98633, 137.65723], [68.125, 137.42188], [68.42969, 137.30859], 
-	[68.75391, 137.2793], [68.95898, 137.30273], [69.20898, 137.58984], [69.40234, 137.88672]], {color: 'blue'}).addTo(Europe).bindPopup(Corsica_info + "<br> Annexed by: " + Corsica_Annexed_Owner);
+var Congo = L.polygon([ 
+	[37.51367, 141.71191], [37.42627, 141.76465], [37.38086, 141.85303], [37.37402, 142.35449], 
+	[37.33301, 142.35938], [37.32715, 142.49023], [37.28027, 142.58398], [37.15234, 142.68164], 
+	[37.15186, 142.76099], [37.32715, 142.75977], [37.33521, 142.72485], [37.51465, 142.72559], 
+	[37.51855, 142.8125], [37.60522, 142.81421],//cameroon
+	[37.60498, 142.81439], 
+	[37.60693, 142.86084], [37.65527, 142.90576], [37.78809, 142.90918], [37.97705, 142.99707], 
+	[37.96777, 143.04395], [38.38574, 143.04199], [38.52344, 143.18164], [38.52441, 143.58984], 
+	[38.57227, 143.59473], [38.56348, 143.68457], [38.61719, 143.68457], [38.61035, 143.82031], 
+	[38.56836, 143.82324], [38.56543, 144.00586], [38.52246, 144.00977], [38.52051, 144.37207], 
+	[38.56641, 144.37598], // CAR east
+	[38.06445, 144.4209], [37.79297, 144.37305], [37.79102, 144.28223], [37.65527, 144.28027], 
+	[37.60449, 144.19043], [37.51855, 144.1875], [37.51563, 144.14551], [36.87695, 144.14453], 
+	[36.87598, 144.09863], [36.73926, 144.0957], [36.73145, 144.05371], [36.09863, 144.05371], 
+	[36.04492, 143.95703], [35.9082, 143.91602], [35.49805, 143.91211], [35.41016, 143.86523], 
+	[35.17969, 143.63086], [35.04297, 143.36523], [34.94727, 143.22852], [34.85742, 143.22461], 
+	[34.72168, 143.17773], [34.6709, 143.09082], [34.49512, 143.04102], [34.48926, 142.95313], 
+	[34.35449, 142.81738], [34.08105, 142.81738], [34.07422, 142.86035], [33.9375, 142.85742], 
+	[33.93359, 142.81641], [33.4375, 142.81445], [33.38672, 142.76953], [33.2998, 142.76563], 
+	[33.25, 142.67676], [33.07324, 142.62988], [33.02539, 142.58301], [33.02344, 142.44824], 
+	[32.97168, 142.3584], [32.93262, 142.3125], [32.84668, 142.31055], [32.79688, 142.26172], 
+	[32.79297, 142.12891], [32.75, 142.08398], [32.65723, 142.08105], [32.61621, 142.03223], 
+	[32.60742, 141.94629], [32.51855, 141.85059], [32.42676, 141.84766], [32.38281, 141.80469], 
+	[32.38379, 141.53223], [32.79297, 141.52832], [32.6582, 141.25098], [32.65625, 141.02637], 
+	[32.47559, 141.02539], [32.47363, 140.89648], [32.3877, 140.84082], [32.38086, 140.75684], 
+	[32.47559, 140.66309], [32.56543, 140.65918], [32.56445, 140.52832], [32.6123, 140.47852], 
+	[32.69727, 140.47559], [32.70215, 140.34375], [32.56934, 140.24512], [32.56445, 140.06836], 
+	[32.42676, 140.0625], [32.42773, 139.92871], [32.33984, 139.9248], [32.28711, 139.83691], //DRC South
+	[32.1875, 139.55078], [32.97852, 139.09766], //sea 
+	[33.06982, 139.19189], [33.11621, 139.23828], [33.20508, 139.23926], [33.34277, 139.38281], 
+	[33.34082, 139.51367], [33.25586, 139.56543], [33.20215, 139.73633], [33.30176, 139.74316], 
+	[33.29785, 139.70215], [33.38867, 139.7002], [33.43555, 139.78516], [33.52832, 139.78418], 
+	[33.57422, 139.60938], [33.84766, 139.59766], [33.85059, 139.51855], [33.93848, 139.5166], 
+	[33.93945, 139.55859], [34.16895, 139.56934], [34.16895, 140.0625], [34.21191, 140.06641], 
+	[34.21484, 140.15039], [34.44141, 140.1543], [34.44434, 140.11328], [34.53711, 140.11328], 
+	[34.53418, 140.37988], [34.4873, 140.42676], [34.35254, 140.42969], [34.21777, 140.57227], 
+	[34.16699, 140.74609], [34.12305, 140.75098], [34.12695, 140.84082], [34.16895, 140.84375], 
+	[34.16699, 140.93066], [34.2627, 141.01953], [34.35059, 141.02734], [34.35156, 141.11328], 
+	[34.25879, 141.1582], [34.08008, 141.16895], [34.0791, 141.34668], [34.30664, 141.35254], 
+	[34.35449, 141.43262], [34.49121, 141.44141], [34.49023, 141.52734], [34.76172, 141.53125], 
+	[34.76758, 141.57324], [35.13086, 141.57227], [35.13574, 141.53516], [35.2666, 141.52832], 
+	[35.27148, 141.5752], [35.50195, 141.5752], [35.58789, 141.52734], [35.59277, 141.34766], 
+	[35.72754, 141.34668], [35.72754, 141.11621], [35.82129, 141.12109], [35.86523, 141.20117], 
+	[36, 141.20508], [36.00195, 141.16504], [36.1416, 141.16602], [36.14258, 141.25], 
+	[36.32129, 141.30566], [36.32324, 141.48438], [36.50488, 141.53125], [36.50684, 141.57617], 
+	[36.59082, 141.57324], [36.59961, 141.53516], [36.68652, 141.53223], [36.73633, 141.44141], 
+	[36.91406, 141.43848], [36.92285, 141.25781], [36.96387, 141.25684], [36.96191, 141.07617],
+	[36.87695, 141.02344], [36.82813, 140.93262], [36.82813, 140.7041], [37.00684, 140.70801],
+	[37.05762, 140.61328], [37.19238, 140.61816], [37.19336, 140.65918], [37.37695, 140.66113],
+	[37.42285, 140.75195] // gabon
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[41]);
+
+var Democratic_Republic_Of_Congo = L.polygon([ 
+	[31.31836, 152.38477], [31.61719, 152.41992], [31.8125, 152.44531], [32.0332, 152.38672], 
+	[32.41406, 152.26953], [32.65625, 152.29883], //Tanzania North
+	[32.66602, 152.29883], [33.07031, 152.16797], [33.32715, 152.1582], [33.48438, 152.11719], 
+	[33.62305, 152.11768], [33.62158, 152.16699], [33.70996, 152.16504], [33.71387, 152.11865], 
+	[33.80371, 152.02832], [33.9458, 152.02673], //Burundi north
+	[33.94385, 151.94165], [33.98462, 151.89404], [34.07422, 151.89233], [34.672, 152.16272], 
+	[34.72009, 152.16736], [34.81128, 152.25916], [34.81793, 152.34402], [34.8584, 152.35489], 
+	[34.90289, 152.39835], [34.90448, 152.43927], //Rwanda north
+	[35.03809, 152.43701], [35.04321, 152.39551], [35.04321, 152.39551], [35.27197, 152.43945], 
+	[35.45361, 152.43896], [35.45361, 152.48389], [35.71777, 152.48633], [35.86572, 152.53174], 
+	[36.0498, 152.53369], [36.23486, 152.66455], [36.55371, 152.66797], [36.60107, 152.71387], 
+	[36.60156, 152.85205], [36.73828, 152.85303], [36.8291, 152.94775], [36.83154, 153.0332], 
+	[36.87305, 153.03564], [37.21191, 153.43555], [37.3877, 153.63574], [37.51709, 153.63184], 
+	[37.65527, 153.49365], [37.6543, 153.27051], [37.9248, 153.26465], [37.97461, 153.35156], 
+	[38.06445, 153.35547], [38.11523, 153.26563], [38.20898, 153.26172], [38.25391, 153.30859], 
+	[38.34375, 153.35645], [38.47656, 153.35449], [38.59766, 153.35547], //Uganda northbound 
+	[38.61133, 153.21875], [38.56836, 153.21582], [38.57227, 153.12842], [38.70361, 153.12646], 
+	[38.75244, 153.08203], [38.75488, 152.94482], [38.79785, 152.94385], [38.80127, 152.85303], 
+	[38.84521, 152.80762], [38.93799, 152.80615], [38.9375, 152.71436], [38.98438, 152.66943],
+	[39.07373, 152.66895], [39.07471, 152.57959], [39.25732, 152.57568], [39.30371, 152.39941],
+	[39.34912, 152.39453], [39.35107, 152.30371], [39.2124, 152.30078], [39.12012, 152.21094],
+	[39.12061, 152.0752], [39.16602, 152.07324], [39.1665, 151.84375], [39.25781, 151.84326],
+	[39.2583, 151.79932], [39.12207, 151.70459], [39.11914, 151.61621], [39.07471, 151.61475],
+	[39.07617, 151.38672], [39.21094, 151.29297], [39.25635, 151.11182], [39.44043, 151.11035],
+	[39.5332, 151.01904], [39.5332, 150.88281], //South Sudan west
+	[39.62207, 150.87598], [39.70996, 150.69238], [39.71094, 150.51758], [39.62305, 150.41797],
+	[39.62012, 150.18945], [39.66895, 150.13867], [39.71484, 150.05273], [39.71875, 149.69336],
+	[39.80371, 149.5918], [39.80469, 149.45703], [39.80469, 149.37012], [39.57422, 149.36816], 
+	[39.57715, 149.18945], [39.53125, 149.18262], [39.5293, 148.90723], [39.62207, 148.8125], 
+	[39.61816, 148.68066], [39.57715, 148.68359], [39.5293, 148.62695], [39.43359, 148.22559], 
+	[39.34912, 148.0459], [39.30225, 147.99512], [39.30078, 147.90039], [39.34766, 147.85303], 
+	[39.35059, 147.71973], [39.43848, 147.67139], [39.43945, 147.5835], [39.35107, 147.57568], 
+	[39.30127, 147.48926], [39.21387, 147.48682], [39.16406, 147.40088], [38.98193, 147.35059], 
+	[38.93555, 147.30469], [38.93359, 147.07813], [39.02441, 146.98535], [39.02734, 146.34375], 
+	[39.11328, 146.34082], [39.16309, 146.24707], [39.16211, 146.07031], [39.11816, 146.06543], 
+	[39.11523, 145.93164], [39.16602, 145.88477], [39.29883, 145.88477], [39.4834, 145.69824],
+	[39.57617, 145.42676], [39.66846, 145.37988], [39.66846, 145.1084], [39.58008, 145.05518], 
+	[39.53442, 144.87744], [39.44263, 144.87744], [39.396, 144.78638], [39.30542, 144.78369], 
+	[39.25781, 144.69165], [39.16943, 144.69214], [39.12036, 144.64697], [39.12231, 144.51172], 
+	[39.02905, 144.51172], [39.0293, 144.55566], [38.56738, 144.55469], //CAR westbound
+	[38.56641, 144.55542], [38.2041, 144.55566], [38.19922, 144.51367], [38.11328, 144.50879], 
+	[38.06445, 144.4209], [37.79297, 144.37305], [37.79102, 144.28223], [37.65527, 144.28027], 
+	[37.60449, 144.19043], [37.51855, 144.1875], [37.51563, 144.14551], [36.87695, 144.14453], 
+	[36.87598, 144.09863], [36.73926, 144.0957], [36.73145, 144.05371], [36.09863, 144.05371], 
+	[36.04492, 143.95703], [35.9082, 143.91602], [35.49805, 143.91211], [35.41016, 143.86523], 
+	[35.17969, 143.63086], [35.04297, 143.36523], [34.94727, 143.22852], [34.85742, 143.22461], 
+	[34.72168, 143.17773], [34.6709, 143.09082], [34.49512, 143.04102], [34.48926, 142.95313], 
+	[34.35449, 142.81738], [34.08105, 142.81738], [34.07422, 142.86035], [33.9375, 142.85742], 
+	[33.93359, 142.81641], [33.4375, 142.81445], [33.38672, 142.76953], [33.2998, 142.76563], 
+	[33.25, 142.67676], [33.07324, 142.62988], [33.02539, 142.58301], [33.02344, 142.44824], 
+	[32.97168, 142.3584], [32.93262, 142.3125], [32.84668, 142.31055], [32.79688, 142.26172], 
+	[32.79297, 142.12891], [32.75, 142.08398], [32.65723, 142.08105], [32.61621, 142.03223], 
+	[32.60742, 141.94629], [32.51855, 141.85059], [32.42676, 141.84766], [32.38281, 141.80469], 
+	[32.38379, 141.53223], [32.79297, 141.52832], [32.6582, 141.25098], [32.65625, 141.02637], 
+	[32.47559, 141.02539], [32.47363, 140.89648], [32.3877, 140.84082], [32.38086, 140.75684], 
+	[32.47559, 140.66309], [32.56543, 140.65918], [32.56445, 140.52832], [32.6123, 140.47852], 
+	[32.69727, 140.47559], [32.70215, 140.34375], [32.56934, 140.24512], [32.56445, 140.06836], 
+	[32.42676, 140.0625], [32.42773, 139.92871], [32.33984, 139.9248], [32.28711, 139.83691], //congo southwest 
+	[32.18359, 139.63281], [31.59766, 139.76563], //sea
+	[31.56055, 140.07031], [31.55664, 140.29297], [31.65039, 140.47998], [31.64844, 143.08789], 
+	[31.45898, 143.17773], [31.14453, 143.1875], [31.00977, 143.23438], [30.91992, 143.27539], 
+	[30.86328, 143.36914], [30.59473, 143.36816], [30.59277, 143.45605], [30.50684, 143.45703], 
+	[30.45117, 143.54883], [30.36719, 143.55469], [30.23633, 143.60156], [30.18164, 143.64258], 
+	[30.18359, 143.72852], [30, 143.77832], [30.00488, 143.86621], [30.04199, 143.86816], 
+	[30.0459, 144.19238], [30.09082, 144.23438], [30.09473, 145.05957], [30.22852, 145.10059], 
+	[30.41309, 145.1084], [30.41406, 145.19531], [30.5459, 145.19629], [30.5498, 145.15234], 
+	[30.72656, 145.1582], [30.82373, 145.20117], [30.82227, 145.93262], [30.59668, 145.93262], 
+	[30.5957, 146.84766], [30.32324, 146.84863], //angola
+	[30.31885, 146.93848], [30.23047, 146.98535], [30.23242, 147.3501], [30.27588, 147.35498],
+	[30.27148, 147.43848], [30.18555, 147.44336], [30.13867, 147.49121], [30.1377, 147.62695], 
+	[30.18164, 147.62695], [30.18164, 147.8999], [30.13574, 147.9043], [30.13867, 148.2666], 
+	[30.22949, 148.36035], [30.50195, 148.35938], [30.50684, 148.4043], [30.72949, 148.40723], 
+	[30.78516, 148.49316], [30.7793, 148.76855], [30.87109, 148.94922], [30.96191, 149.04297], 
+	[31.05078, 149.0498], [31.0498, 149.27539], [31.00488, 149.27734], [31.00684, 149.41406], 
+	[31.0957, 149.46387], [31.14258, 149.45605], [31.14258, 149.37012], [31.19141, 149.32324], 
+	[31.3252, 149.32227], [31.32813, 149.63867], [31.375, 149.68066], [31.37109, 149.96191], 
+	[31.32617, 149.96484], [31.32813, 150.10059], [31.41797, 150.10059], [31.5127, 149.9668], 
+	[31.73633, 149.96094], [31.78711, 149.87598], [31.87988, 149.875], [31.88086, 149.91699], 
+	[32.1084, 149.9209], [32.15527, 150.00879], [32.24609, 150.0127], [32.24609, 150.2334], 
+	[32.19141, 150.2793], [32.1123, 150.28809], [32.06543, 150.33398], [32.05859, 150.4668], 
+	[32.0166, 150.50977], [31.65332, 150.5166], [31.64648, 150.69922], [31.55957, 150.74512], 
+	[31.55664, 150.88086], [31.60645, 151.01563], [31.64844, 151.10547], [31.73633, 151.1582],
+	[31.7373, 151.29102], [31.64941, 151.3457], [31.64844, 151.42871], [31.55957, 151.4834],
+	[31.55762, 151.61523], [31.60156, 151.61523], [31.60254, 152.11914] //katanga east
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[40]);
 
 var Djibouti = L.polygon([ 
 	[43.98047, 161.83984], [44.06738, 161.83594], [44.07129, 161.65234], [44.02832, 161.64941],
@@ -1210,7 +1429,7 @@ var Djibouti = L.polygon([
 	[45.32422, 162.09961], [45.08594, 162.28906], [45.00195, 162.34961], [44.50391, 162.31055], //coast
 	[44.34424, 162.15674], [44.25635, 162.15625], [44.20605, 162.06738], [44.02734, 162.01465], 
 	[43.98047, 161.97168], //somaliland south 
-	], {color: 'blue'}).addTo(East_Africa).bindPopup(Djibouti_info + "<br> Annexed by: " + Djibouti_Annexed_Owner);
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[50]);
 
 var Egypt = L.polygon([ [57.90967, 149.13721], [58.05566, 149.05273], [58.23145, 149.00586], [58.45605, 148.99902], 
 	[58.54688, 148.95313], [58.77832, 148.95508], [58.92188, 149.08789], [59.28418, 149.09082], 
@@ -1227,7 +1446,14 @@ var Egypt = L.polygon([ [57.90967, 149.13721], [58.05566, 149.05273], [58.23145,
 	[52.729, 156.15234], [52.59619, 156.15234], [52.50781, 156.104], [52.45996, 156.05469], 
 	[52.45752, 155.83545], [52.41602, 155.83105], [52.41113, 155.69434], [52.36426, 155.65039], //halaib
 	[52.27588, 155.64795], [52.27429, 149.13972] //south
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Egypt_info + "<br> Annexed by: " + Egypt_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[55]);
+
+var Equatorial_Guinea = L.polygon([ 
+	[37.60498, 138.23584], [37.60938, 138.27441], [37.52051, 138.32568], [37.5127, 139.33008], // cameroon east
+	[37.5105, 139.33081], [36.8291, 139.33301], [36.82617, 139.37598], [36.64746, 139.37793],
+	[36.64355, 138.36816], [36.59912, 138.36719], [36.59863, 138.32324], [36.69434, 138.22998], //gabon southwest
+ 	[36.73438, 137.84961], [36.92383, 137.83398], [37.3418, 138.10547], [37.5957, 138.17969]
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[57]);
 
 var Eritrea = L.polygon([ 
 	[46.50293, 157.34546], [46.95557, 157.34082], [46.95996, 157.30078], [47.09448, 157.30005],
@@ -1254,7 +1480,7 @@ var Eritrea = L.polygon([
 	[46.31934, 158.08008], [46.36426, 158.03613], [46.4541, 158.0293], [46.5, 157.94141], 
 	[46.5459, 157.93945], [46.54297, 157.7998], [46.50098, 157.75879], [46.41113, 157.75684], 
 	[46.40625, 157.66895], [46.45605, 157.66406], [46.45459, 157.39331] //ethiopia northwest 
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Eritrea_info + "<br> Annexed by: " + Eritrea_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[58]);
 
 var Ethiopia = L.polygon([
 	[45.26123, 161.37744], [45.26367, 161.24121], [45.30566, 161.19629], [45.39941, 161.19238],
@@ -1313,7 +1539,36 @@ var Ethiopia = L.polygon([
 	[44.02637, 161.47266], [43.98242, 161.46777], [43.98145, 161.15039], [44.52734, 161.15039],
 	[44.62109, 161.2832], [44.80371, 161.33496], [44.84863, 161.41895], [44.9375, 161.42578],
 	[44.98926, 161.50977] //djibouti north
-	], {color: 'blue'}).addTo(East_Africa).bindPopup(Ethiopia_info + "<br> Annexed by: " + Ethiopia_Annexed_Owner);
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[60]);
+
+var Gabon = L.polygon([ 
+	[33.06982, 139.19189], [33.11621, 139.23828], [33.20508, 139.23926], [33.34277, 139.38281], 
+	[33.34082, 139.51367], [33.25586, 139.56543], [33.20215, 139.73633], [33.30176, 139.74316], 
+	[33.29785, 139.70215], [33.38867, 139.7002], [33.43555, 139.78516], [33.52832, 139.78418], 
+	[33.57422, 139.60938], [33.84766, 139.59766], [33.85059, 139.51855], [33.93848, 139.5166], 
+	[33.93945, 139.55859], [34.16895, 139.56934], [34.16895, 140.0625], [34.21191, 140.06641], 
+	[34.21484, 140.15039], [34.44141, 140.1543], [34.44434, 140.11328], [34.53711, 140.11328], 
+	[34.53418, 140.37988], [34.4873, 140.42676], [34.35254, 140.42969], [34.21777, 140.57227], 
+	[34.16699, 140.74609], [34.12305, 140.75098], [34.12695, 140.84082], [34.16895, 140.84375], 
+	[34.16699, 140.93066], [34.2627, 141.01953], [34.35059, 141.02734], [34.35156, 141.11328], 
+	[34.25879, 141.1582], [34.08008, 141.16895], [34.0791, 141.34668], [34.30664, 141.35254], 
+	[34.35449, 141.43262], [34.49121, 141.44141], [34.49023, 141.52734], [34.76172, 141.53125], 
+	[34.76758, 141.57324], [35.13086, 141.57227], [35.13574, 141.53516], [35.2666, 141.52832], 
+	[35.27148, 141.5752], [35.50195, 141.5752], [35.58789, 141.52734], [35.59277, 141.34766], 
+	[35.72754, 141.34668], [35.72754, 141.11621], [35.82129, 141.12109], [35.86523, 141.20117], 
+	[36, 141.20508], [36.00195, 141.16504], [36.1416, 141.16602], [36.14258, 141.25], 
+	[36.32129, 141.30566], [36.32324, 141.48438], [36.50488, 141.53125], [36.50684, 141.57617], 
+	[36.59082, 141.57324], [36.59961, 141.53516], [36.68652, 141.53223], [36.73633, 141.44141], 
+	[36.91406, 141.43848], [36.92285, 141.25781], [36.96387, 141.25684], [36.96191, 141.07617],
+	[36.87695, 141.02344], [36.82813, 140.93262], [36.82813, 140.7041], [37.00684, 140.70801],
+	[37.05762, 140.61328], [37.19238, 140.61816], [37.19336, 140.65918], [37.37695, 140.66113],
+	[37.42285, 140.75195], // Congo north
+ 	[37.51172, 140.75244], [37.51367, 140.75146], [37.51758, 140.70898], [37.55273, 140.70215], 
+	[37.55957, 139.65137], [37.60059, 139.64844], [37.60498, 139.38135], //cameroon west
+	[37.5105, 139.33081], [36.8291, 139.33301], [36.82617, 139.37598], [36.64746, 139.37793],
+	[36.64355, 138.36816], [36.59912, 138.36719], [36.59863, 138.32324], [36.69434, 138.22998], //equatorial guinea southwest
+	[36.67578, 137.85352], [35.52344, 137.40234], [34.20313, 137.5], [32.90625, 138.73438] //sea
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[64]);
 
 var Gambia = L.polygon([
 	[45.53516, 119.26172], [45.58301, 119.30469], [45.58545, 119.94189], [45.71973, 119.9458], 
@@ -1326,7 +1581,7 @@ var Gambia = L.polygon([
 	[46.03662, 120.62842], [46.0415, 120.54199], [46.08447, 120.53809], [46.0874, 120.40576], 
 	[46.04297, 120.3999], [46.03809, 120.22119], [45.99268, 120.1748], [45.9043, 120.17139], 
 	[45.90283, 119.39502], [45.85156, 119.18359], [45.56445, 119.13281]
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Gambia_info + "<br> Annexed by: " + Gambia_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[65]);
 
 var Ghana = L.polygon([
 	[40.35596, 132.04639], [40.44824, 132.04297], [40.53809, 131.95166], [40.54248, 131.86133], 
@@ -1349,7 +1604,7 @@ var Ghana = L.polygon([
 	[40.03906, 129.11621], [40.03516, 129.24707], [39.66992, 129.24023], [39.66895, 129.15723], 
 	[39.58008, 129.15625], //ivory coast south 
 	[38.75, 129.57031], [39.50781, 132.05469]
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Ghana_info + "<br> Annexed by: " + Ghana_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[68]);
 
 var Guinea = L.polygon([
 	[44.98633, 123.0625], [44.89941, 123.05664], [44.89355, 123.01465], [44.80762, 123.01563], 
@@ -1391,7 +1646,7 @@ var Guinea = L.polygon([
 	[45.21289, 121.91211], [45.12695, 121.91602], [45.12207, 122.0459], [45.08008, 122.05371], 
 	[45.07324, 122.18457], [45.02637, 122.2334], [45.02734, 122.36816], [44.98828, 122.37402], 
 	[44.9873, 122.55273], [45.03125, 122.55762], [45.02979, 123.09717] //senegal  
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Guinea_info + "<br> Annexed by: " + Guinea_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[72]);
 
 var Guinea_Bissau = L.polygon([ 
 	[43.92871, 120.45215], [43.98047, 120.53418], [44.06934, 120.5459], [44.11719, 120.62793],
@@ -1401,20 +1656,13 @@ var Guinea_Bissau = L.polygon([
 	[45.20996, 120.26855], [45.125, 120.21094], [45.08301, 120.12109], [45.07715, 119.62793], 
 	[44.99121, 119.52539], [44.98047, 119.35059], //senegal
 	[44.80078, 119.21875], [43.74609, 120.28125] 
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Guinea_Bissau_info + "<br> Annexed by: " + Guinea_Bissau_Annexed_Owner);
-
-var Halaib_Triangle = L.polygon([ 	[53.14453, 156.70361], [53.10303, 156.69922], [53.00684, 156.56641], [52.9209, 156.5625], 
-	[52.91553, 156.47656], [52.87158, 156.4751], [52.87109, 156.20117], [52.73682, 156.19434], 
-	[52.729, 156.15234], [52.59619, 156.15234], [52.50781, 156.104], [52.45996, 156.05469], 
-	[52.45752, 155.83545], [52.41602, 155.83105], [52.41113, 155.69434], [52.36426, 155.65039], //egypt border
-	[52.27589, 155.64803], [52.27588, 157.61841], [52.59766, 157.74609], [53.15527, 156.79297]
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Halaib_Triangle_info + "<br> Annexed by: " + Halaib_Triangle_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[73]);
 
 var Iceland = L.polygon([[95.03125, 119.39063], [94.65625, 118.14063], [94.64063, 117.6875], [94.5625, 116.73438], 
 	[94.05469, 116.48438], [94.23438, 116.05469], [94.46875, 115.9375], [94.77344, 115.47656], [94.65625, 114.6875], 
 	[93.77344, 113.625], [93.00781, 114], [92.8125, 114.23438], [91.77344, 114.98438], [91.77344, 116.375], 
 	[91.45313, 116.80469], [91.27344, 117.78906], [91.45313, 118.5], [92.25, 120.57031], 
-	[93.19531, 121.625], [93.85938, 121.57813], [94.57813, 120.70313]]).addTo(Islands).bindPopup(Iceland_info + "<br> Annexed by: " + Iceland_Annexed_Owner);
+	[93.19531, 121.625], [93.85938, 121.57813], [94.57813, 120.70313]]).addTo(Islands).bindPopup(countriesinfo[79]);
 
 var Ireland = L.polygon([[76.96484, 124.26172], [77.375, 125.73438], [77.75391, 126.74219], [78.52344, 127.02344], 
 	[79.5874, 126.82031], [79.63635, 126.77246], [79.5979, 126.63354], [79.54651, 126.59033], 
@@ -1423,7 +1671,7 @@ var Ireland = L.polygon([[76.96484, 124.26172], [77.375, 125.73438], [77.75391, 
 	[79.63599, 125.99683], [79.63721, 125.76953], [79.73047, 125.58496], [79.78076, 125.53711], 
 	[79.87207, 125.44922], [79.95776, 125.42871], [80.00879, 125.48828], [80.09766, 125.58228], 
 	[80.72461, 126.24854], [81.01172, 126.21875], [80.91406, 125.49609], [80.24609, 124.67969], 
-	[79.95313, 123.82813], [78.67969, 123.71484], [77.63281, 123.39453]], {color: 'green'}).addTo(Europe).bindPopup(Ireland_info + "<br> Annexed by: " + Ireland_Annexed_Owner);
+	[79.95313, 123.82813], [78.67969, 123.71484], [77.63281, 123.39453]], {color: 'green'}).addTo(Europe).bindPopup(countriesinfo[84]);
 
 var Israel = L.polygon([[60.98267, 156.33704], [60.80371, 156.3335], [60.79395, 156.24902], [60.70605, 156.2002], 
 	[60.11719, 156.10547], [60.01953, 156.0166], [59.83691, 155.92578], [59.79297, 155.87598], 
@@ -1442,7 +1690,7 @@ var Israel = L.polygon([[60.98267, 156.33704], [60.80371, 156.3335], [60.79395, 
 	[60.66553, 156.74756], [60.79785, 156.74805], [60.80029, 156.70264], [60.93604, 156.7041],
 	[60.9408, 156.745], [61.11816, 156.74854], [61.12109, 156.66113], 
 	[61.0332, 156.65576], [60.98389, 156.60938] //lebanon
-	], {color: 'white'}).addTo(Middle_East).bindPopup(Israel_info + "<br> Annexed by: " + Israel_Annexed_Owner);
+	], {color: 'white'}).addTo(Middle_East).bindPopup(countriesinfo[85]);
 
 var Ivory_Coast = L.polygon([
 	[43.38086, 125.62012], [43.5625, 125.7207], [43.5625, 125.89941], [43.5166, 125.99316],
@@ -1475,7 +1723,44 @@ var Ivory_Coast = L.polygon([
 	[42.32422, 125.71777], [42.3291, 125.53906], [42.41895, 125.53613], [42.50684, 125.58398], 
 	[42.55762, 125.67188], [42.64551, 125.6709], [42.70215, 125.58496], [42.78418, 125.57617], 
 	[42.78906, 125.44238], [43.28711, 125.44238], [43.37988, 125.53467] //guinea 
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Ivory_Coast_info + "<br> Annexed by: " + Ivory_Coast_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[87]);
+
+var Kenya = L.polygon([ 
+	[38.79883, 161.19629], [38.7998, 161.14941], [38.84473, 161.14746], [38.84717, 160.91992], 
+	[38.80176, 160.91943], [38.80176, 160.68994], [38.93701, 160.59814], [38.93652, 160.50781], 
+	[39.02881, 160.46143], [39.0293, 160.32666], [38.93652, 160.14014], [38.8916, 160.00439], 
+	[38.84424, 159.9126], [38.75586, 159.8623], [38.70703, 159.77148], [38.61621, 159.72266], 
+	[38.43066, 159.49609], [38.47363, 159.36035], [38.48047, 158.99609], [38.52246, 158.99023], 
+	[38.56445, 158.85547], [38.57227, 158.43945], [38.65625, 158.44141], [38.66016, 158.35547], 
+	[38.74805, 158.30078], [38.79883, 158.125], [38.88867, 158.07422], [38.89063, 157.98828], 
+	[39.02148, 157.89258], [39.02539, 157.80859], [39.11914, 157.75488], [39.16406, 157.66309], 
+	[39.16895, 157.11523], [39.30518, 157.11768], [39.3042, 156.97705], ///ethiopia westbound
+	[39.30566, 155.83301], [38.98438, 155.55566],  //south sudan west
+	[38.93457, 155.64551], [38.75586, 155.65332], [38.66211, 155.74414], [38.66016, 155.82813], 
+	[38.61328, 155.87598], [38.29883, 155.87891], [38.20313, 155.9248], [38.19922, 155.96289], 
+	[38.06836, 155.96875], [38.02051, 156.01563], [38.01563, 156.10645], [37.83887, 156.10938], 
+	[37.78809, 156.19434], [37.60742, 156.20117], [37.46973, 156.24707], [37.46777, 156.28906], 
+	[37.14746, 156.28906], [36.96484, 156.19727], [36.91602, 156.14746], [36.83008, 156.15039], 
+	[36.82617, 156.01758], [36.73535, 155.92578], [36.55762, 155.87402], [36.50293, 155.78809], 
+	[36.41602, 155.7832], [36.41309, 155.69434], [36.28223, 155.69043], [36.27734, 155.64844], 
+	[36.18652, 155.64355], [36.05566, 155.50781], //uganda south
+	[35.18945, 155.48633], //lake
+	[35.17822, 155.60205], [35.17578, 155.64746], [35.13086, 155.73633], [35.04395, 155.79199],
+	[34.99023, 155.96582], [34.91016, 156.02246], [34.80957, 156.28516], [34.72363, 156.34668], 
+	[34.62402, 156.60449], [34.54004, 156.66211], [34.44434, 156.93066], [34.35547, 156.97949], 
+	[34.30957, 157.15527], [34.21582, 157.20898], [34.21387, 157.34277], [34.12598, 157.39551], 
+	[34.03125, 157.66211], [33.94434, 157.71777], [33.75586, 158.16699], [33.66699, 158.17383], 
+	[33.66016, 158.21289], [33.48438, 158.21191], [33.43652, 158.1709], [33.34961, 158.1709], 
+	[33.20996, 158.30859], [33.2041, 158.39355], [33.07129, 158.49316], [33.06934, 158.57813], 
+	[32.93652, 158.67773], [32.93066, 158.76074], [32.79492, 158.86133], [32.79199, 158.94336], 
+	[32.65918, 159.04199], [32.61621, 159.13281], [32.57324, 159.18262], [32.56836, 159.27246], //Tanzania south east
+	[34.71582, 160.9668], [34.80859, 160.96143], [34.90576, 160.83105], [34.99365, 160.82471], 
+	[35.08691, 160.68848], [35.17725, 160.68848], [35.22559, 160.59814], [35.58691, 160.5957], 
+	[35.59082, 160.55176], [38.01563, 160.5498], [38.06055, 160.60254], [38.06934, 160.68359], 
+	[38.1543, 160.69141], [38.15625, 160.77539], [38.20605, 160.8252], [38.29004, 160.83203], 
+	[38.34082, 160.91309], [38.42773, 160.91895], [38.52344, 161.05273], [38.61426, 161.05957], 
+	[38.66309, 161.14453], [38.79004, 161.19434] // somalia north
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[92]);
 
 var Kosovo = L.polygon([[68.4082, 145.93945], [68.45605, 145.97412], [68.58789, 145.97461], [68.68018, 145.93018], 
 	[68.77197, 145.88232], [68.77686, 145.79883], [68.81982, 145.7915], [68.82227, 145.70557], 
@@ -1489,7 +1774,7 @@ var Kosovo = L.polygon([[68.4082, 145.93945], [68.45605, 145.97412], [68.58789, 
 	[69.00928, 146.80127], [69, 146.75537], [68.9165, 146.75684], [68.82275, 146.66113],
 	[68.72852, 146.5293], [68.68506, 146.52588], [68.68604, 146.25586], [68.64063, 146.24902],
 	[68.63721, 146.16309], [68.59131, 146.15869], [68.54785, 146.11377], [68.54443, 146.06836],
-	[68.40723, 146.06982]], {color: 'blue'}).addTo(Europe).bindPopup(Kosovo_info + "<br> Annexed by: " + Kosovo_Annexed_Owner);
+	[68.40723, 146.06982]], {color: 'blue'}).addTo(Europe).bindPopup(countriesinfo[94]);
 
 var Liberia = L.polygon([ 
 	[39.07422, 125.85596], [39.66895, 125.85254],  [39.7207, 125.94141], [40.16992, 125.94238],
@@ -1508,7 +1793,7 @@ var Liberia = L.polygon([
 	[41.4126, 123.38232], [41.23291, 123.24463], [41.23145, 123.15332], [41.18213, 123.10742], 
 	[41.04834, 123.10498], [40.99707, 123.01953], //sierra leone 
 	[40.15625, 122.89063], [38.5, 125.70313]
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Liberia_info + "<br> Annexed by: " + Liberia_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[101]);
 
 var Libya = L.polygon([	[61.11328, 139.46582], [60.44043, 139.46094], [60.44043, 139.46094], [60.44043, 139.46094], 
 	[60.25049, 139.01074], [60.16309, 139.00537], [59.88428, 138.73193], [59.88574, 138.60059],
@@ -1538,13 +1823,42 @@ var Libya = L.polygon([	[61.11328, 139.46582], [60.44043, 139.46094], [60.44043,
 	[59.74683, 149.18652], [59.74951, 149.23169], //border with egypt, northbound
 	[60.44531, 149.29297], [61.19922, 147.69922], [60.9375, 145.13281], [61.28125, 140.64063], 
 	[61.2832, 139.50586]
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Libya_info + "<br> Annexed by: " + Libya_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[102]);
+
+var Namibia = L.polygon([ 
+	[22.98828, 149.00391], [23.0293, 149.00195], [22.93945, 148.125], [22.93945, 148.125], //zambia
+	[22.94043, 147.90186], [22.89648, 147.90039], 
+	[22.85156, 147.71484], [22.75977, 147.25977], [22.71094, 146.98438], [22.66992, 146.75195], 
+	[22.66406, 146.44141], [22.66211, 145.93555], [22.75391, 145.83594], [22.75977, 145.06055], 
+	[22.80469, 145.05664], [22.80664, 144.65234], [22.85254, 144.55762], [23.0293, 144.50684], 
+	[23.12598, 144.41797], [23.12109, 141.16504], [23.21191, 141.07227], [23.21582, 140.9873], 
+	[23.30957, 140.89551], [23.39844, 140.8877], [23.40332, 140.66406], [23.44434, 140.65918], 
+	[23.44629, 140.52246], [23.39844, 140.43066], [23.31055, 140.42773], [23.30957, 140.34277], 
+	[23.2207, 140.24316], [23.21777, 139.97559], [23.2627, 139.97266], [23.2627, 139.74707], 
+	[23.2207, 139.74316], [23.2168, 139.60547], //Angola west
+	[23.07031, 139.30469], [22.42188, 139.35938], [18.84375, 140.92188], [16.1875, 141.40625], 
+	[14.5, 142.20313], [14.44141, 142.73047], //sea south
+	[14.46582, 142.99512], [14.55273, 143.04785], [14.55273, 143.17969], [14.60449, 143.22559],
+	[14.7373, 143.22559], [14.91797, 143.31738], [14.92383, 143.45703], [14.87402, 143.45898], 
+	[14.78125, 143.50098], [14.77539, 143.58789], [14.73047, 143.63379], [14.41602, 143.64258], 
+	[14.36914, 144.00293], [14.23535, 144.19043], [14.23145, 144.28223], [14.27637, 144.2832], 
+	[14.27832, 144.78027], [14.19043, 144.83301], [14.18945, 144.9209], [14.23145, 144.9668], 
+	[14.37012, 144.97168], [14.41699, 145.14941], [14.50586, 145.15234], [14.55469, 145.19922], 
+	[14.55469, 145.375], [14.60059, 145.38086], [14.64551, 145.5166], [17.49023, 145.51758], //south africa northeast
+	[19.59473, 145.51953], [19.59668, 146.25], [22.43359, 146.25195], [22.43652, 146.20898], 
+	[22.39453, 146.48242], [22.5332, 147.25977], 
+	[22.57617, 147.43945], [22.62305, 147.67188], [22.66992, 147.67578], [22.65625, 147.89648], 
+	[22.5752, 147.90527], [22.4834, 148.03809], [22.34766, 148.04492], [22.30078, 148.08496], 
+	[22.30371, 148.17285], [22.43945, 148.3125], [22.52539, 148.31348], [22.53027, 148.40527], 
+	[22.62402, 148.49023], [22.62305, 148.81641], [22.75586, 148.91211], [22.80176, 149.00195], 
+	[22.80469, 149.21387], [22.98242, 149.13428]
+	], {color: 'blue'}).addTo(South_Africa_Layer).bindPopup(countriesinfo[125]);
 	
 var New_Zealand = L.polygon([[11.96875, 254.79688], [10.95313, 254.26563], [8.48438, 255.71875], [7.01563, 254.6875], 
 	[5.03125, 253.45313], [3.39063, 251.53125], [2.14063, 250.17188], [1.10938, 250.35938], 
 	[1.03125, 252.19922], [1.08594, 253.17969], [3.15625, 255.26563], [4.53125, 256.46875], 
 	[6.13281, 258.01563], [7.49219, 258.84375], [8.69531, 259.1875], [9.26563, 258.92188], 
-	[10.57813, 257.02344]], {color: 'blue'}).addTo(Oceania).bindPopup(New_Zealand_info + "<br> Annexed by: " + New_Zealand_Annexed_Owner);
+	[10.57813, 257.02344]], {color: 'blue'}).addTo(Oceania).bindPopup(countriesinfo[129]);
 
 var Niger = L.polygon([
 	[46.50391, 140.88916], [46.58887, 140.89453], [46.59277, 140.97852], [46.64063, 141.02637],
@@ -1600,7 +1914,7 @@ var Niger = L.polygon([
 	[45.66895, 139.69434], [45.58496, 139.7959], [45.53906, 139.92969], [45.54004, 140.20313],
 	[45.58545, 140.24658], [45.67529, 140.24902], [45.67798, 140.33887], [45.80859, 140.43555],
 	[45.85693, 140.52539], [45.86035, 140.70313], [45.94873, 140.70752], [45.99609, 140.7959] //nigeria east bound
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Niger_info + "<br> Annexed by: " + Niger_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[131]);
 
 var Nigeria = L.polygon([ 
 	[44.57678, 133.83118], [45.16602, 133.83496], [45.21973, 134.01172], [45.30859, 134.10254],
@@ -1649,11 +1963,11 @@ var Nigeria = L.polygon([
 	[43.20313, 133.8291], [43.56934, 133.83301], [43.57178, 133.96875], [43.84326, 133.96729],
 	[43.84082, 133.92432], [44.06836, 133.92139], [44.11865, 133.83398], [44.20459, 133.83057],
 	[44.25488, 133.74463], [44.43652, 133.74316], [44.4386, 133.78479] //benin northbound
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Nigeria_info + "<br> Annexed by: " + Nigeria_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[132]);
 
 var Maldives = L.polygon([[41.1875, 182.76563], [39.1875, 182.67188], [37.84375, 182.78125], [35.6875, 182.98438], 
 	[35.64063, 183.59375], [36, 183.84375], [37.25, 183.96875], [39.46875, 184.04688], 
-	[41.07813, 183.60938]], {color: 'green'}).addTo(Islands).bindPopup(Maldives_info + "<br> Annexed by: " + Maldives_Annexed_Owner);
+	[41.07813, 183.60938]], {color: 'green'}).addTo(Islands).bindPopup(countriesinfo[111]);
 
 var Macedonia = L.polygon([ [68.73193, 146.61914], [68.73047, 146.8457], [68.77441, 146.84961],
 	[68.77686, 147.25879], [68.72852, 147.30566], [68.63721, 147.35059], [68.54102, 147.5332],
@@ -1667,7 +1981,44 @@ var Macedonia = L.polygon([ [68.73193, 146.61914], [68.73047, 146.8457], [68.774
 	[67.85791, 145.92822], [67.85889, 145.88477], [68.30957, 145.88623], [68.31787, 145.93066],
 	[68.4082, 145.93945], [68.40723, 146.06982], [68.54443, 146.06836], [68.54785, 146.11377],
 	[68.59131, 146.15869], [68.63721, 146.16309], [68.64063, 146.24902], [68.68604, 146.25586],
-	[68.68506, 146.52588], [68.72852, 146.5293]], {color: 'blue'}).addTo(Europe).bindPopup(Macedonia_info + "<br> Annexed by: " + Macedonia_Annexed_Owner);
+	[68.68506, 146.52588], [68.72852, 146.5293]], {color: 'blue'}).addTo(Europe).bindPopup(countriesinfo[107]);
+
+var Madagascar = L.polygon([ 
+	[27.42188, 166.45313], [26.79688, 167.25], [24.5625, 167.75], [17.26563, 165.46875], 
+	[16.375, 164.28125], [16.41406, 162.6875], [17.25781, 161.92969], [19.35938, 161.53125], 
+	[20.1875, 161.85156], [21.14844, 162.47656], [22.48438, 162.23438], [23.19531, 162.22656], 
+	[24.08594, 162.51563], [24.52344, 163.90625], [25.22656, 164.85156], [26.03125, 165.0625], 
+	[27.19531, 165.90625]
+	], {color: 'blue'}).addTo(South_Africa_Layer).bindPopup(countriesinfo[108]);
+
+var Malawi = L.polygon([ 
+	[27.13281, 155.91406], [25.96875, 156.10156], [25.96484, 156.19824], [25.9668, 156.37695], 
+	[25.875, 156.38086], [25.73242, 156.56348], [25.55566, 156.61133], [25.50781, 156.70117], 
+	[25.32617, 156.75098], [25.27539, 156.83789], [25.18555, 156.88379], [24.86914, 156.88281], 
+	[24.86426, 156.83984], [24.68164, 156.83984], [24.68262, 156.88086], [24.45801, 156.88184], 
+	[24.4541, 156.83789], [24.13672, 156.83594], [24.04395, 156.74414], [24.04004, 156.51855], 
+	[23.99414, 156.47266], [23.90039, 156.43066], [23.7666, 156.42383], [23.75977, 156.33594], 
+	[23.72363, 156.33301], [23.62598, 156.4707], [23.30957, 156.4707], [23.30859, 156.33887], 
+	[23.44189, 156.33691], [23.44531, 156.38037], [23.53711, 156.37891], [23.58398, 156.20117], 
+	[23.67285, 156.10938], [23.7627, 156.10547], [23.86035, 155.97168], [23.94922, 155.9668], 
+	[23.94824, 155.88379], [23.99219, 155.83301], [24.13184, 155.83398], [24.21875, 155.74316], 
+	[24.31348, 155.74316], [24.40918, 155.87305], [24.58887, 155.87793], [24.63477, 155.9668], 
+	[25.08984, 155.96777], [25.2334, 155.87695], [25.32324, 155.87402], [25.32324, 155.65332], 
+	[25.27832, 155.64648], [25.27734, 155.24219], [25.37207, 155.14355], [25.46094, 155.1416], 
+	[25.50879, 155.05469], [25.59766, 155.0498], [25.646, 155.00391], [25.646, 154.96265], //mozambique south then west
+	[25.69043, 154.95801], [25.68848, 154.83008], [25.78516, 154.73438], [25.87402, 154.69141],
+	[25.97168, 154.67871], [26.0127, 154.72949], [26.19727, 154.8125], [26.65039, 154.82422], 
+	[26.69727, 154.87305], [26.69922, 155.05078], [26.74414, 155.14258], [26.78906, 155.1875], 
+	[26.92969, 155.18555], [26.92871, 155.05371], [27.43066, 155.04688], [27.43262, 155.00879], 
+	[27.61133, 155.00977], [27.7041, 155.09961], [27.76074, 155.09668], [27.7998, 155.05273], 
+	[27.88965, 155.0166], [27.9834, 155.00879], [28.02344, 155.10059], [28.02539, 155.23438], 
+	[28.11719, 155.23438], [28.16016, 155.28125], [28.29688, 155.27539], [28.30371, 155.23828],
+	[28.43457, 155.23145], [28.48438, 155.18555], [28.4873, 155.10547], [28.62402, 155.09277],
+	[28.89258, 155.00488], [28.89746, 154.82617], [29.07129, 154.77148], //zambia north
+	[29.08154, 154.77783], [29.08203, 154.86523], [28.99219, 154.91992], [28.98828, 155.09375], 
+	[28.90137, 155.15039], [28.90283, 155.42334], [28.85059, 155.50928], //tanzania east
+	[28.40234, 155.79688]
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[109]);
 
 var Mali = L.polygon([ 
 	[44.06445, 127.3291], [44.11719, 127.45313], [44.20508, 127.50781], [44.43652, 127.50488],
@@ -1726,10 +2077,10 @@ var Mali = L.polygon([
 	[43.51953, 126.27246], [43.52051, 126.49609], [43.65527, 126.50195], [43.66016, 126.68262],
 	[43.78906, 126.68262], [43.79199, 126.81348], [43.38574, 126.81836], [43.38379, 126.95215],
 	[43.56738, 127.22949], [43.61035, 127.2373] //ivory coast east
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Mali_info + "<br> Annexed by: " + Mali_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[112]);
 
 var Malta = L.polygon([[63.64453, 141.22852], [63.61523, 141.42578], [63.47852, 141.69922], [63.12891, 141.70898], 
-	[63.12891, 141.55469], [63.32813, 141.33398], [63.43359, 141.20898], [63.58789, 141.2168]], {color: 'gold'}).addTo(Islands).bindPopup(Malta_info + "<br> Annexed by: " + Malta_Annexed_Owner);
+	[63.12891, 141.55469], [63.32813, 141.33398], [63.43359, 141.20898], [63.58789, 141.2168]], {color: 'gold'}).addTo(Islands).bindPopup(countriesinfo[113]);
 
 var Mauritania = L.polygon([
 	[51.73438, 118.9043], [51.72266, 119.0752], 
@@ -1755,7 +2106,7 @@ var Mauritania = L.polygon([
 	[47.78516, 121.45898], [47.83008, 121.45605], [47.83008, 121.27832], [47.91797, 121.27051], 
 	[48.19336, 120.99902], [48.19434, 120.4502], [48.10352, 120.35059], [48.1001, 119.62305],
 	[48.01172, 119.53613], [47.87793, 119.52881], [47.82715, 119.39697], //senegal east
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Mauritania_info + "<br> Annexed by: " + Mauritania_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[115]);
 
 var Morocco = L.polygon([ [56.35938, 125.03613], [57.49902, 125.03027], [57.58984, 125.12646], [57.5918, 125.20996],
 	[57.72754, 125.31055], [57.73047, 125.39404], [57.81787, 125.44873], [57.87109, 125.62158],
@@ -1776,37 +2127,63 @@ var Morocco = L.polygon([ [56.35938, 125.03613], [57.49902, 125.03027], [57.5898
 	[63.26172, 129.12891], [63.46094, 127.71875], [63.38086, 127.29102], [63.35156, 126.92969],
 	[62.10938, 125.85938], [60.85938, 123.85938], [58.8125, 123.28125], [56.91016, 121.44922], 
 	[56.62891, 121.77881], [56.63025, 125.03308] //west sahara
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Morocco_info + "<br> Annexed by: " + Morocco_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[123]);
+
+var Mozambique = L.polygon([
+	[28.25732, 160.14209], [28.16895, 160.09082], [28.16602, 160.00391], [28.0752, 159.95508], 
+	[28.07471, 159.86279], [27.9834, 159.81738], [27.93652, 159.63867], [27.88867, 159.50293], 
+	[27.80176, 159.44727], [27.7959, 159.35938], [27.75391, 159.36133], [27.75195, 158.99805], 
+	[27.66211, 158.94336], [27.61328, 158.76758], [27.6123, 158.58301], [27.65527, 158.58203], 
+	[27.65723, 158.30859], [27.52148, 158.30371], [27.3877, 158.16406], [27.37988, 158.03418], 
+	[27.33887, 158.0293], [27.33789, 157.84863], [27.4209, 157.75098], [27.42871, 157.52832], 
+	[27.37891, 157.44238], [27.39063, 157.11426], [27.46875, 157.0625], [27.47656, 156.97754], 
+	[27.56836, 156.92871], [27.56738, 156.84082], [27.52637, 156.83691], [27.52246, 156.75293], 
+	[27.47949, 156.74902], [27.47656, 156.24512], //tanzania west 
+	[27.13281, 155.91406], [25.96875, 156.10156], [25.96484, 156.19824], [25.9668, 156.37695], 
+	[25.875, 156.38086], [25.73242, 156.56348], [25.55566, 156.61133], [25.50781, 156.70117], 
+	[25.32617, 156.75098], [25.27539, 156.83789], [25.18555, 156.88379], [24.86914, 156.88281], 
+	[24.86426, 156.83984], [24.68164, 156.83984], [24.68262, 156.88086], [24.45801, 156.88184], 
+	[24.4541, 156.83789], [24.13672, 156.83594], [24.04395, 156.74414], [24.04004, 156.51855], 
+	[23.99414, 156.47266], [23.90039, 156.43066], [23.7666, 156.42383], [23.75977, 156.33594], 
+	[23.72363, 156.33301], [23.62598, 156.4707], [23.30957, 156.4707], [23.30859, 156.33887], 
+	[23.44189, 156.33691], [23.44531, 156.38037], [23.53711, 156.37891], [23.58398, 156.20117], 
+	[23.67285, 156.10938], [23.7627, 156.10547], [23.86035, 155.97168], [23.94922, 155.9668], 
+	[23.94824, 155.88379], [23.99219, 155.83301], [24.13184, 155.83398], [24.21875, 155.74316], 
+	[24.31348, 155.74316], [24.40918, 155.87305], [24.58887, 155.87793], [24.63477, 155.9668], 
+	[25.08984, 155.96777], [25.2334, 155.87695], [25.32324, 155.87402], [25.32324, 155.65332], 
+	[25.27832, 155.64648], [25.27734, 155.24219], [25.37207, 155.14355], [25.46094, 155.1416], 
+	[25.50879, 155.05469], [25.59766, 155.0498], [25.646, 155.00391], [25.646, 154.96265], //malamwi south then west
+	[25.64453, 154.96094], [25.60156, 154.9082], [25.55566, 154.81055], [25.50195, 154.55371], 
+	[25.41602, 154.44727], [25.40918, 154.22168], [25.32324, 154.12988], [25.27441, 153.85938], 
+	[25.14063, 153.6709], [25.04395, 153.13281], [24.91406, 152.85449], [24.72754, 152.85547], 
+	[24.68164, 152.93945], //Zambia west
+	[24.45313, 152.98633], [24.18164, 152.99121], [24.1748, 153.53516], [24.04199, 153.68066],
+	[23.99121, 153.94531], [23.81445, 154.0918], [23.80566, 154.40625], [23.7627, 154.54199],
+	[23.63086, 154.64258], [23.62891, 154.77539], [23.2666, 154.7744], [23.25879, 154.81836],
+	[22.81055, 154.82129], [22.79883, 154.77441], [22.61816, 154.7793], [22.61816, 154.81934],
+	[22.3916, 154.82422], [22.3877, 154.8623], [22.30664, 154.8623], [22.25781, 154.82031],
+	[22.25, 154.73047], [22.16699, 154.73145], [22.16016, 154.77539], [22.0752, 154.77344],
+	[22.06934, 154.6416], [22.02246, 154.5957], [21.8877, 154.59766], [21.88184, 154.67676],
+	[21.83984, 154.72656], [21.42969, 154.7334], [21.33301, 154.86523], [21.19922, 154.86816],
+	[21.02148, 154.77441], [20.88184, 154.72656], [20.83301, 154.63867], [20.74609, 154.63574],
+	[20.69727, 154.58887], [20.69336, 154.45508], [20.33203, 154.4541], [20.28223, 154.36914],
+	[20.19336, 154.36426], [20.18848, 154.4082], [20.10449, 154.40625], [19.77832, 154.04297],
+	[19.69043, 154.04102], [19.31934, 153.62891], [19.2666, 153.62793], //zimbabwe
+	[18.86133, 153.76563], [18.49414, 153.77148], [18.44531, 153.85742], [18.17773, 153.9082],
+	[18.07617, 154.04102], [17.85742, 154.04688], [17.67578, 154.13086], [17.66602, 154.0918],
+	[17.48438, 154.08984], [17.47656, 154.13672], [17.0293, 154.13477], [17.02539, 154.0918],
+	[16.52148, 154.0918], [16.46875, 154.17969], [15.88672, 154.17773], [15.88086, 154.72656], //south africa
+	[15.90625, 155.40625], [16.63281, 155.38281], [17.38672, 156.92969], [20.92188, 157.1875],
+	[22.60938, 159.34375], [24.4375, 160.9375], [28.29688, 160.60938]
+	], {color: 'blue'}).addTo(South_Africa_Layer).bindPopup(countriesinfo[124]);
 
 var Palestine = L.polygon([ [59.93164, 156.65625], [59.65479, 156.52051], [59.61133, 156.51807],
 	[59.6084, 156.42969], [59.56738, 156.42578], [59.56494, 156.24561], [59.61279, 156.20117], 
 	[59.69971, 156.19922], [59.83594, 156.24609], [59.88379, 156.29346], [59.88574, 156.38013],
 	[59.97314, 156.38135], [59.97705, 156.29248], [60.06982, 156.24658], [60.29443, 156.24609],
 	[60.29761, 156.29053], [60.47607, 156.29249], [60.5249, 156.33838], [60.52295, 156.56396],
-	[60.47754, 156.61035], [60.43604, 156.61328], [60.43457, 156.65771]   ], {color: 'blue'}).addTo(Middle_East).bindPopup(Palestine_info + "<br> Annexed by: " + Palestine_Annexed_Owner);
-
-var Quebec = L.polygon([[86.125, 74.35156], [82.32031, 74.35156], [81.82813, 74.50781], [81.35938, 74.94531], 
-	[81.125, 75.82813], [80.89453, 76.00391], [80.82422, 76.21484], [80.92188, 76.25], 
-	[80.61719, 76.39844], [80.53516, 76.90625], [80.45703, 76.92578], [80.4668, 77.04297], 
-	[80.67578, 77.60742], [80.64844, 77.96484], [80.29492, 78.06055], [80.11133, 77.83789], 
-	[80.09961, 80.06445], [80.36719, 80.16992], [80.37109, 80.60547], [80.64063, 80.67383], 
-	[80.87109, 80.94922], [81.19531, 80.94141], [81.38672, 81.11914], [81.68555, 81.17188], 
-	[82.32227, 81.67578], [82.33789, 81.86133], [82.25, 81.86523], [82.43945, 82.31445], 
-	[82.75, 82.31641], [82.83984, 82.55273], [82.92969, 83.76953], [83.02539, 84.10352], 
-	[82.84375, 84.53516], [83.29492, 85.28906], [83.66406, 85.35156], [84.00391, 84.61328], 
-	[85, 84.60938], [84.79688, 87.14063], [84.94727, 88.32227], [85.46484, 89.07031], 
-	[86.08594, 90.12109], [86.63281, 91.33203], [86.64648, 85.62598], [86.71094, 83.99219],
-	[86.83203, 83.69141], [87.31641, 83.50391], [87.32031, 83.23438], [87.60547, 83.23438],
-	[87.94141, 83.3125], [88.19141, 82.96094], [88.69531, 82.75], [90.09766, 83.25781],
-	[90.375, 83.86719], [90.27344, 84.07813], [89.76172, 84.07031], [89.45313, 84.23047],
-	[89.25, 84.55469], [89.34375, 84.78125], [89.64453, 85.14063], [89.65625, 85.48438],
-	[89.61914, 85.85547], [89.84375, 85.80469], [89.94922, 86.12109], [90.51953, 85.65625],
-	[91.09766, 85.45703], [91.42578, 85.39453], [91.94922, 85.60547], [92.37891, 85.65234],
-	[92.81641, 85.30078], [93.57813, 85.30469], [94.39063, 84.875], [94.97656, 84.88672],
-	[95.4375, 84.99609], [95.45313, 84.82813], [93.67969, 83.78516], [93.27734, 82.94922],
-	[94.64844, 81.61719], [96.15625, 81.67969], [96.25781, 80.28125], [98.1875, 78.26563],
-	[97.60938, 75.35156], [96.70313, 75.26563], [93.39063, 74.95313], [91.30469, 76.26563],
-	[89.40625, 74.04688], [86.95313, 74.875] ]).addTo(North_America).bindPopup(Quebec_info + "<br> Annexed by: " + Quebec_Annexed_Owner);
+	[60.47754, 156.61035], [60.43604, 156.61328], [60.43457, 156.65771]
+	], {color: 'blue'}).addTo(Middle_East).bindPopup(countriesinfo[138]);
 
 var Rwanda = L.polygon([[35.17773, 152.94824], [35.17651, 153.03345], [35.1311, 153.08154], [34.95264, 153.08716], 
 	[34.90723, 153.1311], [34.85645, 153.26123], [34.68018, 153.2666], [34.6709, 153.30957], 
@@ -1818,7 +2195,8 @@ var Rwanda = L.polygon([[35.17773, 152.94824], [35.17651, 153.03345], [35.1311, 
 	[34.67188, 152.16309], [34.72021, 152.16748], [34.81104, 152.25928], [34.81787, 152.34424], 
 	[34.8584, 152.35498], [34.90283, 152.39844], [34.90723, 152.5293], [34.94751, 152.53467], 
 	[34.94873, 152.62354], [34.86133, 152.62427], [34.86157, 152.71338], [34.9043, 152.7168], 
-	[34.90967, 152.8042], [34.94971, 152.80713], [35.03955, 152.90283]], {color: 'red'}).addTo(Central_Africa).bindPopup(Rwanda_info + "<br> Annexed by: " + Rwanda_Annexed_Owner);
+	[34.90967, 152.8042], [34.94971, 152.80713], [35.03955, 152.90283]
+	], {color: 'red'}).addTo(Central_Africa).bindPopup(countriesinfo[149]);
 
 var Senegal = L.polygon([
 	[46.54492, 122.46582], [46.4043, 122.64844], [45.86133, 122.64941], [45.80664, 122.73926], 
@@ -1848,7 +2226,7 @@ var Senegal = L.polygon([
 	[47.32422, 121.87402], [47.32227, 121.95703], [47.27637, 122.00586], [47.10156, 122.01074], 
 	[47.0918, 122.09473], [47.00879, 122.14844], [46.99805, 122.27832], [46.95898, 122.32031], 
 	[46.86621, 122.32715], [46.77832, 122.42188], [46.77148, 122.46228] //mauritania
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Senegal_info + "<br> Annexed by: " + Senegal_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[157]);
 
 var Sierra_Leone = L.polygon([ 
 	[42.14355, 123.7959], [42.06152, 123.79102], [42.01172, 123.74609], [42.00879, 123.57031], 
@@ -1863,24 +2241,12 @@ var Sierra_Leone = L.polygon([
 	[41.23291, 123.24463], [41.4126, 123.38232], [41.41602, 123.46924], [41.50586, 123.56201], 
 	[41.59473, 123.56738], [41.59766, 123.65674], [41.82324, 123.66113], [41.87012, 123.70264], 
 	[41.87402, 123.83887], [41.92041, 123.88623], //liberia
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Sierra_Leone_info + "<br> Annexed by: " + Sierra_Leone_Annexed_Owner);
-
-var Sinai = L.polygon([ 
-	[59.37305, 154.5498], [58.69238, 154.55127], [58.69019, 154.59326], [58.51001, 154.59253], 
-	[58.50769, 154.55164], [58.46436, 154.54865], //egypt 
-	[58.3457, 154.50781], [58.11328, 154.53906], [57.96484, 154.63867], [57.60938, 154.7793], 
-	[57.34375, 154.9043], [57.08789, 155.11523], [56.91406, 155.28711], [56.66016, 155.5293], //coast w egypt 
-	[56.64844, 155.76953], [56.89648, 155.91992], [57.16211, 155.93359], [57.64063, 156.0918], 
-	[58.00195, 156.16895], [58.09668, 156.19678], [58.14221, 156.19885], [58.14432, 156.15518], 
-	[58.23618, 156.15546], [58.37476, 156.11133], [58.56055, 156.0647], [58.69531, 156.01904], 
-	[58.78711, 155.97217], [58.83151, 155.92651], [58.92438, 155.9245], [59.0625, 155.88037], 
-	[59.15503, 155.8335], [59.38184, 155.74316], [59.4751, 155.69727], [59.51703, 155.6944], 
-	[59.75391, 155.625], [59.6875, 154.57031]
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Sinai_info + "<br> Annexed by: " + Sinai_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[160]);
 
 var Sri_Lanka = L.polygon([[43.07813, 188.66797], [42.71094, 189.19531], [41.91797, 189.58203], [41.22266, 189.89453], 
 	[40.69531, 189.91406], [40.26563, 189.66016], [39.96875, 188.99219], [39.97656, 188.55078], 
-	[40.55078, 188.21094], [41.91016, 188.17969], [42.35547, 188.32813], [43.00391, 188.35547]], {color: '#922B21'}).addTo(Islands).bindPopup(Sri_Lanka_info + "<br> Annexed by: " + Sri_Lanka_Annexed_Owner);
+	[40.55078, 188.21094], [41.91016, 188.17969], [42.35547, 188.32813], [43.00391, 188.35547]
+	], {color: '#922B21'}).addTo(Islands).bindPopup(countriesinfo[172]);
 
 var Somalia = L.polygon([ 
 	[38.79932, 161.23975], [38.89063, 161.24268], [38.98047, 161.33447], [39.03125, 161.83594], 
@@ -1901,7 +2267,7 @@ var Somalia = L.polygon([
 	[38.1543, 160.69141], [38.15625, 160.77539], [38.20605, 160.8252], [38.29004, 160.83203], 
 	[38.34082, 160.91309], [38.42773, 160.91895], [38.52344, 161.05273], [38.61426, 161.05957], 
 	[38.66309, 161.14453], [38.79004, 161.19434] //Kenya north
-	], {color: 'blue'}).addTo(East_Africa).bindPopup(Somalia_info + "<br> Annexed by: " + Somalia_Annexed_Owner);
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[166]);
 
 var Somaliland = L.polygon([ 
 	[41.78027, 164.82031], [41.96289, 164.27051], [42.00879, 164.1748], [42.05273, 163.99316],
@@ -1917,7 +2283,44 @@ var Somaliland = L.polygon([
 	[44.16113, 166.27832], [44.07129, 166.2793], [44.06787, 166.23682], [42.92578, 166.23682], 
 	[42.92529, 166.28076], [42.42041, 166.28076], [42.41895, 166.19141], [42.24121, 166.0498], 
 	[42.23633, 165.95996], [42.00586, 165.7334], [41.87012, 165.72852], [41.86621, 165.64258], [41.77148, 165.58594] //puntland south
-	], {color: 'blue'}).addTo(East_Africa).bindPopup(Somaliland_info + "<br> Annexed by: " + Somaliland_Annexed_Owner);
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[167]);
+
+var South_Africa = L.polygon([ 
+	[14.46582, 142.99512], [14.55273, 143.04785], [14.55273, 143.17969], [14.60449, 143.22559],
+	[14.7373, 143.22559], [14.91797, 143.31738], [14.92383, 143.45703], [14.87402, 143.45898], 
+	[14.78125, 143.50098], [14.77539, 143.58789], [14.73047, 143.63379], [14.41602, 143.64258], 
+	[14.36914, 144.00293], [14.23535, 144.19043], [14.23145, 144.28223], [14.27637, 144.2832], 
+	[14.27832, 144.78027], [14.19043, 144.83301], [14.18945, 144.9209], [14.23145, 144.9668], 
+	[14.37012, 144.97168], [14.41699, 145.14941], [14.50586, 145.15234], [14.55469, 145.19922], 
+	[14.55469, 145.375], [14.60059, 145.38086], [14.64551, 145.5166], [17.49023, 145.51758], //namibia northeast
+	[17.35254, 145.6582], [17.34375, 145.74121], [17.24902, 145.83594], [16.98633, 145.93262], 
+	[16.93066, 146.02051], [16.70703, 146.0293], [16.61133, 146.10938], [16.3457, 146.11133], 
+	[16.25195, 146.06641], [16.20508, 145.97852], [15.88086, 145.97852], [15.88086, 146.79883], 
+	[16.01367, 146.80078], [16.02148, 147.02734], [16.19922, 147.0752], [16.24512, 147.12402], 
+	[16.25098, 147.20801], [16.33984, 147.26074], [16.34082, 147.34961], [16.43066, 147.35156], 
+	[16.52637, 147.48828], [16.70508, 147.49023], [16.75488, 147.58008], [16.98242, 147.58008], 
+	[17.07129, 147.6709], [17.06934, 147.99219], [17.02441, 148.07813], [16.89355, 148.18066], 
+	[16.88672, 148.26758], [16.80078, 148.27148], [16.79883, 148.54199], [16.70996, 148.63965], 
+	[16.66406, 148.77344], [16.66211, 149.04785], [16.74707, 149.09375], [16.75195, 149.18359], 
+	[16.71094, 149.1875], [16.70898, 149.36523], [16.75586, 149.45313], [16.84277, 149.54688], 
+	[16.94043, 149.59082], [17.30859, 149.72754], [17.48535, 149.73633], [17.52832, 149.78223], 
+	[17.5332, 149.91699], [17.58008, 149.91992], [17.57715, 150.10645], [17.62695, 150.18945], 
+	[17.71484, 150.19629], [17.84766, 150.33008], [17.85352, 150.41992], [17.99219, 150.46094], 
+	[18.21777, 150.46973], [18.31152, 150.51465], [18.53711, 150.74316], [18.54297, 150.9248], 
+	[18.62695, 150.92969], [18.67773, 150.97266], [18.72363, 151.14941], [18.77148, 151.20215], 
+	[18.85742, 151.19824], [19.00098, 151.38184], [19.13721, 151.42871], [19.13867, 151.65918], 
+	[19.22949, 151.93262], [19.36621, 151.93945], [19.40723, 151.98047], [19.45801, 152.25391], 
+	[19.50037, 152.25623], //botswana northeast
+	[19.50098, 152.25879], [19.49805, 152.52246], [19.45117, 152.6543], [19.36133, 152.75977], 
+	[19.36523, 153.53564], //zimbabwe east
+	[18.86133, 153.76563], [18.49414, 153.77148], [18.44531, 153.85742], [18.17773, 153.9082],
+	[18.07617, 154.04102], [17.85742, 154.04688], [17.67578, 154.13086], [17.66602, 154.0918],
+	[17.48438, 154.08984], [17.47656, 154.13672], [17.0293, 154.13477], [17.02539, 154.0918],
+	[16.52148, 154.0918], [16.46875, 154.17969], [15.88672, 154.17773], [15.88086, 154.72656], //mozambique south
+	[15.82031, 154.92969], [14.4375, 154.57813], [13.32813, 153.82813], [12.01563, 152.90625], 
+	[10.67188, 151.59375], [9.78125, 150], [9.46875, 148.51563], [9.14063, 145.90625], 
+	[9.3125, 144.67188], [9.79688, 143.95313], [11.03125, 143.1875], [14.28125, 142.3125]
+	], {color: 'blue'}).addTo(South_Africa_Layer).bindPopup(countriesinfo[168]);
 
 var South_Sudan = L.polygon([
 	[39.66895, 150.88257], [39.71558, 150.83496], [39.71777, 150.74463], [40.0332, 150.74219],
@@ -1977,7 +2380,7 @@ var South_Sudan = L.polygon([
 	[39.2583, 151.79932], [39.12207, 151.70459], [39.11914, 151.61621], [39.07471, 151.61475],
 	[39.07617, 151.38672], [39.21094, 151.29297], [39.25635, 151.11182], [39.44043, 151.11035],
 	[39.5332, 151.01904], [39.5332, 150.88281] //DRC
-	], {color: 'blue'}).addTo(Central_Africa).bindPopup(South_Sudan_info + "<br> Annexed by: " + South_Sudan_Annexed_Owner);
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[170]);
 
 var Sudan = L.polygon([ 
 	[52.27521, 157.61859], [52.27428, 149.13965], [50.71857, 149.14008], [50.71548, 148.41046], 
@@ -2035,11 +2438,53 @@ var Sudan = L.polygon([
 	[48.5166, 158.03027], [48.56543, 158.07666], [48.74609, 158.07861], [48.74756, 158.25879],
 	[48.79297, 158.26123], [48.79443, 158.34863], [48.83643, 158.35205], [48.88281, 158.39893],
 	[48.88184, 158.58301], [48.97656, 158.71875], [49.10742, 158.71973], [49.19922, 158.85449], //northbound eritrea
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(Sudan_info + "<br> Annexed by: " + Sudan_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[173]);
 
 var Taiwan = L.polygon([[55.04688, 218.1875], [54.33594, 217.32031], [53.60938, 216.95313], [52.91406, 217], 
 	[52.41406, 217.26563], [52.10156, 217.50781], [52.10547, 217.82227], [52.63672, 217.99609], 
-	[53.21484, 218.33008], [54.13281, 218.50391], [54.81641, 218.65625]], {color: 'blue'}).addTo(Islands).bindPopup(Taiwan_info + "<br> Annexed by: " + Taiwan_Annexed_Owner);
+	[53.21484, 218.33008], [54.13281, 218.50391], [54.81641, 218.65625]
+	], {color: 'blue'}).addTo(Islands).bindPopup(countriesinfo[179]);
+
+var Tanzania = L.polygon([
+	[35.13257, 153.08179], [35.13452, 153.1272], [35.17871, 153.125], [35.17969, 153.53955], 
+	[35.22559, 153.54053], [35.22803, 153.99854], //uganda east
+	[35.17822, 155.60205], [35.17578, 155.64746], [35.13086, 155.73633], [35.04395, 155.79199],
+	[34.99023, 155.96582], [34.91016, 156.02246], [34.80957, 156.28516], [34.72363, 156.34668], 
+	[34.62402, 156.60449], [34.54004, 156.66211], [34.44434, 156.93066], [34.35547, 156.97949], 
+	[34.30957, 157.15527], [34.21582, 157.20898], [34.21387, 157.34277], [34.12598, 157.39551], 
+	[34.03125, 157.66211], [33.94434, 157.71777], [33.75586, 158.16699], [33.66699, 158.17383], 
+	[33.66016, 158.21289], [33.48438, 158.21191], [33.43652, 158.1709], [33.34961, 158.1709], 
+	[33.20996, 158.30859], [33.2041, 158.39355], [33.07129, 158.49316], [33.06934, 158.57813], 
+	[32.93652, 158.67773], [32.93066, 158.76074], [32.79492, 158.86133], [32.79199, 158.94336], 
+	[32.65918, 159.04199], [32.61621, 159.13281], [32.57324, 159.18262], [32.56836, 159.27246], //kenya southeast
+	[32.47266, 159.57031], [32.44531, 159.88672], [29.57813, 159.78906], [28.3125, 160.20508], //coast
+	[28.25732, 160.14209], [28.16895, 160.09082], [28.16602, 160.00391], [28.0752, 159.95508], 
+	[28.07471, 159.86279], [27.9834, 159.81738], [27.93652, 159.63867], [27.88867, 159.50293], 
+	[27.80176, 159.44727], [27.7959, 159.35938], [27.75391, 159.36133], [27.75195, 158.99805], 
+	[27.66211, 158.94336], [27.61328, 158.76758], [27.6123, 158.58301], [27.65527, 158.58203], 
+	[27.65723, 158.30859], [27.52148, 158.30371], [27.3877, 158.16406], [27.37988, 158.03418], 
+	[27.33887, 158.0293], [27.33789, 157.84863], [27.4209, 157.75098], [27.42871, 157.52832], 
+	[27.37891, 157.44238], [27.39063, 157.11426], [27.46875, 157.0625], [27.47656, 156.97754], 
+	[27.56836, 156.92871], [27.56738, 156.84082], [27.52637, 156.83691], [27.52246, 156.75293], 
+	[27.47949, 156.74902], [27.47656, 156.24512], //mozambique westbound
+	[27.53125, 155.95117], [27.875, 155.86914], [28.43945, 155.85156], [28.83008, 155.61133], //lake
+	[28.85059, 155.50928], [28.90283, 155.42334], [28.90137, 155.15039], [28.98828, 155.09375], 
+	[28.99219, 154.91992], [29.08203, 154.86523], [29.08154, 154.77783], //malawi westbound
+	[29.08398, 154.73193], [29.12549, 154.72998], [29.12988, 154.5957], [29.17383, 154.50977],
+	[29.26074, 154.45605], [29.26465, 154.27637], [29.31152, 154.08887], [29.39844, 154.08594], 
+	[29.40332, 153.86133], [29.44824, 153.81543], [29.58398, 153.81055], [29.62891, 153.76563], 
+	[29.63281, 153.67871], [29.67383, 153.67773], [29.67773, 153.54102], //zambia
+	[30.06445, 153.20117], [30.31836, 153.01758], [30.76563, 152.91211], [31.13086, 152.46289],
+	[31.31836, 152.38477], [31.61719, 152.41992], [31.8125, 152.44531], [32.0332, 152.38672], 
+	[32.41406, 152.26953], [32.65625, 152.29883], //lake north
+	[32.65723, 152.48486], [32.65967, 152.5249], [32.74658, 152.57813], [32.75293, 152.66797],
+	[32.93457, 152.80664], [33.11426, 152.90137], [33.16553, 152.98584], [33.34326, 153.0376], 
+	[33.39063, 153.08057], [33.39355, 153.17334], [33.52881, 153.17236], [33.52979, 153.31006], 
+	[33.76074, 153.30615], [33.76074, 153.17871], [33.80225, 153.16943], [33.80518, 153.03711], 
+	[34.0332, 153.03516], [34.03418, 153.08008], [34.21436, 153.08447], //burundi north 
+	[34.21753, 153.30884], [34.67078, 153.31018], [34.68066, 153.26697], [34.85614, 153.26135], 
+	[34.90759, 153.13135], [34.95288, 153.08752], [35.13123, 153.08191], //rwanda north
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[181]);
 
 var Togo = L.polygon([
 	[43.8457, 131.86328], [43.83887, 131.81445], [43.52344, 131.81445], [43.3877, 131.95703],
@@ -2057,7 +2502,7 @@ var Togo = L.polygon([
 	[43.70605, 131.17773], [43.83887, 131.17578], [43.84277, 131.21582], [43.97656, 131.22168], 
 	[43.98145, 131.26367], [44.06738, 131.26758], //ghana north  
 	[44.07031, 131.35449], [44.02637, 131.35889], [44.02539, 131.53857], [43.97949, 131.54102], [43.97656, 131.86133] //Burkina faso east
-	], {color: 'blue'}).addTo(West_Africa).bindPopup(Togo_info + "<br> Annexed by: " + Togo_Annexed_Owner);
+	], {color: 'blue'}).addTo(West_Africa).bindPopup(countriesinfo[184]);
 
 var Tunisia = L.polygon([[64.23535, 137.40918], [64.10059, 137.40332], [63.91797, 137.21875], [63.91455, 137.13721], 
 	[63.86768, 137.08789], [63.82471, 137.08447], [63.82324, 137.21875], [63.6875, 137.22021], 
@@ -2077,7 +2522,37 @@ var Tunisia = L.polygon([[64.23535, 137.40918], [64.10059, 137.40332], [63.91797
 	[59.88428, 138.73193], [60.16309, 139.00537], [60.25049, 139.01074], [60.25195, 139.10059], 
 	[60.44043, 139.46094], [61.11328, 139.46582], //border with Libya, northbound
 	[62.125, 139.34375], [63.29688, 139.4375], [64.3125, 139.27344], [64.78906, 138.63281], 
-	[64.50781, 137.42188]], {color: 'blue'}).addTo(North_Africa).bindPopup(Tunisia_info + "<br> Annexed by: " + Tunisia_Annexed_Owner);
+	[64.50781, 137.42188]], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[187]);
+
+var Uganda = L.polygon([
+	[38.61621, 153.35742], [38.61816, 153.44629], [38.70508, 153.49609], [38.7041, 153.62891], 
+	[38.66309, 153.63574], [38.66113, 153.72266], [38.61621, 153.72559], [38.61719, 153.9043], 
+	[38.70508, 153.95508], [38.7041, 154.03906], [38.65332, 154.08594], [38.56543, 154.0918], 
+	[38.56445, 154.27539], [38.66211, 154.36523], [38.66504, 154.68555], [38.70898, 154.68701],
+	[38.75146, 154.82324], [38.75537, 154.91455], [38.6582, 154.96191], [38.66309, 155.23438], //south sudan east
+	[38.93457, 155.64551], [38.75586, 155.65332], [38.66211, 155.74414], [38.66016, 155.82813], 
+	[38.61328, 155.87598], [38.29883, 155.87891], [38.20313, 155.9248], [38.19922, 155.96289], 
+	[38.06836, 155.96875], [38.02051, 156.01563], [38.01563, 156.10645], [37.83887, 156.10938], 
+	[37.78809, 156.19434], [37.60742, 156.20117], [37.46973, 156.24707], [37.46777, 156.28906], 
+	[37.14746, 156.28906], [36.96484, 156.19727], [36.91602, 156.14746], [36.83008, 156.15039], 
+	[36.82617, 156.01758], [36.73535, 155.92578], [36.55762, 155.87402], [36.50293, 155.78809], 
+	[36.41602, 155.7832], [36.41309, 155.69434], [36.28223, 155.69043], [36.27734, 155.64844], 
+	[36.18652, 155.64355], [36.05566, 155.50781], //kenya south 
+	[35.55469, 154.80078], [35.22461, 154.08008], //lake 
+	[35.22803, 153.99854], [35.22559, 153.54053], [35.17969, 153.53955], [35.17871, 153.125],
+	[35.13452, 153.1272], [35.13257, 153.08179], //tanzania west
+	[35.17656, 153.03348], [35.1778, 152.94815], [35.03957, 152.90279], [34.94958, 152.80682],
+	[34.90973, 152.80408], [34.90433, 152.71661], [34.86169, 152.71313], [34.86139, 152.62431], 
+	[34.94876, 152.62354], [34.94754, 152.53458], [34.90726, 152.52927], [34.90479, 152.4397], //rwanda
+	[35.03809, 152.43701], [35.04321, 152.39551], [35.04321, 152.39551], [35.27197, 152.43945], 
+	[35.45361, 152.43896], [35.45361, 152.48389], [35.71777, 152.48633], [35.86572, 152.53174], 
+	[36.0498, 152.53369], [36.23486, 152.66455], [36.55371, 152.66797], [36.60107, 152.71387], 
+	[36.60156, 152.85205], [36.73828, 152.85303], [36.8291, 152.94775], [36.83154, 153.0332], 
+	[36.87305, 153.03564], [37.21191, 153.43555], [37.3877, 153.63574], [37.51709, 153.63184], 
+	[37.65527, 153.49365], [37.6543, 153.27051], [37.9248, 153.26465], [37.97461, 153.35156], 
+	[38.06445, 153.35547], [38.11523, 153.26563], [38.20898, 153.26172], [38.25391, 153.30859], 
+	[38.34375, 153.35645], [38.47656, 153.35449], [38.59766, 153.35547] //DRC northbound 
+	], {color: 'blue'}).addTo(East_Africa).bindPopup(countriesinfo[191]);
 
 var United_Kingdom = L.polygon([[75.73828, 127.22266], [75.66016, 127.59766], [76.36328, 131.46484], [76.83984, 132.31641], 
 	[77.43359, 132.19141], [78.1582, 132.54102], [78.52148, 132.16602], [78.52148, 131.68164], [78.70898, 131.52148], 
@@ -2089,11 +2564,8 @@ var United_Kingdom = L.polygon([[75.73828, 127.22266], [75.66016, 127.59766], [7
 	[82.45703, 125.79297], [81.33203, 126.59766], [80.71484, 126.29297], [79.95703, 125.43359], [79.71484, 125.60547], 
 	[79.62891, 126.05859], [79.90527, 126.13379], [79.91309, 126.27051], [79.55176, 126.50684], [79.5459, 126.58887], 
 	[79.62988, 126.64941], [79.6377, 126.77246], [79.53613, 126.91895], [79.7627, 127.06152], [80.03516, 127.53516], 
-	[78.88672, 127.91797], [77.55078, 127.39453] ]).addTo(Europe).bindPopup(United_Kingdom_info + "<br> Annexed by: " + United_Kingdom_Annexed_Owner);
+	[78.88672, 127.91797], [77.55078, 127.39453] ]).addTo(Europe).bindPopup(countriesinfo[194]);
 
-var Falklands = L.polygon([[5.14844, 88.20313], [4.41406, 87.47656], [4.25, 87.51563], [3.96094, 87.84375], 
-	[3.84375, 88.77344], [3.9375, 89.02344], [4.50781, 90.03906], [4.75, 90], [4.92969, 89.59375]
-	]).addTo(Islands).bindPopup(Falklands_info + "<br> Annexed by: " + Falklands_Annexed_Owner);
 
 var West_Sahara = L.polygon([[56.62891, 121.77881], [56.63025, 125.03308], [56.66016, 121.33984], [55.59375, 120.34375], 
 	[53.28125, 119.14063], [51.98438, 118.85938], [51.73438, 118.9043], [51.72266, 119.0752], 
@@ -2101,4 +2573,189 @@ var West_Sahara = L.polygon([[56.62891, 121.77881], [56.63025, 125.03308], [56.6
 	[52.64355, 121.87305], [52.95801, 121.875], [53.09473, 122.00781], [53.09863, 122.09766], 
 	[53.2334, 122.19238], [53.28418, 122.45703], [53.37207, 122.56348], [53.37891, 122.64648],
 	[55.33398, 122.6543], [55.34375, 125.0332], [56.62988, 125.03293]
-	], {color: 'blue'}).addTo(North_Africa).bindPopup(West_Sahara_info + "<br> Annexed by: " + West_Sahara_Annexed_Owner);
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[200]);
+
+var Zambia = L.polygon([ 
+	[29.08398, 154.73193], [29.12549, 154.72998], [29.12988, 154.5957], [29.17383, 154.50977],
+	[29.26074, 154.45605], [29.26465, 154.27637], [29.31152, 154.08887], [29.39844, 154.08594], 
+	[29.40332, 153.86133], [29.44824, 153.81543], [29.58398, 153.81055], [29.62891, 153.76563], 
+	[29.63281, 153.67871], [29.67383, 153.67773], [29.67773, 153.54102], //tanzania west
+	[29.90723, 153.08398], [29.90039, 152.90234], [29.85352, 152.67188], [29.81055, 152.30469], 
+	[29.76758, 152.03516], [29.71875, 151.97852], [29.08398, 151.66211], [29.03516, 151.66309], 
+	[28.94727, 151.66162], [28.84961, 151.70508], [28.03516, 151.70313], [27.93164, 151.61719], 
+	[27.70703, 151.61133], [27.61133, 151.52344], [27.38867, 151.52539], [27.37891, 151.56836], 
+	[27.25195, 151.57031], [27.20508, 151.61523], [27.19922, 151.70117], [27.06445, 151.79688], 
+	[27.06055, 151.88672], [26.98047, 151.88867], [26.88477, 151.98242], [26.875, 152.1582], 
+	[26.78906, 152.34277], [26.83594, 152.3457], [26.83984, 152.30566], [26.9707, 152.30469], 
+	[27.01465, 152.35254], [27.01465, 152.52734], [26.06055, 152.52832], [26.05908, 152.43848], 
+	[26.2417, 152.43994], [26.24316, 152.34961], [26.15234, 152.30078], [26.10693, 152.2085], 
+	[26.10742, 151.93604], [26.2876, 151.93359], [26.33496, 151.84473], [26.42285, 151.83984], 
+	[26.51611, 151.75049], [26.51807, 151.61719], [26.69434, 151.61035], [26.79004, 151.56543], 
+	[26.83691, 151.47656], [26.83984, 151.29785], [26.92773, 151.24414], [26.92578, 150.97754], 
+	[27.06348, 150.91992], [27.0625, 150.88086], [27.2041, 150.87793], [27.2041, 150.79004], 
+	[27.29688, 150.70215], [27.43066, 150.69434], [27.43164, 150.5625], [27.33887, 150.51758], 
+	[27.20508, 150.50977], [27.16211, 150.46777], [27.1543, 150.19141], [27.20117, 150.19141], 
+	[27.20898, 149.78516], [27.29102, 149.73242], [27.3418, 149.46484], [27.3916, 149.37305], 
+	[27.4873, 149.32324], [27.66211, 149.32422], [27.65918, 148.95703], [27.61523, 148.82617], 
+	[27.52344, 148.82031], [27.52539, 148.73242], [27.56836, 148.68652], [27.79199, 148.67676],
+	[27.8457, 148.63086], [27.84766, 148.5498], [27.94043, 148.45508], // Katanga west
+	[26.74609, 148.4043], [26.65332, 148.31445], [26.38184, 148.30957], [26.37988, 146.94238], 
+	[24.04297, 146.94336], [23.99121, 147.02734], [23.81348, 147.0332], [23.0332, 147.80957], 
+	[22.98438, 147.99121], [22.94287, 147.99268], // Angola
+	[22.93945, 148.125], [22.93945, 148.125], [23.0293, 149.00195], [22.98828, 149.00391], //namibia 
+	[22.98535, 149.13477], [22.80566, 149.27637], [22.7959, 149.36523], [22.76172, 149.37207], 
+	[22.75293, 149.68652], [22.66895, 149.74316], [22.66699, 149.91504], [22.70801, 149.91797], 
+	[22.70703, 150.14453], [22.6709, 150.14941], [22.66504, 150.55664], [22.76074, 150.64844], 
+	[22.84668, 150.65332], [23.16992, 151.01758], [23.35254, 151.06738], [23.49121, 151.20801], 
+	[23.54004, 151.37988], [23.62891, 151.43457], [23.6748, 151.52441], [23.72363, 151.79199], 
+	[23.76855, 151.84277], [24.13086, 151.84375], [24.17285, 151.89258], [24.17969, 151.97754], 
+	[24.31445, 152.07617], [24.35742, 152.20801], [24.4082, 152.30762], [24.44434, 152.48633], 
+	[24.45313, 152.85059], [24.41016, 152.85938], [24.40723, 152.93555], [24.45117, 152.94238], //zimbabwe east
+	[24.68164, 152.93945], [24.72754, 152.85547], [24.91406, 152.85449], [25.04395, 153.13281], 
+	[25.14063, 153.6709], [25.27441, 153.85938], [25.32324, 154.12988], [25.40918, 154.22168], 
+	[25.41602, 154.44727], [25.50195, 154.55371], [25.55566, 154.81055], [25.60156, 154.9082], 
+	[25.64453, 154.96094], //mozambique
+	[25.69043, 154.95801], [25.68848, 154.83008], [25.78516, 154.73438], [25.87402, 154.69141],
+	[25.97168, 154.67871], [26.0127, 154.72949], [26.19727, 154.8125], [26.65039, 154.82422], 
+	[26.69727, 154.87305], [26.69922, 155.05078], [26.74414, 155.14258], [26.78906, 155.1875], 
+	[26.92969, 155.18555], [26.92871, 155.05371], [27.43066, 155.04688], [27.43262, 155.00879], 
+	[27.61133, 155.00977], [27.7041, 155.09961], [27.76074, 155.09668], [27.7998, 155.05273], 
+	[27.88965, 155.0166], [27.9834, 155.00879], [28.02344, 155.10059], [28.02539, 155.23438], 
+	[28.11719, 155.23438], [28.16016, 155.28125], [28.29688, 155.27539], [28.30371, 155.23828],
+	[28.43457, 155.23145], [28.48438, 155.18555], [28.4873, 155.10547], [28.62402, 155.09277],
+	[28.89258, 155.00488], [28.89746, 154.82617], [29.07129, 154.77148] //malawi
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[202]);
+
+var Zimbabwe = L.polygon([
+ 	[22.98535, 149.13477], [22.80566, 149.27637], [22.7959, 149.36523], [22.76172, 149.37207], 
+	[22.75293, 149.68652], [22.66895, 149.74316], [22.66699, 149.91504], [22.70801, 149.91797], 
+	[22.70703, 150.14453], [22.6709, 150.14941], [22.66504, 150.55664], [22.76074, 150.64844], 
+	[22.84668, 150.65332], [23.16992, 151.01758], [23.35254, 151.06738], [23.49121, 151.20801], 
+	[23.54004, 151.37988], [23.62891, 151.43457], [23.6748, 151.52441], [23.72363, 151.79199], 
+	[23.76855, 151.84277], [24.13086, 151.84375], [24.17285, 151.89258], [24.17969, 151.97754], 
+	[24.31445, 152.07617], [24.35742, 152.20801], [24.4082, 152.30762], [24.44434, 152.48633], 
+	[24.45313, 152.85059], [24.41016, 152.85938], [24.40723, 152.93555], [24.45117, 152.94238], //zambia east
+	[24.45313, 152.98633], [24.18164, 152.99121], [24.1748, 153.53516], [24.04199, 153.68066],
+	[23.99121, 153.94531], [23.81445, 154.0918], [23.80566, 154.40625], [23.7627, 154.54199],
+	[23.63086, 154.64258], [23.62891, 154.77539], [23.2666, 154.7744], [23.25879, 154.81836],
+	[22.81055, 154.82129], [22.79883, 154.77441], [22.61816, 154.7793], [22.61816, 154.81934],
+	[22.3916, 154.82422], [22.3877, 154.8623], [22.30664, 154.8623], [22.25781, 154.82031],
+	[22.25, 154.73047], [22.16699, 154.73145], [22.16016, 154.77539], [22.0752, 154.77344],
+	[22.06934, 154.6416], [22.02246, 154.5957], [21.8877, 154.59766], [21.88184, 154.67676],
+	[21.83984, 154.72656], [21.42969, 154.7334], [21.33301, 154.86523], [21.19922, 154.86816],
+	[21.02148, 154.77441], [20.88184, 154.72656], [20.83301, 154.63867], [20.74609, 154.63574],
+	[20.69727, 154.58887], [20.69336, 154.45508], [20.33203, 154.4541], [20.28223, 154.36914],
+	[20.19336, 154.36426], [20.18848, 154.4082], [20.10449, 154.40625], [19.77832, 154.04297],
+	[19.69043, 154.04102], [19.31934, 153.62891], [19.2666, 153.62793], //mozambique southwest
+	[19.36523, 153.53564], [19.36133, 152.75977], [19.45117, 152.6543], [19.49805, 152.52246], 
+	[19.50098, 152.25879], //south africa west
+	[19.50391, 152.16797], [19.54883, 152.03125], [19.59961, 151.97656], [19.7793, 151.97461],
+	[19.77734, 151.84961], [19.86914, 151.79492], [19.87305, 151.71289], [19.91309, 151.70996], 
+	[19.91699, 151.30176], [19.95996, 151.24805], [20.04883, 151.24609], [20.09668, 151.15723], 
+	[20.1875, 151.1543], [20.28369, 151.02002], [20.50977, 151.02051], [20.51172, 151.06006], 
+	[20.74023, 151.06348], [20.78516, 151.01611], [20.7876, 150.74561], [21.01172, 150.74219], 
+	[21.05957, 150.69727], [21.10254, 150.60156], [21.10938, 150.47168], [21.15332, 150.38086], 
+	[21.24609, 150.3291], [21.24609, 150.24512], [21.33447, 150.18701], [21.3374, 150.10547], 
+	[21.4248, 150.10059], [21.47705, 149.96924], [21.52441, 149.9209], [21.70117, 149.82813], 
+	[21.92676, 149.82422], [22.01758, 149.77637], [22.02637, 149.69043], [22.1582, 149.68555], 
+	[22.3418, 149.46387], [22.47852, 149.45801], [22.57422, 149.32324], [22.66992, 149.27832] //botswana northwest
+	], {color: 'blue'}).addTo(South_Africa_Layer).bindPopup(countriesinfo[203]);
+
+
+
+
+var Corsica = L.polygon([[69.46094, 138.08594], [68.8125, 138.17969], [68.625, 138.16016], [68.21875, 138.03125], 
+	[67.94629, 137.80371], [67.98633, 137.65723], [68.125, 137.42188], [68.42969, 137.30859], 
+	[68.75391, 137.2793], [68.95898, 137.30273], [69.20898, 137.58984], [69.40234, 137.88672]], {color: 'blue'}).addTo(Europe).bindPopup(countriesinfo[63]);
+
+var Falklands = L.polygon([[5.14844, 88.20313], [4.41406, 87.47656], [4.25, 87.51563], [3.96094, 87.84375], 
+	[3.84375, 88.77344], [3.9375, 89.02344], [4.50781, 90.03906], [4.75, 90], [4.92969, 89.59375]
+	]).addTo(Islands).bindPopup(countriesinfo[194]);
+
+var Halaib_Triangle = L.polygon([ 	[53.14453, 156.70361], [53.10303, 156.69922], [53.00684, 156.56641], [52.9209, 156.5625], 
+	[52.91553, 156.47656], [52.87158, 156.4751], [52.87109, 156.20117], [52.73682, 156.19434], 
+	[52.729, 156.15234], [52.59619, 156.15234], [52.50781, 156.104], [52.45996, 156.05469], 
+	[52.45752, 155.83545], [52.41602, 155.83105], [52.41113, 155.69434], [52.36426, 155.65039], //egypt border
+	[52.27589, 155.64803], [52.27588, 157.61841], [52.59766, 157.74609], [53.15527, 156.79297]
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[55]);
+
+var Katanga = L.polygon([ 
+	[30.31885, 146.93848], [30.23047, 146.98535], [30.23242, 147.3501], [30.27588, 147.35498],
+	[30.27148, 147.43848], [30.18555, 147.44336], [30.13867, 147.49121], [30.1377, 147.62695], 
+	[30.18164, 147.62695], [30.18164, 147.8999], [30.13574, 147.9043], [30.13867, 148.2666], 
+	[30.22949, 148.36035], [30.50195, 148.35938], [30.50684, 148.4043], [30.72949, 148.40723], 
+	[30.78516, 148.49316], [30.7793, 148.76855], [30.87109, 148.94922], [30.96191, 149.04297], 
+	[31.05078, 149.0498], [31.0498, 149.27539], [31.00488, 149.27734], [31.00684, 149.41406], 
+	[31.0957, 149.46387], [31.14258, 149.45605], [31.14258, 149.37012], [31.19141, 149.32324], 
+	[31.3252, 149.32227], [31.32813, 149.63867], [31.375, 149.68066], [31.37109, 149.96191], 
+	[31.32617, 149.96484], [31.32813, 150.10059], [31.41797, 150.10059], [31.5127, 149.9668], 
+	[31.73633, 149.96094], [31.78711, 149.87598], [31.87988, 149.875], [31.88086, 149.91699], 
+	[32.1084, 149.9209], [32.15527, 150.00879], [32.24609, 150.0127], [32.24609, 150.2334], 
+	[32.19141, 150.2793], [32.1123, 150.28809], [32.06543, 150.33398], [32.05859, 150.4668], 
+	[32.0166, 150.50977], [31.65332, 150.5166], [31.64648, 150.69922], [31.55957, 150.74512], 
+	[31.55664, 150.88086], [31.60645, 151.01563], [31.64844, 151.10547], [31.73633, 151.1582],
+	[31.7373, 151.29102], [31.64941, 151.3457], [31.64844, 151.42871], [31.55957, 151.4834],
+	[31.55762, 151.61523], [31.60156, 151.61523], [31.60254, 152.11914], //DRC east
+	[31.30859, 152.37109], [31.10938, 152.45313], [30.75781, 152.90234], [29.90625, 153.26563], //lake south 
+	[29.90723, 153.08398], [29.90039, 152.90234], [29.85352, 152.67188], [29.81055, 152.30469], 
+	[29.76758, 152.03516], [29.71875, 151.97852], [29.08398, 151.66211], [29.03516, 151.66309], 
+	[28.94727, 151.66162], [28.84961, 151.70508], [28.03516, 151.70313], [27.93164, 151.61719], 
+	[27.70703, 151.61133], [27.61133, 151.52344], [27.38867, 151.52539], [27.37891, 151.56836], 
+	[27.25195, 151.57031], [27.20508, 151.61523], [27.19922, 151.70117], [27.06445, 151.79688], 
+	[27.06055, 151.88672], [26.98047, 151.88867], [26.88477, 151.98242], [26.875, 152.1582], 
+	[26.78906, 152.34277], [26.83594, 152.3457], [26.83984, 152.30566], [26.9707, 152.30469], 
+	[27.01465, 152.35254], [27.01465, 152.52734], [26.06055, 152.52832], [26.05908, 152.43848], 
+	[26.2417, 152.43994], [26.24316, 152.34961], [26.15234, 152.30078], [26.10693, 152.2085], 
+	[26.10742, 151.93604], [26.2876, 151.93359], [26.33496, 151.84473], [26.42285, 151.83984], 
+	[26.51611, 151.75049], [26.51807, 151.61719], [26.69434, 151.61035], [26.79004, 151.56543], 
+	[26.83691, 151.47656], [26.83984, 151.29785], [26.92773, 151.24414], [26.92578, 150.97754], 
+	[27.06348, 150.91992], [27.0625, 150.88086], [27.2041, 150.87793], [27.2041, 150.79004], 
+	[27.29688, 150.70215], [27.43066, 150.69434], [27.43164, 150.5625], [27.33887, 150.51758], 
+	[27.20508, 150.50977], [27.16211, 150.46777], [27.1543, 150.19141], [27.20117, 150.19141], 
+	[27.20898, 149.78516], [27.29102, 149.73242], [27.3418, 149.46484], [27.3916, 149.37305], 
+	[27.4873, 149.32324], [27.66211, 149.32422], [27.65918, 148.95703], [27.61523, 148.82617], 
+	[27.52344, 148.82031], [27.52539, 148.73242], [27.56836, 148.68652], [27.79199, 148.67676],
+	[27.8457, 148.63086], [27.84766, 148.5498], [27.94043, 148.45508], //zambia southwest
+	[27.9375, 148.39746], [27.8457, 148.30859], [27.8457, 148.2207], [27.88672, 148.22266],
+	[27.88672, 147.9043], [27.80176, 147.85156], [27.80273, 147.44531], [27.8457, 147.44043],
+	[27.84082, 147.30957], [27.75879, 147.30273], [27.70703, 147.20703], [27.70801, 147.16797],
+	[28.3916, 147.16113], [28.5752, 147.11914], [28.70898, 147.03125], [28.71777, 146.94043],
+	[28.80859, 146.9375], [28.85938, 146.85352], [29.44727, 146.85156], [29.44727, 146.88672],
+	[29.8584, 146.8886], [30.04395, 146.84277], [30.04785, 146.80566], [30.31934, 146.80273] //angola northwest
+	], {color: 'blue'}).addTo(Central_Africa).bindPopup(countriesinfo[40]);
+
+var Quebec = L.polygon([[86.125, 74.35156], [82.32031, 74.35156], [81.82813, 74.50781], [81.35938, 74.94531], 
+	[81.125, 75.82813], [80.89453, 76.00391], [80.82422, 76.21484], [80.92188, 76.25], 
+	[80.61719, 76.39844], [80.53516, 76.90625], [80.45703, 76.92578], [80.4668, 77.04297], 
+	[80.67578, 77.60742], [80.64844, 77.96484], [80.29492, 78.06055], [80.11133, 77.83789], 
+	[80.09961, 80.06445], [80.36719, 80.16992], [80.37109, 80.60547], [80.64063, 80.67383], 
+	[80.87109, 80.94922], [81.19531, 80.94141], [81.38672, 81.11914], [81.68555, 81.17188], 
+	[82.32227, 81.67578], [82.33789, 81.86133], [82.25, 81.86523], [82.43945, 82.31445], 
+	[82.75, 82.31641], [82.83984, 82.55273], [82.92969, 83.76953], [83.02539, 84.10352], 
+	[82.84375, 84.53516], [83.29492, 85.28906], [83.66406, 85.35156], [84.00391, 84.61328], 
+	[85, 84.60938], [84.79688, 87.14063], [84.94727, 88.32227], [85.46484, 89.07031], 
+	[86.08594, 90.12109], [86.63281, 91.33203], [86.64648, 85.62598], [86.71094, 83.99219],
+	[86.83203, 83.69141], [87.31641, 83.50391], [87.32031, 83.23438], [87.60547, 83.23438],
+	[87.94141, 83.3125], [88.19141, 82.96094], [88.69531, 82.75], [90.09766, 83.25781],
+	[90.375, 83.86719], [90.27344, 84.07813], [89.76172, 84.07031], [89.45313, 84.23047],
+	[89.25, 84.55469], [89.34375, 84.78125], [89.64453, 85.14063], [89.65625, 85.48438],
+	[89.61914, 85.85547], [89.84375, 85.80469], [89.94922, 86.12109], [90.51953, 85.65625],
+	[91.09766, 85.45703], [91.42578, 85.39453], [91.94922, 85.60547], [92.37891, 85.65234],
+	[92.81641, 85.30078], [93.57813, 85.30469], [94.39063, 84.875], [94.97656, 84.88672],
+	[95.4375, 84.99609], [95.45313, 84.82813], [93.67969, 83.78516], [93.27734, 82.94922],
+	[94.64844, 81.61719], [96.15625, 81.67969], [96.25781, 80.28125], [98.1875, 78.26563],
+	[97.60938, 75.35156], [96.70313, 75.26563], [93.39063, 74.95313], [91.30469, 76.26563],
+	[89.40625, 74.04688], [86.95313, 74.875] ]).addTo(North_America).bindPopup(countriesinfo[32]);
+
+var Sinai = L.polygon([ 
+	[59.37305, 154.5498], [58.69238, 154.55127], [58.69019, 154.59326], [58.51001, 154.59253], 
+	[58.50769, 154.55164], [58.46436, 154.54865], //egypt 
+	[58.3457, 154.50781], [58.11328, 154.53906], [57.96484, 154.63867], [57.60938, 154.7793], 
+	[57.34375, 154.9043], [57.08789, 155.11523], [56.91406, 155.28711], [56.66016, 155.5293], //coast w egypt 
+	[56.64844, 155.76953], [56.89648, 155.91992], [57.16211, 155.93359], [57.64063, 156.0918], 
+	[58.00195, 156.16895], [58.09668, 156.19678], [58.14221, 156.19885], [58.14432, 156.15518], 
+	[58.23618, 156.15546], [58.37476, 156.11133], [58.56055, 156.0647], [58.69531, 156.01904], 
+	[58.78711, 155.97217], [58.83151, 155.92651], [58.92438, 155.9245], [59.0625, 155.88037], 
+	[59.15503, 155.8335], [59.38184, 155.74316], [59.4751, 155.69727], [59.51703, 155.6944], 
+	[59.75391, 155.625], [59.6875, 154.57031]
+	], {color: 'blue'}).addTo(North_Africa).bindPopup(countriesinfo[55]);

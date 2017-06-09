@@ -143,6 +143,72 @@ Hit "Generate" to generate a First-Past the Post election. You can copy and past
 <h1>US Presidential Elections</h1>
 <p>I find <a href="http://www.270towin.com/"> this website </a> to be very useful for quickly punching out US elections. You can chose which states are democrat or republican and quickly create a quality post with a map.</p>
 
+
+
+<h1>GDP Calculator</h1>
+  <h3>Usage Instructions</h3>
+<p>Enter the relevant information in the appropriate boxes.<br>
+  To calculate a value, you must enter all the other values. <br>So for example, to calculate GDP every value must be filled out except for GDP, and you must indicate that you want to calculate GDP by selecting the "Find GDP" button. You can copy and paste the results :) </p>
+<fieldset id="GDPfieldset">
+  <form>
+    <legend>Values</legend>
+    Gross Domestic Product (GDP)<br>
+    <input type="number" name="Values" id="iGDP" value="0"><br>
+    Consumption:<br>
+    <input type="number" name="Values" id="iConsumption" value="0"><br>
+    Investment:<br>
+    <input type="number" name="Values" id="iInvestment" value="0"><br>
+    Exports:<br>
+    <input type="number" name="Values" id="iExports" value="0"><br>
+    Imports:<br>
+    <input type="number" name="Values" id="iImports" value="0"><br>
+    Government Spending:<br>
+    <input type="number" name="Values" id="iGovernmentSpending" value="0"><br>
+    <br>
+    <input type="radio" name="type" id="m1" value="" checked> Find GDP<br>
+    <input type="radio" name="type" id="m2" value=""> Find Government Spending<br>
+    <input type="radio" name="type" id="m3" value=""> Find Consumption<br>
+    <input type="radio" name="type" id="m4" value=""> Find Investment<br>
+    <input type="radio" name="type" id="m5" value=""> Find Exports<br>
+    <input type="radio" name="type" id="m6" value=""> Find Imports<br>
+    <input type="button" value="Calculate" onclick="calculateGDP()">
+    <input type="button" value="Clear Results" onclick="cleartable()">
+    </form>
+    <h2>Results</h2>
+    <table id="GDPout">
+    <tr>
+      <th>Item</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Government Spending</td>
+      <td id="GovernmentSpending"> </td>
+    </tr>
+    <tr>
+      <td>GDP</td>
+      <td id="GDPtable"> </td>
+    </tr>
+    <tr>
+      <td>Consumption</td>
+      <td id="ConsumptionTable"> </td>
+    </tr>
+    <tr>
+      <td>Investment</td>
+      <td id="InvestmentTable"> </td>
+    </tr>
+    <tr>
+      <td>Exports</td>
+      <td id="ExportsTable"> </td>
+    </tr>
+    <tr>
+      <td>Imports</td>
+      <td id="ImportsTable"> </td>
+    </tr>
+  </table>
+  </fieldset>
+  <script id="GDP" src="GDP.js"></script>
+
+
 </div>
 
 <!-- Second Parallax Image with Portfolio Text -->
@@ -178,110 +244,7 @@ Hit "Generate" to generate a First-Past the Post election. You can copy and past
   <h3 class="w3-center">MAPS</h3>
   <p class="w3-center"><em>Useful maps for WP use</em></p>
 
- <div id="map"></div>
-
- <script>
-
-var map = L.map('map', {
-    crs: L.CRS.Simple
-});
-
-
-var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent(e.latlng.toString())
-        .openOn(map);
-}
-
-map.on('click', onMapClick);
-
-
-
-var UKClaimant = "Pepsiisgood1997"
-
-
-
-var London = L.marker([77.13672, 131.12891]).addTo(map).bindPopup("London");
-var Dadesville = L.marker([66.14844, 72.44531]).addTo(map).bindPopup("Dadesville");
-
-var UK = "United Kingdom. <br> Claimant = " + UKClaimant;
-
-var UKPolygon = L.polygon([
-[75.73828, 127.22266],
-[75.66016, 127.59766],
-[76.36328, 131.46484],
-[76.83984, 132.31641],
-[77.43359, 132.19141],
-[78.1582, 132.54102],
-[78.52148, 132.16602],
-[78.52148, 131.68164],
-[78.70898, 131.52148],
-[79.16992, 131.3457],
-[79.64258, 131.20508],
-[80.06836, 130.64648],
-[80.16602, 130.38867],
-[81.00977, 130.13086],
-[81.20898, 129.88477],
-[81.33789, 129.7832],
-[81.54492, 129.40039],
-[82.00586, 129.34961],
-[82.60742, 129.76758],
-[82.99805, 130.00977],
-[83.24023, 129.91602],
-[83.36523, 128.38867],
-[84.03711, 129.08008],
-[84.25586, 129.10742],
-[84.54492, 129.31445],
-[84.80664, 129.03711],
-[84.80273, 128.81445],
-[84.25977, 128.68164],
-[84.24805, 127.63086],
-[83.90039, 127.41211],
-[83.48633, 127.11133],
-[84.19727, 126.83008],
-[83.86523, 126.11914],
-[83.25586, 125.77148],
-[82.45703, 125.79297],
-[81.33203, 126.59766],
-[80.71484, 126.29297],
-[79.95703, 125.43359],
-[79.71484, 125.60547],
-[79.62891, 126.05859],
-[79.90527, 126.13379],
-[79.91309, 126.27051],
-[79.55176, 126.50684],
-[79.5459, 126.58887],
-[79.62988, 126.64941],
-[79.6377, 126.77246],
-[79.53613, 126.91895],
-[79.7627, 127.06152],
-[80.03516, 127.53516],
-[78.88672, 127.91797],
-[77.55078, 127.39453]
-]).addTo(map).bindPopup(UK);
-
-
-
-var bounds = [[1,2.6], [100,260]];
-var image = L.imageOverlay('images/WP2042_s4.png', bounds).addTo(map);
-map.fitBounds(bounds);
-
-
-
-var circle = L.circle([51.508, -0.11], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 500
-}).addTo(mymap);
-
-
- </script>
-    
-
+  <a href="interactivemap.html">Interactive Map (W.I.P.)</a>
   <img src="images/blank vic2 map.png" width=100%><br>
   <img src="images/Modern Day Map.png" width=100%><br>
   <img src="images/old blank world map.png" width=100%><br>
