@@ -773,7 +773,29 @@ if (roll > rollb){
   document.getElementById('battleout').innerHTML += ForceA + " and " + ForceB + " have landed the same roll, ending the battle in a stalemate. <br />";
 } else document.getElementById('battleout').innerHTML += "I don't know how you did it, but you did. You found an error in my code. Please let me know, thanks! <br />";
 
-}
 
+var A_Deathcheck_Value = Math.round((Force_A_Casualties / Force_A_Strength) * 100); //15% casualties = 15 on 1d100
+var A_Death_Value = Math.round(A_Deathcheck_Value * 0.8);
+var A_Maim_Value = Math.round(A_Deathcheck_Value * 0.9);
+var B_Deathcheck_Value = Math.round((Force_B_Casualties / Force_B_Strength) * 100); //15% casualties = 15 on 1d100
+var B_Death_Value = Math.round(B_Deathcheck_Value * 0.8);
+var B_Maim_Value = Math.round(B_Deathcheck_Value * 0.9);
+
+document.getElementById('battleout').innerHTML += ForceA + " should perform death checks on a 1d100.<br />";
+document.getElementById('battleout').innerHTML += "On a roll of "+A_Death_Value+" or lower, the character(s) will die.<br />";
+document.getElementById('battleout').innerHTML += "On a roll between "+A_Death_Value+" and "+A_Maim_Value+" the character(s) will be maimed.<br />";
+document.getElementById('battleout').innerHTML += "On a roll between "+A_Maim_Value+" and "+A_Deathcheck_Value+" the character(s) will be severely injured.<br />";
+document.getElementById('battleout').innerHTML += "On a roll higher than "+A_Deathcheck_Value+", the character(s) will be fine.<br />";
+
+document.getElementById('battleout').innerHTML += ForceB + " should perform death checks on a 1d100.<br />";
+document.getElementById('battleout').innerHTML += "On a roll of "+B_Death_Value+" or lower, the character(s) will die.<br />";
+document.getElementById('battleout').innerHTML += "On a roll between "+B_Death_Value+" and "+B_Maim_Value+" the character(s) will be maimed.<br />";
+document.getElementById('battleout').innerHTML += "On a roll between "+B_Maim_Value+" and "+B_Deathcheck_Value+" the character(s) will be severely injured.<br />";
+document.getElementById('battleout').innerHTML += "On a roll higher than "+B_Deathcheck_Value+", the character(s) will be fine.<br />";
+
+
+
+
+}
 
 
