@@ -2,58 +2,57 @@
 
 <style>
 
- .bglayer {
-    z-index: -1;
-}
-
-.layer0 {
-	z-index: 0;
-
-}
-
-.layer1 {
-    z-index: 1;
-}
-
-
-body {
-    	background-image: url("images/bg.png");
-    	background-repeat: repeat;
-    }
-
-    .gbtn {
-	  background: #ff0000;
-	  background-image: -webkit-linear-gradient(top, #ff0000, #470404);
-	  background-image: -moz-linear-gradient(top, #ff0000, #470404);
-	  background-image: -ms-linear-gradient(top, #ff0000, #470404);
-	  background-image: -o-linear-gradient(top, #ff0000, #470404);
-	  background-image: linear-gradient(to bottom, #ff0000, #470404);
-	  -webkit-border-radius: 28;
-	  -moz-border-radius: 28;
-	  border-radius: 28px;
-	  font-family: Georgia;
-	  color: #ffffff;
-	  font-size: 31px;
-	  padding: 10px 20px 10px 20px;
-	  text-decoration: none;
-	  position: absolute;
-	  left: 15px;
-	  top: 500px;
+	.bglayer {
+	    z-index: -1;
 	}
+
+	.layer0 {
+		z-index: 0;
+
+	}
+
+	.layer1 {
+	    z-index: 1;
+	}
+
+
+	body {
+	    	background-image: url("images/bg.png");
+	    	background-repeat: repeat;
+	    }
+
+	.gbtn {
+		  background: #ff0000;
+		  background-image: -webkit-linear-gradient(top, #ff0000, #470404);
+		  background-image: -moz-linear-gradient(top, #ff0000, #470404);
+		  background-image: -ms-linear-gradient(top, #ff0000, #470404);
+		  background-image: -o-linear-gradient(top, #ff0000, #470404);
+		  background-image: linear-gradient(to bottom, #ff0000, #470404);
+		  -webkit-border-radius: 28;
+		  -moz-border-radius: 28;
+		  border-radius: 28px;
+		  font-family: Georgia;
+		  color: #ffffff;
+		  font-size: 31px;
+		  padding: 10px 20px 10px 20px;
+		  text-decoration: none;
+		  position: absolute;
+		  left: 15px;
+		  top: 500px;
+		}
 
 	.gbtn:hover {
-	  background: #ff0000;
-	  background-image: -webkit-linear-gradient(top, #ff0000, #000000);
-	  background-image: -moz-linear-gradient(top, #ff0000, #000000);
-	  background-image: -ms-linear-gradient(top, #ff0000, #000000);
-	  background-image: -o-linear-gradient(top, #ff0000, #000000);
-	  background-image: linear-gradient(to bottom, #ff0000, #000000);
-	  text-decoration: none;
-	}
-
+		  background: #ff0000;
+		  background-image: -webkit-linear-gradient(top, #ff0000, #000000);
+		  background-image: -moz-linear-gradient(top, #ff0000, #000000);
+		  background-image: -ms-linear-gradient(top, #ff0000, #000000);
+		  background-image: -o-linear-gradient(top, #ff0000, #000000);
+		  background-image: linear-gradient(to bottom, #ff0000, #000000);
+		  text-decoration: none;
+		}
 </style>
 
-<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateBeard(); UpdateSpecial();">GENERATE PORTRAIT</button>
+<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateBeard(); UpdateSpecial();">GENERATE PORTRAIT</button>
 
 
 <html lang="en"> 
@@ -63,16 +62,16 @@ body {
 	</head>
 
 	<fieldset style="width: 200px; position: absolute; left: 660px; top: 0px;">
-  <form>
-  	<legend style="color: white">Copy unique ID:</legend>
-    <input type="text" id="PortraitID_output" value="">
-    <br>
-    <legend style="color: white">Paste unique ID:</legend>
-    <input type="text" id="PortraitID_input" value="RSA5">
-    <br>
-    <input type="button" onclick="GrabID()" value="Load Portrait"><br>
-    </form>
-  </fieldset>
+		<form>
+	  	<legend style="color: white">Copy unique ID:</legend>
+	    <input type="text" id="PortraitID_output" value="">
+	    <br>
+	    <legend style="color: white">Paste unique ID:</legend>
+	    <input type="text" id="PortraitID_input" value="RSA5">
+	    <br>
+	    <input type="button" onclick="GrabID()" value="Load Portrait"><br>
+	    </form>
+	</fieldset>
 
 
 <fieldset style="width: 200px; position: absolute; left: 400px; top: 0px;">
@@ -240,23 +239,112 @@ body {
   </form>
   </fieldset>
 
+
+  <fieldset style="width: 200px; position: absolute; left: 660px; top: 125px;">
+  <form>
+  <legend style="color: white">Neck:</legend>
+    <select id="neck_image_dropdown">
+    <option value="neck1">Neck 1</option>
+    <option value="neck2">Neck 2</option>
+    <option value="neck3">Neck 3</option>
+    <option value="neck4">Neck 4</option>
+    <option value="neck1M">Neck 1 Mature</option>
+    <option value="neck2M">Neck 2 Mature</option>
+    <option value="neck3M">Neck 3 Mature</option>
+    <option value="neck4M">Neck 4 Mature</option>
+    <option value="neck1Old">Neck 1 Old</option>
+    <option value="neck2Old">Neck 2 Old</option>
+    <option value="neck3Old">Neck 3 Old</option>
+    <option value="neck4Old">Neck 4 Old</option>
+    </select>
+    <input type="button" onclick="UpdateNeck()" value="Apply Neck">
+  </form>
+  </fieldset>
+
+  <fieldset style="width: 200px; position: absolute; left: 660px; top: 190px;">
+  <form>
+  <legend style="color: white">Nose:</legend>
+    <select id="nose_image_dropdown">
+    <option value="nose1">Western Male Nose 1</option>
+    <option value="nose2">Western Male Nose 2</option>
+    <option value="nose3">Western Male Nose 3</option>
+    <option value="nose4">Western Male Nose 4</option>
+    <option value="nose5">Western Male Nose 5</option>
+    <option value="nose6">Western Male Nose 6</option>
+    <option value="nose7">Western Male Nose 7</option>
+    <option value="nose8">Western Male Nose 8</option>
+    <option value="nose9">Western Male Nose 9</option>
+    <option value="nose10">Western Male Nose 10</option>
+    <option value="nose11">Western Male Nose 11</option>
+    <option value="nose12">Western Male Nose 12</option>
+    <option value="nose13">Western Male Nose 13</option>
+    <option value="nose1M">Western Male Nose 1 Mature</option>
+    <option value="nose2M">Western Male Nose 2 Mature</option>
+    <option value="nose3M">Western Male Nose 3 Mature</option>
+    <option value="nose4M">Western Male Nose 4 Mature</option>
+    <option value="nose5M">Western Male Nose 5 Mature</option>
+    <option value="nose6M">Western Male Nose 6 Mature</option>
+    <option value="nose7M">Western Male Nose 7 Mature</option>
+    <option value="nose8M">Western Male Nose 8 Mature</option>
+    <option value="nose9M">Western Male Nose 9 Mature</option>
+    <option value="nose10M">Western Male Nose 10 Mature</option>
+    <option value="nose11M">Western Male Nose 11 Mature</option>
+    <option value="nose12M">Western Male Nose 12 Mature</option>
+    <option value="nose13M">Western Male Nose 13 Mature</option>
+    <option value="nose1Old">Western Male Nose 1 Old</option>
+    <option value="nose2Old">Western Male Nose 2 Old</option>
+    <option value="nose3Old">Western Male Nose 3 Old</option>
+    <option value="nose4Old">Western Male Nose 4 Old</option>
+    <option value="nose5Old">Western Male Nose 5 Old</option>
+    <option value="nose6Old">Western Male Nose 6 Old</option>
+    <option value="nose7Old">Western Male Nose 7 Old</option>
+    <option value="nose8Old">Western Male Nose 8 Old</option>
+    <option value="nose9Old">Western Male Nose 9 Old</option>
+    <option value="nose10Old">Western Male Nose 10 Old</option>
+    <option value="nose11Old">Western Male Nose 11 Old</option>
+    <option value="nose12Old">Western Male Nose 12 Old</option>
+    <option value="nose13Old">Western Male Nose 13 Old</option>
+    </select>
+    <input type="button" onclick="UpdateNose()" value="Apply Nose">
+  </form>
+  </fieldset>
+
+
+
+
   <canvas id="bgcanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: -1;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-<canvas id="Canvas1" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 0;">
+<canvas id="BehindCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 0;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-<canvas id="Canvas2" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 1;">
+<canvas id="BeardBehindCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 0;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-<canvas id="Canvas3" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 2;">
+<canvas id="BaseCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 1;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-<canvas id="Canvas4" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 3;">
+<canvas id="Canvas2" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 2;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="NoseCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 4;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="Canvas3" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="Canvas4" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 4;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="Canvas5" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 5;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -301,11 +389,22 @@ Your browser does not support the HTML5 canvas tag.
 
 <!-- Beard Images -->
 	<img id="western_male_beard_1" width="1216px" height="152px" src="characters\western_male\western_male_beard_1.png" style="display:none"/>
+	<img id="western_male_beard_behind_1" width="1216px" height="152px" src="characters\western_male\western_male_beard_behind_1.png" style="display:none"/>
 	<img id="western_male_beard_2" width="1216px" height="152px" src="characters\western_male\western_male_beard_2.png" style="display:none"/>
+	<img id="western_male_beard_behind_2" width="1216px" height="152px" src="characters\western_male\western_male_beard_behind_2.png" style="display:none"/>
 	<img id="western_male_beard_3" width="1216px" height="152px" src="characters\western_male\western_male_beard_3.png" style="display:none"/>
+	<img id="western_male_beard_behind_3" width="1216px" height="152px" src="characters\western_male\western_male_beard_behind_3.png" style="display:none"/>
 
 
+<!-- Neck Images -->
+	<img id="western_male_neck_1" width="608px" height="152px" src="characters\western_male\western_male_neck_1.png" style="display:none"/>
+	<img id="western_male_neck_2" width="608px" height="152px" src="characters\western_male\western_male_neck_2.png" style="display:none"/>
+	<img id="western_male_neck_3" width="608px" height="152px" src="characters\western_male\western_male_neck_3.png" style="display:none"/>
 
+	<!-- Nose Images -->
+	<img id="western_male_nose_1" width="416px" height="40px" src="characters\western_male\western_male_nose_1.png" style="display:none"/>
+	<img id="western_male_nose_2" width="337px" height="40px" src="characters\western_male\western_male_nose_2.png" style="display:none"/>
+	<img id="western_male_nose_3" width="403px" height="38px" src="characters\western_male\western_male_nose_3.png" style="display:none"/>
 
 
 <script type="text/javascript">
@@ -333,7 +432,10 @@ Your browser does not support the HTML5 canvas tag.
 	function Child(){
 		var child_option_menu = document.getElementById("child_dropdown");
 		var child = child_option_menu.value;
-		var c = document.getElementById("Canvas1");
+		var c = document.getElementById("bgcanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var c = document.getElementById("BaseCanvas");
 		var ctx = c.getContext("2d");
 		ctx.clearRect(0,0,400,480);
 		var img = document.getElementById(child);
@@ -342,6 +444,12 @@ Your browser does not support the HTML5 canvas tag.
 		var ctx = c.getContext("2d");
 		ctx.clearRect(0,0,400,480);
 		var c = document.getElementById("Canvas3");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var c = document.getElementById("Canvas4");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var c = document.getElementById("Canvas5");
 		var ctx = c.getContext("2d");
 		ctx.clearRect(0,0,400,480);
 	};
@@ -354,7 +462,7 @@ Your browser does not support the HTML5 canvas tag.
 	function UpdateBeard(){
 		var id = document.getElementById("PortraitID_output");
 		var beard_image_option_menu = document.getElementById("beard_image_dropdown");
-		var c = document.getElementById("Canvas2");
+		var c = document.getElementById("Canvas3");
 		var ctx = c.getContext("2d");
 		ctx.clearRect(0,0,400,480);
 		var img = document.getElementById("western_male_beard_1");
@@ -365,87 +473,192 @@ Your browser does not support the HTML5 canvas tag.
 		} else if (beard_image_option_menu.value == "beard1"){
 			ctx.drawImage(img, 152, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH01";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard2"){
 			ctx.drawImage(img, 304, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH02";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard3"){
 			ctx.drawImage(img, 456, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH03";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard4"){
 			ctx.drawImage(img, 608, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH04";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard5"){
 			ctx.drawImage(img, 760, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH05";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard6"){
 			ctx.drawImage(img, 912, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH06";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard7"){
 			ctx.drawImage(img, 1064, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH07";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard1G"){
 			var img = document.getElementById("western_male_beard_2");
 			ctx.drawImage(img, 152, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH08";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard2G"){
 			var img = document.getElementById("western_male_beard_2");
 			ctx.drawImage(img, 304, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH09";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard3G"){
 			var img = document.getElementById("western_male_beard_2");
 			ctx.drawImage(img, 456, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH10";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_2");
+			ctx.drawImage(img, 456, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard4G"){
 			var img = document.getElementById("western_male_beard_2");
 			ctx.drawImage(img, 608, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH11";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard5G"){
 			var img = document.getElementById("western_male_beard_2");
 			ctx.drawImage(img, 760, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH12";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard6G"){
 			var img = document.getElementById("western_male_beard_2");
 			ctx.drawImage(img, 912, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH13";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_2");
+			ctx.drawImage(img, 912, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard7G"){
 			var img = document.getElementById("western_male_beard_2");
 			ctx.drawImage(img, 1064, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH14";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard1Old"){
 			var img = document.getElementById("western_male_beard_3");
 			ctx.drawImage(img, 152, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH15";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard2Old"){
 			var img = document.getElementById("western_male_beard_3");
 			ctx.drawImage(img, 304, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH16";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard3Old"){
 			var img = document.getElementById("western_male_beard_3");
 			ctx.drawImage(img, 456, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH17";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_3");
+			ctx.drawImage(img, 456, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard4Old"){
 			var img = document.getElementById("western_male_beard_3");
 			ctx.drawImage(img, 608, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH18";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard5Old"){
 			var img = document.getElementById("western_male_beard_3");
 			ctx.drawImage(img, 760, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH19";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard6Old"){
 			var img = document.getElementById("western_male_beard_3");
 			ctx.drawImage(img, 912, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH20";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 137, 164, 130, 152);
 		} else if (beard_image_option_menu.value == "beard7Old"){
 			var img = document.getElementById("western_male_beard_3");
 			ctx.drawImage(img, 1064, 0, 152, 152, 137, 164, 130, 152);
 			id.value += "FH21";
+			var c = document.getElementById("BeardBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 137, 164, 130, 152);
 		}
 	}
 
 	function UpdateSpecial(){
 		var id = document.getElementById("PortraitID_output");
 		var scar_image_option_menu = document.getElementById("scar_image_dropdown");
-		var c = document.getElementById("Canvas3");
+		var c = document.getElementById("Canvas4");
 		var ctx = c.getContext("2d");
 		ctx.clearRect(0,0,400,480);
 		var img = document.getElementById("scars_image");
@@ -471,7 +684,7 @@ Your browser does not support the HTML5 canvas tag.
 		}
 
 		var mask_image_option_menu = document.getElementById("mask_image_dropdown");
-		var c = document.getElementById("Canvas4");
+		var c = document.getElementById("Canvas5");
 		var ctx = c.getContext("2d");
 		ctx.clearRect(0,0,400,480);
 		var img = document.getElementById("masks_image");
@@ -520,7 +733,7 @@ Your browser does not support the HTML5 canvas tag.
 		}
 
 		var skin_defects_image_option_menu = document.getElementById("skin_defects_dropdown");
-		var c = document.getElementById("Canvas3");
+		var c = document.getElementById("Canvas4");
 		var ctx = c.getContext("2d");
 		if (skin_defects_image_option_menu.value == "skin0"){
 			id.value += "SD00";
@@ -537,7 +750,7 @@ Your browser does not support the HTML5 canvas tag.
 		}
 
 		var blindness_image_option_menu = document.getElementById("blindness_dropdown");
-		var c = document.getElementById("Canvas3");
+		var c = document.getElementById("Canvas4");
 		var ctx = c.getContext("2d");
 		var img = document.getElementById("maimed_eyepatch_image");
 
@@ -680,7 +893,7 @@ Your browser does not support the HTML5 canvas tag.
 	function UpdateBase(){
 		var base_image_option_menu = document.getElementById("base_image_dropdown");
 		var base_image = base_image_option_menu.value;
-		var c = document.getElementById("Canvas1");
+		var c = document.getElementById("BaseCanvas");
 		var ctx = c.getContext("2d");
 		ctx.clearRect(0,0,400,480);
 		var img = document.getElementById(base_image);
@@ -696,239 +909,562 @@ Your browser does not support the HTML5 canvas tag.
 		}
 	};
 
+	function UpdateNeck(){
+		var id = document.getElementById("PortraitID_output");
+		var neck_image_option_menu = document.getElementById("neck_image_dropdown");
+		var c = document.getElementById("Canvas2");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_neck_1");
+		if (neck_image_option_menu.value == "neck1"){
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK01";
+		} else if (neck_image_option_menu.value == "neck2"){
+			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK02";
+		} else if (neck_image_option_menu.value == "neck3"){
+			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK03";
+		} else if (neck_image_option_menu.value == "neck4"){
+			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK04";
+		} else if (neck_image_option_menu.value == "neck1M"){
+			var img = document.getElementById("western_male_neck_2");
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK05";
+		} else if (neck_image_option_menu.value == "neck2M"){
+			var img = document.getElementById("western_male_neck_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK06";
+		} else if (neck_image_option_menu.value == "neck3M"){
+			var img = document.getElementById("western_male_neck_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK07";
+		} else if (neck_image_option_menu.value == "neck4M"){
+			var img = document.getElementById("western_male_neck_2");
+			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK08";
+		} else if (neck_image_option_menu.value == "neck1Old"){
+			var img = document.getElementById("western_male_neck_3");
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK09";
+		} else if (neck_image_option_menu.value == "neck2Old"){
+			var img = document.getElementById("western_male_neck_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK10";
+		} else if (neck_image_option_menu.value == "neck3Old"){
+			var img = document.getElementById("western_male_neck_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK11";
+		} else if (neck_image_option_menu.value == "neck4Old"){
+			var img = document.getElementById("western_male_neck_3");
+			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "NK12";
+		}
+	}
+
+
+
+	function UpdateNose(){
+		var id = document.getElementById("PortraitID_output");
+		var nose_image_option_menu = document.getElementById("nose_image_dropdown");
+		var c = document.getElementById("NoseCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_nose_1");
+		if (nose_image_option_menu.value == "nose1"){
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO01";
+		} else if (nose_image_option_menu.value == "nose2"){
+			ctx.drawImage(img, 32, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO02";
+		} else if (nose_image_option_menu.value == "nose3"){
+			ctx.drawImage(img, 64, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO03";
+		} else if (nose_image_option_menu.value == "nose4"){
+			ctx.drawImage(img, 96, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO04";
+		} else if (nose_image_option_menu.value == "nose5"){
+			ctx.drawImage(img, 128, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO05";
+		} else if (nose_image_option_menu.value == "nose6"){
+			ctx.drawImage(img, 192, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO06";
+		} else if (nose_image_option_menu.value == "nose7"){
+			ctx.drawImage(img, 224, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO07";
+		} else if (nose_image_option_menu.value == "nose8"){
+			ctx.drawImage(img, 256, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO08";
+		} else if (nose_image_option_menu.value == "nose9"){
+			ctx.drawImage(img, 288, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO09";
+		} else if (nose_image_option_menu.value == "nose10"){
+			ctx.drawImage(img, 320, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO10";
+		} else if (nose_image_option_menu.value == "nose11"){
+			ctx.drawImage(img, 352, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO11";
+		} else if (nose_image_option_menu.value == "nose12"){
+			ctx.drawImage(img, 384, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO12";
+		}  else if (nose_image_option_menu.value == "nose13"){
+			ctx.drawImage(img, 456, 0, 32, 40, 204, 211, 32, 40);
+			id.value += "NO13";
+		} else if (nose_image_option_menu.value == "nose1M"){
+			var img = document.getElementById("western_male_nose_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO14";
+		} else if (nose_image_option_menu.value == "nose2M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 29, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO15";
+		} else if (nose_image_option_menu.value == "nose3M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 60, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO16";
+		} else if (nose_image_option_menu.value == "nose4M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 87, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO17";
+		} else if (nose_image_option_menu.value == "nose5M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 116, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO18";
+		} else if (nose_image_option_menu.value == "nose6M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 145, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO19";
+		} else if (nose_image_option_menu.value == "nose7M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 174, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO20";
+		} else if (nose_image_option_menu.value == "nose8M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 203, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO21";
+		} else if (nose_image_option_menu.value == "nose9M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 232, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO22";
+		} else if (nose_image_option_menu.value == "nose10M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 261, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO23";
+		} else if (nose_image_option_menu.value == "nose11M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 290, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO24";
+		} else if (nose_image_option_menu.value == "nose12M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 319, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO25";
+		}  else if (nose_image_option_menu.value == "nose13M"){
+			var img = document.getElementById("western_male_nose_2");
+			ctx.drawImage(img, 348, 0, 29, 40, 204, 211, 29, 40);
+			id.value += "NO26";
+		} else if (nose_image_option_menu.value == "nose1Old"){
+			var img = document.getElementById("western_male_nose_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO27";
+		} else if (nose_image_option_menu.value == "nose2Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 31, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO28";
+		} else if (nose_image_option_menu.value == "nose3Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 62, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO29";
+		} else if (nose_image_option_menu.value == "nose4Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 93, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO30";
+		} else if (nose_image_option_menu.value == "nose5Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 124, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO31";
+		} else if (nose_image_option_menu.value == "nose6Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 155, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO32";
+		} else if (nose_image_option_menu.value == "nose7Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 186, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO33";
+		} else if (nose_image_option_menu.value == "nose8Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 217, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO34";
+		} else if (nose_image_option_menu.value == "nose9Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 248, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO35";
+		} else if (nose_image_option_menu.value == "nose10Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 279, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO36";
+		} else if (nose_image_option_menu.value == "nose11Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 310, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO37";
+		} else if (nose_image_option_menu.value == "nose12Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 341, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO38";
+		}  else if (nose_image_option_menu.value == "nose13Old"){
+			var img = document.getElementById("western_male_nose_3");
+			ctx.drawImage(img, 372, 0, 31, 40, 204, 211, 31, 40);
+			id.value += "NO39";
+		}
+	}
+
 	function GrabID(){
 
 		var id = document.getElementById("PortraitID_input").value;
 		
-	//dropdown shit
-		var beard_image_option_menu = document.getElementById("beard_image_dropdown");
-		var scar_image_option_menu = document.getElementById("scar_image_dropdown");
-		var mask_image_option_menu = document.getElementById("mask_image_dropdown");
-		var skin_defects_image_option_menu = document.getElementById("skin_defects_dropdown");
-		var blindness_image_option_menu = document.getElementById("blindness_dropdown");
-		var imprisoned_image_menu = document.getElementById("imprisoned_image_dropdown");
-		var base_image_option_menu = document.getElementById("base_image_dropdown");
-		var bg_image_option_menu = document.getElementById("bg_image_dropdown");
+		//dropdown shit
+			var beard_image_option_menu = document.getElementById("beard_image_dropdown");
+			var scar_image_option_menu = document.getElementById("scar_image_dropdown");
+			var mask_image_option_menu = document.getElementById("mask_image_dropdown");
+			var skin_defects_image_option_menu = document.getElementById("skin_defects_dropdown");
+			var blindness_image_option_menu = document.getElementById("blindness_dropdown");
+			var imprisoned_image_menu = document.getElementById("imprisoned_image_dropdown");
+			var base_image_option_menu = document.getElementById("base_image_dropdown");
+			var bg_image_option_menu = document.getElementById("bg_image_dropdown");
+			var neck_image_option_menu = document.getElementById("neck_image_dropdown");
+			var nose_image_option_menu = document.getElementById("nose_image_dropdown");
 
 
 
-	//BG
-		if (id.includes("BG00")){
-			selectItemByValue(bg_image_option_menu, "bg1");
-		} else if (id.includes("BG01")){
-			selectItemByValue(bg_image_option_menu, "bg2");
-		} else if (id.includes("BG03")){
-			selectItemByValue(bg_image_option_menu, "bg3");
-		} else if (id.includes("BG04")){
-			selectItemByValue(bg_image_option_menu, "bg4");
-		} else if (id.includes("BG05")){
-			selectItemByValue(bg_image_option_menu, "bg5");
-		} else if (id.includes("BG06")){
-			selectItemByValue(bg_image_option_menu, "bg6");
-		} else if (id.includes("BG07")){
-			selectItemByValue(bg_image_option_menu, "bg7");
-		} else if (id.includes("BG08")){
-			selectItemByValue(bg_image_option_menu, "bg8");
-		} else if (id.includes("BG09")){
-			selectItemByValue(bg_image_option_menu, "bg9");
-		} else if (id.includes("BG10")){
-			selectItemByValue(bg_image_option_menu, "bg10");
-		} else if (id.includes("BG11")){
-			selectItemByValue(bg_image_option_menu, "bg11");
-		} else if (id.includes("BG12")){
-			selectItemByValue(bg_image_option_menu, "bg12");
-		} else if (id.includes("BG13")){
-			selectItemByValue(bg_image_option_menu, "bg13");
-		} else if (id.includes("BG14")){
-			selectItemByValue(bg_image_option_menu, "bg14");
-		} else if (id.includes("BG15")){
-			selectItemByValue(bg_image_option_menu, "bg15");
-		} else if (id.includes("BG16")){
-			selectItemByValue(bg_image_option_menu, "bg16");
-		} else if (id.includes("BG17")){
-			selectItemByValue(bg_image_option_menu, "bg17");
-		} else if (id.includes("BG18")){
-			selectItemByValue(bg_image_option_menu, "bg18");
-		} else if (id.includes("BG19")){
-			selectItemByValue(bg_image_option_menu, "bg19");
-		} else if (id.includes("BG20")){
-			selectItemByValue(bg_image_option_menu, "bg20");
-		} else if (id.includes("BG21")){
-			selectItemByValue(bg_image_option_menu, "bg21");
-		}
+		//BG
+			if (id.includes("BG01")){
+				selectItemByValue(bg_image_option_menu, "bg1");
+			} else if (id.includes("BG02")){
+				selectItemByValue(bg_image_option_menu, "bg2");
+			} else if (id.includes("BG03")){
+				selectItemByValue(bg_image_option_menu, "bg3");
+			} else if (id.includes("BG04")){
+				selectItemByValue(bg_image_option_menu, "bg4");
+			} else if (id.includes("BG05")){
+				selectItemByValue(bg_image_option_menu, "bg5");
+			} else if (id.includes("BG06")){
+				selectItemByValue(bg_image_option_menu, "bg6");
+			} else if (id.includes("BG07")){
+				selectItemByValue(bg_image_option_menu, "bg7");
+			} else if (id.includes("BG08")){
+				selectItemByValue(bg_image_option_menu, "bg8");
+			} else if (id.includes("BG09")){
+				selectItemByValue(bg_image_option_menu, "bg9");
+			} else if (id.includes("BG10")){
+				selectItemByValue(bg_image_option_menu, "bg10");
+			} else if (id.includes("BG11")){
+				selectItemByValue(bg_image_option_menu, "bg11");
+			} else if (id.includes("BG12")){
+				selectItemByValue(bg_image_option_menu, "bg12");
+			} else if (id.includes("BG13")){
+				selectItemByValue(bg_image_option_menu, "bg13");
+			} else if (id.includes("BG14")){
+				selectItemByValue(bg_image_option_menu, "bg14");
+			} else if (id.includes("BG15")){
+				selectItemByValue(bg_image_option_menu, "bg15");
+			} else if (id.includes("BG16")){
+				selectItemByValue(bg_image_option_menu, "bg16");
+			} else if (id.includes("BG17")){
+				selectItemByValue(bg_image_option_menu, "bg17");
+			} else if (id.includes("BG18")){
+				selectItemByValue(bg_image_option_menu, "bg18");
+			} else if (id.includes("BG19")){
+				selectItemByValue(bg_image_option_menu, "bg19");
+			} else if (id.includes("BG20")){
+				selectItemByValue(bg_image_option_menu, "bg20");
+			} else if (id.includes("BG21")){
+				selectItemByValue(bg_image_option_menu, "bg21");
+			}
 
 
-	//Race, Sex, Age
-		if (id.includes("RSA00")){
-			selectItemByValue(base_image_option_menu, "western_male_base_1");
-		} else if (id.includes("RSA01")){
-			selectItemByValue(base_image_option_menu, "western_male_base_2");
-		} else if (id.includes("RSA02")){
-			selectItemByValue(base_image_option_menu, "western_male_base_3");
-		} else if (id.includes("RSA03")){
-			selectItemByValue(base_image_option_menu, "western_female_base_1");
-		} else if (id.includes("RSA04")){
-			selectItemByValue(base_image_option_menu, "western_female_base_2");
-		} else if (id.includes("RSA05")){
-			selectItemByValue(base_image_option_menu, "western_female_base_3");
-		} else if (id.includes("RSA06")){
-			selectItemByValue(base_image_option_menu, "muslim_male_base_1");
-		} else if (id.includes("RSA07")){
-			selectItemByValue(base_image_option_menu, "muslim_male_base_2");
-		} else if (id.includes("RSA08")){
-			selectItemByValue(base_image_option_menu, "muslim_male_base_3");
-		} else if (id.includes("RSA09")){
-			selectItemByValue(base_image_option_menu, "muslim_female_base_1");
-		} else if (id.includes("RSA10")){
-			selectItemByValue(base_image_option_menu, "muslim_female_base_2");
-		} else if (id.includes("RSA11")){
-			selectItemByValue(base_image_option_menu, "muslim_female_base_3");
-		}
+		//Race, Sex, Age
+			if (id.includes("RSA00")){
+				selectItemByValue(base_image_option_menu, "western_male_base_1");
+			} else if (id.includes("RSA01")){
+				selectItemByValue(base_image_option_menu, "western_male_base_2");
+			} else if (id.includes("RSA02")){
+				selectItemByValue(base_image_option_menu, "western_male_base_3");
+			} else if (id.includes("RSA03")){
+				selectItemByValue(base_image_option_menu, "western_female_base_1");
+			} else if (id.includes("RSA04")){
+				selectItemByValue(base_image_option_menu, "western_female_base_2");
+			} else if (id.includes("RSA05")){
+				selectItemByValue(base_image_option_menu, "western_female_base_3");
+			} else if (id.includes("RSA06")){
+				selectItemByValue(base_image_option_menu, "muslim_male_base_1");
+			} else if (id.includes("RSA07")){
+				selectItemByValue(base_image_option_menu, "muslim_male_base_2");
+			} else if (id.includes("RSA08")){
+				selectItemByValue(base_image_option_menu, "muslim_male_base_3");
+			} else if (id.includes("RSA09")){
+				selectItemByValue(base_image_option_menu, "muslim_female_base_1");
+			} else if (id.includes("RSA10")){
+				selectItemByValue(base_image_option_menu, "muslim_female_base_2");
+			} else if (id.includes("RSA11")){
+				selectItemByValue(base_image_option_menu, "muslim_female_base_3");
+			}
 
 
-	//Facial hair / beards
-		if (id.includes("FH00")){
-			selectItemByValue(beard_image_option_menu, "none");
-		} else if (id.includes("FH01")){
-			selectItemByValue(beard_image_option_menu, "beard1");
-		} else if (id.includes("FH02")){
-			selectItemByValue(beard_image_option_menu, "beard2");
-		} else if (id.includes("FH03")){
-			selectItemByValue(beard_image_option_menu, "beard3");
-		} else if (id.includes("FH04")){
-			selectItemByValue(beard_image_option_menu, "beard4");
-		} else if (id.includes("FH05")){
-			selectItemByValue(beard_image_option_menu, "beard5");
-		} else if (id.includes("FH06")){
-			selectItemByValue(beard_image_option_menu, "beard6");
-		} else if (id.includes("FH07")){
-			selectItemByValue(beard_image_option_menu, "beard7");
-		} else if (id.includes("FH08")){
-			selectItemByValue(beard_image_option_menu, "beard1G");
-		} else if (id.includes("FH09")){
-			selectItemByValue(beard_image_option_menu, "beard2G");
-		} else if (id.includes("FH10")){
-			selectItemByValue(beard_image_option_menu, "beard3G");
-		} else if (id.includes("FH11")){
-			selectItemByValue(beard_image_option_menu, "beard4G");
-		} else if (id.includes("FH12")){
-			selectItemByValue(beard_image_option_menu, "beard5G");
-		} else if (id.includes("FH13")){
-			selectItemByValue(beard_image_option_menu, "beard6G");
-		} else if (id.includes("FH14")){
-			selectItemByValue(beard_image_option_menu, "beard7G");
-		} else if (id.includes("FH15")){
-			selectItemByValue(beard_image_option_menu, "beard1Old");
-		} else if (id.includes("FH16")){
-			selectItemByValue(beard_image_option_menu, "beard2Old");
-		} else if (id.includes("FH17")){
-			selectItemByValue(beard_image_option_menu, "beard3Old");
-		} else if (id.includes("FH18")){
-			selectItemByValue(beard_image_option_menu, "beard4Old");
-		} else if (id.includes("FH19")){
-			selectItemByValue(beard_image_option_menu, "beard5Old");
-		} else if (id.includes("FH20")){
-			selectItemByValue(beard_image_option_menu, "beard6Old");
-		} else if (id.includes("FH21")){
-			selectItemByValue(beard_image_option_menu, "beard7Old");
-		}
+		//Facial hair / beards
+			if (id.includes("FH00")){
+				selectItemByValue(beard_image_option_menu, "none");
+			} else if (id.includes("FH01")){
+				selectItemByValue(beard_image_option_menu, "beard1");
+			} else if (id.includes("FH02")){
+				selectItemByValue(beard_image_option_menu, "beard2");
+			} else if (id.includes("FH03")){
+				selectItemByValue(beard_image_option_menu, "beard3");
+			} else if (id.includes("FH04")){
+				selectItemByValue(beard_image_option_menu, "beard4");
+			} else if (id.includes("FH05")){
+				selectItemByValue(beard_image_option_menu, "beard5");
+			} else if (id.includes("FH06")){
+				selectItemByValue(beard_image_option_menu, "beard6");
+			} else if (id.includes("FH07")){
+				selectItemByValue(beard_image_option_menu, "beard7");
+			} else if (id.includes("FH08")){
+				selectItemByValue(beard_image_option_menu, "beard1G");
+			} else if (id.includes("FH09")){
+				selectItemByValue(beard_image_option_menu, "beard2G");
+			} else if (id.includes("FH10")){
+				selectItemByValue(beard_image_option_menu, "beard3G");
+			} else if (id.includes("FH11")){
+				selectItemByValue(beard_image_option_menu, "beard4G");
+			} else if (id.includes("FH12")){
+				selectItemByValue(beard_image_option_menu, "beard5G");
+			} else if (id.includes("FH13")){
+				selectItemByValue(beard_image_option_menu, "beard6G");
+			} else if (id.includes("FH14")){
+				selectItemByValue(beard_image_option_menu, "beard7G");
+			} else if (id.includes("FH15")){
+				selectItemByValue(beard_image_option_menu, "beard1Old");
+			} else if (id.includes("FH16")){
+				selectItemByValue(beard_image_option_menu, "beard2Old");
+			} else if (id.includes("FH17")){
+				selectItemByValue(beard_image_option_menu, "beard3Old");
+			} else if (id.includes("FH18")){
+				selectItemByValue(beard_image_option_menu, "beard4Old");
+			} else if (id.includes("FH19")){
+				selectItemByValue(beard_image_option_menu, "beard5Old");
+			} else if (id.includes("FH20")){
+				selectItemByValue(beard_image_option_menu, "beard6Old");
+			} else if (id.includes("FH21")){
+				selectItemByValue(beard_image_option_menu, "beard7Old");
+			}
 
-	//Scars
+		//Scars
 
-		if (id.includes("SC00")){
-			selectItemByValue(scar_image_option_menu, "none");
-		} else if (id.includes("SC01")){
-			selectItemByValue(scar_image_option_menu, "scar1");
-		} else if (id.includes("SC02")){
-			selectItemByValue(scar_image_option_menu, "scar2");
-		} else if (id.includes("SC03")){
-			selectItemByValue(scar_image_option_menu, "scar3");
-		} else if (id.includes("SC04")){
-			selectItemByValue(scar_image_option_menu, "scar4");
-		} else if (id.includes("SC05")){
-			selectItemByValue(scar_image_option_menu, "scar5");
-		}
+			if (id.includes("SC00")){
+				selectItemByValue(scar_image_option_menu, "none");
+			} else if (id.includes("SC01")){
+				selectItemByValue(scar_image_option_menu, "scar1");
+			} else if (id.includes("SC02")){
+				selectItemByValue(scar_image_option_menu, "scar2");
+			} else if (id.includes("SC03")){
+				selectItemByValue(scar_image_option_menu, "scar3");
+			} else if (id.includes("SC04")){
+				selectItemByValue(scar_image_option_menu, "scar4");
+			} else if (id.includes("SC05")){
+				selectItemByValue(scar_image_option_menu, "scar5");
+			}
 
-	//Masks
-		if (id.includes("MA00")){
-			selectItemByValue(mask_image_option_menu, "mask0");
-		} else if (id.includes("MA01")){
-			selectItemByValue(mask_image_option_menu, "mask1");
-		} else if (id.includes("MA02")){
-			selectItemByValue(mask_image_option_menu, "mask2");
-		} else if (id.includes("MA03")){
-			selectItemByValue(mask_image_option_menu, "mask3");
-		} else if (id.includes("MA04")){
-			selectItemByValue(mask_image_option_menu, "mask4");
-		} else if (id.includes("MA05")){
-			selectItemByValue(mask_image_option_menu, "mask5");
-		} else if (id.includes("MA06")){
-			selectItemByValue(mask_image_option_menu, "mask6");
-		} else if (id.includes("MA07")){
-			selectItemByValue(mask_image_option_menu, "mask7");
-		} else if (id.includes("MA08")){
-			selectItemByValue(mask_image_option_menu, "mask8");
-		} else if (id.includes("MA09")){
-			selectItemByValue(mask_image_option_menu, "mask9");
-		} else if (id.includes("MA10")){
-			selectItemByValue(mask_image_option_menu, "mask10");
-		} else if (id.includes("MA11")){
-			selectItemByValue(mask_image_option_menu, "mask11");
-		} else if (id.includes("MA12")){
-			selectItemByValue(mask_image_option_menu, "mask12");
-		} else if (id.includes("MA13")){
-			selectItemByValue(mask_image_option_menu, "mask13");
-		}
+		//Masks
+			if (id.includes("MA00")){
+				selectItemByValue(mask_image_option_menu, "mask0");
+			} else if (id.includes("MA01")){
+				selectItemByValue(mask_image_option_menu, "mask1");
+			} else if (id.includes("MA02")){
+				selectItemByValue(mask_image_option_menu, "mask2");
+			} else if (id.includes("MA03")){
+				selectItemByValue(mask_image_option_menu, "mask3");
+			} else if (id.includes("MA04")){
+				selectItemByValue(mask_image_option_menu, "mask4");
+			} else if (id.includes("MA05")){
+				selectItemByValue(mask_image_option_menu, "mask5");
+			} else if (id.includes("MA06")){
+				selectItemByValue(mask_image_option_menu, "mask6");
+			} else if (id.includes("MA07")){
+				selectItemByValue(mask_image_option_menu, "mask7");
+			} else if (id.includes("MA08")){
+				selectItemByValue(mask_image_option_menu, "mask8");
+			} else if (id.includes("MA09")){
+				selectItemByValue(mask_image_option_menu, "mask9");
+			} else if (id.includes("MA10")){
+				selectItemByValue(mask_image_option_menu, "mask10");
+			} else if (id.includes("MA11")){
+				selectItemByValue(mask_image_option_menu, "mask11");
+			} else if (id.includes("MA12")){
+				selectItemByValue(mask_image_option_menu, "mask12");
+			} else if (id.includes("MA13")){
+				selectItemByValue(mask_image_option_menu, "mask13");
+			}
 
 
-	//Skin Defects
-		if (id.includes("SD00")){
-			selectItemByValue(skin_defects_image_option_menu, "skin0");
-		} else if (id.includes("SD01")){
-			selectItemByValue(skin_defects_image_option_menu, "skin1");
-		} else if (id.includes("SD02")){
-			selectItemByValue(skin_defects_image_option_menu, "skin2");
-		}
+		//Skin Defects
+			if (id.includes("SD00")){
+				selectItemByValue(skin_defects_image_option_menu, "skin0");
+			} else if (id.includes("SD01")){
+				selectItemByValue(skin_defects_image_option_menu, "skin1");
+			} else if (id.includes("SD02")){
+				selectItemByValue(skin_defects_image_option_menu, "skin2");
+			}
 
-	//Eye Damage slash blindness
-		if (id.includes("ED00")){
-			selectItemByValue(blindness_image_option_menu, "none");
-		} else if (id.includes("ED01")){
-			selectItemByValue(blindness_image_option_menu, "blind1");
-		} else if (id.includes("ED02")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch1");
-		} else if (id.includes("ED03")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch2");
-		} else if (id.includes("ED04")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch3");
-		} else if (id.includes("ED05")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch4");
-		} else if (id.includes("ED06")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch5");
-		} else if (id.includes("ED07")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch6");
-		} else if (id.includes("ED08")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch7");
-		} else if (id.includes("ED09")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch8");
-		} else if (id.includes("ED10")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch9");
-		} else if (id.includes("ED11")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch10");
-		} else if (id.includes("ED12")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch11");
-		} else if (id.includes("ED13")){
-			selectItemByValue(blindness_image_option_menu, "eyepatch12");
-		}
+		//Eye Damage slash blindness
+			if (id.includes("ED00")){
+				selectItemByValue(blindness_image_option_menu, "none");
+			} else if (id.includes("ED01")){
+				selectItemByValue(blindness_image_option_menu, "blind1");
+			} else if (id.includes("ED02")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch1");
+			} else if (id.includes("ED03")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch2");
+			} else if (id.includes("ED04")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch3");
+			} else if (id.includes("ED05")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch4");
+			} else if (id.includes("ED06")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch5");
+			} else if (id.includes("ED07")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch6");
+			} else if (id.includes("ED08")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch7");
+			} else if (id.includes("ED09")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch8");
+			} else if (id.includes("ED10")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch9");
+			} else if (id.includes("ED11")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch10");
+			} else if (id.includes("ED12")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch11");
+			} else if (id.includes("ED13")){
+				selectItemByValue(blindness_image_option_menu, "eyepatch12");
+			}
 
-	//Prison
-		if (id.includes("PR00")){
-			selectItemByValue(imprisoned_image_menu, "none");
-		} else if (id.includes("PR01")){
-			selectItemByValue(imprisoned_image_menu, "imprisoned_image");
-		}
+		//Prison
+			if (id.includes("PR00")){
+				selectItemByValue(imprisoned_image_menu, "none");
+			} else if (id.includes("PR01")){
+				selectItemByValue(imprisoned_image_menu, "imprisoned_image");
+			}
 
-		// UpdateBG(); UpdateBase(); UpdateBeard(); UpdateSpecial();
+
+		//Neck
+			if (id.includes("NK01")){
+				selectItemByValue(neck_image_option_menu, "neck1");
+			} else if (id.includes("NK02")){
+				selectItemByValue(neck_image_option_menu, "neck2");
+			} else if (id.includes("NK03")){
+				selectItemByValue(neck_image_option_menu, "neck3");
+			} else if (id.includes("NK04")){
+				selectItemByValue(neck_image_option_menu, "neck4");
+			} else if (id.includes("NK05")){
+				selectItemByValue(neck_image_option_menu, "neck1M");
+			} else if (id.includes("NK06")){
+				selectItemByValue(neck_image_option_menu, "neck2M");
+			} else if (id.includes("NK07")){
+				selectItemByValue(neck_image_option_menu, "neck3M");
+			} else if (id.includes("NK08")){
+				selectItemByValue(neck_image_option_menu, "neck4M");
+			} else if (id.includes("NK09")){
+				selectItemByValue(neck_image_option_menu, "neck1Old");
+			} else if (id.includes("NK10")){
+				selectItemByValue(neck_image_option_menu, "neck2Old");
+			} else if (id.includes("NK11")){
+				selectItemByValue(neck_image_option_menu, "neck3Old");
+			} else if (id.includes("NK12")){
+				selectItemByValue(neck_image_option_menu, "neck4Old");
+			}
+
+		//Nose
+			if (id.includes("NO01")){
+				selectItemByValue(nose_image_option_menu, "nose1");
+			} else if (id.includes("NO02")){
+				selectItemByValue(nose_image_option_menu, "nose2");
+			} else if (id.includes("NO03")){
+				selectItemByValue(nose_image_option_menu, "nose3");
+			} else if (id.includes("NO04")){
+				selectItemByValue(nose_image_option_menu, "nose4");
+			} else if (id.includes("NO05")){
+				selectItemByValue(nose_image_option_menu, "nose5");
+			} else if (id.includes("NO06")){
+				selectItemByValue(nose_image_option_menu, "nose6");
+			} else if (id.includes("NO07")){
+				selectItemByValue(nose_image_option_menu, "nose7");
+			} else if (id.includes("NO08")){
+				selectItemByValue(nose_image_option_menu, "nose8");
+			} else if (id.includes("NO09")){
+				selectItemByValue(nose_image_option_menu, "nose9");
+			} else if (id.includes("NO10")){
+				selectItemByValue(nose_image_option_menu, "nose10");
+			} else if (id.includes("NO11")){
+				selectItemByValue(nose_image_option_menu, "nose11");
+			} else if (id.includes("NO12")){
+				selectItemByValue(nose_image_option_menu, "nose12");
+			} else if (id.includes("NO13")){
+				selectItemByValue(nose_image_option_menu, "nose13");
+			} else if (id.includes("NO14")){
+				selectItemByValue(nose_image_option_menu, "nose1M");
+			} else if (id.includes("NO15")){
+				selectItemByValue(nose_image_option_menu, "nose2M");
+			} else if (id.includes("NO16")){
+				selectItemByValue(nose_image_option_menu, "nose3M");
+			} else if (id.includes("NO17")){
+				selectItemByValue(nose_image_option_menu, "nose4M");
+			} else if (id.includes("NO18")){
+				selectItemByValue(nose_image_option_menu, "nose5M");
+			} else if (id.includes("NO19")){
+				selectItemByValue(nose_image_option_menu, "nose6M");
+			} else if (id.includes("NO20")){
+				selectItemByValue(nose_image_option_menu, "nose7M");
+			} else if (id.includes("NO21")){
+				selectItemByValue(nose_image_option_menu, "nose8M");
+			} else if (id.includes("NO22")){
+				selectItemByValue(nose_image_option_menu, "nose9M");
+			} else if (id.includes("NO23")){
+				selectItemByValue(nose_image_option_menu, "nose10M");
+			} else if (id.includes("NO24")){
+				selectItemByValue(nose_image_option_menu, "nose11M");
+			} else if (id.includes("NO25")){
+				selectItemByValue(nose_image_option_menu, "nose12M");
+			} else if (id.includes("NO26")){
+				selectItemByValue(nose_image_option_menu, "nose13M");
+			} else if (id.includes("NO27")){
+				selectItemByValue(nose_image_option_menu, "nose1Old");
+			} else if (id.includes("NO28")){
+				selectItemByValue(nose_image_option_menu, "nose2Old");
+			} else if (id.includes("NO29")){
+				selectItemByValue(nose_image_option_menu, "nose3Old");
+			} else if (id.includes("NO30")){
+				selectItemByValue(nose_image_option_menu, "nose4Old");
+			} else if (id.includes("NO31")){
+				selectItemByValue(nose_image_option_menu, "nose5Old");
+			} else if (id.includes("NO32")){
+				selectItemByValue(nose_image_option_menu, "nose6Old");
+			} else if (id.includes("NO33")){
+				selectItemByValue(nose_image_option_menu, "nose7Old");
+			} else if (id.includes("NO34")){
+				selectItemByValue(nose_image_option_menu, "nose8Old");
+			} else if (id.includes("NO35")){
+				selectItemByValue(nose_image_option_menu, "nose9Old");
+			} else if (id.includes("NO36")){
+				selectItemByValue(nose_image_option_menu, "nose10Old");
+			} else if (id.includes("NO37")){
+				selectItemByValue(nose_image_option_menu, "nose11Old");
+			} else if (id.includes("NO38")){
+				selectItemByValue(nose_image_option_menu, "nose12Old");
+			} else if (id.includes("NO39")){
+				selectItemByValue(nose_image_option_menu, "nose13Old");
+			}
+
+			// UpdateBG(); UpdateBase(); UpdateBeard(); UpdateSpecial();
 	}
 
   </script>
