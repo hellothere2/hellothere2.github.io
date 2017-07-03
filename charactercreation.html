@@ -361,6 +361,93 @@
   </fieldset>
 
 
+  <fieldset style="width: 200px; position: absolute; left: 660px; top: 300px;">
+  <form>
+  <legend style="color: white">Mouth:</legend>
+    <select id="mouth_image_dropdown">
+    <option value="mouth1">Western Male Mouth 1</option>
+    <option value="mouth2">Western Male Mouth 2</option>
+    <option value="mouth3">Western Male Mouth 3</option>
+    <option value="mouth4">Western Male Mouth 4</option>
+    <option value="mouth5">Western Male Mouth 5</option>
+    <option value="mouth6">Western Male Mouth 6</option>
+    <option value="mouth7">Western Male Mouth 7</option>
+    <option value="mouth8">Western Male Mouth 8</option>
+    <option value="mouth9">Western Male Mouth 9</option>
+    <option value="mouth10">Western Male Mouth 10</option>
+    <option value="mouth11">Western Male Mouth 11</option>
+    <option value="mouth12">Western Male Mouth 12</option>
+    <option value="mouth13">Western Male Mouth 13</option>
+    <option value="mouth1M">Western Male Mouth 1 Mature</option>
+    <option value="mouth2M">Western Male Mouth 2 Mature</option>
+    <option value="mouth3M">Western Male Mouth 3 Mature</option>
+    <option value="mouth4M">Western Male Mouth 4 Mature</option>
+    <option value="mouth5M">Western Male Mouth 5 Mature</option>
+    <option value="mouth6M">Western Male Mouth 6 Mature</option>
+    <option value="mouth7M">Western Male Mouth 7 Mature</option>
+    <option value="mouth8M">Western Male Mouth 8 Mature</option>
+    <option value="mouth9M">Western Male Mouth 9 Mature</option>
+    <option value="mouth10M">Western Male Mouth 10 Mature</option>
+    <option value="mouth11M">Western Male Mouth 11 Mature</option>
+    <option value="mouth12M">Western Male Mouth 12 Mature</option>
+    <option value="mouth13M">Western Male Mouth 13 Mature</option>
+    <option value="mouth1Old">Western Male Mouth 1 Old</option>
+    <option value="mouth2Old">Western Male Mouth 2 Old</option>
+    <option value="mouth3Old">Western Male Mouth 3 Old</option>
+    <option value="mouth4Old">Western Male Mouth 4 Old</option>
+    <option value="mouth5Old">Western Male Mouth 5 Old</option>
+    <option value="mouth6Old">Western Male Mouth 6 Old</option>
+    <option value="mouth7Old">Western Male Mouth 7 Old</option>
+    <option value="mouth8Old">Western Male Mouth 8 Old</option>
+    <option value="mouth9Old">Western Male Mouth 9 Old</option>
+    <option value="mouth10Old">Western Male Mouth 10 Old</option>
+    <option value="mouth11Old">Western Male Mouth 11 Old</option>
+    <option value="mouth12Old">Western Male Mouth 12 Old</option>
+    <option value="mouth13Old">Western Male Mouth 13 Old</option>
+    <option value="Fmouth1">Western Female Mouth 1</option>
+    <option value="Fmouth2">Western Female Mouth 2</option>
+    <option value="Fmouth3">Western Female Mouth 3</option>
+    <option value="Fmouth4">Western Female Mouth 4</option>
+    <option value="Fmouth5">Western Female Mouth 5</option>
+    <option value="Fmouth6">Western Female Mouth 6</option>
+    <option value="Fmouth7">Western Female Mouth 7</option>
+    <option value="Fmouth8">Western Female Mouth 8</option>
+    <option value="Fmouth9">Western Female Mouth 9</option>
+    <option value="Fmouth10">Western Female Mouth 10</option>
+    <option value="Fmouth11">Western Female Mouth 11</option>
+    <option value="Fmouth12">Western Female Mouth 12</option>
+    <option value="Fmouth13">Western Female Mouth 13</option>
+    <option value="Fmouth1M">Western Female Mouth 1 Mature</option>
+    <option value="Fmouth2M">Western Female Mouth 2 Mature</option>
+    <option value="Fmouth3M">Western Female Mouth 3 Mature</option>
+    <option value="Fmouth4M">Western Female Mouth 4 Mature</option>
+    <option value="Fmouth5M">Western Female Mouth 5 Mature</option>
+    <option value="Fmouth6M">Western Female Mouth 6 Mature</option>
+    <option value="Fmouth7M">Western Female Mouth 7 Mature</option>
+    <option value="Fmouth8M">Western Female Mouth 8 Mature</option>
+    <option value="Fmouth9M">Western Female Mouth 9 Mature</option>
+    <option value="Fmouth10M">Western Femmale Mouth 10 Mature</option>
+    <option value="Fmouth11M">Western Female Mouth 11 Mature</option>
+    <option value="Fmouth12M">Western Female Mouth 12 Mature</option>
+    <option value="Fmouth13M">Western Female Mouth 13 Mature</option>
+    <option value="Fmouth1Old">Western Female Mouth 1 Old</option>
+    <option value="Fmouth2Old">Western Female Mouth 2 Old</option>
+    <option value="Fmouth3Old">Western Female Mouth 3 Old</option>
+    <option value="Fmouth4Old">Western Female Mouth 4 Old</option>
+    <option value="Fmouth5Old">Western Female Mouth 5 Old</option>
+    <option value="Fmouth6Old">Western Female Mouth 6 Old</option>
+    <option value="Fmouth7Old">Western Female Mouth 7 Old</option>
+    <option value="Fmouth8Old">Western Female Mouth 8 Old</option>
+    <option value="Fmouth9Old">Western Female Mouth 9 Old</option>
+    <option value="Fmouth10Old">Western Female Mouth 10 Old</option>
+    <option value="Fmouth11Old">Western Female Mouth 11 Old</option>
+    <option value="Fmouth12Old">Western Female Mouth 12 Old</option>
+    <option value="Fmouth13Old">Western Female Mouth 13 Old</option>
+    </select>
+    <input type="button" onclick="UpdateMouth()" value="Apply Mouth">
+  </form>
+  </fieldset>
+
 
 
   <canvas id="bgcanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: -1;">
@@ -376,6 +463,10 @@ Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <canvas id="BaseCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 1;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="MouthCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 2;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -455,13 +546,24 @@ Your browser does not support the HTML5 canvas tag.
 	<img id="western_female_neck_2" width="608px" height="152px" src="characters\western_female\western_female_neck_2.png" style="display:none"/>
 	<img id="western_female_neck_3" width="608px" height="152px" src="characters\western_female\western_female_neck_3.png" style="display:none"/>
 
-	<!-- Nose Images -->
+<!-- Nose Images -->
 	<img id="western_male_nose_1" width="416px" height="40px" src="characters\western_male\western_male_nose_1.png" style="display:none"/>
 	<img id="western_male_nose_2" width="337px" height="40px" src="characters\western_male\western_male_nose_2.png" style="display:none"/>
 	<img id="western_male_nose_3" width="403px" height="38px" src="characters\western_male\western_male_nose_3.png" style="display:none"/>
 	<img id="western_female_nose_1" width="416px" height="40px" src="characters\western_female\western_female_nose_1.png" style="display:none"/>
 	<img id="western_female_nose_2" width="337px" height="40px" src="characters\western_female\western_female_nose_2.png" style="display:none"/>
 	<img id="western_female_nose_3" width="403px" height="38px" src="characters\western_female\western_female_nose_3.png" style="display:none"/>
+
+
+<!-- Mouth Images -->
+	<img id="western_male_mouth_1" width="416px" height="40px" src="characters\western_male\western_male_mouth_1.png" style="display:none"/>
+	<img id="western_male_mouth_2" width="337px" height="40px" src="characters\western_male\western_male_mouth_2.png" style="display:none"/>
+	<img id="western_male_mouth_3" width="403px" height="38px" src="characters\western_male\western_male_mouth_3.png" style="display:none"/>
+	<img id="western_female_mouth_1" width="520px" height="32px" src="characters\western_female\western_female_mouth_1.png" style="display:none"/>
+	<img id="western_female_mouth_2" width="520px" height="28px" src="characters\western_female\western_female_mouth_2.png" style="display:none"/>
+	<img id="western_female_mouth_3" width="520px" height="28px" src="characters\western_female\western_female_mouth_3.png" style="display:none"/>
+
+
 
 
 <script type="text/javascript">
@@ -1068,7 +1170,320 @@ Your browser does not support the HTML5 canvas tag.
 		}
 	}
 
-
+	function UpdateMouth(){
+		var id = document.getElementById("PortraitID_output");
+		var mouth_image_option_menu = document.getElementById("mouth_image_dropdown");
+		var c = document.getElementById("MouthCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_mouth_1");
+		if (mouth_image_option_menu.value == "mouth1"){
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO01";
+		} else if (mouth_image_option_menu.value == "mouth2"){
+			ctx.drawImage(img, 36, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO02";
+		} else if (mouth_image_option_menu.value == "mouth3"){
+			ctx.drawImage(img, 72, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO03";
+		} else if (mouth_image_option_menu.value == "mouth4"){
+			ctx.drawImage(img, 108, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO04";
+		} else if (mouth_image_option_menu.value == "mouth5"){
+			ctx.drawImage(img, 144, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO05";
+		} else if (mouth_image_option_menu.value == "mouth6"){
+			ctx.drawImage(img, 180, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO06";
+		} else if (mouth_image_option_menu.value == "mouth7"){
+			ctx.drawImage(img, 216, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO07";
+		} else if (mouth_image_option_menu.value == "mouth8"){
+			ctx.drawImage(img, 252, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO08";
+		} else if (mouth_image_option_menu.value == "mouth9"){
+			ctx.drawImage(img, 288, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO09";
+		} else if (mouth_image_option_menu.value == "mouth10"){
+			ctx.drawImage(img, 324, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO10";
+		} else if (mouth_image_option_menu.value == "mouth11"){
+			ctx.drawImage(img, 360, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO11";
+		} else if (mouth_image_option_menu.value == "mouth12"){
+			ctx.drawImage(img, 396, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO12";
+		}  else if (mouth_image_option_menu.value == "mouth13"){
+			ctx.drawImage(img, 432, 0, 36, 28, 199, 239, 36, 28);
+			id.value += "MO13";
+		} else if (mouth_image_option_menu.value == "mouth1M"){
+			var img = document.getElementById("western_male_mouth_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO14";
+		} else if (mouth_image_option_menu.value == "mouth2M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 33, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO15";
+		} else if (mouth_image_option_menu.value == "mouth3M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 66, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO16";
+		} else if (mouth_image_option_menu.value == "mouth4M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 99, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO17";
+		} else if (mouth_image_option_menu.value == "mouth5M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 132, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO18";
+		} else if (mouth_image_option_menu.value == "mouth6M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 165, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO19";
+		} else if (mouth_image_option_menu.value == "mouth7M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 198, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO20";
+		} else if (mouth_image_option_menu.value == "mouth8M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 231, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO21";
+		} else if (mouth_image_option_menu.value == "mouth9M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 264, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO22";
+		} else if (mouth_image_option_menu.value == "mouth10M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 297, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO23";
+		} else if (mouth_image_option_menu.value == "mouth11M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 330, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO24";
+		} else if (mouth_image_option_menu.value == "mouth12M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 363, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO25";
+		}  else if (mouth_image_option_menu.value == "mouth13M"){
+			var img = document.getElementById("western_male_mouth_2");
+			ctx.drawImage(img, 396, 0, 33, 25, 201, 239, 33, 25);
+			id.value += "MO26";
+		} else if (mouth_image_option_menu.value == "mouth1Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO27";
+		} else if (mouth_image_option_menu.value == "mouth2Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 35, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO28";
+		} else if (mouth_image_option_menu.value == "mouth3Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 70, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO29";
+		} else if (mouth_image_option_menu.value == "mouth4Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 105, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO30";
+		} else if (mouth_image_option_menu.value == "mouth5Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 140, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO31";
+		} else if (mouth_image_option_menu.value == "mouth6Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 175, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO32";
+		} else if (mouth_image_option_menu.value == "mouth7Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 210, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO33";
+		} else if (mouth_image_option_menu.value == "mouth8Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 245, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO34";
+		} else if (mouth_image_option_menu.value == "mouth9Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 280, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO35";
+		} else if (mouth_image_option_menu.value == "mouth10Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 315, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO36";
+		} else if (mouth_image_option_menu.value == "mouth11Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 350, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO37";
+		} else if (mouth_image_option_menu.value == "mouth12Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 385, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO38";
+		}  else if (mouth_image_option_menu.value == "mouth13Old"){
+			var img = document.getElementById("western_male_mouth_3");
+			ctx.drawImage(img, 420, 0, 35, 24, 199, 240, 35, 24);
+			id.value += "MO39";
+		} else if (mouth_image_option_menu.value == "Fmouth1"){
+			var img = document.getElementById("western_female_mouth_1");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO40";
+		} else if (mouth_image_option_menu.value == "Fmouth2"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 40, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO41";
+		} else if (mouth_image_option_menu.value == "Fmouth3"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 80, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO042";
+		} else if (mouth_image_option_menu.value == "Fmouth4"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 120, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO43";
+		} else if (mouth_image_option_menu.value == "Fmouth5"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 160, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO44";
+		} else if (mouth_image_option_menu.value == "Fmouth6"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 200, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO45";
+		} else if (mouth_image_option_menu.value == "Fmouth7"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 240, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO46";
+		} else if (mouth_image_option_menu.value == "Fmouth8"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 280, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO47";
+		} else if (mouth_image_option_menu.value == "Fmouth9"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 320, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO48";
+		} else if (mouth_image_option_menu.value == "Fmouth10"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 360, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO49";
+		} else if (mouth_image_option_menu.value == "Fmouth11"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 400, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO50";
+		} else if (mouth_image_option_menu.value == "Fmouth12"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 440, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO51";
+		}  else if (mouth_image_option_menu.value == "Fmouth13"){
+			var img = document.getElementById("western_female_mouth_1");
+			ctx.drawImage(img, 480, 0, 40, 32, 196, 236, 40, 32);
+			id.value += "MO52";
+		} else if (mouth_image_option_menu.value == "Fmouth1M"){
+			var img = document.getElementById("western_female_mouth_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO53";
+		} else if (mouth_image_option_menu.value == "Fmouth2M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 40, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO54";
+		} else if (mouth_image_option_menu.value == "Fmouth3M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 80, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO55";
+		} else if (mouth_image_option_menu.value == "Fmouth4M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 120, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO56";
+		} else if (mouth_image_option_menu.value == "Fmouth5M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 160, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO57";
+		} else if (mouth_image_option_menu.value == "Fmouth6M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 200, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO58";
+		} else if (mouth_image_option_menu.value == "Fmouth7M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 240, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO59";
+		} else if (mouth_image_option_menu.value == "Fmouth8M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 280, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO60";
+		} else if (mouth_image_option_menu.value == "Fmouth9M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 320, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO61";
+		} else if (mouth_image_option_menu.value == "Fmouth10M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 360, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO62";
+		} else if (mouth_image_option_menu.value == "Fmouth11M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 400, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO63";
+		} else if (mouth_image_option_menu.value == "Fmouth12M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 440, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO64";
+		}  else if (mouth_image_option_menu.value == "Fmouth13M"){
+			var img = document.getElementById("western_female_mouth_2");
+			ctx.drawImage(img, 480, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO65";
+		} else if (mouth_image_option_menu.value == "Fmouth1Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO66";
+		} else if (mouth_image_option_menu.value == "Fmouth2Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 40, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO67";
+		} else if (mouth_image_option_menu.value == "Fmouth3Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 80, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO68";
+		} else if (mouth_image_option_menu.value == "Fmouth4Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 120, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO69";
+		} else if (mouth_image_option_menu.value == "Fmouth5Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 160, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO70";
+		} else if (mouth_image_option_menu.value == "Fmouth6Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 200, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO71";
+		} else if (mouth_image_option_menu.value == "Fmouth7Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 240, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO72";
+		} else if (mouth_image_option_menu.value == "Fmouth8Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 280, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO73";
+		} else if (mouth_image_option_menu.value == "Fmouth9Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 320, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO74";
+		} else if (mouth_image_option_menu.value == "Fmouth10Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 360, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO75";
+		} else if (mouth_image_option_menu.value == "Fmouth11Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 400, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO76";
+		} else if (mouth_image_option_menu.value == "Fmouth12Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 440, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO77";
+		}  else if (mouth_image_option_menu.value == "Fmouth13Old"){
+			var img = document.getElementById("western_female_mouth_3");
+			ctx.drawImage(img, 480, 0, 40, 28, 196, 239, 40, 28);
+			id.value += "MO78";
+		}
+	}
 
 	function UpdateNose(){
 		var id = document.getElementById("PortraitID_output");
