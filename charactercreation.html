@@ -592,6 +592,18 @@
     <option value="clothes10">Dark Shirt</option>
     <option value="clothes11">Mail Hood</option>
     <option value="clothes12">Prison Rags</option>
+    <option value="clothes1F">Noble Dress 1</option>
+    <option value="clothes2F">Noble Dress 2</option>
+    <option value="clothes3F">Gold Chainmail</option>
+    <option value="clothes4F">Red Dress</option>
+    <option value="clothes5F">Peasant Dress</option>
+    <option value="clothes6F">Brown Shirt</option>
+    <option value="clothes7F">Dark Shirt</option>
+    <option value="clothes8F">White-brown Shirt</option>
+    <option value="clothes9F">Green Shirt</option>
+    <option value="clothes10F">Leather Shirt</option>
+    <option value="clothes11F">Mail Shirt</option>
+    <option value="clothes12F">Prison Rags</option>
     </select>
     <br>
     <input type="button" onclick="UpdateClothes()" value="Apply Clothes">
@@ -647,6 +659,10 @@ Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <canvas id="ClothesCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 9;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="ClothesBehindCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 0;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -741,6 +757,9 @@ Your browser does not support the HTML5 canvas tag.
 	<img id="western_male_clothes" width="1824px" height="152px" src="characters\western_male\western_male_clothes.png" style="display:none"/>
 	<img id="western_male_clothes_behind" width="1824px" height="152px" src="characters\western_male\western_male_clothes_behind.png" style="display:none"/>
 	<img id="western_male_clothes_infront" width="1824px" height="152px" src="characters\western_male\western_male_clothes_infront.png" style="display:none"/>
+	<img id="western_female_clothes" width="1824px" height="152px" src="characters\western_female\western_female_clothes.png" style="display:none"/>
+	<img id="western_female_clothes_behind" width="1824px" height="152px" src="characters\western_female\western_female_clothes_behind.png" style="display:none"/>
+	<img id="western_female_clothes_infront" width="1824px" height="152px" src="characters\western_female\western_female_clothes_infront.png" style="display:none"/>
 
 
 
@@ -3070,36 +3089,89 @@ Your browser does not support the HTML5 canvas tag.
 		var img = document.getElementById("western_male_clothes");
 		if (clothes_image_option_menu.value == "none"){
 			id.value += "CL00";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
 		} else if (clothes_image_option_menu.value == "clothes1"){
 			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL01";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes2"){
 			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL02";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes3"){
 			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL03";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes4"){
 			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL04";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes5"){
 			ctx.drawImage(img, 608, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL05";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 608, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes6"){
 			ctx.drawImage(img, 760, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL06";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 760, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes7"){
 			ctx.drawImage(img, 912, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL07";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 912, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes8"){
 			ctx.drawImage(img, 1064, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL08";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 1064, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes9"){
 			ctx.drawImage(img, 1216, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL09";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 1216, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes10"){
 			ctx.drawImage(img, 1368, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL10";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 1368, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes11"){
 			ctx.drawImage(img, 1520, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL11";
@@ -3110,9 +3182,134 @@ Your browser does not support the HTML5 canvas tag.
 			var ctx = c.getContext("2d");
 			ctx.clearRect(0,0,400,190);
 			ctx.clearRect(0,0,170,480);
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 1520, 0, 152, 152, 124, 164, 152, 152);
 		} else if (clothes_image_option_menu.value == "clothes12"){
 			ctx.drawImage(img, 1672, 0, 152, 152, 124, 164, 152, 152);
 			id.value += "CL12";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_clothes_behind");
+			ctx.drawImage(img, 1672, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes1F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL13";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes2F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL14";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes3F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL15";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes4F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL16";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes5F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 608, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL17";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 608, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes6F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 760, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL18";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 760, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes7F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 912, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL19";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 912, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes8F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 1064, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL20";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 1064, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes9F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 1216, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL21";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 1216, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes10F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 1368, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL22";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 1368, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes11F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 1520, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL23";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var c = document.getElementById("HairCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,190);
+			ctx.clearRect(0,0,170,480);
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 1520, 0, 152, 152, 124, 164, 152, 152);
+		} else if (clothes_image_option_menu.value == "clothes12F"){
+			var img = document.getElementById("western_female_clothes");
+			ctx.drawImage(img, 1672, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL24";
+			var c = document.getElementById("ClothesBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_clothes_behind");
+			ctx.drawImage(img, 1672, 0, 152, 152, 124, 164, 152, 152);
 		}
 	}
 
