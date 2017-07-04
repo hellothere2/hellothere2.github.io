@@ -52,7 +52,7 @@
 		}
 </style>
 
-<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateBeard(); UpdateSpecial();">GENERATE PORTRAIT</button>
+<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateHair(); UpdateMouth(); UpdateBeard(); UpdateSpecial();">GENERATE PORTRAIT</button>
 
 
 <html lang="en"> 
@@ -449,6 +449,92 @@
   </fieldset>
 
 
+  <fieldset style="width: 200px; position: absolute; left: 660px; top: 390px;">
+  <form>
+  <legend style="color: white">Hair:</legend>
+    <select id="hair_image_dropdown">
+    <option value="hair1">Western Male Hair 1</option>
+    <option value="hair2">Western Male Hair 2</option>
+    <option value="hair3">Western Male Hair 3</option>
+    <option value="hair4">Western Male Hair 4</option>
+    <option value="hair5">Western Male Hair 5</option>
+    <option value="hair6">Western Male Hair 6</option>
+    <option value="hair7">Western Male Hair 7</option>
+    <option value="hair8">Western Male Hair 8</option>
+    <option value="hair9">Western Male Hair 9</option>
+    <option value="hair10">Western Male Hair 10</option>
+    <option value="hair11">Western Male Hair 11</option>
+    <option value="hair12">Western Male Hair 12</option>
+    <option value="hair13">Western Male Hair 13</option>
+    <option value="hair1M">Western Male Hair 1 Mature</option>
+    <option value="hair2M">Western Male Hair 2 Mature</option>
+    <option value="hair3M">Western Male Hair 3 Mature</option>
+    <option value="hair4M">Western Male Hair 4 Mature</option>
+    <option value="hair5M">Western Male Hair 5 Mature</option>
+    <option value="hair6M">Western Male Hair 6 Mature</option>
+    <option value="hair7M">Western Male Hair 7 Mature</option>
+    <option value="hair8M">Western Male Hair 8 Mature</option>
+    <option value="hair9M">Western Male Hair 9 Mature</option>
+    <option value="hair10M">Western Male Hair 10 Mature</option>
+    <option value="hair11M">Western Male Hair 11 Mature</option>
+    <option value="hair12M">Western Male Hair 12 Mature</option>
+    <option value="hair13M">Western Male Hair 13 Mature</option>
+    <option value="hair1Old">Western Male Hair 1 Old</option>
+    <option value="hair2Old">Western Male Hair 2 Old</option>
+    <option value="hair3Old">Western Male Hair 3 Old</option>
+    <option value="hair4Old">Western Male Hair 4 Old</option>
+    <option value="hair5Old">Western Male Hair 5 Old</option>
+    <option value="hair6Old">Western Male Hair 6 Old</option>
+    <option value="hair7Old">Western Male Hair 7 Old</option>
+    <option value="hair8Old">Western Male Hair 8 Old</option>
+    <option value="hair9Old">Western Male Hair 9 Old</option>
+    <option value="hair10Old">Western Male Hair 10 Old</option>
+    <option value="hair11Old">Western Male Hair 11 Old</option>
+    <option value="hair12Old">Western Male Hair 12 Old</option>
+    <option value="hair13Old">Western Male Hair 13 Old</option>
+    <option value="Fhair1">Western Female Hair 1</option>
+    <option value="Fhair2">Western Female Hair 2</option>
+    <option value="Fhair3">Western Female Hair 3</option>
+    <option value="Fhair4">Western Female Hair 4</option>
+    <option value="Fhair5">Western Female Hair 5</option>
+    <option value="Fhair6">Western Female Hair 6</option>
+    <option value="Fhair7">Western Female Hair 7</option>
+    <option value="Fhair8">Western Female Hair 8</option>
+    <option value="Fhair9">Western Female Hair 9</option>
+    <option value="Fhair10">Western Female Hair 10</option>
+    <option value="Fhair11">Western Female Hair 11</option>
+    <option value="Fhair12">Western Female Hair 12</option>
+    <option value="Fhair13">Western Female Hair 13</option>
+    <option value="Fhair1M">Western Female Hair 1 Mature</option>
+    <option value="Fhair2M">Western Female Hair 2 Mature</option>
+    <option value="Fhair3M">Western Female Hair 3 Mature</option>
+    <option value="Fhair4M">Western Female Hair 4 Mature</option>
+    <option value="Fhair5M">Western Female Hair 5 Mature</option>
+    <option value="Fhair6M">Western Female Hair 6 Mature</option>
+    <option value="Fhair7M">Western Female Hair 7 Mature</option>
+    <option value="Fhair8M">Western Female Hair 8 Mature</option>
+    <option value="Fhair9M">Western Female Hair 9 Mature</option>
+    <option value="Fhair10M">Western Femmale Hair 10 Mature</option>
+    <option value="Fhair11M">Western Female Hair 11 Mature</option>
+    <option value="Fhair12M">Western Female Hair 12 Mature</option>
+    <option value="Fhair13M">Western Female Hair 13 Mature</option>
+    <option value="Fhair1Old">Western Female Hair 1 Old</option>
+    <option value="Fhair2Old">Western Female Hair 2 Old</option>
+    <option value="Fhair3Old">Western Female Hair 3 Old</option>
+    <option value="Fhair4Old">Western Female Hair 4 Old</option>
+    <option value="Fhair5Old">Western Female Hair 5 Old</option>
+    <option value="Fhair6Old">Western Female Hair 6 Old</option>
+    <option value="Fhair7Old">Western Female Hair 7 Old</option>
+    <option value="Fhair8Old">Western Female Hair 8 Old</option>
+    <option value="Fhair9Old">Western Female Hair 9 Old</option>
+    <option value="Fhair10Old">Western Female Hair 10 Old</option>
+    <option value="Fhair11Old">Western Female Hair 11 Old</option>
+    <option value="Fhair12Old">Western Female Hair 12 Old</option>
+    <option value="Fhair13Old">Western Female Hair 13 Old</option>
+    </select>
+    <input type="button" onclick="UpdateHair()" value="Apply Hair">
+  </form>
+  </fieldset>
 
   <canvas id="bgcanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: -1;">
 Your browser does not support the HTML5 canvas tag.
@@ -463,6 +549,14 @@ Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <canvas id="BaseCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 1;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="HairBehindCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 0;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="HairCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 2;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -562,6 +656,14 @@ Your browser does not support the HTML5 canvas tag.
 	<img id="western_female_mouth_1" width="520px" height="32px" src="characters\western_female\western_female_mouth_1.png" style="display:none"/>
 	<img id="western_female_mouth_2" width="520px" height="28px" src="characters\western_female\western_female_mouth_2.png" style="display:none"/>
 	<img id="western_female_mouth_3" width="520px" height="28px" src="characters\western_female\western_female_mouth_3.png" style="display:none"/>
+
+<!-- Hair Images -->
+	<img id="western_male_hair_1" width="2128px" height="152px" src="characters\western_male\western_male_hair_1.png" style="display:none"/>
+	<img id="western_male_hair_2" width="2128px" height="152px" src="characters\western_male\western_male_hair_2.png" style="display:none"/>
+	<img id="western_male_hair_3" width="2128px" height="152px" src="characters\western_male\western_male_hair_3.png" style="display:none"/>
+	<img id="western_female_hair_1" width="2128px" height="152px" src="characters\western_female\western_female_hair_1.png" style="display:none"/>
+	<img id="western_female_hair_2" width="2128px" height="152px" src="characters\western_female\western_female_hair_2.png" style="display:none"/>
+	<img id="western_female_hair_3" width="2128px" height="152px" src="characters\western_female\western_female_hair_3.png" style="display:none"/>
 
 
 
@@ -1800,6 +1902,718 @@ Your browser does not support the HTML5 canvas tag.
 		}
 	}
 
+
+
+
+
+
+
+
+	function UpdateHair(){
+		var id = document.getElementById("PortraitID_output");
+		var hair_image_option_menu = document.getElementById("hair_image_dropdown");
+		var c = document.getElementById("HairCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_hair_1");
+		if (hair_image_option_menu.value == "hair1"){
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR01";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair2"){
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR02";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair3"){
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR03";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair4"){
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR04";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair5"){
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR05";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair6"){
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR06";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair7"){
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR07";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair8"){
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR08";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair9"){
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR09";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair10"){
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR10";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair11"){
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR11";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair12"){
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR12";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "hair13"){
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR13";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_beard_behind_1");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair1M"){
+			var img = document.getElementById("western_male_hair_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR14";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair2M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR15";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair3M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR16";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair4M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR17";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair5M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR18";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair6M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 916, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR19";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 916, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair7M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR20";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair8M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR21";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair9M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR22";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair10M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR23";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair11M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR24";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair12M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR152";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "hair13M"){
+			var img = document.getElementById("western_male_hair_2");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR26";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_2");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair1Old"){
+			var img = document.getElementById("western_male_hair_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR27";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair2Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR28";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair3Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR29";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair4Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR30";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair5Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR31";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair6Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR32";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair7Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR33";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair8Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR34";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair9Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR35";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair10Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR36";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair11Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR37";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair12Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR38";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "hair13Old"){
+			var img = document.getElementById("western_male_hair_3");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR39";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_3");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair1"){
+			var img = document.getElementById("western_female_hair_1");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR152";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair2"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR41";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair3"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR042";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair4"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR43";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair5"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR44";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair6"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR45";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair7"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR46";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair8"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR47";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair9"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR48";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair10"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR49";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair11"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR50";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair12"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR51";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "Fhair13"){
+			var img = document.getElementById("western_female_hair_1");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR52";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_1");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair1M"){
+			var img = document.getElementById("western_female_hair_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR53";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair2M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR54";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair3M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR55";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair4M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR56";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair5M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR57";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair6M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR58";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair7M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR59";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair8M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR60";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair9M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR61";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair10M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR62";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair11M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR63";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair12M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR64";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "Fhair13M"){
+			var img = document.getElementById("western_female_hair_2");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR65";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair1Old"){
+			var img = document.getElementById("western_female_hair_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR66";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair2Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR67";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair3Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR68";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair4Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR69";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair5Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR70";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair6Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR71";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair7Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR72";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair8Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR73";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair9Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR74";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair10Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR75";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair11Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR76";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "Fhair12Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR77";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "Fhair13Old"){
+			var img = document.getElementById("western_female_hair_3");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR78";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_female_hair_behind_3");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+		}
+	}
+
 	function GrabID(){
 
 		var id = document.getElementById("PortraitID_input").value;
@@ -2402,6 +3216,165 @@ Your browser does not support the HTML5 canvas tag.
 				selectItemByValue(mouth_image_option_menu, "Fmouth12Old");
 			} else if (id.includes("MO78")){
 				selectItemByValue(mouth_image_option_menu, "Fmouth13Old");
+			}
+
+		//Hair
+			if (id.includes("HR01")){
+				selectItemByValue(hair_image_option_menu, "hair1");
+			} else if (id.includes("HR02")){
+				selectItemByValue(hair_image_option_menu, "hair2");
+			} else if (id.includes("HR03")){
+				selectItemByValue(hair_image_option_menu, "hair3");
+			} else if (id.includes("HR04")){
+				selectItemByValue(hair_image_option_menu, "hair4");
+			} else if (id.includes("HR05")){
+				selectItemByValue(hair_image_option_menu, "hair5");
+			} else if (id.includes("HR06")){
+				selectItemByValue(hair_image_option_menu, "hair6");
+			} else if (id.includes("HR07")){
+				selectItemByValue(hair_image_option_menu, "hair7");
+			} else if (id.includes("HR08")){
+				selectItemByValue(hair_image_option_menu, "hair8");
+			} else if (id.includes("HR09")){
+				selectItemByValue(hair_image_option_menu, "hair9");
+			} else if (id.includes("HR10")){
+				selectItemByValue(hair_image_option_menu, "hair10");
+			} else if (id.includes("HR11")){
+				selectItemByValue(hair_image_option_menu, "hair11");
+			} else if (id.includes("HR12")){
+				selectItemByValue(hair_image_option_menu, "hair12");
+			} else if (id.includes("HR13")){
+				selectItemByValue(hair_image_option_menu, "hair13");
+			} else if (id.includes("HR14")){
+				selectItemByValue(hair_image_option_menu, "hair1M");
+			} else if (id.includes("HR15")){
+				selectItemByValue(hair_image_option_menu, "hair2M");
+			} else if (id.includes("HR16")){
+				selectItemByValue(hair_image_option_menu, "hair3M");
+			} else if (id.includes("HR17")){
+				selectItemByValue(hair_image_option_menu, "hair4M");
+			} else if (id.includes("HR18")){
+				selectItemByValue(hair_image_option_menu, "hair5M");
+			} else if (id.includes("HR19")){
+				selectItemByValue(hair_image_option_menu, "hair6M");
+			} else if (id.includes("HR20")){
+				selectItemByValue(hair_image_option_menu, "hair7M");
+			} else if (id.includes("HR21")){
+				selectItemByValue(hair_image_option_menu, "hair8M");
+			} else if (id.includes("HR22")){
+				selectItemByValue(hair_image_option_menu, "hair9M");
+			} else if (id.includes("HR23")){
+				selectItemByValue(hair_image_option_menu, "hair10M");
+			} else if (id.includes("HR24")){
+				selectItemByValue(hair_image_option_menu, "hair11M");
+			} else if (id.includes("HR25")){
+				selectItemByValue(hair_image_option_menu, "hair12M");
+			} else if (id.includes("HR26")){
+				selectItemByValue(hair_image_option_menu, "hair13M");
+			} else if (id.includes("HR27")){
+				selectItemByValue(hair_image_option_menu, "hair1Old");
+			} else if (id.includes("HR28")){
+				selectItemByValue(hair_image_option_menu, "hair2Old");
+			} else if (id.includes("HR29")){
+				selectItemByValue(hair_image_option_menu, "hair3Old");
+			} else if (id.includes("HR30")){
+				selectItemByValue(hair_image_option_menu, "hair4Old");
+			} else if (id.includes("HR31")){
+				selectItemByValue(hair_image_option_menu, "hair5Old");
+			} else if (id.includes("HR32")){
+				selectItemByValue(hair_image_option_menu, "hair6Old");
+			} else if (id.includes("HR33")){
+				selectItemByValue(hair_image_option_menu, "hair7Old");
+			} else if (id.includes("HR34")){
+				selectItemByValue(hair_image_option_menu, "hair8Old");
+			} else if (id.includes("HR35")){
+				selectItemByValue(hair_image_option_menu, "hair9Old");
+			} else if (id.includes("HR36")){
+				selectItemByValue(hair_image_option_menu, "hair10Old");
+			} else if (id.includes("HR37")){
+				selectItemByValue(hair_image_option_menu, "hair11Old");
+			} else if (id.includes("HR38")){
+				selectItemByValue(hair_image_option_menu, "hair12Old");
+			} else if (id.includes("HR39")){
+				selectItemByValue(hair_image_option_menu, "hair13Old");
+			} else if (id.includes("HR40")){
+				selectItemByValue(hair_image_option_menu, "Fhair1");
+			} else if (id.includes("HR41")){
+				selectItemByValue(hair_image_option_menu, "Fhair2");
+			} else if (id.includes("HR42")){
+				selectItemByValue(hair_image_option_menu, "Fhair3");
+			} else if (id.includes("HR43")){
+				selectItemByValue(hair_image_option_menu, "Fhair4");
+			} else if (id.includes("HR44")){
+				selectItemByValue(hair_image_option_menu, "Fhair5");
+			} else if (id.includes("HR45")){
+				selectItemByValue(hair_image_option_menu, "Fhair6");
+			} else if (id.includes("HR46")){
+				selectItemByValue(hair_image_option_menu, "Fhair7");
+			} else if (id.includes("HR47")){
+				selectItemByValue(hair_image_option_menu, "Fhair8");
+			} else if (id.includes("HR48")){
+				selectItemByValue(hair_image_option_menu, "Fhair9");
+			} else if (id.includes("HR49")){
+				selectItemByValue(hair_image_option_menu, "Fhair10");
+			} else if (id.includes("HR50")){
+				selectItemByValue(hair_image_option_menu, "Fhair11");
+			} else if (id.includes("HR51")){
+				selectItemByValue(hair_image_option_menu, "Fhair12");
+			} else if (id.includes("HR52")){
+				selectItemByValue(hair_image_option_menu, "Fhair13");
+			} else if (id.includes("HR53")){
+				selectItemByValue(hair_image_option_menu, "Fhair1M");
+			} else if (id.includes("HR54")){
+				selectItemByValue(hair_image_option_menu, "Fhair2M");
+			} else if (id.includes("HR55")){
+				selectItemByValue(hair_image_option_menu, "Fhair3M");
+			} else if (id.includes("HR56")){
+				selectItemByValue(hair_image_option_menu, "Fhair4M");
+			} else if (id.includes("HR57")){
+				selectItemByValue(hair_image_option_menu, "Fhair5M");
+			} else if (id.includes("HR58")){
+				selectItemByValue(hair_image_option_menu, "Fhair6M");
+			} else if (id.includes("HR59")){
+				selectItemByValue(hair_image_option_menu, "Fhair7M");
+			} else if (id.includes("HR60")){
+				selectItemByValue(hair_image_option_menu, "Fhair8M");
+			} else if (id.includes("HR61")){
+				selectItemByValue(hair_image_option_menu, "Fhair9M");
+			} else if (id.includes("HR62")){
+				selectItemByValue(hair_image_option_menu, "Fhair10M");
+			} else if (id.includes("HR63")){
+				selectItemByValue(hair_image_option_menu, "Fhair11M");
+			} else if (id.includes("HR64")){
+				selectItemByValue(hair_image_option_menu, "Fhair12M");
+			} else if (id.includes("HR65")){
+				selectItemByValue(hair_image_option_menu, "Fhair13M");
+			} else if (id.includes("HR66")){
+				selectItemByValue(hair_image_option_menu, "Fhair1Old");
+			} else if (id.includes("HR67")){
+				selectItemByValue(hair_image_option_menu, "Fhair2Old");
+			} else if (id.includes("HR68")){
+				selectItemByValue(hair_image_option_menu, "Fhair3Old");
+			} else if (id.includes("HR69")){
+				selectItemByValue(hair_image_option_menu, "Fhair4Old");
+			} else if (id.includes("HR70")){
+				selectItemByValue(hair_image_option_menu, "Fhair5Old");
+			} else if (id.includes("HR71")){
+				selectItemByValue(hair_image_option_menu, "Fhair6Old");
+			} else if (id.includes("HR72")){
+				selectItemByValue(hair_image_option_menu, "Fhair7Old");
+			} else if (id.includes("HR73")){
+				selectItemByValue(hair_image_option_menu, "Fhair8Old");
+			} else if (id.includes("HR74")){
+				selectItemByValue(hair_image_option_menu, "Fhair9Old");
+			} else if (id.includes("HR75")){
+				selectItemByValue(hair_image_option_menu, "Fhair10Old");
+			} else if (id.includes("HR76")){
+				selectItemByValue(hair_image_option_menu, "Fhair11Old");
+			} else if (id.includes("HR77")){
+				selectItemByValue(hair_image_option_menu, "Fhair12Old");
+			} else if (id.includes("HR78")){
+				selectItemByValue(hair_image_option_menu, "Fhair13Old");
 			}
 
 			// UpdateBG(); UpdateBase(); UpdateBeard(); UpdateSpecial();
