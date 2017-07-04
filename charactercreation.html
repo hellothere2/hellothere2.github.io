@@ -52,7 +52,7 @@
 		}
 </style>
 
-<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateHair(); UpdateMouth(); UpdateBeard(); UpdateSpecial();">GENERATE PORTRAIT</button>
+<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateHair(); UpdateMouth(); UpdateBeard(); UpdateSpecial(); UpdateClothes();">GENERATE PORTRAIT</button>
 
 
 <html lang="en"> 
@@ -188,7 +188,7 @@
     <option value="bg7">Siege Camp</option>
     <option value="bg8">Green Fields</option>
     <option value="bg9">Idk what this is supposed to be</option>
-    <option value="b10">Gothic Church Interior</option>
+    <option value="bg10">Gothic Church Interior</option>
     <option value="bg11">Dunes</option>
     <option value="bg12">Green Fields 2</option>
     <option value="bg13">Ocean Ships</option>
@@ -544,9 +544,58 @@
     <option value="hair11V">Western Male Hair Valyrian 11</option>
     <option value="hair12V">Western Male Hair Valyrian 12</option>
     <option value="hair13V">Western Male Hair Valyrian 13</option>
+    <option value="hair1C">Western Male Hair Cyan 1</option>
+    <option value="hair2C">Western Male Hair Cyan 2</option>
+    <option value="hair3C">Western Male Hair Cyan 3</option>
+    <option value="hair4C">Western Male Hair Cyan 4</option>
+    <option value="hair5C">Western Male Hair Cyan 5</option>
+    <option value="hair6C">Western Male Hair Cyan 6</option>
+    <option value="hair7C">Western Male Hair Cyan 7</option>
+    <option value="hair8C">Western Male Hair Cyan 8</option>
+    <option value="hair9C">Western Male Hair Cyan 9</option>
+    <option value="hair10C">Western Male Hair Cyan 10</option>
+    <option value="hair11C">Western Male Hair Cyan 11</option>
+    <option value="hair12C">Western Male Hair Cyan 12</option>
+    <option value="hair13C">Western Male Hair Cyan 13</option>
+    <option value="hair1R">Western Male Hair Red 1</option>
+    <option value="hair2R">Western Male Hair Red 2</option>
+    <option value="hair3R">Western Male Hair Red 3</option>
+    <option value="hair4R">Western Male Hair Red 4</option>
+    <option value="hair5R">Western Male Hair Red 5</option>
+    <option value="hair6R">Western Male Hair Red 6</option>
+    <option value="hair7R">Western Male Hair Red 7</option>
+    <option value="hair8R">Western Male Hair Red 8</option>
+    <option value="hair9R">Western Male Hair Red 9</option>
+    <option value="hair10R">Western Male Hair Red 10</option>
+    <option value="hair11R">Western Male Hair Red 11</option>
+    <option value="hair12R">Western Male Hair Red 12</option>
+    <option value="hair13R">Western Male Hair Red 13</option>
     </select>
     <input type="button" onclick="UpdateHair()" value="Apply Hair">
   </form>
+  </fieldset>
+
+  <fieldset style="width: 200px; position: absolute; left: 660px; top: 480px;">
+  <form>
+  	<legend style="color: white">Clothes:</legend>
+    <select id="clothes_image_dropdown">
+    <option value="none">None</option>
+    <option value="clothes1">Noble Clothes 1</option>
+    <option value="clothes2">Noble Clothes 2</option>
+    <option value="clothes3">Gold Chainmail</option>
+    <option value="clothes4">Noble Clothes 3</option>
+    <option value="clothes5">Noble Clothes 4</option>
+    <option value="clothes6">Brown Shirt</option>
+    <option value="clothes7">Red Shirt</option>
+    <option value="clothes8">Blue Shirt</option>
+    <option value="clothes9">Green Shirt</option>
+    <option value="clothes10">Dark Shirt</option>
+    <option value="clothes11">Mail Hood</option>
+    <option value="clothes12">Prison Rags</option>
+    </select>
+    <br>
+    <input type="button" onclick="UpdateClothes()" value="Apply Clothes">
+    </form>
   </fieldset>
 
   <canvas id="bgcanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: -1;">
@@ -594,6 +643,10 @@ Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <canvas id="Canvas5" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 5;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="ClothesCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 9;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -678,6 +731,16 @@ Your browser does not support the HTML5 canvas tag.
 	<img id="western_female_hair_2" width="2128px" height="152px" src="characters\western_female\western_female_hair_2.png" style="display:none"/>
 	<img id="western_female_hair_3" width="2128px" height="152px" src="characters\western_female\western_female_hair_3.png" style="display:none"/>
 	<img id="western_male_hair_valyrian" width="2128px" height="152px" src="characters\western_male\western_male_hair_valyrian.png" style="display:none"/>
+	<img id="western_male_hair_cyan" width="2128px" height="152px" src="characters\western_male\western_male_hair_cyan.png" style="display:none"/>
+	<img id="western_male_hair_red" width="2128px" height="152px" src="characters\western_male\western_male_hair_red.png" style="display:none"/>
+
+
+
+
+<!-- Clothes Images -->
+	<img id="western_male_clothes" width="1824px" height="152px" src="characters\western_male\western_male_clothes.png" style="display:none"/>
+	<img id="western_male_clothes_behind" width="1824px" height="152px" src="characters\western_male\western_male_clothes_behind.png" style="display:none"/>
+	<img id="western_male_clothes_infront" width="1824px" height="152px" src="characters\western_male\western_male_clothes_infront.png" style="display:none"/>
 
 
 
@@ -2743,8 +2806,321 @@ Your browser does not support the HTML5 canvas tag.
 			ctx.clearRect(0,0,400,480);
 			var img = document.getElementById("western_male_hair_behind_1");
 			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair1C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR92";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair2C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR93";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair3C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR94";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair4C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR95";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair5C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR96";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair6C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR97";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair7C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR98";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair8C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR99";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair9C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR100";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair10C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR101";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair11C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR102";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair12C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR103";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "hair13C"){
+			var img = document.getElementById("western_male_hair_cyan");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR104";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair1R"){
+			var img = document.getElementById("western_male_hair_red");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR105";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair2R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR106";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair3R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR107";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair4R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR108";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair5R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR109";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair6R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR110";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair7R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR111";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair8R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR112";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair9R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR113";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair10R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR114";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair11R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR115";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+		} else if (hair_image_option_menu.value == "hair12R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR116";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+		}  else if (hair_image_option_menu.value == "hair13R"){
+			var img = document.getElementById("western_male_hair_red");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "HR117";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var img = document.getElementById("western_male_hair_behind_1");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		function UpdateClothes(){
+		var id = document.getElementById("PortraitID_output");
+		var clothes_image_option_menu = document.getElementById("clothes_image_dropdown");
+		var c = document.getElementById("ClothesCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_clothes");
+		if (clothes_image_option_menu.value == "none"){
+			id.value += "CL00";
+		} else if (clothes_image_option_menu.value == "clothes1"){
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL01";
+		} else if (clothes_image_option_menu.value == "clothes2"){
+			ctx.drawImage(img, 152, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL02";
+		} else if (clothes_image_option_menu.value == "clothes3"){
+			ctx.drawImage(img, 304, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL03";
+		} else if (clothes_image_option_menu.value == "clothes4"){
+			ctx.drawImage(img, 456, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL04";
+		} else if (clothes_image_option_menu.value == "clothes5"){
+			ctx.drawImage(img, 608, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL05";
+		} else if (clothes_image_option_menu.value == "clothes6"){
+			ctx.drawImage(img, 760, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL06";
+		} else if (clothes_image_option_menu.value == "clothes7"){
+			ctx.drawImage(img, 912, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL07";
+		} else if (clothes_image_option_menu.value == "clothes8"){
+			ctx.drawImage(img, 1064, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL08";
+		} else if (clothes_image_option_menu.value == "clothes9"){
+			ctx.drawImage(img, 1216, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL09";
+		} else if (clothes_image_option_menu.value == "clothes10"){
+			ctx.drawImage(img, 1368, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL10";
+		} else if (clothes_image_option_menu.value == "clothes11"){
+			ctx.drawImage(img, 1520, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL11";
+			var c = document.getElementById("HairBehindCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,480);
+			var c = document.getElementById("HairCanvas");
+			var ctx = c.getContext("2d");
+			ctx.clearRect(0,0,400,190);
+			ctx.clearRect(0,0,170,480);
+		} else if (clothes_image_option_menu.value == "clothes12"){
+			ctx.drawImage(img, 1672, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CL12";
+		}
+	}
+
+
+
+
+
+
 
 	function GrabID(){
 
@@ -3534,14 +3910,41 @@ Your browser does not support the HTML5 canvas tag.
 				selectItemByValue(hair_image_option_menu, "hair12V");
 			} else if (id.includes("HR91")){
 				selectItemByValue(hair_image_option_menu, "hair13V");
-			}
+			} else if (id.includes("HR92")){
+				selectItemByValue(hair_image_option_menu, "hair1C");
+			} else if (id.includes("HR93")){
+				selectItemByValue(hair_image_option_menu, "hair2C");
+			} else if (id.includes("HR94")){
+				selectItemByValue(hair_image_option_menu, "hair3C");
+			} else if (id.includes("HR95")){
+				selectItemByValue(hair_image_option_menu, "hair4C");
+			} else if (id.includes("HR96")){
+				selectItemByValue(hair_image_option_menu, "hair5C");
+			} else if (id.includes("HR97")){
+				selectItemByValue(hair_image_option_menu, "hair6C");
+			} else if (id.includes("HR98")){
+				selectItemByValue(hair_image_option_menu, "hair7C");
+			} else if (id.includes("HR99")){
+				selectItemByValue(hair_image_option_menu, "hair8C");
+			} else if (id.includes("HR100")){
+				selectItemByValue(hair_image_option_menu, "hair9C");
+			} else if (id.includes("HR101")){
+				selectItemByValue(hair_image_option_menu, "hair10C");
+			} else if (id.includes("HR102")){
+				selectItemByValue(hair_image_option_menu, "hair11C");
+			} else if (id.includes("HR103")){
+				selectItemByValue(hair_image_option_menu, "hair12C");
+			} else if (id.includes("HR104")){
+				selectItemByValue(hair_image_option_menu, "hair13C");
+			} 
 
 			// UpdateBG(); UpdateBase(); UpdateBeard(); UpdateSpecial();
 	}
 
 
 
-	///280113657183360 current combinations
+	///3,641,477,543,383,680 current combinations
+	//3641477543383680
 
   </script>
 
