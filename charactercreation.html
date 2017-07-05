@@ -52,7 +52,7 @@
 		}
 </style>
 
-<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateHair(); UpdateMouth(); UpdateBeard(); UpdateSpecial(); UpdateClothes() UpdateHeadgear();">GENERATE PORTRAIT</button>
+<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateHair(); UpdateMouth(); UpdateBeard(); UpdateSpecial(); UpdateClothes() UpdateHeadgear(); UpdateCheeks(); UpdateChin(); UpdateEar(); UpdateEyes();">GENERATE PORTRAIT</button>
 
 
 <html lang="en"> 
@@ -61,7 +61,7 @@
 		<title>Portrait Generator</title> 
 	</head>
 
-	<fieldset style="width: 200px; position: absolute; left: 660px; top: 0px;">
+	<fieldset style="width: 200px; position: absolute; left: 0px; top: 580px;">
 		<form>
 	  	<legend style="color: white">Copy unique ID:</legend>
 	    <input type="text" id="PortraitID_output" value="">
@@ -643,6 +643,337 @@
     </form>
   </fieldset>
 
+  <fieldset style="width: 200px; position: absolute; left: 660px; top: 0px;">
+  <form>
+  	<legend style="color: white">Cheeks (Usually match w/ Chin):</legend>
+    <select id="cheeks_image_dropdown">
+    <option value="cheeks1">Western Male Cheeks 1</option>
+    <option value="cheeks2">Western Male Cheeks 2</option>
+    <option value="cheeks3">Western Male Cheeks 3</option>
+    <option value="cheeks4">Western Male Cheeks 4</option>
+    <option value="cheeks5">Western Male Cheeks 5</option>
+    <option value="cheeks6">Western Male Cheeks 6</option>
+    <option value="cheeks7">Western Male Cheeks 7</option>
+    <option value="cheeks8">Western Male Cheeks 8</option>
+    <option value="cheeks9">Western Male Cheeks 9</option>
+    <option value="cheeks10">Western Male Cheeks 10</option>
+    <option value="cheeks11">Western Male Cheeks 11</option>
+    <option value="cheeks1M">Western Male Cheeks 1 Mature</option>
+    <option value="cheeks2M">Western Male Cheeks 2 Mature</option>
+    <option value="cheeks3M">Western Male Cheeks 3 Mature</option>
+    <option value="cheeks4M">Western Male Cheeks 4 Mature</option>
+    <option value="cheeks5M">Western Male Cheeks 5 Mature</option>
+    <option value="cheeks6M">Western Male Cheeks 6 Mature</option>
+    <option value="cheeks7M">Western Male Cheeks 7 Mature</option>
+    <option value="cheeks8M">Western Male Cheeks 8 Mature</option>
+    <option value="cheeks9M">Western Male Cheeks 9 Mature</option>
+    <option value="cheeks10M">Western Male Cheeks 10 Mature</option>
+    <option value="cheeks11M">Western Male Cheeks 11 Mature</option>
+    <option value="cheeks1Old">Western Male Cheeks 1 Old</option>
+    <option value="cheeks2Old">Western Male Cheeks 2 Old</option>
+    <option value="cheeks3Old">Western Male Cheeks 3 Old</option>
+    <option value="cheeks4Old">Western Male Cheeks 4 Old</option>
+    <option value="cheeks5Old">Western Male Cheeks 5 Old</option>
+    <option value="cheeks6Old">Western Male Cheeks 6 Old</option>
+    <option value="cheeks7Old">Western Male Cheeks 7 Old</option>
+    <option value="cheeks8Old">Western Male Cheeks 8 Old</option>
+    <option value="cheeks9Old">Western Male Cheeks 9 Old</option>
+    <option value="cheeks10Old">Western Male Cheeks 10 Old</option>
+    <option value="cheeks11Old">Western Male Cheeks 11 Old</option>
+    <option value="cheeks1F">Western Female Cheeks 1</option>
+    <option value="cheeks2F">Western Female Cheeks 2</option>
+    <option value="cheeks3F">Western Female Cheeks 3</option>
+    <option value="cheeks4F">Western Female Cheeks 4</option>
+    <option value="cheeks5F">Western Female Cheeks 5</option>
+    <option value="cheeks6F">Western Female Cheeks 6</option>
+    <option value="cheeks7F">Western Female Cheeks 7</option>
+    <option value="cheeks8F">Western Female Cheeks 8</option>
+    <option value="cheeks9F">Western Female Cheeks 9</option>
+    <option value="cheeks10F">Western Female Cheeks 10</option>
+    <option value="cheeks11F">Western Female Cheeks 11</option>
+    <option value="cheeks1MF">Western Female Cheeks 1 Mature</option>
+    <option value="cheeks2MF">Western Female Cheeks 2 Mature</option>
+    <option value="cheeks3MF">Western Female Cheeks 3 Mature</option>
+    <option value="cheeks4MF">Western Female Cheeks 4 Mature</option>
+    <option value="cheeks5MF">Western Female Cheeks 5 Mature</option>
+    <option value="cheeks6MF">Western Female Cheeks 6 Mature</option>
+    <option value="cheeks7MF">Western Female Cheeks 7 Mature</option>
+    <option value="cheeks8MF">Western Female Cheeks 8 Mature</option>
+    <option value="cheeks9MF">Western Female Cheeks 9 Mature</option>
+    <option value="cheeks10MF">Western Female Cheeks 10 Mature</option>
+    <option value="cheeks11MF">Western Female Cheeks 11 Mature</option>
+    <option value="cheeks1OldF">Western Female Cheeks 1 Old</option>
+    <option value="cheeks2OldF">Western Female Cheeks 2 Old</option>
+    <option value="cheeks3OldF">Western Female Cheeks 3 Old</option>
+    <option value="cheeks4OldF">Western Female Cheeks 4 Old</option>
+    <option value="cheeks5OldF">Western Female Cheeks 5 Old</option>
+    <option value="cheeks6OldF">Western Female Cheeks 6 Old</option>
+    <option value="cheeks7OldF">Western Female Cheeks 7 Old</option>
+    <option value="cheeks8OldF">Western Female Cheeks 8 Old</option>
+    <option value="cheeks9OldF">Western Female Cheeks 9 Old</option>
+    <option value="cheeks10OldF">Western Female Cheeks 10 Old</option>
+    <option value="cheeks11OldF">Western Female Cheeks 11 Old</option>
+    </select>
+    <br>
+    <input type="button" onclick="UpdateCheeks()" value="Apply Cheeks">
+    </form>
+  </fieldset>
+
+  <fieldset style="width: 200px; position: absolute; left: 940px; top: 180px;">
+  <form>
+  	<legend style="color: white">Chin (Usually match w/ cheeks):</legend>
+    <select id="chin_image_dropdown">
+    <option value="chin1">Western Male Chin 1</option>
+    <option value="chin2">Western Male Chin 2</option>
+    <option value="chin3">Western Male Chin 3</option>
+    <option value="chin4">Western Male Chin 4</option>
+    <option value="chin5">Western Male Chin 5</option>
+    <option value="chin6">Western Male Chin 6</option>
+    <option value="chin7">Western Male Chin 7</option>
+    <option value="chin8">Western Male Chin 8</option>
+    <option value="chin9">Western Male Chin 9</option>
+    <option value="chin10">Western Male Chin 10</option>
+    <option value="chin11">Western Male Chin 11</option>
+    <option value="chin12">Western Male Chin 12</option>
+    <option value="chin13">Western Male Chin 13</option>
+    <option value="chin1M">Western Male Chin 1 Mature</option>
+    <option value="chin2M">Western Male Chin 2 Mature</option>
+    <option value="chin3M">Western Male Chin 3 Mature</option>
+    <option value="chin4M">Western Male Chin 4 Mature</option>
+    <option value="chin5M">Western Male Chin 5 Mature</option>
+    <option value="chin6M">Western Male Chin 6 Mature</option>
+    <option value="chin7M">Western Male Chin 7 Mature</option>
+    <option value="chin8M">Western Male Chin 8 Mature</option>
+    <option value="chin9M">Western Male Chin 9 Mature</option>
+    <option value="chin10M">Western Male Chin 10 Mature</option>
+    <option value="chin11M">Western Male Chin 11 Mature</option>
+    <option value="chin12M">Western Male Chin 12 Mature</option>
+    <option value="chin13M">Western Male Chin 13 Mature</option>
+    <option value="chin1Old">Western Male Chin 1 Old</option>
+    <option value="chin2Old">Western Male Chin 2 Old</option>
+    <option value="chin3Old">Western Male Chin 3 Old</option>
+    <option value="chin4Old">Western Male Chin 4 Old</option>
+    <option value="chin5Old">Western Male Chin 5 Old</option>
+    <option value="chin6Old">Western Male Chin 6 Old</option>
+    <option value="chin7Old">Western Male Chin 7 Old</option>
+    <option value="chin8Old">Western Male Chin 8 Old</option>
+    <option value="chin9Old">Western Male Chin 9 Old</option>
+    <option value="chin10Old">Western Male Chin 10 Old</option>
+    <option value="chin11Old">Western Male Chin 11 Old</option>
+    <option value="chin12Old">Western Male Chin 12 Old</option>
+    <option value="chin13Old">Western Male Chin 13 Old</option>
+    <option value="Fchin1">Western Female Chin 1</option>
+    <option value="Fchin2">Western Female Chin 2</option>
+    <option value="Fchin3">Western Female Chin 3</option>
+    <option value="Fchin4">Western Female Chin 4</option>
+    <option value="Fchin5">Western Female Chin 5</option>
+    <option value="Fchin6">Western Female Chin 6</option>
+    <option value="Fchin7">Western Female Chin 7</option>
+    <option value="Fchin8">Western Female Chin 8</option>
+    <option value="Fchin9">Western Female Chin 9</option>
+    <option value="Fchin10">Western Female Chin 10</option>
+    <option value="Fchin11">Western Female Chin 11</option>
+    <option value="Fchin12">Western Female Chin 12</option>
+    <option value="Fchin13">Western Female Chin 13</option>
+    <option value="Fchin1M">Western Female Chin 1 Mature</option>
+    <option value="Fchin2M">Western Female Chin 2 Mature</option>
+    <option value="Fchin3M">Western Female Chin 3 Mature</option>
+    <option value="Fchin4M">Western Female Chin 4 Mature</option>
+    <option value="Fchin5M">Western Female Chin 5 Mature</option>
+    <option value="Fchin6M">Western Female Chin 6 Mature</option>
+    <option value="Fchin7M">Western Female Chin 7 Mature</option>
+    <option value="Fchin8M">Western Female Chin 8 Mature</option>
+    <option value="Fchin9M">Western Female Chin 9 Mature</option>
+    <option value="Fchin10M">Western Female Chin 10 Mature</option>
+    <option value="Fchin11M">Western Female Chin 11 Mature</option>
+    <option value="Fchin12M">Western Female Chin 12 Mature</option>
+    <option value="Fchin13M">Western Female Chin 13 Mature</option>
+    <option value="Fchin1Old">Western Female Chin 1 Old</option>
+    <option value="Fchin2Old">Western Female Chin 2 Old</option>
+    <option value="Fchin3Old">Western Female Chin 3 Old</option>
+    <option value="Fchin4Old">Western Female Chin 4 Old</option>
+    <option value="Fchin5Old">Western Female Chin 5 Old</option>
+    <option value="Fchin6Old">Western Female Chin 6 Old</option>
+    <option value="Fchin7Old">Western Female Chin 7 Old</option>
+    <option value="Fchin8Old">Western Female Chin 8 Old</option>
+    <option value="Fchin9Old">Western Female Chin 9 Old</option>
+    <option value="Fchin10Old">Western Female Chin 10 Old</option>
+    <option value="Fchin11Old">Western Female Chin 11 Old</option>
+    <option value="Fchin12Old">Western Female Chin 12 Old</option>
+    <option value="Fchin13Old">Western Female Chin 13 Old</option>
+    </select>
+    <br>
+    <input type="button" onclick="UpdateChin()" value="Apply Chin">
+    </form>
+  </fieldset>
+
+  <fieldset style="width: 200px; position: absolute; left: 940px; top: 90px;">
+  <form>
+  	<legend style="color: white">Ear:</legend>
+    <select id="ear_image_dropdown">
+    <option value="ear1">Western Male Ear 1</option>
+    <option value="ear2">Western Male Ear 2</option>
+    <option value="ear3">Western Male Ear 3</option>
+    <option value="ear4">Western Male Ear 4</option>
+    <option value="ear5">Western Male Ear 5</option>
+    <option value="ear6">Western Male Ear 6</option>
+    <option value="ear7">Western Male Ear 7</option>
+    <option value="ear8">Western Male Ear 8</option>
+    <option value="ear9">Western Male Ear 9</option>
+    <option value="ear10">Western Male Ear 10</option>
+    <option value="ear1M">Western Male Ear 1 Mature</option>
+    <option value="ear2M">Western Male Ear 2 Mature</option>
+    <option value="ear3M">Western Male Ear 3 Mature</option>
+    <option value="ear4M">Western Male Ear 4 Mature</option>
+    <option value="ear5M">Western Male Ear 5 Mature</option>
+    <option value="ear6M">Western Male Ear 6 Mature</option>
+    <option value="ear7M">Western Male Ear 7 Mature</option>
+    <option value="ear8M">Western Male Ear 8 Mature</option>
+    <option value="ear9M">Western Male Ear 9 Mature</option>
+    <option value="ear10M">Western Male Ear 10 Mature</option>
+    <option value="ear1Old">Western Male Ear 1 Old</option>
+    <option value="ear2Old">Western Male Ear 2 Old</option>
+    <option value="ear3Old">Western Male Ear 3 Old</option>
+    <option value="ear4Old">Western Male Ear 4 Old</option>
+    <option value="ear5Old">Western Male Ear 5 Old</option>
+    <option value="ear6Old">Western Male Ear 6 Old</option>
+    <option value="ear7Old">Western Male Ear 7 Old</option>
+    <option value="ear8Old">Western Male Ear 8 Old</option>
+    <option value="ear9Old">Western Male Ear 9 Old</option>
+    <option value="ear10Old">Western Male Ear 10 Old</option>
+    <option value="Fear1">Western Female Ear 1</option>
+    <option value="Fear2">Western Female Ear 2</option>
+    <option value="Fear3">Western Female Ear 3</option>
+    <option value="Fear4">Western Female Ear 4</option>
+    <option value="Fear5">Western Female Ear 5</option>
+    <option value="Fear6">Western Female Ear 6</option>
+    <option value="Fear7">Western Female Ear 7</option>
+    <option value="Fear8">Western Female Ear 8</option>
+    <option value="Fear9">Western Female Ear 9</option>
+    <option value="Fear10">Western Female Ear 10</option>
+    <option value="Fear11">Western Female Ear 11</option>
+    <option value="Fear12">Western Female Ear 12</option>
+    <option value="Fear13">Western Female Ear 13</option>
+    <option value="Fear1M">Western Female Ear 1 Mature</option>
+    <option value="Fear2M">Western Female Ear 2 Mature</option>
+    <option value="Fear3M">Western Female Ear 3 Mature</option>
+    <option value="Fear4M">Western Female Ear 4 Mature</option>
+    <option value="Fear5M">Western Female Ear 5 Mature</option>
+    <option value="Fear6M">Western Female Ear 6 Mature</option>
+    <option value="Fear7M">Western Female Ear 7 Mature</option>
+    <option value="Fear8M">Western Female Ear 8 Mature</option>
+    <option value="Fear9M">Western Female Ear 9 Mature</option>
+    <option value="Fear10M">Western Female Ear 10 Mature</option>
+    <option value="Fear11M">Western Female Ear 11 Mature</option>
+    <option value="Fear12M">Western Female Ear 12 Mature</option>
+    <option value="Fear13M">Western Female Ear 13 Mature</option>
+    <option value="Fear1Old">Western Female Ear 1 Old</option>
+    <option value="Fear2Old">Western Female Ear 2 Old</option>
+    <option value="Fear3Old">Western Female Ear 3 Old</option>
+    <option value="Fear4Old">Western Female Ear 4 Old</option>
+    <option value="Fear5Old">Western Female Ear 5 Old</option>
+    <option value="Fear6Old">Western Female Ear 6 Old</option>
+    <option value="Fear7Old">Western Female Ear 7 Old</option>
+    <option value="Fear8Old">Western Female Ear 8 Old</option>
+    <option value="Fear9Old">Western Female Ear 9 Old</option>
+    <option value="Fear10Old">Western Female Ear 10 Old</option>
+    <option value="Fear11Old">Western Female Ear 11 Old</option>
+    <option value="Fear12Old">Western Female Ear 12 Old</option>
+    <option value="Fear13Old">Western Female Ear 13 Old</option>
+    </select>
+    <br>
+    <input type="button" onclick="UpdateEar()" value="Apply Ear">
+    </form>
+  </fieldset>
+
+  <fieldset style="width: 200px; position: absolute; left: 940px; top: 0px;">
+  <form>
+  	<legend style="color: white">Eyes:</legend>
+    <select id="eyes_image_dropdown">
+    <option value="eyes1">Western Male Eyes 1</option>
+    <option value="eyes2">Western Male Eyes 2</option>
+    <option value="eyes3">Western Male Eyes 3</option>
+    <option value="eyes4">Western Male Eyes 4</option>
+    <option value="eyes5">Western Male Eyes 5</option>
+    <option value="eyes6">Western Male Eyes 6</option>
+    <option value="eyes7">Western Male Eyes 7</option>
+    <option value="eyes8">Western Male Eyes 8</option>
+    <option value="eyes9">Western Male Eyes 9</option>
+    <option value="eyes10">Western Male Eyes 10</option>
+    <option value="eyes11">Western Male Eyes 11</option>
+    <option value="eyes12">Western Male Eyes 12</option>
+    <option value="eyes13">Western Male Eyes 13</option>
+    <option value="eyes1M">Western Male Eyes 1 Mature</option>
+    <option value="eyes2M">Western Male Eyes 2 Mature</option>
+    <option value="eyes3M">Western Male Eyes 3 Mature</option>
+    <option value="eyes4M">Western Male Eyes 4 Mature</option>
+    <option value="eyes5M">Western Male Eyes 5 Mature</option>
+    <option value="eyes6M">Western Male Eyes 6 Mature</option>
+    <option value="eyes7M">Western Male Eyes 7 Mature</option>
+    <option value="eyes8M">Western Male Eyes 8 Mature</option>
+    <option value="eyes9M">Western Male Eyes 9 Mature</option>
+    <option value="eyes10M">Western Male Eyes 10 Mature</option>
+    <option value="eyes11M">Western Male Eyes 11 Mature</option>
+    <option value="eyes12M">Western Male Eyes 12 Mature</option>
+    <option value="eyes13M">Western Male Eyes 13 Mature</option>
+    <option value="eyes1Old">Western Male Eyes 1 Old</option>
+    <option value="eyes2Old">Western Male Eyes 2 Old</option>
+    <option value="eyes3Old">Western Male Eyes 3 Old</option>
+    <option value="eyes4Old">Western Male Eyes 4 Old</option>
+    <option value="eyes5Old">Western Male Eyes 5 Old</option>
+    <option value="eyes6Old">Western Male Eyes 6 Old</option>
+    <option value="eyes7Old">Western Male Eyes 7 Old</option>
+    <option value="eyes8Old">Western Male Eyes 8 Old</option>
+    <option value="eyes9Old">Western Male Eyes 9 Old</option>
+    <option value="eyes10Old">Western Male Eyes 10 Old</option>
+    <option value="eyes11Old">Western Male Eyes 11 Old</option>
+    <option value="eyes12Old">Western Male Eyes 12 Old</option>
+    <option value="eyes13Old">Western Male Eyes 13 Old</option>
+    <option value="Feyes1">Western Female Eyes 1</option>
+    <option value="Feyes2">Western Female Eyes 2</option>
+    <option value="Feyes3">Western Female Eyes 3</option>
+    <option value="Feyes4">Western Female Eyes 4</option>
+    <option value="Feyes5">Western Female Eyes 5</option>
+    <option value="Feyes6">Western Female Eyes 6</option>
+    <option value="Feyes7">Western Female Eyes 7</option>
+    <option value="Feyes8">Western Female Eyes 8</option>
+    <option value="Feyes9">Western Female Eyes 9</option>
+    <option value="Feyes10">Western Female Eyes 10</option>
+    <option value="Feyes11">Western Female Eyes 11</option>
+    <option value="Feyes12">Western Female Eyes 12</option>
+    <option value="Feyes13">Western Female Eyes 13</option>
+    <option value="Feyes1M">Western Female Eyes 1 Mature</option>
+    <option value="Feyes2M">Western Female Eyes 2 Mature</option>
+    <option value="Feyes3M">Western Female Eyes 3 Mature</option>
+    <option value="Feyes4M">Western Female Eyes 4 Mature</option>
+    <option value="Feyes5M">Western Female Eyes 5 Mature</option>
+    <option value="Feyes6M">Western Female Eyes 6 Mature</option>
+    <option value="Feyes7M">Western Female Eyes 7 Mature</option>
+    <option value="Feyes8M">Western Female Eyes 8 Mature</option>
+    <option value="Feyes9M">Western Female Eyes 9 Mature</option>
+    <option value="Feyes10M">Western Female Eyes 10 Mature</option>
+    <option value="Feyes11M">Western Female Eyes 11 Mature</option>
+    <option value="Feyes12M">Western Female Eyes 12 Mature</option>
+    <option value="Feyes13M">Western Female Eyes 13 Mature</option>
+    <option value="Feyes1Old">Western Female Eyes 1 Old</option>
+    <option value="Feyes2Old">Western Female Eyes 2 Old</option>
+    <option value="Feyes3Old">Western Female Eyes 3 Old</option>
+    <option value="Feyes4Old">Western Female Eyes 4 Old</option>
+    <option value="Feyes5Old">Western Female Eyes 5 Old</option>
+    <option value="Feyes6Old">Western Female Eyes 6 Old</option>
+    <option value="Feyes7Old">Western Female Eyes 7 Old</option>
+    <option value="Feyes8Old">Western Female Eyes 8 Old</option>
+    <option value="Feyes9Old">Western Female Eyes 9 Old</option>
+    <option value="Feyes10Old">Western Female Eyes 10 Old</option>
+    <option value="Feyes11Old">Western Female Eyes 11 Old</option>
+    <option value="Feyes12Old">Western Female Eyes 12 Old</option>
+    <option value="Feyes13Old">Western Female Eyes 13 Old</option>
+    </select>
+    <br>
+    <input type="button" onclick="UpdateEyes()" value="Apply Eyes">
+    </form>
+  </fieldset>
+
   <canvas id="bgcanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: -1;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
@@ -675,7 +1006,23 @@ Your browser does not support the HTML5 canvas tag.
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
+<canvas id="ChinCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 2;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="CheeksCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 2;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
 <canvas id="NoseCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 4;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="EyesCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 2;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<canvas id="EarCanvas" width="400" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 1;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -814,7 +1161,37 @@ Your browser does not support the HTML5 canvas tag.
 	<img id="western_female_headgear_behind" width="1824px" height="152px" src="characters\western_female\western_female_headgear_behind.png" style="display:none"/>
 	<img id="western_female_headgear_mid" width="1824px" height="152px" src="characters\western_female\western_female_headgear_infront.png" style="display:none"/>
 
+<!-- Cheeks Images -->
+	<img id="western_male_cheeks_1" width="1672px" height="152px" src="characters\western_male\western_male_cheeks_1.png" style="display:none"/>
+	<img id="western_male_cheeks_2" width="1672px" height="152px" src="characters\western_male\western_male_cheeks_2.png" style="display:none"/>
+	<img id="western_male_cheeks_3" width="1672px" height="152px" src="characters\western_male\western_male_cheeks_3.png" style="display:none"/>
+	<img id="western_female_cheeks_1" width="1672px" height="152px" src="characters\western_female\western_female_cheeks_1.png" style="display:none"/>
+	<img id="western_female_cheeks_2" width="1672px" height="152px" src="characters\western_female\western_female_cheeks_2.png" style="display:none"/>
+	<img id="western_female_cheeks_3" width="1672px" height="152px" src="characters\western_female\western_female_cheeks_3.png" style="display:none"/>
 
+<!-- Chin Images -->
+	<img id="western_male_chin_1" width="1976px" height="152px" src="characters\western_male\western_male_chin_1.png" style="display:none"/>
+	<img id="western_male_chin_2" width="1976px" height="152px" src="characters\western_male\western_male_chin_2.png" style="display:none"/>
+	<img id="western_male_chin_3" width="1976px" height="152px" src="characters\western_male\western_male_chin_3.png" style="display:none"/>
+	<img id="western_female_chin_1" width="1976px" height="152px" src="characters\western_female\western_female_chin_1.png" style="display:none"/>
+	<img id="western_female_chin_2" width="1976px" height="152px" src="characters\western_female\western_female_chin_2.png" style="display:none"/>
+	<img id="western_female_chin_3" width="1976px" height="152px" src="characters\western_female\western_female_chin_3.png" style="display:none"/>
+
+<!-- Eyes Images -->
+	<img id="western_male_eyes_1" width="936px" height="68px" src="characters\western_male\western_male_eyes_1.png" style="display:none"/>
+	<img id="western_male_eyes_2" width="936px" height="60px" src="characters\western_male\western_male_eyes_2.png" style="display:none"/>
+	<img id="western_male_eyes_3" width="936px" height="64px" src="characters\western_male\western_male_eyes_3.png" style="display:none"/>
+	<img id="western_female_eyes_1" width="884px" height="64px" src="characters\western_female\western_female_eyes_1.png" style="display:none"/>
+	<img id="western_female_eyes_2" width="936px" height="68px" src="characters\western_female\western_female_eyes_2.png" style="display:none"/>
+	<img id="western_female_eyes_3" width="936px" height="68px" src="characters\western_female\western_female_eyes_3.png" style="display:none"/>
+
+<!-- Ear Images -->
+	<img id="western_male_ear_1" width="280px" height="60px" src="characters\western_male\western_male_ear_1.png" style="display:none"/>
+	<img id="western_male_ear_2" width="320px" height="64px" src="characters\western_male\western_male_ear_2.png" style="display:none"/>
+	<img id="western_male_ear_3" width="320px" height="64px" src="characters\western_male\western_male_ear_3.png" style="display:none"/>
+	<img id="western_female_ear_1" width="416px" height="60px" src="characters\western_female\western_female_ear_1.png" style="display:none"/>
+	<img id="western_female_ear_2" width="416px" height="60px" src="characters\western_female\western_female_ear_2.png" style="display:none"/>
+	<img id="western_female_ear_3" width="416px" height="60px" src="characters\western_female\western_female_ear_3.png" style="display:none"/>
 
 
 <script type="text/javascript">
@@ -2054,10 +2431,6 @@ Your browser does not support the HTML5 canvas tag.
 
 
 
-
-
-
-
 	function UpdateHair(){
 		var id = document.getElementById("PortraitID_output");
 		var hair_image_option_menu = document.getElementById("hair_image_dropdown");
@@ -3121,18 +3494,6 @@ Your browser does not support the HTML5 canvas tag.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 	function UpdateClothes(){
 		var id = document.getElementById("PortraitID_output");
 		var clothes_image_option_menu = document.getElementById("clothes_image_dropdown");
@@ -3695,6 +4056,1194 @@ Your browser does not support the HTML5 canvas tag.
 
 
 
+	function UpdateChin(){
+		var id = document.getElementById("PortraitID_output");
+		var chin_image_option_menu = document.getElementById("chin_image_dropdown");
+		var c = document.getElementById("ChinCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_chin_1");
+		if (chin_image_option_menu.value == "chin1"){
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CI01";
+		} else if (chin_image_option_menu.value == "chin2"){
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI02";
+		} else if (chin_image_option_menu.value == "chin3"){
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI03";
+		} else if (chin_image_option_menu.value == "chin4"){
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI04";
+		} else if (chin_image_option_menu.value == "chin5"){
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI05";
+		} else if (chin_image_option_menu.value == "chin6"){
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI06";
+		} else if (chin_image_option_menu.value == "chin7"){
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI07";
+		} else if (chin_image_option_menu.value == "chin8"){
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI08";
+		} else if (chin_image_option_menu.value == "chin9"){
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI09";
+		} else if (chin_image_option_menu.value == "chin10"){
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI10";
+		} else if (chin_image_option_menu.value == "chin11"){
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI11";
+		} else if (chin_image_option_menu.value == "chin12"){
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI12";
+		}  else if (chin_image_option_menu.value == "chin13"){
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI13";
+		} else if (chin_image_option_menu.value == "chin1M"){
+			var img = document.getElementById("western_male_chin_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI14";
+		} else if (chin_image_option_menu.value == "chin2M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI15";
+		} else if (chin_image_option_menu.value == "chin3M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI16";
+		} else if (chin_image_option_menu.value == "chin4M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI17";
+		} else if (chin_image_option_menu.value == "chin5M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI18";
+		} else if (chin_image_option_menu.value == "chin6M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI19";
+		} else if (chin_image_option_menu.value == "chin7M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 916, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI20";
+		} else if (chin_image_option_menu.value == "chin8M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI21";
+		} else if (chin_image_option_menu.value == "chin9M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI22";
+		} else if (chin_image_option_menu.value == "chin10M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI23";
+		} else if (chin_image_option_menu.value == "chin11M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI24";
+		} else if (chin_image_option_menu.value == "chin12M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI25";
+		}  else if (chin_image_option_menu.value == "chin13M"){
+			var img = document.getElementById("western_male_chin_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI26";
+		} else if (chin_image_option_menu.value == "chin1Old"){
+			var img = document.getElementById("western_male_chin_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI27";
+		} else if (chin_image_option_menu.value == "chin2Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI28";
+		} else if (chin_image_option_menu.value == "chin3Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI29";
+		} else if (chin_image_option_menu.value == "chin4Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI30";
+		} else if (chin_image_option_menu.value == "chin5Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI31";
+		} else if (chin_image_option_menu.value == "chin6Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI32";
+		} else if (chin_image_option_menu.value == "chin7Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI33";
+		} else if (chin_image_option_menu.value == "chin8Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI34";
+		} else if (chin_image_option_menu.value == "chin9Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI35";
+		} else if (chin_image_option_menu.value == "chin10Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI36";
+		} else if (chin_image_option_menu.value == "chin11Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI37";
+		} else if (chin_image_option_menu.value == "chin12Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI38";
+		}  else if (chin_image_option_menu.value == "chin13Old"){
+			var img = document.getElementById("western_male_chin_3");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI39";
+		} else if (chin_image_option_menu.value == "Fchin1"){
+			var img = document.getElementById("western_female_chin_1");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI152";
+		} else if (chin_image_option_menu.value == "Fchin2"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI41";
+		} else if (chin_image_option_menu.value == "Fchin3"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI042";
+		} else if (chin_image_option_menu.value == "Fchin4"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI43";
+		} else if (chin_image_option_menu.value == "Fchin5"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI44";
+		} else if (chin_image_option_menu.value == "Fchin6"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI45";
+		} else if (chin_image_option_menu.value == "Fchin7"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI46";
+		} else if (chin_image_option_menu.value == "Fchin8"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI47";
+		} else if (chin_image_option_menu.value == "Fchin9"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI48";
+		} else if (chin_image_option_menu.value == "Fchin10"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI49";
+		} else if (chin_image_option_menu.value == "Fchin11"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI50";
+		} else if (chin_image_option_menu.value == "Fchin12"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI51";
+		}  else if (chin_image_option_menu.value == "Fchin13"){
+			var img = document.getElementById("western_female_chin_1");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI52";
+		} else if (chin_image_option_menu.value == "Fchin1M"){
+			var img = document.getElementById("western_female_chin_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI53";
+		} else if (chin_image_option_menu.value == "Fchin2M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI54";
+		} else if (chin_image_option_menu.value == "Fchin3M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI55";
+		} else if (chin_image_option_menu.value == "Fchin4M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI56";
+		} else if (chin_image_option_menu.value == "Fchin5M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI57";
+		} else if (chin_image_option_menu.value == "Fchin6M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI58";
+		} else if (chin_image_option_menu.value == "Fchin7M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI59";
+		} else if (chin_image_option_menu.value == "Fchin8M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI60";
+		} else if (chin_image_option_menu.value == "Fchin9M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI61";
+		} else if (chin_image_option_menu.value == "Fchin10M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI62";
+		} else if (chin_image_option_menu.value == "Fchin11M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI63";
+		} else if (chin_image_option_menu.value == "Fchin12M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI64";
+		}  else if (chin_image_option_menu.value == "Fchin13M"){
+			var img = document.getElementById("western_female_chin_2");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI65";
+		} else if (chin_image_option_menu.value == "Fchin1Old"){
+			var img = document.getElementById("western_female_chin_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI66";
+		} else if (chin_image_option_menu.value == "Fchin2Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI67";
+		} else if (chin_image_option_menu.value == "Fchin3Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI68";
+		} else if (chin_image_option_menu.value == "Fchin4Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI69";
+		} else if (chin_image_option_menu.value == "Fchin5Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI70";
+		} else if (chin_image_option_menu.value == "Fchin6Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI71";
+		} else if (chin_image_option_menu.value == "Fchin7Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI72";
+		} else if (chin_image_option_menu.value == "Fchin8Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI73";
+		} else if (chin_image_option_menu.value == "Fchin9Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI74";
+		} else if (chin_image_option_menu.value == "Fchin10Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI75";
+		} else if (chin_image_option_menu.value == "Fchin11Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI76";
+		} else if (chin_image_option_menu.value == "Fchin12Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 1824, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI77";
+		}  else if (chin_image_option_menu.value == "Fchin13Old"){
+			var img = document.getElementById("western_female_chin_3");
+			ctx.drawImage(img, 1976, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CI78";
+		}
+	}
+
+	function UpdateCheeks(){
+		var id = document.getElementById("PortraitID_output");
+		var cheeks_image_option_menu = document.getElementById("cheeks_image_dropdown");
+		var c = document.getElementById("CheeksCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_cheeks_1");
+		if (cheeks_image_option_menu.value == "cheeks1"){
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+			id.value += "CH01";
+		} else if (cheeks_image_option_menu.value == "cheeks2"){
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH02";
+		} else if (cheeks_image_option_menu.value == "cheeks3"){
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH03";
+		} else if (cheeks_image_option_menu.value == "cheeks4"){
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH04";
+		} else if (cheeks_image_option_menu.value == "cheeks5"){
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH05";
+		} else if (cheeks_image_option_menu.value == "cheeks6"){
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH06";
+		} else if (cheeks_image_option_menu.value == "cheeks7"){
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH07";
+		} else if (cheeks_image_option_menu.value == "cheeks8"){
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH08";
+		} else if (cheeks_image_option_menu.value == "cheeks9"){
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH09";
+		} else if (cheeks_image_option_menu.value == "cheeks10"){
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH10";
+		} else if (cheeks_image_option_menu.value == "cheeks11"){
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH11";
+		} else if (cheeks_image_option_menu.value == "cheeks1M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH12";
+		} else if (cheeks_image_option_menu.value == "cheeks2M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH13";
+		} else if (cheeks_image_option_menu.value == "cheeks3M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH14";
+		} else if (cheeks_image_option_menu.value == "cheeks4M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH15";
+		} else if (cheeks_image_option_menu.value == "cheeks5M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH16";
+		} else if (cheeks_image_option_menu.value == "cheeks6M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH17";
+		} else if (cheeks_image_option_menu.value == "cheeks7M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 916, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH18";
+		} else if (cheeks_image_option_menu.value == "cheeks8M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH19";
+		} else if (cheeks_image_option_menu.value == "cheeks9M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH20";
+		} else if (cheeks_image_option_menu.value == "cheeks10M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH21";
+		} else if (cheeks_image_option_menu.value == "cheeks11M"){
+			var img = document.getElementById("western_male_cheeks_2");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH22";
+		} else if (cheeks_image_option_menu.value == "cheeks1Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH23";
+		} else if (cheeks_image_option_menu.value == "cheeks2Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH24";
+		} else if (cheeks_image_option_menu.value == "cheeks3Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH25";
+		} else if (cheeks_image_option_menu.value == "cheeks4Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH26";
+		} else if (cheeks_image_option_menu.value == "cheeks5Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH27";
+		} else if (cheeks_image_option_menu.value == "cheeks6Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH28";
+		} else if (cheeks_image_option_menu.value == "cheeks7Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH29";
+		} else if (cheeks_image_option_menu.value == "cheeks8Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH30";
+		} else if (cheeks_image_option_menu.value == "cheeks9Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH31";
+		} else if (cheeks_image_option_menu.value == "cheeks10Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH32";
+		} else if (cheeks_image_option_menu.value == "cheeks11Old"){
+			var img = document.getElementById("western_male_cheeks_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH33";
+		} else if (cheeks_image_option_menu.value == "Fcheeks1"){
+			var img = document.getElementById("western_female_cheeks_1");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH34";
+		} else if (cheeks_image_option_menu.value == "Fcheeks2"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH35";
+		} else if (cheeks_image_option_menu.value == "Fcheeks3"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH036";
+		} else if (cheeks_image_option_menu.value == "Fcheeks4"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 456, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH37";
+		} else if (cheeks_image_option_menu.value == "Fcheeks5"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH38";
+		} else if (cheeks_image_option_menu.value == "Fcheeks6"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH39";
+		} else if (cheeks_image_option_menu.value == "Fcheeks7"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH40";
+		} else if (cheeks_image_option_menu.value == "Fcheeks8"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH41";
+		} else if (cheeks_image_option_menu.value == "Fcheeks9"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH42";
+		} else if (cheeks_image_option_menu.value == "Fcheeks10"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH43";
+		} else if (cheeks_image_option_menu.value == "Fcheeks11"){
+			var img = document.getElementById("western_female_cheeks_1");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH44";
+		} else if (cheeks_image_option_menu.value == "Fcheeks1M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH45";
+		} else if (cheeks_image_option_menu.value == "Fcheeks2M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH46";
+		} else if (cheeks_image_option_menu.value == "Fcheeks3M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH47";
+		} else if (cheeks_image_option_menu.value == "Fcheeks4M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH48";
+		} else if (cheeks_image_option_menu.value == "Fcheeks5M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH49";
+		} else if (cheeks_image_option_menu.value == "Fcheeks6M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH50";
+		} else if (cheeks_image_option_menu.value == "Fcheeks7M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH51";
+		} else if (cheeks_image_option_menu.value == "Fcheeks8M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH52";
+		} else if (cheeks_image_option_menu.value == "Fcheeks9M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH53";
+		} else if (cheeks_image_option_menu.value == "Fcheeks10M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH54";
+		} else if (cheeks_image_option_menu.value == "Fcheeks11M"){
+			var img = document.getElementById("western_female_cheeks_2");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH55";
+		} else if (cheeks_image_option_menu.value == "Fcheeks1Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH56";
+		} else if (cheeks_image_option_menu.value == "Fcheeks2Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 152, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH57";
+		} else if (cheeks_image_option_menu.value == "Fcheeks3Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 304, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH58";
+		} else if (cheeks_image_option_menu.value == "Fcheeks4Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 608, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH59";
+		} else if (cheeks_image_option_menu.value == "Fcheeks5Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 760, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH60";
+		} else if (cheeks_image_option_menu.value == "Fcheeks6Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 912, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH61";
+		} else if (cheeks_image_option_menu.value == "Fcheeks7Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 1064, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH62";
+		} else if (cheeks_image_option_menu.value == "Fcheeks8Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 1216, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH63";
+		} else if (cheeks_image_option_menu.value == "Fcheeks9Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 1368, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH64";
+		} else if (cheeks_image_option_menu.value == "Fcheeks10Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 1520, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH65";
+		} else if (cheeks_image_option_menu.value == "Fcheeks11Old"){
+			var img = document.getElementById("western_female_cheeks_3");
+			ctx.drawImage(img, 1672, 0, 152, 152, 125, 163, 152, 152);
+			id.value += "CH66";
+		}
+	}
+
+
+	function UpdateEyes(){
+		var id = document.getElementById("PortraitID_output");
+		var eyes_image_option_menu = document.getElementById("eyes_image_dropdown");
+		var c = document.getElementById("EyesCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_eyes_1");
+		if (eyes_image_option_menu.value == "eyes1"){
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY01";
+		} else if (eyes_image_option_menu.value == "eyes2"){
+			ctx.drawImage(img, 72, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY02";
+		} else if (eyes_image_option_menu.value == "eyes3"){
+			ctx.drawImage(img, 144, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY03";
+		} else if (eyes_image_option_menu.value == "eyes4"){
+			ctx.drawImage(img, 216, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY04";
+		} else if (eyes_image_option_menu.value == "eyes5"){
+			ctx.drawImage(img, 288, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY05";
+		} else if (eyes_image_option_menu.value == "eyes6"){
+			ctx.drawImage(img, 360, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY06";
+		} else if (eyes_image_option_menu.value == "eyes7"){
+			ctx.drawImage(img, 432, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY07";
+		} else if (eyes_image_option_menu.value == "eyes8"){
+			ctx.drawImage(img, 504, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY08";
+		} else if (eyes_image_option_menu.value == "eyes9"){
+			ctx.drawImage(img, 576, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY09";
+		} else if (eyes_image_option_menu.value == "eyes10"){
+			ctx.drawImage(img, 648, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY10";
+		} else if (eyes_image_option_menu.value == "eyes11"){
+			ctx.drawImage(img, 720, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY11";
+		} else if (eyes_image_option_menu.value == "eyes12"){
+			ctx.drawImage(img, 792, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY12";
+		}  else if (eyes_image_option_menu.value == "eyes13"){
+			ctx.drawImage(img, 864, 0, 72, 68, 171, 174, 72, 68);
+			id.value += "EY13";
+		} else if (eyes_image_option_menu.value == "eyes1M"){
+			var img = document.getElementById("western_male_eyes_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY14";
+		} else if (eyes_image_option_menu.value == "eyes2M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 72, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY15";
+		} else if (eyes_image_option_menu.value == "eyes3M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 144, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY16";
+		} else if (eyes_image_option_menu.value == "eyes4M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 216, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY17";
+		} else if (eyes_image_option_menu.value == "eyes5M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 288, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY18";
+		} else if (eyes_image_option_menu.value == "eyes6M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 360, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY19";
+		} else if (eyes_image_option_menu.value == "eyes7M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 432, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY20";
+		} else if (eyes_image_option_menu.value == "eyes8M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 504, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY21";
+		} else if (eyes_image_option_menu.value == "eyes9M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 576, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY22";
+		} else if (eyes_image_option_menu.value == "eyes10M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 648, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY23";
+		} else if (eyes_image_option_menu.value == "eyes11M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 720, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY24";
+		} else if (eyes_image_option_menu.value == "eyes12M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 792, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY25";
+		}  else if (eyes_image_option_menu.value == "eyes13M"){
+			var img = document.getElementById("western_male_eyes_2");
+			ctx.drawImage(img, 864, 0, 72, 60, 170, 182, 72, 60);
+			id.value += "EY26";
+		} else if (eyes_image_option_menu.value == "eyes1Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY27";
+		} else if (eyes_image_option_menu.value == "eyes2Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 72, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY28";
+		} else if (eyes_image_option_menu.value == "eyes3Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 144, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY29";
+		} else if (eyes_image_option_menu.value == "eyes4Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 216, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY30";
+		} else if (eyes_image_option_menu.value == "eyes5Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 288, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY31";
+		} else if (eyes_image_option_menu.value == "eyes6Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 360, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY32";
+		} else if (eyes_image_option_menu.value == "eyes7Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 432, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY33";
+		} else if (eyes_image_option_menu.value == "eyes8Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 504, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY34";
+		} else if (eyes_image_option_menu.value == "eyes9Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 576, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY35";
+		} else if (eyes_image_option_menu.value == "eyes10Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 648, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY36";
+		} else if (eyes_image_option_menu.value == "eyes11Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 720, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY37";
+		} else if (eyes_image_option_menu.value == "eyes12Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 792, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY38";
+		}  else if (eyes_image_option_menu.value == "eyes13Old"){
+			var img = document.getElementById("western_male_eyes_3");
+			ctx.drawImage(img, 846, 0, 72, 64, 170, 179, 72, 64);
+			id.value += "EY39";
+		} else if (eyes_image_option_menu.value == "Feyes1"){
+			var img = document.getElementById("western_female_eyes_1");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY40";
+		} else if (eyes_image_option_menu.value == "Feyes2"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 68, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY41";
+		} else if (eyes_image_option_menu.value == "Feyes3"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 136, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY042";
+		} else if (eyes_image_option_menu.value == "Feyes4"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 204, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY43";
+		} else if (eyes_image_option_menu.value == "Feyes5"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 272, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY44";
+		} else if (eyes_image_option_menu.value == "Feyes6"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 340, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY45";
+		} else if (eyes_image_option_menu.value == "Feyes7"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 408, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY46";
+		} else if (eyes_image_option_menu.value == "Feyes8"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 476, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY47";
+		} else if (eyes_image_option_menu.value == "Feyes9"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 544, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY48";
+		} else if (eyes_image_option_menu.value == "Feyes10"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 612, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY49";
+		} else if (eyes_image_option_menu.value == "Feyes11"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 680, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY50";
+		} else if (eyes_image_option_menu.value == "Feyes12"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 748, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY51";
+		}  else if (eyes_image_option_menu.value == "Feyes13"){
+			var img = document.getElementById("western_female_eyes_1");
+			ctx.drawImage(img, 816, 0, 68, 64, 173, 173, 68, 64);
+			id.value += "EY52";
+		} else if (eyes_image_option_menu.value == "Feyes1M"){
+			var img = document.getElementById("western_female_eyes_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY53";
+		} else if (eyes_image_option_menu.value == "Feyes2M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 72, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY54";
+		} else if (eyes_image_option_menu.value == "Feyes3M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 144, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY55";
+		} else if (eyes_image_option_menu.value == "Feyes4M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 216, 0, 72, 64, 170, 172, 72, 54);
+			id.value += "EY56";
+		} else if (eyes_image_option_menu.value == "Feyes5M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 288, 0, 72, 64, 170, 172, 72, 54);
+			id.value += "EY57";
+		} else if (eyes_image_option_menu.value == "Feyes6M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 360, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY58";
+		} else if (eyes_image_option_menu.value == "Feyes7M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 432, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY59";
+		} else if (eyes_image_option_menu.value == "Feyes8M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 504, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY60";
+		} else if (eyes_image_option_menu.value == "Feyes9M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 576, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY61";
+		} else if (eyes_image_option_menu.value == "Feyes10M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 648, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY62";
+		} else if (eyes_image_option_menu.value == "Feyes11M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 720, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY63";
+		} else if (eyes_image_option_menu.value == "Feyes12M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 792, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY64";
+		}  else if (eyes_image_option_menu.value == "Feyes13M"){
+			var img = document.getElementById("western_female_eyes_2");
+			ctx.drawImage(img, 864, 0, 72, 64, 170, 172, 72, 64);
+			id.value += "EY65";
+		} else if (eyes_image_option_menu.value == "Feyes1Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 72, 64, 171, 174, 72, 64);
+			id.value += "EY66";
+		} else if (eyes_image_option_menu.value == "Feyes2Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 72, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY67";
+		} else if (eyes_image_option_menu.value == "Feyes3Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 216, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY68";
+		} else if (eyes_image_option_menu.value == "Feyes4Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 608, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY69";
+		} else if (eyes_image_option_menu.value == "Feyes5Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 288, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY70";
+		} else if (eyes_image_option_menu.value == "Feyes6Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 360, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY71";
+		} else if (eyes_image_option_menu.value == "Feyes7Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 432, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY72";
+		} else if (eyes_image_option_menu.value == "Feyes8Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 504, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY73";
+		} else if (eyes_image_option_menu.value == "Feyes9Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 576, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY74";
+		} else if (eyes_image_option_menu.value == "Feyes10Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 648, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY75";
+		} else if (eyes_image_option_menu.value == "Feyes11Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 720, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY76";
+		} else if (eyes_image_option_menu.value == "Feyes12Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 792, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY77";
+		}  else if (eyes_image_option_menu.value == "Feyes13Old"){
+			var img = document.getElementById("western_female_eyes_3");
+			ctx.drawImage(img, 864, 0, 72, 64, 172, 174, 72, 64);
+			id.value += "EY78";
+		}
+	}
+
+
+	function UpdateEar(){
+		var id = document.getElementById("PortraitID_output");
+		var ear_image_option_menu = document.getElementById("ear_image_dropdown");
+		var c = document.getElementById("EarCanvas");
+		var ctx = c.getContext("2d");
+		ctx.clearRect(0,0,400,480);
+		var img = document.getElementById("western_male_ear_1");
+		if (ear_image_option_menu.value == "ear1"){
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER01";
+		} else if (ear_image_option_menu.value == "ear2"){
+			ctx.drawImage(img, 28, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER02";
+		} else if (ear_image_option_menu.value == "ear3"){
+			ctx.drawImage(img, 56, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER03";
+		} else if (ear_image_option_menu.value == "ear4"){
+			ctx.drawImage(img, 84, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER04";
+		} else if (ear_image_option_menu.value == "ear5"){
+			ctx.drawImage(img, 112, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER05";
+		} else if (ear_image_option_menu.value == "ear6"){
+			ctx.drawImage(img, 140, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER06";
+		} else if (ear_image_option_menu.value == "ear7"){
+			ctx.drawImage(img, 168, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER07";
+		} else if (ear_image_option_menu.value == "ear8"){
+			ctx.drawImage(img, 196, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER08";
+		} else if (ear_image_option_menu.value == "ear9"){
+			ctx.drawImage(img, 224, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER09";
+		} else if (ear_image_option_menu.value == "ear10"){
+			ctx.drawImage(img, 252, 0, 28, 60, 151, 200, 28, 60);
+			id.value += "ER10";
+		} else if (ear_image_option_menu.value == "ear1M"){
+			var img = document.getElementById("western_male_ear_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 32, 60, 151, 200, 32, 64);
+			id.value += "ER11";
+		} else if (ear_image_option_menu.value == "ear2M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 32, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER12";
+		} else if (ear_image_option_menu.value == "ear3M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 64, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER13";
+		} else if (ear_image_option_menu.value == "ear4M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 96, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER14";
+		} else if (ear_image_option_menu.value == "ear5M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 128, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER15";
+		} else if (ear_image_option_menu.value == "ear6M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 160, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER16";
+		} else if (ear_image_option_menu.value == "ear7M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 192, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER17";
+		} else if (ear_image_option_menu.value == "ear8M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 224, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER18";
+		} else if (ear_image_option_menu.value == "ear9M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 256, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER19";
+		} else if (ear_image_option_menu.value == "ear10M"){
+			var img = document.getElementById("western_male_ear_2");
+			ctx.drawImage(img, 288, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER20";
+		} else if (ear_image_option_menu.value == "ear1Old"){
+			var img = document.getElementById("western_male_ear_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER21";
+		} else if (ear_image_option_menu.value == "ear2Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 32, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER22";
+		} else if (ear_image_option_menu.value == "ear3Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 64, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER23";
+		} else if (ear_image_option_menu.value == "ear4Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 96, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER24";
+		} else if (ear_image_option_menu.value == "ear5Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 128, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER25";
+		} else if (ear_image_option_menu.value == "ear6Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 160, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER26";
+		} else if (ear_image_option_menu.value == "ear7Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 192, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER27";
+		} else if (ear_image_option_menu.value == "ear8Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 224, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER28";
+		} else if (ear_image_option_menu.value == "ear9Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 265, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER29";
+		} else if (ear_image_option_menu.value == "ear10Old"){
+			var img = document.getElementById("western_male_ear_3");
+			ctx.drawImage(img, 288, 0, 32, 64, 151, 200, 32, 64);
+			id.value += "ER30";
+		} else if (ear_image_option_menu.value == "Fear1"){
+			var img = document.getElementById("western_female_ear_1");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER31";
+		} else if (ear_image_option_menu.value == "Fear2"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 32, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER32";
+		} else if (ear_image_option_menu.value == "Fear3"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 64, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER33";
+		} else if (ear_image_option_menu.value == "Fear4"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 204, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER34";
+		} else if (ear_image_option_menu.value == "Fear5"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 272, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER35";
+		} else if (ear_image_option_menu.value == "Fear6"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 340, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER36";
+		} else if (ear_image_option_menu.value == "Fear7"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 408, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER37";
+		} else if (ear_image_option_menu.value == "Fear8"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 476, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER38";
+		} else if (ear_image_option_menu.value == "Fear9"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 544, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER39";
+		} else if (ear_image_option_menu.value == "Fear10"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 612, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER40";
+		} else if (ear_image_option_menu.value == "Fear11"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 320, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER41";
+		} else if (ear_image_option_menu.value == "Fear12"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 748, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER42";
+		}  else if (ear_image_option_menu.value == "Fear13"){
+			var img = document.getElementById("western_female_ear_1");
+			ctx.drawImage(img, 816, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER43";
+		} else if (ear_image_option_menu.value == "Fear1M"){
+			var img = document.getElementById("western_female_ear_2");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER44";
+		} else if (ear_image_option_menu.value == "Fear2M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 32, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER45";
+		} else if (ear_image_option_menu.value == "Fear3M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 64, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER46";
+		} else if (ear_image_option_menu.value == "Fear4M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 96, 0, 32, 60, 155, 200, 32, 54);
+			id.value += "ER47";
+		} else if (ear_image_option_menu.value == "Fear5M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 128, 0, 32, 60, 155, 200, 32, 54);
+			id.value += "ER48";
+		} else if (ear_image_option_menu.value == "Fear6M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 160, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER49";
+		} else if (ear_image_option_menu.value == "Fear7M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 192, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER50";
+		} else if (ear_image_option_menu.value == "Fear8M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 224, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER51";
+		} else if (ear_image_option_menu.value == "Fear9M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 256, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER52";
+		} else if (ear_image_option_menu.value == "Fear10M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 288, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER53";
+		} else if (ear_image_option_menu.value == "Fear11M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 320, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER54";
+		} else if (ear_image_option_menu.value == "Fear12M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 352, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER55";
+		}  else if (ear_image_option_menu.value == "Fear13M"){
+			var img = document.getElementById("western_female_ear_2");
+			ctx.drawImage(img, 384, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER56";
+		} else if (ear_image_option_menu.value == "Fear1Old"){
+			var img = document.getElementById("western_female_ear_3");
+			// context.drawImage(imageObj, coordinates of crop, coordinates of crop, size of crop, size of crop, position on page, position on page, destWidth, destHeight);
+			ctx.drawImage(img, 0, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER57";
+		} else if (ear_image_option_menu.value == "Fear2Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 32, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER58";
+		} else if (ear_image_option_menu.value == "Fear3Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 64, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER59";
+		} else if (ear_image_option_menu.value == "Fear4Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 96, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER60";
+		} else if (ear_image_option_menu.value == "Fear5Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 128, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER61";
+		} else if (ear_image_option_menu.value == "Fear6Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 160, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER62";
+		} else if (ear_image_option_menu.value == "Fear7Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 192, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER63";
+		} else if (ear_image_option_menu.value == "Fear8Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 224, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER64";
+		} else if (ear_image_option_menu.value == "Fear9Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 256, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER65";
+		} else if (ear_image_option_menu.value == "Fear10Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 288, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER66";
+		} else if (ear_image_option_menu.value == "Fear11Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 320, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER67";
+		} else if (ear_image_option_menu.value == "Fear12Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 352, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER68";
+		}  else if (ear_image_option_menu.value == "Fear13Old"){
+			var img = document.getElementById("western_female_ear_3");
+			ctx.drawImage(img, 384, 0, 32, 60, 155, 200, 32, 60);
+			id.value += "ER69";
+		}
+	}
+
+
+
+
+
+
 
 	function GrabID(){
 
@@ -3712,6 +5261,12 @@ Your browser does not support the HTML5 canvas tag.
 			var neck_image_option_menu = document.getElementById("neck_image_dropdown");
 			var nose_image_option_menu = document.getElementById("nose_image_dropdown");
 			var hair_image_option_menu = document.getElementById("hair_image_dropdown");
+			var headgear_image_option_menu = document.getElementById("headgear_image_dropdown");
+			var clothes_image_option_menu = document.getElementById("clothes_image_dropdown");
+			var cheeks_image_option_menu = document.getElementById("cheeks_image_dropdown");
+			var chin_image_option_menu = document.getElementById("chin_image_dropdown");
+			var eyes_image_option_menu = document.getElementById("eyes_image_dropdown");
+			var ear_image_option_menu = document.getElementById("ear_image_dropdown");
 
 
 
@@ -4607,14 +6162,606 @@ Your browser does not support the HTML5 canvas tag.
 				selectItemByValue(headgear_image_option_menu, "headgear11F");
 			}
 
-			// UpdateBG(); UpdateBase(); UpdateBeard(); UpdateSpecial();
+		//Cheeks
+			if (id.includes("CH01")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks1");
+			} else if (id.includes("CH02")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks2");
+			} else if (id.includes("CH03")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks3");
+			} else if (id.includes("CH04")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks4");
+			} else if (id.includes("CH05")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks5");
+			} else if (id.includes("CH06")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks6");
+			} else if (id.includes("CH07")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks7");
+			} else if (id.includes("CH08")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks8");
+			} else if (id.includes("CH09")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks9");
+			} else if (id.includes("CH10")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks10");
+			} else if (id.includes("CH11")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks11");
+			} else if (id.includes("CH12")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks1M");
+			} else if (id.includes("CH13")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks2M");
+			} else if (id.includes("CH14")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks3M");
+			} else if (id.includes("CH15")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks4M");
+			} else if (id.includes("CH16")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks5M");
+			} else if (id.includes("CH17")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks6M");
+			} else if (id.includes("CH18")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks7M");
+			} else if (id.includes("CH19")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks8M");
+			} else if (id.includes("CH20")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks9M");
+			} else if (id.includes("CH21")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks10M");
+			} else if (id.includes("CH22")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks11M");
+			} else if (id.includes("CH23")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks1Old");
+			} else if (id.includes("CH24")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks2Old");
+			} else if (id.includes("CH25")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks3Old");
+			} else if (id.includes("CH26")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks4Old");
+			} else if (id.includes("CH27")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks5Old");
+			} else if (id.includes("CH28")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks6Old");
+			} else if (id.includes("CH29")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks7Old");
+			} else if (id.includes("CH30")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks8Old");
+			} else if (id.includes("CH31")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks9Old");
+			} else if (id.includes("CH32")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks10Old");
+			} else if (id.includes("CH33")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks11Old");
+			} else if (id.includes("CH34")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks1F");
+			} else if (id.includes("CH35")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks2F");
+			} else if (id.includes("CH36")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks3F");
+			} else if (id.includes("CH37")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks4F");
+			} else if (id.includes("CH38")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks5F");
+			} else if (id.includes("CH39")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks6F");
+			} else if (id.includes("CH40")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks7F");
+			} else if (id.includes("CH41")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks8F");
+			} else if (id.includes("CH42")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks9F");
+			} else if (id.includes("CH43")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks10F");
+			} else if (id.includes("CH44")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks11F");
+			} else if (id.includes("CH45")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks1MF");
+			} else if (id.includes("CH46")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks2MF");
+			} else if (id.includes("CH47")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks3MF");
+			} else if (id.includes("CH48")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks4MF");
+			} else if (id.includes("CH49")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks5MF");
+			} else if (id.includes("CH50")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks6MF");
+			} else if (id.includes("CH51")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks7MF");
+			} else if (id.includes("CH52")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks8MF");
+			} else if (id.includes("CH53")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks9MF");
+			} else if (id.includes("CH54")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks10MF");
+			} else if (id.includes("CH55")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks11MF");
+			} else if (id.includes("CH56")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks1OldF");
+			} else if (id.includes("CH57")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks2OldF");
+			} else if (id.includes("CH58")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks3OldF");
+			} else if (id.includes("CH59")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks4OldF");
+			} else if (id.includes("CH60")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks5OldF");
+			} else if (id.includes("CH61")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks6OldF");
+			} else if (id.includes("CH62")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks7OldF");
+			} else if (id.includes("CH63")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks8OldF");
+			} else if (id.includes("CH64")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks9OldF");
+			} else if (id.includes("CH65")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks10OldF");
+			} else if (id.includes("CH66")){
+				selectItemByValue(cheeks_image_option_menu, "cheeks11OldF");
+			}
+
+
+		//Chin
+			if (id.includes("CI01")){
+				selectItemByValue(chin_image_option_menu, "chin1");
+			} else if (id.includes("CI02")){
+				selectItemByValue(chin_image_option_menu, "chin2");
+			} else if (id.includes("CI03")){
+				selectItemByValue(chin_image_option_menu, "chin3");
+			} else if (id.includes("CI04")){
+				selectItemByValue(chin_image_option_menu, "chin4");
+			} else if (id.includes("CI05")){
+				selectItemByValue(chin_image_option_menu, "chin5");
+			} else if (id.includes("CI06")){
+				selectItemByValue(chin_image_option_menu, "chin6");
+			} else if (id.includes("CI07")){
+				selectItemByValue(chin_image_option_menu, "chin7");
+			} else if (id.includes("CI08")){
+				selectItemByValue(chin_image_option_menu, "chin8");
+			} else if (id.includes("CI09")){
+				selectItemByValue(chin_image_option_menu, "chin9");
+			} else if (id.includes("CI10")){
+				selectItemByValue(chin_image_option_menu, "chin10");
+			} else if (id.includes("CI11")){
+				selectItemByValue(chin_image_option_menu, "chin11");
+			} else if (id.includes("CI12")){
+				selectItemByValue(chin_image_option_menu, "chin12");
+			} else if (id.includes("CI13")){
+				selectItemByValue(chin_image_option_menu, "chin13");
+			} else if (id.includes("CI14")){
+				selectItemByValue(chin_image_option_menu, "chin1M");
+			} else if (id.includes("CI15")){
+				selectItemByValue(chin_image_option_menu, "chin2M");
+			} else if (id.includes("CI16")){
+				selectItemByValue(chin_image_option_menu, "chin3M");
+			} else if (id.includes("CI17")){
+				selectItemByValue(chin_image_option_menu, "chin4M");
+			} else if (id.includes("CI18")){
+				selectItemByValue(chin_image_option_menu, "chin5M");
+			} else if (id.includes("CI19")){
+				selectItemByValue(chin_image_option_menu, "chin6M");
+			} else if (id.includes("CI20")){
+				selectItemByValue(chin_image_option_menu, "chin7M");
+			} else if (id.includes("CI21")){
+				selectItemByValue(chin_image_option_menu, "chin8M");
+			} else if (id.includes("CI22")){
+				selectItemByValue(chin_image_option_menu, "chin9M");
+			} else if (id.includes("CI23")){
+				selectItemByValue(chin_image_option_menu, "chin10M");
+			} else if (id.includes("CI24")){
+				selectItemByValue(chin_image_option_menu, "chin11M");
+			} else if (id.includes("CI25")){
+				selectItemByValue(chin_image_option_menu, "chin12M");
+			} else if (id.includes("CI26")){
+				selectItemByValue(chin_image_option_menu, "chin13M");
+			} else if (id.includes("CI27")){
+				selectItemByValue(chin_image_option_menu, "chin1Old");
+			} else if (id.includes("CI28")){
+				selectItemByValue(chin_image_option_menu, "chin2Old");
+			} else if (id.includes("CI29")){
+				selectItemByValue(chin_image_option_menu, "chin3Old");
+			} else if (id.includes("CI30")){
+				selectItemByValue(chin_image_option_menu, "chin4Old");
+			} else if (id.includes("CI31")){
+				selectItemByValue(chin_image_option_menu, "chin5Old");
+			} else if (id.includes("CI32")){
+				selectItemByValue(chin_image_option_menu, "chin6Old");
+			} else if (id.includes("CI33")){
+				selectItemByValue(chin_image_option_menu, "chin7Old");
+			} else if (id.includes("CI34")){
+				selectItemByValue(chin_image_option_menu, "chin8Old");
+			} else if (id.includes("CI35")){
+				selectItemByValue(chin_image_option_menu, "chin9Old");
+			} else if (id.includes("CI36")){
+				selectItemByValue(chin_image_option_menu, "chin10Old");
+			} else if (id.includes("CI37")){
+				selectItemByValue(chin_image_option_menu, "chin11Old");
+			} else if (id.includes("CI38")){
+				selectItemByValue(chin_image_option_menu, "chin12Old");
+			} else if (id.includes("CI39")){
+				selectItemByValue(chin_image_option_menu, "chin13Old");
+			} else if (id.includes("CI40")){
+				selectItemByValue(chin_image_option_menu, "Fchin1");
+			} else if (id.includes("CI41")){
+				selectItemByValue(chin_image_option_menu, "Fchin2");
+			} else if (id.includes("CI42")){
+				selectItemByValue(chin_image_option_menu, "Fchin3");
+			} else if (id.includes("CI43")){
+				selectItemByValue(chin_image_option_menu, "Fchin4");
+			} else if (id.includes("CI44")){
+				selectItemByValue(chin_image_option_menu, "Fchin5");
+			} else if (id.includes("CI45")){
+				selectItemByValue(chin_image_option_menu, "Fchin6");
+			} else if (id.includes("CI46")){
+				selectItemByValue(chin_image_option_menu, "Fchin7");
+			} else if (id.includes("CI47")){
+				selectItemByValue(chin_image_option_menu, "Fchin8");
+			} else if (id.includes("CI48")){
+				selectItemByValue(chin_image_option_menu, "Fchin9");
+			} else if (id.includes("CI49")){
+				selectItemByValue(chin_image_option_menu, "Fchin10");
+			} else if (id.includes("CI50")){
+				selectItemByValue(chin_image_option_menu, "Fchin11");
+			} else if (id.includes("CI51")){
+				selectItemByValue(chin_image_option_menu, "Fchin12");
+			} else if (id.includes("CI52")){
+				selectItemByValue(chin_image_option_menu, "Fchin13");
+			} else if (id.includes("CI53")){
+				selectItemByValue(chin_image_option_menu, "Fchin1M");
+			} else if (id.includes("CI54")){
+				selectItemByValue(chin_image_option_menu, "Fchin2M");
+			} else if (id.includes("CI55")){
+				selectItemByValue(chin_image_option_menu, "Fchin3M");
+			} else if (id.includes("CI56")){
+				selectItemByValue(chin_image_option_menu, "Fchin4M");
+			} else if (id.includes("CI57")){
+				selectItemByValue(chin_image_option_menu, "Fchin5M");
+			} else if (id.includes("CI58")){
+				selectItemByValue(chin_image_option_menu, "Fchin6M");
+			} else if (id.includes("CI59")){
+				selectItemByValue(chin_image_option_menu, "Fchin7M");
+			} else if (id.includes("CI60")){
+				selectItemByValue(chin_image_option_menu, "Fchin8M");
+			} else if (id.includes("CI61")){
+				selectItemByValue(chin_image_option_menu, "Fchin9M");
+			} else if (id.includes("CI62")){
+				selectItemByValue(chin_image_option_menu, "Fchin10M");
+			} else if (id.includes("CI63")){
+				selectItemByValue(chin_image_option_menu, "Fchin11M");
+			} else if (id.includes("CI64")){
+				selectItemByValue(chin_image_option_menu, "Fchin12M");
+			} else if (id.includes("CI65")){
+				selectItemByValue(chin_image_option_menu, "Fchin13M");
+			} else if (id.includes("CI66")){
+				selectItemByValue(chin_image_option_menu, "Fchin1Old");
+			} else if (id.includes("CI67")){
+				selectItemByValue(chin_image_option_menu, "Fchin2Old");
+			} else if (id.includes("CI68")){
+				selectItemByValue(chin_image_option_menu, "Fchin3Old");
+			} else if (id.includes("CI69")){
+				selectItemByValue(chin_image_option_menu, "Fchin4Old");
+			} else if (id.includes("CI70")){
+				selectItemByValue(chin_image_option_menu, "Fchin5Old");
+			} else if (id.includes("CI71")){
+				selectItemByValue(chin_image_option_menu, "Fchin6Old");
+			} else if (id.includes("CI72")){
+				selectItemByValue(chin_image_option_menu, "Fchin7Old");
+			} else if (id.includes("CI73")){
+				selectItemByValue(chin_image_option_menu, "Fchin8Old");
+			} else if (id.includes("CI74")){
+				selectItemByValue(chin_image_option_menu, "Fchin9Old");
+			} else if (id.includes("CI75")){
+				selectItemByValue(chin_image_option_menu, "Fchin10Old");
+			} else if (id.includes("CI76")){
+				selectItemByValue(chin_image_option_menu, "Fchin11Old");
+			} else if (id.includes("CI77")){
+				selectItemByValue(chin_image_option_menu, "Fchin12Old");
+			} else if (id.includes("CI78")){
+				selectItemByValue(chin_image_option_menu, "Fchin13Old");
+			}
+
+
+
+
+
+
+
+		//Eyes
+			if (id.includes("EY01")){
+				selectItemByValue(eyes_image_option_menu, "eyes1");
+			} else if (id.includes("EY02")){
+				selectItemByValue(eyes_image_option_menu, "eyes2");
+			} else if (id.includes("EY03")){
+				selectItemByValue(eyes_image_option_menu, "eyes3");
+			} else if (id.includes("EY04")){
+				selectItemByValue(eyes_image_option_menu, "eyes4");
+			} else if (id.includes("EY05")){
+				selectItemByValue(eyes_image_option_menu, "eyes5");
+			} else if (id.includes("EY06")){
+				selectItemByValue(eyes_image_option_menu, "eyes6");
+			} else if (id.includes("EY07")){
+				selectItemByValue(eyes_image_option_menu, "eyes7");
+			} else if (id.includes("EY08")){
+				selectItemByValue(eyes_image_option_menu, "eyes8");
+			} else if (id.includes("EY09")){
+				selectItemByValue(eyes_image_option_menu, "eyes9");
+			} else if (id.includes("EY10")){
+				selectItemByValue(eyes_image_option_menu, "eyes10");
+			} else if (id.includes("EY11")){
+				selectItemByValue(eyes_image_option_menu, "eyes1M");
+			} else if (id.includes("EY12")){
+				selectItemByValue(eyes_image_option_menu, "eyes2M");
+			} else if (id.includes("EY13")){
+				selectItemByValue(eyes_image_option_menu, "eyes3M");
+			} else if (id.includes("EY14")){
+				selectItemByValue(eyes_image_option_menu, "eyes4M");
+			} else if (id.includes("EY15")){
+				selectItemByValue(eyes_image_option_menu, "eyes5M");
+			} else if (id.includes("EY16")){
+				selectItemByValue(eyes_image_option_menu, "eyes6M");
+			} else if (id.includes("EY17")){
+				selectItemByValue(eyes_image_option_menu, "eyes7M");
+			} else if (id.includes("EY18")){
+				selectItemByValue(eyes_image_option_menu, "eyes8M");
+			} else if (id.includes("EY19")){
+				selectItemByValue(eyes_image_option_menu, "eyes9M");
+			} else if (id.includes("EY20")){
+				selectItemByValue(eyes_image_option_menu, "eyes10M");
+			} else if (id.includes("EY21")){
+				selectItemByValue(eyes_image_option_menu, "eyes1Old");
+			} else if (id.includes("EY22")){
+				selectItemByValue(eyes_image_option_menu, "eyes2Old");
+			} else if (id.includes("EY23")){
+				selectItemByValue(eyes_image_option_menu, "eyes3Old");
+			} else if (id.includes("EY24")){
+				selectItemByValue(eyes_image_option_menu, "eyes4Old");
+			} else if (id.includes("EY25")){
+				selectItemByValue(eyes_image_option_menu, "eyes5Old");
+			} else if (id.includes("EY26")){
+				selectItemByValue(eyes_image_option_menu, "eyes6Old");
+			} else if (id.includes("EY27")){
+				selectItemByValue(eyes_image_option_menu, "eyes7Old");
+			} else if (id.includes("EY28")){
+				selectItemByValue(eyes_image_option_menu, "eyes8Old");
+			} else if (id.includes("EY29")){
+				selectItemByValue(eyes_image_option_menu, "eyes9Old");
+			} else if (id.includes("EY30")){
+				selectItemByValue(eyes_image_option_menu, "eyes10Old");
+			} else if (id.includes("EY31")){
+				selectItemByValue(eyes_image_option_menu, "Feyes1");
+			} else if (id.includes("EY32")){
+				selectItemByValue(eyes_image_option_menu, "Feyes2");
+			} else if (id.includes("EY33")){
+				selectItemByValue(eyes_image_option_menu, "Feyes3");
+			} else if (id.includes("EY34")){
+				selectItemByValue(eyes_image_option_menu, "Feyes4");
+			} else if (id.includes("EY35")){
+				selectItemByValue(eyes_image_option_menu, "Feyes5");
+			} else if (id.includes("EY36")){
+				selectItemByValue(eyes_image_option_menu, "Feyes6");
+			} else if (id.includes("EY37")){
+				selectItemByValue(eyes_image_option_menu, "Feyes7");
+			} else if (id.includes("EY38")){
+				selectItemByValue(eyes_image_option_menu, "Feyes8");
+			} else if (id.includes("EY39")){
+				selectItemByValue(eyes_image_option_menu, "Feyes9");
+			} else if (id.includes("EY40")){
+				selectItemByValue(eyes_image_option_menu, "Feyes10");
+			} else if (id.includes("EY41")){
+				selectItemByValue(eyes_image_option_menu, "Feyes11");
+			} else if (id.includes("EY42")){
+				selectItemByValue(eyes_image_option_menu, "Feyes12");
+			} else if (id.includes("EY43")){
+				selectItemByValue(eyes_image_option_menu, "Feyes13");
+			} else if (id.includes("EY44")){
+				selectItemByValue(eyes_image_option_menu, "Feyes1M");
+			} else if (id.includes("EY45")){
+				selectItemByValue(eyes_image_option_menu, "Feyes2M");
+			} else if (id.includes("EY46")){
+				selectItemByValue(eyes_image_option_menu, "Feyes3M");
+			} else if (id.includes("EY47")){
+				selectItemByValue(eyes_image_option_menu, "Feyes4M");
+			} else if (id.includes("EY48")){
+				selectItemByValue(eyes_image_option_menu, "Feyes5M");
+			} else if (id.includes("EY49")){
+				selectItemByValue(eyes_image_option_menu, "Feyes6M");
+			} else if (id.includes("EY50")){
+				selectItemByValue(eyes_image_option_menu, "Feyes7M");
+			} else if (id.includes("EY51")){
+				selectItemByValue(eyes_image_option_menu, "Feyes8M");
+			} else if (id.includes("EY52")){
+				selectItemByValue(eyes_image_option_menu, "Feyes9M");
+			} else if (id.includes("EY53")){
+				selectItemByValue(eyes_image_option_menu, "Feyes10M");
+			} else if (id.includes("EY54")){
+				selectItemByValue(eyes_image_option_menu, "Feyes11M");
+			} else if (id.includes("EY55")){
+				selectItemByValue(eyes_image_option_menu, "Feyes12M");
+			} else if (id.includes("EY56")){
+				selectItemByValue(eyes_image_option_menu, "Feyes13M");
+			} else if (id.includes("EY57")){
+				selectItemByValue(eyes_image_option_menu, "Feyes1Old");
+			} else if (id.includes("EY58")){
+				selectItemByValue(eyes_image_option_menu, "Feyes2Old");
+			} else if (id.includes("EY59")){
+				selectItemByValue(eyes_image_option_menu, "Feyes3Old");
+			} else if (id.includes("EY60")){
+				selectItemByValue(eyes_image_option_menu, "Feyes4Old");
+			} else if (id.includes("EY61")){
+				selectItemByValue(eyes_image_option_menu, "Feyes5Old");
+			} else if (id.includes("EY62")){
+				selectItemByValue(eyes_image_option_menu, "Feyes6Old");
+			} else if (id.includes("EY63")){
+				selectItemByValue(eyes_image_option_menu, "Feyes7Old");
+			} else if (id.includes("EY64")){
+				selectItemByValue(eyes_image_option_menu, "Feyes8Old");
+			} else if (id.includes("EY65")){
+				selectItemByValue(eyes_image_option_menu, "Feyes9Old");
+			} else if (id.includes("EY66")){
+				selectItemByValue(eyes_image_option_menu, "Feyes10Old");
+			} else if (id.includes("EY67")){
+				selectItemByValue(eyes_image_option_menu, "Feyes11Old");
+			} else if (id.includes("EY68")){
+				selectItemByValue(eyes_image_option_menu, "Feyes12Old");
+			} else if (id.includes("EY69")){
+				selectItemByValue(eyes_image_option_menu, "Feyes13Old");
+			}
+
+
+
+
+
+
+
+
+		//Ears
+			if (id.includes("ER01")){
+				selectItemByValue(ear_image_option_menu, "ear1");
+			} else if (id.includes("ER02")){
+				selectItemByValue(ear_image_option_menu, "ear2");
+			} else if (id.includes("ER03")){
+				selectItemByValue(ear_image_option_menu, "ear3");
+			} else if (id.includes("ER04")){
+				selectItemByValue(ear_image_option_menu, "ear4");
+			} else if (id.includes("ER05")){
+				selectItemByValue(ear_image_option_menu, "ear5");
+			} else if (id.includes("ER06")){
+				selectItemByValue(ear_image_option_menu, "ear6");
+			} else if (id.includes("ER07")){
+				selectItemByValue(ear_image_option_menu, "ear7");
+			} else if (id.includes("ER08")){
+				selectItemByValue(ear_image_option_menu, "ear8");
+			} else if (id.includes("ER09")){
+				selectItemByValue(ear_image_option_menu, "ear9");
+			} else if (id.includes("ER10")){
+				selectItemByValue(ear_image_option_menu, "ear10");
+			} else if (id.includes("ER11")){
+				selectItemByValue(ear_image_option_menu, "ear1M");
+			} else if (id.includes("ER12")){
+				selectItemByValue(ear_image_option_menu, "ear2M");
+			} else if (id.includes("ER13")){
+				selectItemByValue(ear_image_option_menu, "ear3M");
+			} else if (id.includes("ER14")){
+				selectItemByValue(ear_image_option_menu, "ear4M");
+			} else if (id.includes("ER15")){
+				selectItemByValue(ear_image_option_menu, "ear5M");
+			} else if (id.includes("ER16")){
+				selectItemByValue(ear_image_option_menu, "ear6M");
+			} else if (id.includes("ER17")){
+				selectItemByValue(ear_image_option_menu, "ear7M");
+			} else if (id.includes("ER18")){
+				selectItemByValue(ear_image_option_menu, "ear8M");
+			} else if (id.includes("ER19")){
+				selectItemByValue(ear_image_option_menu, "ear9M");
+			} else if (id.includes("ER20")){
+				selectItemByValue(ear_image_option_menu, "ear10M");
+			} else if (id.includes("ER21")){
+				selectItemByValue(ear_image_option_menu, "ear1Old");
+			} else if (id.includes("ER22")){
+				selectItemByValue(ear_image_option_menu, "ear2Old");
+			} else if (id.includes("ER23")){
+				selectItemByValue(ear_image_option_menu, "ear3Old");
+			} else if (id.includes("ER24")){
+				selectItemByValue(ear_image_option_menu, "ear4Old");
+			} else if (id.includes("ER25")){
+				selectItemByValue(ear_image_option_menu, "ear5Old");
+			} else if (id.includes("ER26")){
+				selectItemByValue(ear_image_option_menu, "ear6Old");
+			} else if (id.includes("ER27")){
+				selectItemByValue(ear_image_option_menu, "ear7Old");
+			} else if (id.includes("ER28")){
+				selectItemByValue(ear_image_option_menu, "ear8Old");
+			} else if (id.includes("ER29")){
+				selectItemByValue(ear_image_option_menu, "ear9Old");
+			} else if (id.includes("ER30")){
+				selectItemByValue(ear_image_option_menu, "ear10Old");
+			} else if (id.includes("ER31")){
+				selectItemByValue(ear_image_option_menu, "Fear1");
+			} else if (id.includes("ER32")){
+				selectItemByValue(ear_image_option_menu, "Fear2");
+			} else if (id.includes("ER33")){
+				selectItemByValue(ear_image_option_menu, "Fear3");
+			} else if (id.includes("ER34")){
+				selectItemByValue(ear_image_option_menu, "Fear4");
+			} else if (id.includes("ER35")){
+				selectItemByValue(ear_image_option_menu, "Fear5");
+			} else if (id.includes("ER36")){
+				selectItemByValue(ear_image_option_menu, "Fear6");
+			} else if (id.includes("ER37")){
+				selectItemByValue(ear_image_option_menu, "Fear7");
+			} else if (id.includes("ER38")){
+				selectItemByValue(ear_image_option_menu, "Fear8");
+			} else if (id.includes("ER39")){
+				selectItemByValue(ear_image_option_menu, "Fear9");
+			} else if (id.includes("ER40")){
+				selectItemByValue(ear_image_option_menu, "Fear10");
+			} else if (id.includes("ER41")){
+				selectItemByValue(ear_image_option_menu, "Fear11");
+			} else if (id.includes("ER42")){
+				selectItemByValue(ear_image_option_menu, "Fear12");
+			} else if (id.includes("ER43")){
+				selectItemByValue(ear_image_option_menu, "Fear13");
+			} else if (id.includes("ER44")){
+				selectItemByValue(ear_image_option_menu, "Fear1M");
+			} else if (id.includes("ER45")){
+				selectItemByValue(ear_image_option_menu, "Fear2M");
+			} else if (id.includes("ER46")){
+				selectItemByValue(ear_image_option_menu, "Fear3M");
+			} else if (id.includes("ER47")){
+				selectItemByValue(ear_image_option_menu, "Fear4M");
+			} else if (id.includes("ER48")){
+				selectItemByValue(ear_image_option_menu, "Fear5M");
+			} else if (id.includes("ER49")){
+				selectItemByValue(ear_image_option_menu, "Fear6M");
+			} else if (id.includes("ER50")){
+				selectItemByValue(ear_image_option_menu, "Fear7M");
+			} else if (id.includes("ER51")){
+				selectItemByValue(ear_image_option_menu, "Fear8M");
+			} else if (id.includes("ER52")){
+				selectItemByValue(ear_image_option_menu, "Fear9M");
+			} else if (id.includes("ER53")){
+				selectItemByValue(ear_image_option_menu, "Fear10M");
+			} else if (id.includes("ER54")){
+				selectItemByValue(ear_image_option_menu, "Fear11M");
+			} else if (id.includes("ER55")){
+				selectItemByValue(ear_image_option_menu, "Fear12M");
+			} else if (id.includes("ER56")){
+				selectItemByValue(ear_image_option_menu, "Fear13M");
+			} else if (id.includes("ER57")){
+				selectItemByValue(ear_image_option_menu, "Fear1Old");
+			} else if (id.includes("ER58")){
+				selectItemByValue(ear_image_option_menu, "Fear2Old");
+			} else if (id.includes("ER59")){
+				selectItemByValue(ear_image_option_menu, "Fear3Old");
+			} else if (id.includes("ER60")){
+				selectItemByValue(ear_image_option_menu, "Fear4Old");
+			} else if (id.includes("ER61")){
+				selectItemByValue(ear_image_option_menu, "Fear5Old");
+			} else if (id.includes("ER62")){
+				selectItemByValue(ear_image_option_menu, "Fear6Old");
+			} else if (id.includes("ER63")){
+				selectItemByValue(ear_image_option_menu, "Fear7Old");
+			} else if (id.includes("ER64")){
+				selectItemByValue(ear_image_option_menu, "Fear8Old");
+			} else if (id.includes("ER65")){
+				selectItemByValue(ear_image_option_menu, "Fear9Old");
+			} else if (id.includes("ER66")){
+				selectItemByValue(ear_image_option_menu, "Fear10Old");
+			} else if (id.includes("ER67")){
+				selectItemByValue(ear_image_option_menu, "Fear11Old");
+			} else if (id.includes("ER68")){
+				selectItemByValue(ear_image_option_menu, "Fear12Old");
+			} else if (id.includes("ER69")){
+				selectItemByValue(ear_image_option_menu, "Fear13Old");
+			}
+
+
+
+
+
+
+
+
+
 	}
-
-
-
-	///9,778,513,123,491,840 current combinations
-	//9778513123491840
-
+	///3 current combinations
   </script>
 
 </html>
