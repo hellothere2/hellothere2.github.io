@@ -189,13 +189,64 @@ function battlemechanics() {
 	var ForceA_Commander = document.getElementById("Force_A_input_commander_name").value;
 	var ForceB_Commander = document.getElementById("Force_B_input_commander_name").value;
 
+	var ForceA_Commander_type = document.getElementById("attacking_team_commander_option").value;
+	var ForceB_Commander_type = document.getElementById("defending_team_commander_option").value;
+
 	var DV = parseInt(document.getElementById('DV').value);
 
 	// Above this is fine
 	//End of Database
 
-	document.getElementById('battleout').innerHTML += ForceA + " is led by " + ForceA_Commander + "</br>";
-	document.getElementById('battleout').innerHTML += ForceB + " is led by " + ForceB_Commander + "</br>";
+	if (ForceA_Commander_type == "commander1"){
+		var ForceA_Commander_type_fluff = "Brilliant Tactician";
+	} else if (ForceA_Commander_type == "commander2"){
+		var ForceA_Commander_type_fluff = "Excellent Marcher";
+	} else if (ForceA_Commander_type == "commander3"){
+		var ForceA_Commander_type_fluff = "Vanguard Commander";
+	} else if (ForceA_Commander_type == "commander4"){
+		var ForceA_Commander_type_fluff = "Man of the People";
+	} else if (ForceA_Commander_type == "commander5"){
+		var ForceA_Commander_type_fluff = "Master of the Field";
+	} else if (ForceA_Commander_type == "commander6"){
+		var ForceA_Commander_type_fluff = "Defensive Leader";
+	} else if (ForceA_Commander_type == "commander7"){
+		var ForceA_Commander_type_fluff = "Desert Commander";
+	} else if (ForceA_Commander_type == "commander8"){
+		var ForceA_Commander_type_fluff = "Mountain Commander";
+	} else if (ForceA_Commander_type == "commander9"){
+		var ForceA_Commander_type_fluff = "Woods Commander";
+	} else if (ForceA_Commander_type == "commander10"){
+		var ForceA_Commander_type_fluff = "Hill Commander";
+	} else if (ForceA_Commander_type == "commander11"){
+		var ForceA_Commander_type_fluff = "Tundra Commander";
+	}
+
+	if (ForceB_Commander_type == "commander1"){
+		var ForceB_Commander_type_fluff = "Brilliant Tactician";
+	} else if (ForceB_Commander_type == "commander2"){
+		var ForceB_Commander_type_fluff = "Excellent Marcher";
+	} else if (ForceB_Commander_type == "commander3"){
+		var ForceB_Commander_type_fluff = "Vanguard Commander";
+	} else if (ForceB_Commander_type == "commander4"){
+		var ForceB_Commander_type_fluff = "Man of the People";
+	} else if (ForceB_Commander_type == "commander5"){
+		var ForceB_Commander_type_fluff = "Master of the Field";
+	} else if (ForceB_Commander_type == "commander6"){
+		var ForceB_Commander_type_fluff = "Defensive Leader";
+	} else if (ForceB_Commander_type == "commander7"){
+		var ForceB_Commander_type_fluff = "Desert Commander";
+	} else if (ForceB_Commander_type == "commander8"){
+		var ForceB_Commander_type_fluff = "Mountain Commander";
+	} else if (ForceB_Commander_type == "commander9"){
+		var ForceB_Commander_type_fluff = "Woods Commander";
+	} else if (ForceB_Commander_type == "commander10"){
+		var ForceB_Commander_type_fluff = "Hill Commander";
+	} else if (ForceB_Commander_type == "commander11"){
+		var ForceB_Commander_type_fluff = "Tundra Commander";
+	}
+
+	document.getElementById('battleout').innerHTML += ForceA + " is led by " + ForceA_Commander + " who is a " + ForceA_Commander_type_fluff + "</br>";
+	document.getElementById('battleout').innerHTML += ForceB + " is led by " + ForceB_Commander + " who is a " + ForceB_Commander_type_fluff + "</br>";
 
   // Determine the troop composition of Force A
   if (document.getElementById('attacking_team_faction_option').value == "north") {
