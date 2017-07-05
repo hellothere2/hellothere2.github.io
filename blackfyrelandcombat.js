@@ -194,10 +194,18 @@ function battlemechanics() {
 
 	var DV = parseInt(document.getElementById('DV').value);
 
+
+	var terrain_type = document.getElementById("terrain_dropdown").value;
+
+	document.getElementById('battleout').innerHTML += "Battle occurs on terrain type " + terrain_type + "</br>";
+
 	// Above this is fine
 	//End of Database
 
-	if (ForceA_Commander_type == "commander1"){
+
+	if (ForceA_Commander_type == "none"){
+		var ForceA_Commander_type_fluff = "Normal Commander";
+	} else if (ForceA_Commander_type == "commander1"){
 		var ForceA_Commander_type_fluff = "Brilliant Tactician";
 	} else if (ForceA_Commander_type == "commander2"){
 		var ForceA_Commander_type_fluff = "Excellent Marcher";
@@ -219,9 +227,17 @@ function battlemechanics() {
 		var ForceA_Commander_type_fluff = "Hill Commander";
 	} else if (ForceA_Commander_type == "commander11"){
 		var ForceA_Commander_type_fluff = "Tundra Commander";
+	} else if (ForceA_Commander_type == "commander12"){
+		var ForceA_Commander_type_fluff = "Grasslands Commander";
+	} else if (ForceA_Commander_type == "commander13"){
+		var ForceA_Commander_type_fluff = "Marsh Commander";
+	} else if (ForceA_Commander_type == "commander14"){
+		var ForceA_Commander_type_fluff = "Coast Commander";
 	}
 
-	if (ForceB_Commander_type == "commander1"){
+	if (ForceB_Commander_type == "none"){
+		var ForceB_Commander_type_fluff = "Normal Commander";
+	} else if (ForceB_Commander_type == "commander1"){
 		var ForceB_Commander_type_fluff = "Brilliant Tactician";
 	} else if (ForceB_Commander_type == "commander2"){
 		var ForceB_Commander_type_fluff = "Excellent Marcher";
@@ -243,10 +259,18 @@ function battlemechanics() {
 		var ForceB_Commander_type_fluff = "Hill Commander";
 	} else if (ForceB_Commander_type == "commander11"){
 		var ForceB_Commander_type_fluff = "Tundra Commander";
+	} else if (ForceB_Commander_type == "commander12"){
+		var ForceB_Commander_type_fluff = "Grasslands Commander";
+	} else if (ForceB_Commander_type == "commander13"){
+		var ForceB_Commander_type_fluff = "Marsh Commander";
+	} else if (ForceB_Commander_type == "commander14"){
+		var ForceB_Commander_type_fluff = "Coast Commander";
 	}
 
 	document.getElementById('battleout').innerHTML += ForceA + " is led by " + ForceA_Commander + " who is a " + ForceA_Commander_type_fluff + "</br>";
 	document.getElementById('battleout').innerHTML += ForceB + " is led by " + ForceB_Commander + " who is a " + ForceB_Commander_type_fluff + "</br>";
+
+
 
   // Determine the troop composition of Force A
   if (document.getElementById('attacking_team_faction_option').value == "north") {
@@ -565,51 +589,220 @@ function battlemechanics() {
 
 	//Force A CV
 
-  var Force_A_Number_Of_LightInfantry = troopcompositiondatabase_ForceA00;
-  var Force_A_Number_Of_HeavyInfantry = troopcompositiondatabase_ForceA10;
-  var Force_A_Number_Of_RangedInfantry = troopcompositiondatabase_ForceA20;
-  var Force_A_Number_Of_LightCavalry = troopcompositiondatabase_ForceA30;
-  var Force_A_Number_Of_HeavyCavalry = troopcompositiondatabase_ForceA40;
+	var Force_A_Number_Of_LightInfantry = troopcompositiondatabase_ForceA00;
+	var Force_A_Number_Of_HeavyInfantry = troopcompositiondatabase_ForceA10;
+	var Force_A_Number_Of_RangedInfantry = troopcompositiondatabase_ForceA20;
+	var Force_A_Number_Of_LightCavalry = troopcompositiondatabase_ForceA30;
+	var Force_A_Number_Of_HeavyCavalry = troopcompositiondatabase_ForceA40;
+
+	var Force_B_Number_Of_LightInfantry = troopcompositiondatabase_ForceB00;
+    var Force_B_Number_Of_HeavyInfantry = troopcompositiondatabase_ForceB10;
+    var Force_B_Number_Of_RangedInfantry = troopcompositiondatabase_ForceB20;
+    var Force_B_Number_Of_LightCavalry = troopcompositiondatabase_ForceB30;
+    var Force_B_Number_Of_HeavyCavalry = troopcompositiondatabase_ForceB40;
+
+
+	var Force_A_LightInfantry_CV = Force_A_Number_Of_LightInfantry * troopcompositiondatabase_ForceA01;
+	var Force_A_HeavyInfantry_CV = Force_A_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceA11;
+	var Force_A_RangedInfantry_CV = Force_A_Number_Of_RangedInfantry * troopcompositiondatabase_ForceA21;
+	var Force_A_LightCavalry_CV = Force_A_Number_Of_LightCavalry * troopcompositiondatabase_ForceA31;
+	var Force_A_HeavyCavalry_CV = Force_A_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceA41;
+
+
+	var Force_B_LightInfantry_CV = Force_B_Number_Of_LightInfantry * troopcompositiondatabase_ForceB01;
+	var Force_B_HeavyInfantry_CV = Force_B_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceB11;
+	var Force_B_RangedInfantry_CV = Force_B_Number_Of_RangedInfantry * troopcompositiondatabase_ForceB21;
+	var Force_B_LightCavalry_CV = Force_B_Number_Of_LightCavalry * troopcompositiondatabase_ForceB31;
+	var Force_B_HeavyCavalry_CV = Force_B_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceB41;
+
+
+
+	var Force_A_LightInfantry_ACV = Force_A_Number_Of_LightInfantry * troopcompositiondatabase_ForceA01;
+	var Force_A_HeavyInfantry_ACV = Force_A_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceA12;
+	var Force_A_RangedInfantry_ACV = Force_A_Number_Of_RangedInfantry * troopcompositiondatabase_ForceA22;
+	var Force_A_LightCavalry_ACV = Force_A_Number_Of_LightCavalry * troopcompositiondatabase_ForceA32;
+	var Force_A_HeavyCavalry_ACV = Force_A_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceA42;
+
+
+	var Force_B_LightInfantry_ACV = Force_B_Number_Of_LightInfantry * troopcompositiondatabase_ForceB02;
+	var Force_B_HeavyInfantry_ACV = Force_B_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceB12;
+	var Force_B_RangedInfantry_ACV = Force_B_Number_Of_RangedInfantry * troopcompositiondatabase_ForceB22;
+	var Force_B_LightCavalry_ACV = Force_B_Number_Of_LightCavalry * troopcompositiondatabase_ForceB32;
+	var Force_B_HeavyCavalry_ACV = Force_B_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceB42;
+
+	var foot_a = Force_A_Number_Of_LightInfantry + Force_A_Number_Of_HeavyInfantry + Force_A_Number_Of_RangedInfantry;
+	var foot_b = Force_B_Number_Of_LightInfantry + Force_B_Number_Of_HeavyInfantry + Force_B_Number_Of_RangedInfantry;
+	var cav_a = Force_A_Number_Of_LightCavalry + Force_A_Number_Of_HeavyCavalry;
+	var cav_b = Force_B_Number_Of_LightCavalry + Force_B_Number_Of_HeavyCavalry;
+
+
+	//Commander Type Bonuses
+
+
+	if (ForceA_Commander_type == "commander4"){ //foot commander
+		if (cav_a <= 0){
+			document.getElementById('battleout').innerHTML += "Attacker Foot Commander bonus <br>";
+			Force_A_LightInfantry_CV = Force_A_LightInfantry_CV * 1.08;
+			Force_A_HeavyInfantry_CV = Force_A_HeavyInfantry_CV * 1.08;
+			Force_A_RangedInfantry_CV = Force_A_RangedInfantry_CV * 1.08;
+			Force_A_LightInfantry_ACV = Force_A_LightInfantry_ACV * 1.08;
+			Force_A_HeavyInfantry_ACV = Force_A_HeavyInfantry_ACV * 1.08;
+			Force_A_RangedInfantry_ACV = Force_A_RangedInfantry_ACV * 1.08;
+		}
+	} else if (ForceA_Commander_type == "commander5"){ //cav commander
+		if (foot_a <= 0){
+			document.getElementById('battleout').innerHTML += "Attacker Cavalry Commander bonus <br>";
+			Force_A_LightCavalry_CV = Force_A_LightCavalry_CV * 1.05;
+			Force_A_HeavyCavalry_CV = Force_A_HeavyCavalry_CV * 1.05;
+			Force_A_LightCavalry_ACV = Force_A_LightCavalry_ACV * 1.05;
+			Force_A_HeavyCavalry_ACV = Force_A_HeavyCavalry_ACV * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander6"){ //defense commander
+		document.getElementById('battleout').innerHTML += "Attacker Siege Commander bonus given if it's a siege <br>";
+		Force_A_LightInfantry_ACV = Force_A_LightInfantry_ACV * 1.05;
+		Force_A_HeavyInfantry_ACV = Force_A_HeavyInfantry_ACV * 1.05;
+		Force_A_RangedInfantry_ACV = Force_A_RangedInfantry_ACV * 1.05;
+	}
+
+	if (ForceB_Commander_type == "commander4"){ //foot commander
+		if (cav_b <= 0){
+			document.getElementById('battleout').innerHTML += "Defender Foot Commander bonus <br>";
+			Force_B_LightInfantry_CV = Force_B_LightInfantry_CV * 1.08;
+			Force_B_HeavyInfantry_CV = Force_B_HeavyInfantry_CV * 1.08;
+			Force_B_RangedInfantry_CV = Force_B_RangedInfantry_CV * 1.08;
+			Force_B_LightInfantry_ACV = Force_B_LightInfantry_ACV * 1.08;
+			Force_B_HeavyInfantry_ACV = Force_B_HeavyInfantry_ACV * 1.08;
+			Force_B_RangedInfantry_ACV = Force_B_RangedInfantry_ACV * 1.08;
+		}
+	} else if (ForceB_Commander_type == "commander5"){ //cav commander
+		if (foot_b <= 0){
+			document.getElementById('battleout').innerHTML += "Defender Cavalry Commander bonus <br>";
+			Force_B_LightCavalry_CV = Force_B_LightCavalry_CV * 1.05;
+			Force_B_HeavyCavalry_CV = Force_B_HeavyCavalry_CV * 1.05;
+			Force_B_LightCavalry_ACV = Force_B_LightCavalry_ACV * 1.05;
+			Force_B_HeavyCavalry_ACV = Force_B_HeavyCavalry_ACV * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander6"){ //defense commander
+		document.getElementById('battleout').innerHTML += "Defender Siege Commander bonus given if it's a siege <br>";
+		Force_B_LightInfantry_ACV = Force_B_LightInfantry_ACV * 1.05;
+		Force_B_HeavyInfantry_ACV = Force_B_HeavyInfantry_ACV * 1.05;
+		Force_B_RangedInfantry_ACV = Force_B_RangedInfantry_ACV * 1.05;
+	}
+
+
+
+
+
 
   if (document.getElementById('Combat_Type_Field').checked){
-    var Force_A_CV_Numerical = (Force_A_Number_Of_LightInfantry * troopcompositiondatabase_ForceA01) + (Force_A_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceA11) + (Force_A_Number_Of_RangedInfantry * troopcompositiondatabase_ForceA21) + (Force_A_Number_Of_LightCavalry * troopcompositiondatabase_ForceA31) + (Force_A_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceA41);
-    document.getElementById('battleout').innerHTML += "The total CV of " + ForceA + " is " + Force_A_CV_Numerical + "<br />";
+    var Force_A_CV_Numerical = Force_A_LightInfantry_CV + Force_A_HeavyInfantry_CV + Force_A_RangedInfantry_CV + Force_A_LightCavalry_CV + Force_A_HeavyCavalry_CV;
   } else {
     ///Siege Stats
-    var Force_A_CV_Numerical = (Force_A_Number_Of_LightInfantry * troopcompositiondatabase_ForceA02) + (Force_A_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceA12) + (Force_A_Number_Of_RangedInfantry * troopcompositiondatabase_ForceA22) + (Force_A_Number_Of_LightCavalry * troopcompositiondatabase_ForceA32) + (Force_A_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceA42);
-    document.getElementById('battleout').innerHTML += "The total CV of " + ForceA + " is " + Force_A_CV_Numerical + "<br />";
+    var Force_A_CV_Numerical = Force_A_LightInfantry_ACV + Force_A_HeavyInfantry_ACV + Force_A_RangedInfantry_ACV + Force_A_LightCavalry_ACV + Force_A_HeavyCavalry_ACV;
   }
   
 	//End of Force A CV
 
 	//Force B CV
 
-    var Force_B_Number_Of_LightInfantry = troopcompositiondatabase_ForceB00;
-    var Force_B_Number_Of_HeavyInfantry = troopcompositiondatabase_ForceB10;
-    var Force_B_Number_Of_RangedInfantry = troopcompositiondatabase_ForceB20;
-    var Force_B_Number_Of_LightCavalry = troopcompositiondatabase_ForceB30;
-    var Force_B_Number_Of_HeavyCavalry = troopcompositiondatabase_ForceB40;
-
   if (document.getElementById('Combat_Type_Field').checked){
-    var Force_B_CV_Numerical = (Force_B_Number_Of_LightInfantry * troopcompositiondatabase_ForceB01) + (Force_B_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceB11) + (Force_B_Number_Of_RangedInfantry * troopcompositiondatabase_ForceB21) + (Force_B_Number_Of_LightCavalry * troopcompositiondatabase_ForceB31) + (Force_B_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceB41);
-    document.getElementById('battleout').innerHTML += "The total CV of " + ForceB + " is " + Force_B_CV_Numerical + "<br />";
+    var Force_B_CV_Numerical = Force_B_LightInfantry_CV + Force_B_HeavyInfantry_CV + Force_B_RangedInfantry_CV + Force_B_LightCavalry_CV + Force_B_HeavyCavalry_CV;
   } else {
     //Siege Stats
-    var Force_B_CV_PreBonus = (Force_B_Number_Of_LightInfantry * troopcompositiondatabase_ForceB02) + (Force_B_Number_Of_HeavyInfantry * troopcompositiondatabase_ForceB12) + (Force_B_Number_Of_RangedInfantry * troopcompositiondatabase_ForceB22) + (Force_B_Number_Of_LightCavalry * troopcompositiondatabase_ForceB32) + (Force_B_Number_Of_HeavyCavalry * troopcompositiondatabase_ForceB42);
+    var Force_B_CV_PreBonus = Force_B_LightInfantry_ACV + Force_B_HeavyInfantry_ACV + Force_B_RangedInfantry_ACV + Force_B_LightCavalry_ACV + Force_B_HeavyCavalry_ACV;
     var exponent = Math.pow(DV, 2);
     document.getElementById('battleout').innerHTML += "Test"; //test
     var Force_B_CV_Numerical = Force_B_CV_PreBonus * (1.5+(0.075 * exponent));
-    document.getElementById('battleout').innerHTML += "The total CV of " + ForceB + " is " + Force_B_CV_Numerical + "<br />";
   }
   
 	//End of Force B CV
 
 	document.getElementById('battleout').innerHTML += "<br />";
 
-  //Force CV Percentile
-  var Total_CV = Force_A_CV_Numerical + Force_B_CV_Numerical;
-  var cv_a = (Force_A_CV_Numerical / Total_CV) * 100;
-  var cv_b = (Force_B_CV_Numerical / Total_CV) * 100;
+
+  if (ForceA_Commander_type == "commander1"){
+		Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+	} else if (ForceA_Commander_type == "commander3"){
+		Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+	} else if (ForceA_Commander_type == "commander7"){
+		if (terrain_type == "desert"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander8"){
+		if (terrain_type == "mountain"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander9"){
+		if (terrain_type == "woods"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander10"){
+		if (terrain_type == "hill"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander11"){
+		if (terrain_type == "tundra"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander12"){
+		if (terrain_type == "grasslands"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander13"){
+		if (terrain_type == "marsh"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	} else if (ForceA_Commander_type == "commander14"){
+		if (terrain_type == "coast"){
+			Force_A_CV_Numerical = Force_A_CV_Numerical * 1.05;
+		}
+	}
+
+	if (ForceB_Commander_type == "commander1"){
+		Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+	} else if (ForceB_Commander_type == "commander3"){
+		Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+	} else if (ForceB_Commander_type == "commander7"){
+		if (terrain_type == "desert"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander8"){
+		if (terrain_type == "mountain"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander9"){
+		if (terrain_type == "woods"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander10"){
+		if (terrain_type == "hill"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander11"){
+		if (terrain_type == "tundra"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander12"){
+		if (terrain_type == "grasslands"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander13"){
+		if (terrain_type == "marsh"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	} else if (ForceB_Commander_type == "commander14"){
+		if (terrain_type == "coast"){
+			Force_B_CV_Numerical = Force_B_CV_Numerical * 1.05;
+		}
+	}
+
+	//Force CV Percentile
+	var Total_CV = Force_A_CV_Numerical + Force_B_CV_Numerical;
+	var cv_a = (Force_A_CV_Numerical / Total_CV) * 100;
+	var cv_b = (Force_B_CV_Numerical / Total_CV) * 100;
+
+	document.getElementById('battleout').innerHTML += "The total CV of " + ForceA + " is " + Force_A_CV_Numerical + "<br />";
+	document.getElementById('battleout').innerHTML += "The total CV of " + ForceB + " is " + Force_B_CV_Numerical + "<br />";
 
   //Force A Make a roll based on CV
 
