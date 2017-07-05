@@ -786,11 +786,23 @@ function battlemechanics() {
 	  document.getElementById('battleout').innerHTML += ForceA + " and " + ForceB + " have landed the same roll, ending the battle in a stalemate. <br><br>";
 	} else document.getElementById('battleout').innerHTML += "I don't know how you did it, but you did. You found an error in my code. Please let me know, thanks! <br><br>";
 
-
-	var A_Deathcheck_Value = Math.round((Force_A_Casualties / Force_A_Strength) * 100); //15% casualties = 15 on 1d100
+	if (ForceA_Commander_type == "commander3"){
+		document.getElementById('battleout').innerHTML += ForceA_Commander + " is Vanguard, adding 10% risk.</br>";
+		var A_Deathcheck_Value = Math.round((Force_A_Casualties / Force_A_Strength) * 100);
+		A_Deathcheck_Value = Math.round((Force_A_Casualties / Force_A_Strength) * 110); //15% casualties = 15 on 1d100
+	} else {
+		var A_Deathcheck_Value = Math.round((Force_A_Casualties / Force_A_Strength) * 100); //15% casualties = 15 on 1d100
+	}
 	var A_Death_Value = Math.round(A_Deathcheck_Value * 0.8);
 	var A_Maim_Value = Math.round(A_Deathcheck_Value * 0.9);
-	var B_Deathcheck_Value = Math.round((Force_B_Casualties / Force_B_Strength) * 100); //15% casualties = 15 on 1d100
+
+	if (ForceB_Commander_type == "commander3"){
+		document.getElementById('battleout').innerHTML += ForceB_Commander + " is Vanguard, adding 10% risk.</br>";
+		var B_Deathcheck_Value = Math.round((Force_B_Casualties / Force_B_Strength) * 100);
+		B_Deathcheck_Value = Math.round((Force_B_Casualties / Force_B_Strength) * 110); //15% casualties = 15 on 1d100
+	} else {
+		var B_Deathcheck_Value = Math.round((Force_B_Casualties / Force_B_Strength) * 100); //15% casualties = 15 on 1d100
+	}
 	var B_Death_Value = Math.round(B_Deathcheck_Value * 0.8);
 	var B_Maim_Value = Math.round(B_Deathcheck_Value * 0.9);
 
