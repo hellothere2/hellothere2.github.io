@@ -1,5 +1,11 @@
 //https://hellothere2.github.io/
 
+
+// var canvas = document.getElementById("IconsCanvas");
+// var ctx = canvas.getContext("2d");
+// var img = document.getElementById("upper_right_blue");
+// ctx.drawImage(img, 0, 0);
+
 //Troop Composition Database
 
 //North
@@ -156,12 +162,12 @@ var troopcompositiondatabase_Dorne41 = 3; //heavy cav CV
 var troopcompositiondatabase_Dorne42 = 2; //heavy cav ACV
 
 
+
 function clearresults() {
   document.getElementById('battleout').innerHTML = " ";
 }
 
 function battlemechanics() {
-
 
     var Force_A_input_lightinf = parseInt(document.getElementById("Force_A_input_lightinf").value);
     var Force_A_input_rangedinf = parseInt(document.getElementById("Force_A_input_rangedinf").value);
@@ -177,14 +183,19 @@ function battlemechanics() {
     var Force_B_input_heavycav = parseInt(document.getElementById("Force_B_input_heavycav").value);
     var Force_B_Strength = Force_B_input_lightinf+Force_B_input_rangedinf+Force_B_input_heavyinf+Force_B_input_lightcav+Force_B_input_heavycav;
 
-  var ForceA = "Attacker";
-  var ForceB = "Defender";
+	var ForceA = document.getElementById("Force_A_input_name").value;
+	var ForceB = document.getElementById("Force_B_input_name").value;
 
-  var DV = parseInt(document.getElementById('DV').value);
+	var ForceA_Commander = document.getElementById("Force_A_input_commander_name").value;
+	var ForceB_Commander = document.getElementById("Force_B_input_commander_name").value;
 
-// Above this is fine
-//End of Database
+	var DV = parseInt(document.getElementById('DV').value);
 
+	// Above this is fine
+	//End of Database
+
+	document.getElementById('battleout').innerHTML += ForceA + " is led by " + ForceA_Commander + "</br>";
+	document.getElementById('battleout').innerHTML += ForceB + " is led by " + ForceB_Commander + "</br>";
 
   // Determine the troop composition of Force A
   if (document.getElementById('attacking_team_faction_option').value == "north") {
@@ -343,7 +354,7 @@ function battlemechanics() {
   }
 
 
-// Determine the troop composition of Force B
+	// Determine the troop composition of Force B
   if (document.getElementById('defending_team_faction_option').value == "north") {
     var Force_B_Faction = "North";
     var troopcompositiondatabase_ForceB00 = document.getElementById('Force_B_input_lightinf').value; //light INF Percentage
@@ -501,7 +512,7 @@ function battlemechanics() {
 
 
 
-//Force A CV
+	//Force A CV
 
   var Force_A_Number_Of_LightInfantry = troopcompositiondatabase_ForceA00;
   var Force_A_Number_Of_HeavyInfantry = troopcompositiondatabase_ForceA10;
@@ -518,9 +529,9 @@ function battlemechanics() {
     document.getElementById('battleout').innerHTML += "The total CV of " + ForceA + " is " + Force_A_CV_Numerical + "<br />";
   }
   
-//End of Force A CV
+	//End of Force A CV
 
-//Force B CV
+	//Force B CV
 
     var Force_B_Number_Of_LightInfantry = troopcompositiondatabase_ForceB00;
     var Force_B_Number_Of_HeavyInfantry = troopcompositiondatabase_ForceB10;
@@ -540,9 +551,9 @@ function battlemechanics() {
     document.getElementById('battleout').innerHTML += "The total CV of " + ForceB + " is " + Force_B_CV_Numerical + "<br />";
   }
   
-//End of Force B CV
+	//End of Force B CV
 
-document.getElementById('battleout').innerHTML += "<br />";
+	document.getElementById('battleout').innerHTML += "<br />";
 
   //Force CV Percentile
   var Total_CV = Force_A_CV_Numerical + Force_B_CV_Numerical;
@@ -707,42 +718,42 @@ document.getElementById('battleout').innerHTML += "<br />";
 
 
 
-//Casualties
+	//Casualties
 
 
-var Force_A_Casualties = (rollb * 0.01) * Force_A_Strength;
-var Force_B_Casualties = (roll * 0.01) * Force_B_Strength;
+	var Force_A_Casualties = (rollb * 0.01) * Force_A_Strength;
+	var Force_B_Casualties = (roll * 0.01) * Force_B_Strength;
 
-document.getElementById('battleout').innerHTML += ForceA + " suffered " + Force_A_Casualties + " casualties. <br />";
-document.getElementById('battleout').innerHTML += ForceB + " suffered " + Force_B_Casualties + " casualties. <br />";
+	document.getElementById('battleout').innerHTML += ForceA + " suffered " + Force_A_Casualties + " casualties. <br />";
+	document.getElementById('battleout').innerHTML += ForceB + " suffered " + Force_B_Casualties + " casualties. <br />";
 
-if (roll > rollb){
-  document.getElementById('battleout').innerHTML += ForceA + " rolled higher than " + ForceB + " and has therefore won the battle. <br><br>";
-} else if (roll < rollb){
-  document.getElementById('battleout').innerHTML += ForceB + " rolled higher than " + ForceA + " and has therefore won the battle. <br><br>";
-} else if (roll == rollb){
-  document.getElementById('battleout').innerHTML += ForceA + " and " + ForceB + " have landed the same roll, ending the battle in a stalemate. <br><br>";
-} else document.getElementById('battleout').innerHTML += "I don't know how you did it, but you did. You found an error in my code. Please let me know, thanks! <br><br>";
+	if (roll > rollb){
+	  document.getElementById('battleout').innerHTML += ForceA + " rolled higher than " + ForceB + " and has therefore won the battle. <br><br>";
+	} else if (roll < rollb){
+	  document.getElementById('battleout').innerHTML += ForceB + " rolled higher than " + ForceA + " and has therefore won the battle. <br><br>";
+	} else if (roll == rollb){
+	  document.getElementById('battleout').innerHTML += ForceA + " and " + ForceB + " have landed the same roll, ending the battle in a stalemate. <br><br>";
+	} else document.getElementById('battleout').innerHTML += "I don't know how you did it, but you did. You found an error in my code. Please let me know, thanks! <br><br>";
 
 
-var A_Deathcheck_Value = Math.round((Force_A_Casualties / Force_A_Strength) * 100); //15% casualties = 15 on 1d100
-var A_Death_Value = Math.round(A_Deathcheck_Value * 0.8);
-var A_Maim_Value = Math.round(A_Deathcheck_Value * 0.9);
-var B_Deathcheck_Value = Math.round((Force_B_Casualties / Force_B_Strength) * 100); //15% casualties = 15 on 1d100
-var B_Death_Value = Math.round(B_Deathcheck_Value * 0.8);
-var B_Maim_Value = Math.round(B_Deathcheck_Value * 0.9);
+	var A_Deathcheck_Value = Math.round((Force_A_Casualties / Force_A_Strength) * 100); //15% casualties = 15 on 1d100
+	var A_Death_Value = Math.round(A_Deathcheck_Value * 0.8);
+	var A_Maim_Value = Math.round(A_Deathcheck_Value * 0.9);
+	var B_Deathcheck_Value = Math.round((Force_B_Casualties / Force_B_Strength) * 100); //15% casualties = 15 on 1d100
+	var B_Death_Value = Math.round(B_Deathcheck_Value * 0.8);
+	var B_Maim_Value = Math.round(B_Deathcheck_Value * 0.9);
 
-document.getElementById('battleout').innerHTML += ForceA + " should perform death checks on a 1d100.<br />";
-document.getElementById('battleout').innerHTML += "On a roll of "+A_Death_Value+" or lower, the character(s) will die.<br />";
-document.getElementById('battleout').innerHTML += "On a roll between "+A_Death_Value+" and "+A_Maim_Value+" the character(s) will be maimed.<br />";
-document.getElementById('battleout').innerHTML += "On a roll between "+A_Maim_Value+" and "+A_Deathcheck_Value+" the character(s) will be severely injured.<br />";
-document.getElementById('battleout').innerHTML += "On a roll higher than "+A_Deathcheck_Value+", the character(s) will be fine.<br />";
+	document.getElementById('battleout').innerHTML += ForceA + " should perform death checks on a 1d100.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll of "+A_Death_Value+" or lower, the character(s) will die.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll between "+A_Death_Value+" and "+A_Maim_Value+" the character(s) will be maimed.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll between "+A_Maim_Value+" and "+A_Deathcheck_Value+" the character(s) will be severely injured.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll higher than "+A_Deathcheck_Value+", the character(s) will be fine.<br />";
 
-document.getElementById('battleout').innerHTML += ForceB + " should perform death checks on a 1d100.<br />";
-document.getElementById('battleout').innerHTML += "On a roll of "+B_Death_Value+" or lower, the character(s) will die.<br />";
-document.getElementById('battleout').innerHTML += "On a roll between "+B_Death_Value+" and "+B_Maim_Value+" the character(s) will be maimed.<br />";
-document.getElementById('battleout').innerHTML += "On a roll between "+B_Maim_Value+" and "+B_Deathcheck_Value+" the character(s) will be severely injured.<br />";
-document.getElementById('battleout').innerHTML += "On a roll higher than "+B_Deathcheck_Value+", the character(s) will be fine.<br />";
+	document.getElementById('battleout').innerHTML += ForceB + " should perform death checks on a 1d100.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll of "+B_Death_Value+" or lower, the character(s) will die.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll between "+B_Death_Value+" and "+B_Maim_Value+" the character(s) will be maimed.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll between "+B_Maim_Value+" and "+B_Deathcheck_Value+" the character(s) will be severely injured.<br />";
+	document.getElementById('battleout').innerHTML += "On a roll higher than "+B_Deathcheck_Value+", the character(s) will be fine.<br />";
 
     var Force_A_Casualties_LightInfantry = (Force_A_Number_Of_LightInfantry / Force_A_Strength) * Force_A_Casualties;
     var Force_A_Casualties_HeavyInfantry = (Force_A_Number_Of_HeavyInfantry / Force_A_Strength) * Force_A_Casualties;
@@ -767,7 +778,5 @@ document.getElementById('battleout').innerHTML += "On a roll higher than "+B_Dea
     document.getElementById("Force_B_input_rangedinf").value = document.getElementById("Force_B_input_rangedinf").value - Force_B_Casualties_RangedInfantry;
     document.getElementById("Force_B_input_lightcav").value = document.getElementById("Force_B_input_lightcav").value - Force_B_Casualties_LightCavalry;
     document.getElementById("Force_B_input_heavycav").value = document.getElementById("Force_B_input_heavycav").value - Force_B_Casualties_HeavyCavalry;
-
-
-    UpdateValues();
+    
 }

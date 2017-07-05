@@ -21,32 +21,12 @@
 	  border-radius: 28px;
 	  font-family: Georgia;
 	  color: #ffffff;
-	  font-size: 35px;
+	  font-size: 37px;
 	  padding: 10px 20px 10px 20px;
 	  text-decoration: none;
 	  position: absolute;
 	  left: 15px;
-	  top: 500px;
-	}
-
-	.gbtn2 {
-	  background: #ff0000;
-	  background-image: -webkit-linear-gradient(top, #ff0000, #470404);
-	  background-image: -moz-linear-gradient(top, #ff0000, #470404);
-	  background-image: -ms-linear-gradient(top, #ff0000, #470404);
-	  background-image: -o-linear-gradient(top, #ff0000, #470404);
-	  background-image: linear-gradient(to bottom, #ff0000, #470404);
-	  -webkit-border-radius: 28;
-	  -moz-border-radius: 28;
-	  border-radius: 28px;
-	  font-family: Georgia;
-	  color: #ffffff;
-	  font-size: 35px;
-	  padding: 10px 20px 10px 20px;
-	  text-decoration: none;
-	  position: absolute;
-	  left: 15px;
-	  top: 700px;
+	  top: 590px;
 	}
 
 	.gbtn:hover {
@@ -60,7 +40,7 @@
 	}
 
     body {
-    	background-image: url("C:/Users/River/Pictures/bg.png");
+    	background-image: url("images/bg.png");
     	background-repeat: repeat;
     }
 </style>
@@ -69,9 +49,11 @@
 <!--- Forms -->
 
 
-<fieldset id="BattleInfo" style="width: 150px; position: absolute; left: 420px; top: 0px;">
+<fieldset id="BattleInfo" style="width: 150px; position: absolute; left: 0px; top: 0px;">
   <form>
     <legend style="color: white">Attackers</legend>
+    <font style="color: white">Name:<br></font>
+    <input type="text" id="Force_A_input_name" value="House X"><br>
     <font style="color: white">Light Inf:<br></font>
     <input type="number" id="Force_A_input_lightinf" value="100"><br>
     <font style="color: white">Heavy Inf:<br></font>
@@ -84,9 +66,11 @@
     <input type="number" id="Force_A_input_heavycav" value="100"><br>
     </form>
   </fieldset>
-<fieldset id="BattleInfo2" style="width: 150px; position: absolute; left: 420px; top: 260px;">
+<fieldset id="BattleInfo2" style="width: 150px; position: absolute; left: 220px; top: 0px;">
   <form>
     <legend style="color: white">Defenders</legend>
+    <font style="color: white">Name:<br></font>
+    <input type="text" id="Force_B_input_name" value="House Y"><br>
     <font style="color: white">Light Inf:<br></font>
     <input type="number" id="Force_B_input_lightinf" value="100"><br>
     <font style="color: white">Heavy Inf:<br></font>
@@ -99,13 +83,10 @@
     <input type="number" id="Force_B_input_heavycav" value="100"><br>
     <font style="color: white">DV:<br></font>
     <input type="number" id="DV" value="10"><br>
-    <input type="button" value="Update Values" onclick="UpdateValues()">
     </form>
   </fieldset>
-<fieldset id="BattleInfo2" style="width: 200px; position: absolute; left: 620px; top: 0px;">
+<fieldset id="BattleInfo3" style="width: 175px; position: absolute; left: 0px; top: 280px;">
   <form>
-  	<legend style="color: white">Battle Name:</legend>
-  	<input type="text" id="battlename" value="The Bastards"><br>
     <legend style="color: white">Terrain:</legend>
     <select id="terrain_dropdown">
     <option value="arctic">Arctic</option>
@@ -132,21 +113,8 @@
   </fieldset>
 <br>
 
-<fieldset id="BattleInfo3" style="width: 200px; position: absolute; left: 620px; top: 140px;">
+<fieldset id="BattleInfo4" style="width: 175px; position: absolute; left: 220px; top: 320px;">
 	<form>
-	<legend style="color: white">Attacking team sigil:</legend>
-		<select id="attacking_team_sigil_option">
-			<option value="stark">Stark</option>
-			<option value="targaryen">Targaryen</option>
-			<option value="baratheon">Baratheon</option>
-			<option value="lannister">Lannister</option>
-			<option value="tyrell">Tyrell</option>
-			<option value="bolton">Bolton</option>
-			<option value="martell">Martell</option>
-			<option value="tully">Tully</option>
-			<option value="greyjoy">Greyjoy</option>
-			<option value="arryn">Arryn</option>
-		</select>
 		<legend style="color: white">Attacking faction:</legend>
 		<select id="attacking_team_faction_option">
 			<option value="north">North</option>
@@ -158,19 +126,6 @@
 			<option value="riverlands">Riverlands</option>
 			<option value="iron_isles">Iron isles</option>
 			<option value="vale">Vale</option>
-		</select>
-		<legend style="color: white">Defending team sigil:</legend>
-		<select id="defending_team_sigil_option">
-			<option value="stark">Stark</option>
-			<option value="targaryen">Targaryen</option>
-			<option value="baratheon">Baratheon</option>
-			<option value="lannister">Lannister</option>
-			<option value="tyrell">Tyrell</option>
-			<option value="bolton" selected>Bolton</option>
-			<option value="martell">Martell</option>
-			<option value="tully">Tully</option>
-			<option value="greyjoy">Greyjoy</option>
-			<option value="arryn">Arryn</option>
 		</select>
 		<legend style="color: white">Defending faction:</legend>
 		<select id="defending_team_faction_option">
@@ -184,252 +139,49 @@
 			<option value="iron_isles">Iron isles</option>
 			<option value="vale">Vale</option>
 		</select>
-		<input type="button" value="Update Sigils" onclick="UpdateHouseInfo()">
 	</form>
 </fieldset>
 
 
-<button class="gbtn" onclick="clearresults(); UpdateHouseInfo(); UpdateValues(); battlemechanics();">GENERATE BATTLE</button>
+<fieldset id="BattleInfo5" style="width: 175px; position: absolute; left: 0px; top: 375px;">
+  <form>
+    <font style="color: white">Attacking Commander:<br></font>
+    <input type="text" id="Force_A_input_commander_name" value="Commander Name"><br>
+    <font style="color: white">Attacking Commander Bonus:<br></font>
+    <select id="attacking_team_commander_option">
+			<option value="north">North</option>
+			<option value="crownlands">Crownlands</option>
+			<option value="stormlands">Stormlands</option>
+			<option value="westerlands">Westerlands</option>
+			<option value="reach">Reach</option>
+			<option value="dorne">Dorne</option>
+			<option value="riverlands">Riverlands</option>
+			<option value="iron_isles">Iron isles</option>
+			<option value="vale">Vale</option>
+	</select><br>
+    <font style="color: white">Defending Commander:<br></font>
+    <input type="text" id="Force_B_input_commander_name" value="Commander Name"><br>
+    <font style="color: white">Defending Commander Bonus:<br></font>
+    <select id="defending_team_commander_option">
+			<option value="north">North</option>
+			<option value="crownlands">Crownlands</option>
+			<option value="stormlands">Stormlands</option>
+			<option value="westerlands">Westerlands</option>
+			<option value="reach">Reach</option>
+			<option value="dorne">Dorne</option>
+			<option value="riverlands">Riverlands</option>
+			<option value="iron_isles">Iron isles</option>
+			<option value="vale">Vale</option>
+	</select>
+	</form>
+</fieldset>
+
+
+<button class="gbtn" onclick="clearresults(); battlemechanics();">GENERATE BATTLE</button>
 
 <script src="blackfyrelandcombat.js"></script>
 
-<!--- Terrain images -->
-	<img id="bg" width="398" height="480" src="C:\Users\River\Pictures\battle.png" alt="Spear Militia" style="display:none;"/>
-	<img id="terrain_arctic" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_arctic.png" alt="Arctic" style="display:none;"/>
-	<img id="terrain_farmlands" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_farmlands.png" alt="farmlands" style="display:none;"/>
-	<img id="terrain_forest" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_forest.png" alt="forest" style="display:none;"/>
-	<img id="terrain_hills" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_hills.png" alt="forest" style="display:none;"/>
-	<img id="terrain_woods" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_woods.png" alt="woods" style="display:none;"/>
-	<img id="terrain_mountains" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_mountains.png" alt="mountains" style="display:none;"/>
-	<img id="terrain_grasslands" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_grasslands.png" alt="grasslands" style="display:none;"/>
-	<img id="terrain_jungle" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_jungle.png" alt="jungle" style="display:none;"/>
-	<img id="terrain_marsh" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_marsh.png" alt="marsh" style="display:none;"/>
-	<img id="terrain_desert" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_desert.png" alt="desert" style="display:none;"/>
-	<img id="terrain_coastal_desert" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_coastal_desert.png" alt="coastal_desert" style="display:none;"/>
-	<img id="terrain_inland_ocean" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_inland_ocean.png" alt="inland_ocean" style="display:none;"/>
-	<img id="terrain_drylands" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_drylands.png" alt="drylands" style="display:none;"/>
-	<img id="terrain_highlands" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_highlands.png" alt="highlands" style="display:none;"/>
-	<img id="terrain_savannah" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_savannah.png" alt="savannah" style="display:none;"/>
-	<img id="terrain_steppe" width="386px" height="79px" src="C:\Users\River\Pictures\Combat_terrain_steppe.png" alt="steppe" style="display:none;"/>
-
-<!--- Sigil images -->
-<img id="stark" width="40" height="50" src="https://vignette4.wikia.nocookie.net/gameofthrones/images/8/8a/House-Stark-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170101103142" alt="Starks" style="display:none"/>
-<img id="targaryen" width="40" height="50" src="https://vignette2.wikia.nocookie.net/gameofthrones/images/4/43/House-Targaryen-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170510235320" alt="targaryen" style="display:none"/>
-<img id="baratheon" width="40" height="50" src="https://vignette4.wikia.nocookie.net/gameofthrones/images/0/00/House-Baratheon-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170519002924" alt="Starks" style="display:none"/>
-<img id="lannister" width="40" height="50" src="https://vignette3.wikia.nocookie.net/gameofthrones/images/8/8a/House-Lannister-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170101095357" alt="lannister" style="display:none"/>
-<img id="tyrell" width="40" height="50" src="https://vignette2.wikia.nocookie.net/gameofthrones/images/c/cf/House-Tyrell-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170108163035" alt="tyrell" style="display:none"/>
-<img id="bolton" width="40" height="50" src="https://vignette1.wikia.nocookie.net/gameofthrones/images/d/dd/House-Bolton-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20161231131431" alt="bolton" style="display:none"/>
-<img id="martell" width="40" height="50" src="https://vignette2.wikia.nocookie.net/gameofthrones/images/7/7e/House-Martell-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170523024859" alt="martell" style="display:none"/>
-<img id="tully" width="40" height="50" src="https://vignette3.wikia.nocookie.net/gameofthrones/images/b/bd/House-Tully-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170523040648" alt="tully" style="display:none"/>
-<img id="greyjoy" width="40" height="50" src="https://vignette3.wikia.nocookie.net/gameofthrones/images/8/86/House-Greyjoy-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170523015836" alt="greyjoy" style="display:none"/>
-<img id="arryn" width="40" height="50" src="https://vignette4.wikia.nocookie.net/gameofthrones/images/1/15/House-Arryn-Main-Shield.PNG/revision/latest/scale-to-width-down/350?cb=20170101094153" alt="arryn" style="display:none"/>
-
-
-
-
-<canvas id="bgcanvas" width="398" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: -1;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
-
-<canvas id="Canvas1" width="398" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 0;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
-
-<canvas id="Canvas2" width="398" height="480" style="border:1px solid #000000; position: absolute; left: 0; top: 0; z-index: 1;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
-
-<script type="text/javascript">
-
-	window.onload = function() {
-		var canvas = document.getElementById("bgcanvas");
-		var ctx = canvas.getContext("2d");
-		var img = document.getElementById("bg");
-		ctx.drawImage(img, 0, 0);
-		UpdateValues();
-		UpdateHouseInfo();
-	};
-
-	function UpdateHouseInfo(){
-		var attacking_sigil_option_menu = document.getElementById("attacking_team_sigil_option");
-		var mainattacker = attacking_sigil_option_menu.value;
-		var defending_sigil_option_menu = document.getElementById("defending_team_sigil_option");
-		var maindefender = defending_sigil_option_menu.value;
-		var c = document.getElementById("Canvas2");
-		var ctx = c.getContext("2d");
-		ctx.clearRect(0,0,398,480);
-		var img = document.getElementById(mainattacker);
-		ctx.drawImage(img, 15, 134, 41, 43); //main attacker sigil position
-		var img2 = document.getElementById(maindefender);
-		ctx.drawImage(img2, 15, 430, 41, 43); //main defender sigil position
-	}
-
-	function UpdateValues(){
-		
-		var c = document.getElementById("Canvas1");
-		var ctx = c.getContext("2d");
-		ctx.clearRect(0,0,398,480);
-
-		var battlename = document.getElementById("battlename").value;
-		ctx.font = "20px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText("Battle of "+battlename, 180, 20);
-
-		var terrain_option_menu = document.getElementById("terrain_dropdown");
-		var terrain = terrain_option_menu.value;
-
-		if (terrain == "arctic"){
-			var terrainimg = document.getElementById("terrain_arctic");
-		} else if (terrain == "farmlands"){
-			var terrainimg = document.getElementById("terrain_farmlands");
-		} else if (terrain == "forest"){
-			var terrainimg = document.getElementById("terrain_forest");
-		} else if (terrain == "hills"){
-			var terrainimg = document.getElementById("terrain_hills");
-		} else if (terrain == "woods"){
-			var terrainimg = document.getElementById("terrain_woods");
-		} else if (terrain == "mountains"){
-			var terrainimg = document.getElementById("terrain_mountains");
-		} else if (terrain == "grasslands"){
-			var terrainimg = document.getElementById("terrain_grasslands");
-		} else if (terrain == "jungle"){
-			var terrainimg = document.getElementById("terrain_jungle");
-		} else if (terrain == "marsh"){
-			var terrainimg = document.getElementById("terrain_marsh");
-		} else if (terrain == "desert"){
-			var terrainimg = document.getElementById("terrain_desert");
-		} else if (terrain == "coastal_desert"){
-			var terrainimg = document.getElementById("terrain_coastal_desert");
-		} else if (terrain == "inland_ocean"){
-			var terrainimg = document.getElementById("terrain_inland_ocean");
-		} else if (terrain == "drylands"){
-			var terrainimg = document.getElementById("terrain_drylands");
-		} else if (terrain == "highlands"){
-			var terrainimg = document.getElementById("terrain_highlands");
-		} else if (terrain == "savannah"){
-			var terrainimg = document.getElementById("terrain_savannah");
-		} else if (terrain == "steppe"){
-			var terrainimg = document.getElementById("terrain_steppe");
-		}
-		ctx.drawImage(terrainimg, 11, 35, 377, 66);
-
-
-
-
-
-
-		var Force_A_input_lightinf = parseInt(document.getElementById("Force_A_input_lightinf").value);
-		var Force_A_input_rangedinf = parseInt(document.getElementById("Force_A_input_rangedinf").value);
-		var Force_A_input_heavyinf = parseInt(document.getElementById("Force_A_input_heavyinf").value);
-		var Force_A_input_lightcav = parseInt(document.getElementById("Force_A_input_lightcav").value);
-		var Force_A_input_heavycav = parseInt(document.getElementById("Force_A_input_heavycav").value);
-		var a_total_strength = Force_A_input_lightinf+Force_A_input_rangedinf+Force_A_input_heavyinf+Force_A_input_lightcav+Force_A_input_heavycav;
-		
-		var Force_B_input_lightinf = parseInt(document.getElementById("Force_B_input_lightinf").value);
-		var Force_B_input_rangedinf = parseInt(document.getElementById("Force_B_input_rangedinf").value);
-		var Force_B_input_heavyinf = parseInt(document.getElementById("Force_B_input_heavyinf").value);
-		var Force_B_input_lightcav = parseInt(document.getElementById("Force_B_input_lightcav").value);
-		var Force_B_input_heavycav = parseInt(document.getElementById("Force_B_input_heavycav").value);
-		var b_total_strength = Force_B_input_lightinf+Force_B_input_rangedinf+Force_B_input_heavyinf+Force_B_input_lightcav+Force_B_input_heavycav;
-
-
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_A_input_lightinf, 85, 172);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText("0", 123, 172);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_A_input_rangedinf, 161, 172);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_A_input_heavyinf, 199, 172);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_A_input_lightcav, 237, 172);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText("0", 275, 172);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_A_input_heavycav, 313, 172);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(a_total_strength, 365, 161);
-
-
-		///DEFENDER SIDE
-
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_B_input_lightinf, 85, 467);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText("0", 123, 467);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_B_input_rangedinf, 161, 467);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_B_input_heavyinf, 199, 467);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_B_input_lightcav, 237, 467);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText("0", 275, 467);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(Force_B_input_heavycav, 313, 467);
-
-		ctx.font = "15px Trajan";
-		ctx.fillStyle = "white";
-		ctx.textAlign = "center";
-		ctx.fillText(b_total_strength, 365, 456);
-	}
-
-
-	
-
-
-	
-
-</script>
-
-
-<div id="battleout" style="position: absolute; left: 630px; top: 320px; color: white"></div>
+<div id="battleout" style="position: absolute; left: 460px; top: 10px; color: white"></div>
 
 </body>
 </html>
