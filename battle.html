@@ -140,9 +140,23 @@
 
 <font style="color: white; position: absolute; left: 670px; top: 0px;">Note: Please enter 0 instead of simply deleting any values or else you will break the automator, giving you a bunch of "NaN"s in your results</font>
 
+<font style="color: white; position: absolute; left: 670px; top: 150px;">How it works:<br>Page detects unit name, type, and number of soldiers in unit. Each unit picks a target unit in enemy army to deal dmg to.<br>
+Each type has many stats: name, category, unitClass, soldiers, weapon, attack, armourPiercing, cavBonus, rangedWeapon, ammo, rangedPiercing, armour, defenceSkill, shield, and training.<br>
+The basics of it is this: Every single soldier in a unit rolls a dice vs defender dice, and if the attacker's dice is higher, then the defending unit takes a casualty<br>
+The attacking roll is d(attack) + training. Peasants have an attack of 4 and a training of 0, so they just get a d4 with no mods.<br>
+The defending roll is d(defenseSkil + armour + shield) + training.<br>
+If the attacker has armour piercing, the defender does not get armour as part of their roll.<br>
+If the attacker is a spearmen (like a town militia) and has a cav bonus, they add this bonus to their attack when facing a mounted unit, and so on.<br>
+Ranged units roll just like footmen, but instead attack x times, with x being equal to their ammo value. However, they are usually more vulnerable.<br>
+Cavalry roll just like footmen when facing other cavalry, but if heavy cav faces anything else they get massive bonuses.<br>
+In addition to a regular round of combat, they get a "charge" round of combat in which the enemy does not get any value out of shields and armour.<br>
+This represents the impact of a cavalry charge. If the infantry don't move out of the way, they will be trampled and killed by the horses.
+</font>
+
+
 <script src="combattest.js"></script>
 
-<div id="battleout" style="position: absolute; left: 670px; top: 120px; color: white;"></div>
+<div id="battleout" style="position: absolute; left: 670px; top: 650px; color: white;"></div>
 
 </body>
 </html>
