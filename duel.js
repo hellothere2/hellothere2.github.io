@@ -677,24 +677,24 @@ document.getElementById('meleeout').innerHTML += "Eliminate by Threshold <br>";
 
 
 
-function addFields() {
+function addFields_a() {
   // Number of inputs to create
-  var number = parseInt(document.getElementById("member").value);
+  var number = parseInt(document.getElementById("unit_A").value);
   // Container <div> where dynamic content will be placed
-  var container = document.getElementById("ContestantInputs");
+  var container = document.getElementById("Force_A_UnitInputs");
   // Clear previous contents of the container
   while (container.hasChildNodes()) {
     container.removeChild(container.lastChild);
   }
-  for (im = 0; im < number; im++) {
+  for (i = 0; i < number; i++) {
     // Append a node with a random text
-    container.appendChild(document.createTextNode("Melee Contestant " + (im + 1) + "'s name followed by Contestant's skill modifier:"));
+    container.appendChild(document.createTextNode("Unit " + (i + 1) + "'s name followed by Unit's type:"));
     // Create an <input> element, set its type and name attributes
     var input = document.createElement("input");
     input.type = "text";
-    input.id = "member" + im; ///member1, member2, member3, etc.
-    input.name = "ContestantNamesList"
-    var dickbuttcreampie = im + 1
+    input.id = "unit_A" + i; ///member0, member1, member2, member3, etc.
+    input.name = "Force_A_UnitNamesList"
+    var dickbuttcreampie = i + 1
     input.value = "Contestant" + dickbuttcreampie;
     container.appendChild(input);
     // Create an <input> element, set its type and name attributes
