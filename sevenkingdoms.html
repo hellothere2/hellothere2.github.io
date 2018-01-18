@@ -304,7 +304,25 @@
                       <fieldset id="landcombatform">
                         <form>
                           <legend>Force A:</legend>
-                          <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br>
+                          <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br> <br>
+                          <div class="12u$">
+                            <div class="select-wrapper">
+                              <select name="commandercategory" id="commander_A_category">
+                                <option value="0">- Commander Bonus -</option>
+                                <option value="1">Brilliant Tactician</option>
+                                <option value="2">Vanguard Commander</option>
+                                <option value="3">Excellent Marcher</option>
+                                <option value="4">Man of the People</option>
+                                <option value="5">Master of the Field</option>
+                                <option value="6">Defensive Leader</option>
+                                <option value="7">Sand Warrior</option>
+                                <option value="8">Mountain Czar</option>
+                                <option value="9">Wood Devil</option>
+                                <option value="10">Hill Hero</option>
+                                <option value="11">Tundra Titan</option>
+                              </select>
+                            </div>
+                          </div>
                           <input type="number" id="Force_A_Strength" value="2500"> Total number of soldiers.<br>
                           <input type="number" id="Force_A_input_lightinf" value="20"> % light inf.<br>
                           <input type="number" id="Force_A_input_heavyinf" value="20"> % heavy inf.<br>
@@ -335,7 +353,25 @@
                           <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
                           <br>
                           <legend>Force B (Defender in Siege):</legend>
-                          <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br>
+                          <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br> <br>
+                          <div class="12u$">
+                            <div class="select-wrapper">
+                              <select name="commandercategory2" id="commander_B_category">
+                                <option value="0">- Commander Bonus -</option>
+                                <option value="1">Brilliant Tactician</option>
+                                <option value="2">Vanguard Commander</option>
+                                <option value="3">Excellent Marcher</option>
+                                <option value="4">Man of the People</option>
+                                <option value="5">Master of the Field</option>
+                                <option value="6">Defensive Leader</option>
+                                <option value="7">Sand Warrior</option>
+                                <option value="8">Mountain Czar</option>
+                                <option value="9">Wood Devil</option>
+                                <option value="10">Hill Hero</option>
+                                <option value="11">Tundra Titan</option>
+                              </select>
+                            </div>
+                          </div>
                           <input type="number" id="Force_B_Strength" value="2500"> Total number of soldiers.<br>
                           <input type="number" id="Force_B_input_lightinf" value="20"> % light inf.<br>
                           <input type="number" id="Force_B_input_heavyinf" value="20"> % heavy inf.<br>
@@ -371,6 +407,21 @@
                           <label for="Combat_Type_Field">Field Battle</label><br>
                           <input type="radio" id="Combat_Type_Siege" name="combattype">
                           <label for="Combat_Type_Siege">Siege Assault</label>
+                          </div>
+                          <br>
+                          <div class="12u$">
+                            <div class="select-wrapper">
+                              <select name="terraincategory" id="terrainID">
+                                <option value="0">- Terrain -</option>
+                                <option value="1">Grasslands</option>
+                                <option value="2">Hills</option>
+                                <option value="3">Forests</option>
+                                <option value="4">Mountains</option>
+                                <option value="5">Swamps</option>
+                                <option value="6">Deserts</option>
+                                <option value="7">Tundra</option>
+                              </select>
+                            </div>
                           </div>
                           <br>
                           <input type="button" value="Submit" onclick="battlemechanics()">
