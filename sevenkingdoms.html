@@ -53,7 +53,6 @@
           <div class="box">
             <div class="content">
               <header class="align-center">
-                <p>The real gud shiet</p>
                 <h2>Scripts</h2>
               </header>
               <h3 id="duelautomator">Duel Automator</h3>
@@ -99,6 +98,18 @@
                 </fieldset>
 
 
+              </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
               <h3 id="joustautomator">Joust Automator</h3>
               <p>Default skill value is 0. Jousts function by rolling a d20 + Skill for each player.<br>
                 The difference between the rolls is used to determine what happens. This occurs until one player is forced to make a death save, until 7 tilts have passed, or until on of the contestants gets tired out. Death and serious injury is a possiblity in jousts.
@@ -167,8 +178,17 @@
                   <p> </p>
                   </div>
                 </fieldset>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <h3 id="meleeautomator">Melee Automator</h3>
+
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
+              <h3 id="meleeautomator">Melee Automator</h3>
                 <p>Melees function by rolling a d50 + Skill for each player (d75 if sharp weapons).<br>
                   If a contestant rolls lower than the specified threshold, they are eliminated from the melee.<br>
                   In order for the code to work, skill bonuses must not be greater than or equal to the threshold.
@@ -214,81 +234,18 @@
 
                     </div>
                   </fieldset>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-                  <h3 id="movement">Movement Calcualtor</h3>
-                  <h4>Usage Instructions</h4>
-                  <p>Enter the relevant information in the appropriate boxes. If you do not specify values,<br>
-                  the program will probably not work<br>
-                  Hit "Calculate" to generate results below.</p>
 
-
-                  <fieldset id="MovementCalculatorInput">
-                    <form id="formid">
-                      <legend>Movement Calculator - Enter info to customize:</legend>
-                      <br>  
-                      <input type="number" name="tile" id="iFieldTiles" value="0"> Field tiles traversed<br>
-                      <input type="number" name="tile" id="iHillTiles" value="0"> Hill tiles traversed<br>
-                      <input type="number" name="tile" id="iForestTiles" value="0"> Forest tiles traversed<br>
-                      <input type="number" name="tile" id="iTundraTiles" value="0"> Tundra tiles traversed<br>
-                      <input type="number" name="tile" id="iMountainTiles" value="0"> Mountain tiles traversed<br>
-                      <input type="number" name="tile" id="iSwampTiles" value="0"> Swamp tiles traversed<br>
-                      <input type="number" name="tile" id="iDesertTiles" value="0"> Desert tiles traversed<br>
-                      <input type="number" name="tile" id="iOceanTiles" value="0"> Ocean tiles traversed (water movement only)<br>
-                      <br>
-                      <div class="4u 12u$(small)">
-                      <input type="radio" name="type" id="m1" value="land" checked>
-                      <label for="m1">Land Movement</label><br>
-                      <input type="radio" name="type" id="m2" value="water">
-                      <label for="m2">Water Movement</label>
-                      </div>
-                      <br>
-                      Units Traversing:<br>
-                      <input type="number" name="trooptype" id="iinf" value="1"> Infantry <br>
-                      <input type="number" name="trooptype" id="ihcav" value="0"> Heavy Cavalry<br>
-                      <input type="number" name="trooptype" id="ilcav" value="0"> Light Cavalry<br>
-                      <input type="number" name="trooptype" id="icog" value="0"> Cog/Flagship/Dromond<br>
-                      <input type="number" name="trooptype" id="igalley" value="0"> Galley/Longship/Ironship<br>
-                      <input type="number" name="trooptype" id="iIBlongship" value="0"> Ironborn Longship<br>
-                      <br>
-                      <input type="button" value="Calculate" onclick="movement()">
-                      <input type="button" value="Clear Results" onclick="cleartable()">
-                    </form>
-
-                  <h3>Results</h3>
-                    <table id="out">
-                    <tr>
-                      <th>Unit Type</th>
-                      <th>Time Cost (hours)</th>
-                    </tr>
-                    <tr>
-                      <td>Infantry</td>
-                      <td id="inftable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Heavy Cavalry</td>
-                      <td id="hctable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Light Cavalry</td>
-                      <td id="lctable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Cog/Flagship/Dromond</td>
-                      <td id="cogtable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Galley/Longship/Ironship</td>
-                      <td id="galleytable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Ironborn Longship</td>
-                      <td id="IBLStable"> </td>
-                    </tr>
-                  </table>
-                    </fieldset>
-
-                      <h3 id="landcombat">Land Combat</h3>
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
+              <h3 id="landcombat">Land Combat</h3>
                       <h4>Usage Instructions</h4>
                       So far there are no sieges. This is purely land combat in the field.
                       <br>Every troop has a CV (Combat Value) that is used to judge their strength in battle.
@@ -425,14 +382,21 @@
                           <div id="battleout"></div>
                         </fieldset>
                         <br>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-                        <br>
-                        <div class="links">
-                        <h2 id="links">Links</h2>
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
+              <div class="links">
 
-
-
+                          <header class="align-center">
+                            <h2 id="links">Links</h2>
+                          </header>
 
                         <p>Welcome to my collection of quick links, compiled to provide convenience. Right now, it's basically only the sidebar links. Please let me know if you have other suggestions! Might as well have the website do more than one thing, right?<br>
                         ~Hello_There2</p>
@@ -496,13 +460,6 @@
                             <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/5uvhqn/meta_tag_usage_statistics/?ref=search_posts">Post tag usage statistics</a></dt>
                             <dt><a href="">Empty</a></dt>
                             </dl>
-
-
-
-
-
-
-              </div>
             </div>
           </div>
         </div>
