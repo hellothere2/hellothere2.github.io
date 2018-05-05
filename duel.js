@@ -14,84 +14,75 @@ function clearjoustresults() {
   document.getElementById('joustout').innerHTML = " ";
 }
 
-function cleartable() {
-  document.getElementById('inftable').innerHTML = " ";
-  document.getElementById('hctable').innerHTML = " ";
-  document.getElementById('lctable').innerHTML = " ";
-  document.getElementById('cogtable').innerHTML = " ";
-  document.getElementById('galleytable').innerHTML = " ";
-  document.getElementById('IBLStable').innerHTML = " ";
+
+function duelist(name, skill, hp){
+  this.name = name;
+  this.skill = skill;
+  this.hp = hp;
 }
-
-
-
 
 
 function dickbutt() {
 
+  var duelistA = new duelist("filler",0,0);
+  document.getElementById('duelout').innerHTML += "<br />"
+  document.getElementById('duelout').innerHTML += duelistA.skill + "<br />"
+  duelistA.name = document.getElementById("duelistA_name").value; //duelist A's name
+  duelistA.skill = parseInt(document.getElementById("duelistA_skill").value); //duelist A's skill bonus
+  duelistA.hp = parseInt(document.getElementById("duelistA_hp").value); // fighter A's HP
 
-  var FighterA = document.getElementById("firstname").value;
-  var FighterB = document.getElementById("secondname").value;
-
-  var SkillA = parseInt(document.getElementById("SkillA").value);
-  // fighter A's skill bonus
-  var SkillB = parseInt(document.getElementById("SkillB").value);
-  // fighter B's skill bonus
-  var HPA = parseInt(document.getElementById("HPA").value);
-  // fighter A's HP
-  var HPB = parseInt(document.getElementById("HPB").value);
-  // fighter B's HP
-  var difference = 0;
-  // the difference between two rolls, used to calculate damage
+  var duelistB = new duelist("filler",0,0);
+  duelistB.name = document.getElementById("duelistB_name").value; //duelist A's name
+  duelistB.skill = parseInt(document.getElementById("duelistB_skill").value); //duelist A's skill bonus
+  duelistB.hp = parseInt(document.getElementById("duelistB_hp").value); // fighter A's HP
+  
+  var difference = 0; // the difference between two rolls, used to calculate damage
   var DuelStopsAt = parseInt(document.getElementById("Dueltype").value);
   // edit this value to determine when the duel will end. If you want people to auto-yeild at a certain value, set it here. If the value is 0, it will be a duel to the death.
   var WeaponStrength; // 50 for blunt weapons, 75 for normal.
 
 
 
-  if (document.getElementById('bT').checked) {
-    var WeaponStrength = parseInt(document.getElementById('bT').value);
-  } else var WeaponStrength = parseInt(document.getElementById('bF').value); //check which radio button is selected.
+  if (document.getElementById('duel_normalWeapons').checked) {
+    var WeaponStrength = parseInt(document.getElementById('duel_normalWeapons').value);
+  } else var WeaponStrength = parseInt(document.getElementById('duel_bluntWeapons').value); //check which radio button is selected.
 
 
-  document.getElementById('duelout').innerHTML += "<br />"
+  document.getElementById('duelout').innerHTML += "test<br />"
 
 
-  while (HPA > DuelStopsAt || HPB > DuelStopsAt) {
+  while (duelistA.hp > DuelStopsAt || duelistB.hp > DuelStopsAt) {
 
-    AttackA = Math.ceil(Math.random() * WeaponStrength) + SkillA;
+    AttackA = Math.ceil(Math.random() * WeaponStrength) + duelistA.skill;
+    AttackB = Math.ceil(Math.random() * WeaponStrength) + duelistB.skill;
     document.getElementById('duelout').innerHTML += "They clash! <br />"
-    document.getElementById('duelout').innerHTML += (FighterA + " got: " + AttackA + " <br />");
-    AttackB = Math.ceil(Math.random() * WeaponStrength) + SkillB;
-    document.getElementById('duelout').innerHTML += (FighterB + " got: " + AttackB + " <br />");
+    document.getElementById('duelout').innerHTML += (duelistA.name + " got: " + AttackA + " <br />");
+    document.getElementById('duelout').innerHTML += (duelistB.name + " got: " + AttackB + " <br />");
     // Dice are rolled, now let's see what their effect is.
 
 
-    if (AttackA > AttackB) {
-      document.getElementById('duelout').innerHTML += (FighterA + " hits " + FighterB + "!" + " <br />");
+    if (AttackA > AttackB) { //A hits B
       difference = AttackA - AttackB;
-      HPB = HPB - difference;
-      document.getElementById('duelout').innerHTML += (FighterB + " has " + HPB + " HP remaining." + " <br />");
-      if (HPB <= DuelStopsAt) {
-        document.getElementById('duelout').innerHTML += (FighterB + " has fallen. " + FighterA + " wins!" + " <br />");
+      duelistB.hp = duelistB.hp - difference;
+      document.getElementById('duelout').innerHTML += (duelistA.name + " hits " + duelistB.name + "!<br />");
+      document.getElementById('duelout').innerHTML += (duelistB.name + " has " + duelistB.hp + " HP remaining.<br />");
+      if (duelistB.hp <= DuelStopsAt) {
+        document.getElementById('duelout').innerHTML += (duelistB.name + " has fallen. " + duelistA.name + " wins!<br />");
         break;
       }
-    } else if (AttackB > AttackA) {
-      document.getElementById('duelout').innerHTML += (FighterB + " hits " + FighterA + "!" + " <br />");
+    } else if (AttackB > AttackA) { //B hits A
       difference = AttackB - AttackA;
-      HPA = HPA - difference;
-      document.getElementById('duelout').innerHTML += (FighterA + " has " + HPA + " HP remaining." + " <br />")
-      if (HPA <= DuelStopsAt) {
-        document.getElementById('duelout').innerHTML += (FighterA + " has fallen. " + FighterB + " wins!" + " <br />");
+      duelistA.hp = duelistA.hp - difference;
+      document.getElementById('duelout').innerHTML += (duelistB.name + " hits " + duelistA.name + "!<br />");
+      document.getElementById('duelout').innerHTML += (duelistA.name + " has " + duelistA.hp + " HP remaining.<br />")
+      if (duelistA.hp <= DuelStopsAt) {
+        document.getElementById('duelout').innerHTML += (duelistA.name + " has fallen. " + duelistB.name + " wins!<br />");
         break;
       }
     } else if (AttackA = AttackB) {
-      document.getElementById('duelout').innerHTML += ("The Duelists struggle in combat." + " <br />");
+      document.getElementById('duelout').innerHTML += ("The Duelists struggle in combat.<br />");
     }
-
   }
-
-
 }
 
 
@@ -404,123 +395,6 @@ function joust() {
 
 
 
-function movement() {
-
-
-  var ficost = 1;
-  var hcost = 2;
-  var forcost = 2;
-  var tuncost = 2;
-  var mocost = 3;
-  var swacost = 3;
-  var descost = 3;
-
-
-  if (document.getElementById('m1').checked) {
-    var travel = (document.getElementById('m1').value);
-  } else var travel = (document.getElementById('m2').value); //check which radio button is selected.
-
-
-
-
-
-  if (travel == "land") {
-
-    var field = document.getElementById('iFieldTiles').value;
-    var hill = document.getElementById('iTundraTiles').value;
-    var forest = document.getElementById('iForestTiles').value;
-    var tundra = document.getElementById('iTundraTiles').value;
-    var mountain = document.getElementById('iFieldTiles').value;
-    var swamp = document.getElementById('iSwampTiles').value;
-    var desert = document.getElementById('iDesertTiles').value;
-    var ocean = document.getElementById('iOceanTiles').value;
-
-
-    ///This part calulates the speed of each type
-
-    var infantry = document.getElementById('iinf').value;
-    if (infantry < 21) {
-      infantryspeed = 15;
-    } else infantryspeed = 12;
-    infttc = (field * ficost) + (hill * hcost) + (forest * forcost) + (tundra * tuncost) + (mountain * mocost) + (swamp * swacost) + (desert * descost);
-    var inftime = (infttc / infantryspeed) * 24;
-    document.getElementById('inftable').innerHTML += inftime;
-
-
-
-    var heavycav = document.getElementById('ihcav').value;
-
-    if (heavycav < 21) {
-      heavycavspeed = 30;
-    } else heavycavspeed = 18;
-    heavycavttc = (field * ficost) + (hill * hcost) + (forest * forcost) + (tundra * tuncost) + (mountain * mocost) + (swamp * swacost) + (desert * descost);
-    var hcavtime = (heavycavttc / heavycavspeed) * 24;
-    document.getElementById('hctable').innerHTML += hcavtime;
-
-
-    var lightcav = document.getElementById('ilcav').value;
-
-    if (lightcav < 21) {
-      lightcavspeed = 30;
-    } else lightcavspeed = 24;
-    lightcavttc = (field * ficost) + (hill * hcost) + (forest * forcost) + (tundra * tuncost) + (mountain * mocost) + (swamp * swacost) + (desert * descost);
-    var lcavtime = (lightcavttc / lightcavspeed) * 24;
-    document.getElementById('lctable').innerHTML += lcavtime;
-
-
-
-
-
-
-  } else if (travel == "water") {
-
-
-    var field = document.getElementById('iFieldTiles').value;
-    var hill = document.getElementById('iTundraTiles').value;
-    var forest = document.getElementById('iForestTiles').value;
-    var tundra = document.getElementById('iTundraTiles').value;
-    var mountain = document.getElementById('iFieldTiles').value;
-    var swamp = document.getElementById('iSwampTiles').value;
-    var desert = document.getElementById('iDesertTiles').value;
-    var ocean = document.getElementById('iOceanTiles').value;
-
-
-    ///This part calulates the speed of each type
-    var cog = document.getElementById('icog').value;
-    if (cog < 21) {
-      var cs = 0;
-    } else cs = (cog - 20) / 5;
-    var cogspeed = Math.max(64 - cs, 16);
-    var cttc = ocean * 1;
-    var ctime = (cttc / cogspeed) * 24;
-    document.getElementById('cogtable').innerHTML += ctime;
-
-    var galley = document.getElementById('igalley').value;
-    if (galley < 21) {
-      var gs = 0;
-    } else gs = (galley - 20) / 5;
-    var galleyspeed = Math.max(48 - gs, 16);
-    var gttc = ocean * 1;
-    var gtime = (gttc / galleyspeed) * 24;
-    document.getElementById('galleytable').innerHTML += gtime;
-
-    var IBLS = document.getElementById('iIBlongship').value;
-    if (IBLS < 21) {
-      var iblss = 0;
-    } else iblss = (IBlS - 20) / 5;
-    var IBLSspeed = Math.max(48 - iblss, 16);
-    var IBLSttc = ocean * 1;
-    var IBLStime = (IBLSttc / IBLSspeed) * 24;
-    document.getElementById('IBLStable').innerHTML += IBLStime;
-  }
-}
-
-
-
-
-
-
-
 ///function melee() is dependant on function addFields()
 
 
@@ -545,7 +419,7 @@ function melee() {
 
 
   if (document.getElementById('EliminateViaThreshold').checked) {
-document.getElementById('meleeout').innerHTML += "Eliminate by Threshold <br>";
+  document.getElementById('meleeout').innerHTML += "Eliminate by Threshold <br>";
 
     if (document.getElementById('SingleRound').checked) {
 

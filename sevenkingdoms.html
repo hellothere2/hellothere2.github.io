@@ -68,25 +68,25 @@
                   <form>
                     <legend>Duel Contestants - Enter info to customize:</legend>
                     Contestant 1 name:<br>
-                    <input type="text" id="firstname" value="Fighter A"><br>
+                    <input type="text" id="duelistA_name" value="Duelist A"><br>
                     Contestant 1 health:<br>
-                    <input type="number" id="HPA" value="50"><br>
+                    <input type="number" id="duelistA_hp" value="50"><br>
                     Contestant 1 Skill bonus:<br>
-                    <input type="number" id="SkillA" value="1"><br>
+                    <input type="number" id="duelistA_skill" value="1"><br>
                     Contestant 2 name:<br>
-                    <input type="text" id="secondname" value="Fighter B"><br>
+                    <input type="text" id="duelistB_name" value="Duelist B"><br>
                     Contestant 2 health:<br>
-                    <input type="number" id="HPB" value="50"><br>
+                    <input type="number" id="duelistB_hp" value="50"><br>
                     Contestant 2 Skill bonus:<br>
-                    <input type="number" id="SkillB" value="1"><br>
+                    <input type="number" id="duelistB_skill" value="1"><br>
                     HP to stop duel at:<br>
                     <input type="number" id="Dueltype" value="0"> 0 = To the death<br>
                     <br>
                     <div class="4u 12u$(small)">
-                    <input type="radio" name="bluntduel" id="bF" value="75" checked>
-                    <label for="bF">Normal Weapons</label><br>
-                    <input type="radio" name="bluntduel" id="bT" value="50">
-                    <label for="bT">Blunt Weapons</label>
+                    <input type="radio" name="bluntduel" id="duel_normalWeapons" value="75" checked>
+                    <label for="duel_normalWeapons">Normal Weapons</label><br>
+                    <input type="radio" name="bluntduel" id="duel_bluntWeapons" value="50">
+                    <label for="duel_bluntWeapons">Blunt Weapons</label>
                     </div>
                     <input type="button" value="Submit Duel Values" onclick="dickbutt()">
                     <input type="button" value="Clear Results" onclick="clearduelresults()">
