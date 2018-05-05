@@ -138,45 +138,53 @@
               <fieldset id="JoustContestants">
                 <form>
                   <legend>Joust Contestants - Enter info to customize:</legend>
-                  Contestant 1 name:<br>
-                  <input type="text" id="JousterA" value="Jouster A"><br>
-                  Contestant 1 Skill bonus:<br>
-                  <input type="number" id="JousterSkillA" value="1"><br>
-                  Contestant 2 name:<br>
-                  <input type="text" id="JousterB" value="Jouster B"><br>
-                  Contestant 2 Skill bonus:<br>
-                  <input type="number" id="JousterSkillB" value="1"><br>
-                  <br>
-                  <div class="4u 12u$(small)">
-                  <input type="radio" name="malus" id="mal0" value="0" checked>
-                  <label for="mal0">Do not allow maluses to go below 0</label><br>
-                  <input type="radio" name="malus" id="malneg" value="-1000">
-                  <label for="malneg">Allow maluses to go negative</label>
+
+                  <div class="row">
+                    <div class="6u 12u$(small)">
+                      Contestant 1 name:<br>
+                      <input type="text" id="JousterA" value="Jouster A"><br>
+                      Contestant 1 Skill bonus:<br>
+                      <input type="number" id="JousterSkillA" value="1"><br>
+                    </div>
+                    <div class="6u 12u$(small)">
+                      Contestant 2 name:<br>
+                      <input type="text" id="JousterB" value="Jouster B"><br>
+                      Contestant 2 Skill bonus:<br>
+                      <input type="number" id="JousterSkillB" value="1"><br>
+                    </div>
+                  </div> <br>
+                  <div class="row">
+                    <div class="4u 12u$(small)">
+                      Allow maluses to go negative?<br>
+                      <input type="radio" name="malus" id="mal0" value="0" checked>
+                      <label for="mal0">No</label><br>
+                      <input type="radio" name="malus" id="malneg" value="-1000">
+                      <label for="malneg">Yes</label>
+                    </div>
+                    <div class="4u 12u$(small)">
+                      Roll injury saves when the difference between rolls is greater than or equal to...<br>
+                      <input type="radio" name="ds" id="ds19" value="19">
+                      <label for="ds19">19</label><br>
+                      <input type="radio" name="ds" id="ds18" value="18">
+                      <label for="ds18">18</label><br>
+                      <input type="radio" name="ds" id="ds17" value="17" checked>
+                      <label for="ds17">17</label><br>
+                      <input type="radio" name="ds" id="ds16" value="16">
+                      <label for="ds16">16</label>
+                    </div>
+                    <div class="4u 12u$(small)">
+                      On a D20 injury save, death occurs on between 1 and...<br>
+                      <input type="radio" name="dsdn" id="ds2" value="2">
+                      <label for="ds2">2</label><br>
+                      <input type="radio" name="dsdn" id="ds3" value="3">
+                      <label for="ds3">3</label><br>
+                      <input type="radio" name="dsdn" id="ds4" value="4" checked>
+                      <label for="ds4">4</label><br>
+                      <input type="radio" name="dsdn" id="ds5" value="5">
+                      <label for="ds5">5</label>
+                    </div>
                   </div>
-                  <br>
-                  Roll injury saves when the difference between rolls is greater than or equal to...<br>
-                  <div class="4u 12u$(small)">
-                  <input type="radio" name="ds" id="ds19" value="19">
-                  <label for="ds19">19</label><br>
-                  <input type="radio" name="ds" id="ds18" value="18">
-                  <label for="ds18">18</label><br>
-                  <input type="radio" name="ds" id="ds17" value="17" checked>
-                  <label for="ds17">17</label><br>
-                  <input type="radio" name="ds" id="ds16" value="16">
-                  <label for="ds16">16</label>
-                  </div>
-                  <br>
-                  On a D20 injury save, death occurs on between 1 and...<br>
-                  <div class="4u 12u$(small)">
-                  <input type="radio" name="dsdn" id="ds2" value="2">
-                  <label for="ds2">2</label><br>
-                  <input type="radio" name="dsdn" id="ds3" value="3">
-                  <label for="ds3">3</label><br>
-                  <input type="radio" name="dsdn" id="ds4" value="4" checked>
-                  <label for="ds4">4</label><br>
-                  <input type="radio" name="dsdn" id="ds5" value="5">
-                  <label for="ds5">5</label>
-                  </div>
+                  
                   <input type="button" value="Submit Joust Values" onclick="joust()">
                   <input type="button" value="Clear Results" onclick="clearjoustresults()">
                 </form>
@@ -195,7 +203,7 @@
         <div class="inner">
           <div class="box">
             <div class="content">
-              <h3 id="meleeautomator">Melee Automator</h3>
+              <h3 id="meleeautomator">Melee Automator (broken - under maintainance)</h3>
                 <p>Melees function by rolling a d50 + Skill for each player (d75 if sharp weapons).<br>
                   If a contestant rolls lower than the specified threshold, they are eliminated from the melee.<br>
                   In order for the code to work, skill bonuses must not be greater than or equal to the threshold.
@@ -216,20 +224,22 @@
                     Dice Size:<br>
                     <input type="number" id="iWeaponStrength" value="50"> Minimum 4<br>
                     <br>
-                    Run a whole melee or just one round at a time?<br>
-                    <div class="4u 12u$(small)">
-                    <input type="radio" name="MeleeRadioButton" id="SingleRound">
-                    <label for="SingleRound">Run a single round</label><br>
-                    <input type="radio" name="MeleeRadioButton" id="MultipleRounds" checked>
-                    <label for="MultipleRounds">Run the full melee</label>
-                    </div>
-                    <br>
-                    Eliminate contestants via Threshold or by the lowest roll?<br>
-                    <div class="4u 12u$(small)">
-                    <input type="radio" name="MeleeRadioButton2" id="EliminateViaThreshold" checked>
-                    <label for="EliminateViaThreshold">Eliminate via Threshold</label><br>
-                    <input type="radio" name="MeleeRadioButton2" id="EliminateViaOther">
-                    <label for="EliminateViaOther">Eliminate the lowest roll</label>
+
+                    <div class="row">
+                      <div class="6u 12u$(small)">
+                        Run a whole melee or just one round at a time?<br>
+                        <input type="radio" name="MeleeRadioButton" id="SingleRound">
+                        <label for="SingleRound">Run a single round</label><br>
+                        <input type="radio" name="MeleeRadioButton" id="MultipleRounds" checked>
+                        <label for="MultipleRounds">Run the full melee</label>
+                      </div>
+                      <div class="6u 12u$(small)">
+                        Eliminate contestants via Threshold or by the lowest roll?<br>
+                        <input type="radio" name="MeleeRadioButton2" id="EliminateViaThreshold" checked>
+                        <label for="EliminateViaThreshold">Eliminate via Threshold</label><br>
+                        <input type="radio" name="MeleeRadioButton2" id="EliminateViaOther">
+                        <label for="EliminateViaOther">Eliminate the lowest roll</label>
+                      </div>
                     </div>
                     <input type="button" value="Generate Melee" onclick="melee()">
                     <input type="button" value="Clear Results" onclick="clearmeleeresults()">
@@ -261,104 +271,130 @@
                       This script currently does not perform death or retreat checks, although it does provide the necessary information for you to do them yourself. These are required to be run after a battle takes place, depending on what happened. Click <a href="https://www.reddit.com/r/SevenKingdoms/wiki/land_combat">here</a> for the full rules and details.
                       <fieldset id="landcombatform">
                         <form>
-                          <legend>Force A:</legend>
-                          <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br> <br>
-                          <div class="12u$">
-                            <div class="select-wrapper">
-                              <select name="commandercategory" id="commander_A_category">
-                                <option value="0">- Commander Bonus -</option>
-                                <option value="1">Brilliant Tactician</option>
-                                <option value="2">Vanguard Commander</option>
-                                <option value="3">Excellent Marcher</option>
-                                <option value="4">Man of the People</option>
-                                <option value="5">Master of the Field</option>
-                                <option value="6">Defensive Leader</option>
-                                <option value="7">Sand Warrior</option>
-                                <option value="8">Mountain Czar</option>
-                                <option value="9">Wood Devil</option>
-                                <option value="10">Hill Hero</option>
-                                <option value="11">Tundra Titan</option>
-                              </select>
+                          <div class="row">
+                            <div class="6u 12u$(small)">
+                              <legend>Force A:</legend>
+                              <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br> <br>
+                              <div class="12u$">
+                                <div class="select-wrapper">
+                                  <select name="commandercategory" id="commander_A_category">
+                                    <option value="0">- Commander Bonus -</option>
+                                    <option value="1">Brilliant Tactician</option>
+                                    <option value="2">Vanguard Commander</option>
+                                    <option value="3">Excellent Marcher</option>
+                                    <option value="4">Man of the People</option>
+                                    <option value="5">Master of the Field</option>
+                                    <option value="6">Defensive Leader</option>
+                                    <option value="7">Sand Warrior</option>
+                                    <option value="8">Mountain Czar</option>
+                                    <option value="9">Wood Devil</option>
+                                    <option value="10">Hill Hero</option>
+                                    <option value="11">Tundra Titan</option>
+                                  </select>
+                                </div>
+                              </div>
+                              Total number of soldiers.<br>
+                              <input type="number" id="Force_A_Strength" value="2500">
+                              <br>Light inf. composition<br>
+                              <input type="number" id="Force_A_input_lightinf" value="20"> %
+                              <br>Heavy inf. composition<br>
+                              <input type="number" id="Force_A_input_heavyinf" value="20"> %
+                              <br>Ranged inf. composition<br>
+                              <input type="number" id="Force_A_input_rangedinf" value="20"> %
+                              <br>Light cav. composition<br>
+                              <input type="number" id="Force_A_input_lightcav" value="20"> %
+                              <br>Heavy cav. composition<br>
+                              <input type="number" id="Force_A_input_heavycav" value="20"> %
+                              <br>
+                              <div class="6u 12u$(small)">
+                                <br>
+                                <input type="radio" id="Afaction_type_North" name="afaction_type" checked>
+                                <label for="Afaction_type_North">North</label><br>
+                                <input type="radio" id="Afaction_type_Vale" name="afaction_type">
+                                <label for="Afaction_type_Vale">Vale</label><br>
+                                <input type="radio" id="Afaction_type_IronIsles" name="afaction_type">
+                                <label for="Afaction_type_IronIsles">Iron Isles</label><br>
+                                <input type="radio" id="Afaction_type_Riverlands" name="afaction_type">
+                                <label for="Afaction_type_Riverlands">Riverlands</label><br>
+                                <input type="radio" id="Afaction_type_Westerlands" name="afaction_type">
+                                <label for="Afaction_type_Westerlands">Westerlands</label><br>
+                                <input type="radio" id="Afaction_type_Crownlands" name="afaction_type">
+                                <label for="Afaction_type_Crownlands">Crownlands</label><br>
+                                <input type="radio" id="Afaction_type_Reach" name="afaction_type">
+                                <label for="Afaction_type_Reach">Reach</label><br>
+                                <input type="radio" id="Afaction_type_Stormlands" name="afaction_type">
+                                <label for="Afaction_type_Stormlands">Stormlands</label><br>
+                                <input type="radio" id="Afaction_type_Dorne" name="afaction_type">
+                                <label for="Afaction_type_Dorne">Dorne</label>
+                              </div>
+                              <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
+                              <br>
+                            </div>
+
+
+
+
+                            <div class="6u 12u$(small)">
+                              <legend>Force B (defender in siege):</legend>
+                              <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br> <br>
+                              <div class="12u$">
+                                <div class="select-wrapper">
+                                  <select name="commandercategory" id="commander_B_category">
+                                    <option value="0">- Commander Bonus -</option>
+                                    <option value="1">Brilliant Tactician</option>
+                                    <option value="2">Vanguard Commander</option>
+                                    <option value="3">Excellent Marcher</option>
+                                    <option value="4">Man of the People</option>
+                                    <option value="5">Master of the Field</option>
+                                    <option value="6">Defensive Leader</option>
+                                    <option value="7">Sand Warrior</option>
+                                    <option value="8">Mountain Czar</option>
+                                    <option value="9">Wood Devil</option>
+                                    <option value="10">Hill Hero</option>
+                                    <option value="11">Tundra Titan</option>
+                                  </select>
+                                </div>
+                              </div>
+                              Total number of soldiers.<br>
+                              <input type="number" id="Force_B_Strength" value="2500">
+                              <br>DV<br>
+                              <input type="number" id="DV" value="2500">
+                              <br>Light inf. composition<br>
+                              <input type="number" id="Force_B_input_lightinf" value="20"> %
+                              <br>Heavy inf. composition<br>
+                              <input type="number" id="Force_B_input_heavyinf" value="20"> %
+                              <br>Ranged inf. composition<br>
+                              <input type="number" id="Force_B_input_rangedinf" value="20"> %
+                              <br>Light cav. composition<br>
+                              <input type="number" id="Force_B_input_lightcav" value="20"> %
+                              <br>Heavy cav. composition<br>
+                              <input type="number" id="Force_B_input_heavycav" value="20"> %
+                              <br>
+                              <div class="6u 12u$(small)">
+                                <br>
+                                <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked>
+                                <label for="Bfaction_type_North">North</label><br>
+                                <input type="radio" id="Bfaction_type_Vale" name="bfaction_type">
+                                <label for="Bfaction_type_Vale">Vale</label><br>
+                                <input type="radio" id="Bfaction_type_IronIsles" name="bfaction_type">
+                                <label for="Bfaction_type_IronIsles">Iron Isles</label><br>
+                                <input type="radio" id="Bfaction_type_Riverlands" name="bfaction_type">
+                                <label for="Bfaction_type_Riverlands">Riverlands</label><br>
+                                <input type="radio" id="Bfaction_type_Westerlands" name="bfaction_type">
+                                <label for="Bfaction_type_Westerlands">Westerlands</label><br>
+                                <input type="radio" id="Bfaction_type_Crownlands" name="bfaction_type">
+                                <label for="Bfaction_type_Crownlands">Crownlands</label><br>
+                                <input type="radio" id="Bfaction_type_Reach" name="bfaction_type">
+                                <label for="Bfaction_type_Reach">Reach</label><br>
+                                <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type">
+                                <label for="Bfaction_type_Stormlands">Stormlands</label><br>
+                                <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type">
+                                <label for="Bfaction_type_Dorne">Dorne</label>
+                              </div>
+                              <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
+                              <br>
                             </div>
                           </div>
-                          <input type="number" id="Force_A_Strength" value="2500"> Total number of soldiers.<br>
-                          <input type="number" id="Force_A_input_lightinf" value="20"> % light inf.<br>
-                          <input type="number" id="Force_A_input_heavyinf" value="20"> % heavy inf.<br>
-                          <input type="number" id="Force_A_input_rangedinf" value="20"> % ranged inf.<br>
-                          <input type="number" id="Force_A_input_lightcav" value="20"> % light cav.<br>
-                          <input type="number" id="Force_A_input_heavycav" value="20"> % heavy cav.<br>
-                          <br>
-                          <div class="4u 12u$(small)">
-                          <input type="radio" id="Afaction_type_North" name="afaction_type" checked>
-                          <label for="Afaction_type_North">North</label><br>
-                          <input type="radio" id="Afaction_type_Vale" name="afaction_type">
-                          <label for="Afaction_type_Vale">Vale</label><br>
-                          <input type="radio" id="Afaction_type_IronIsles" name="afaction_type">
-                          <label for="Afaction_type_IronIsles">Iron Isles</label><br>
-                          <input type="radio" id="Afaction_type_Riverlands" name="afaction_type">
-                          <label for="Afaction_type_Riverlands">Riverlands</label><br>
-                          <input type="radio" id="Afaction_type_Westerlands" name="afaction_type">
-                          <label for="Afaction_type_Westerlands">Westerlands</label><br>
-                          <input type="radio" id="Afaction_type_Crownlands" name="afaction_type">
-                          <label for="Afaction_type_Crownlands">Crownlands</label><br>
-                          <input type="radio" id="Afaction_type_Reach" name="afaction_type">
-                          <label for="Afaction_type_Reach">Reach</label><br>
-                          <input type="radio" id="Afaction_type_Stormlands" name="afaction_type">
-                          <label for="Afaction_type_Stormlands">Stormlands</label><br>
-                          <input type="radio" id="Afaction_type_Dorne" name="afaction_type">
-                          <label for="Afaction_type_Dorne">Dorne</label>
-                          </div>
-                          <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
-                          <br>
-                          <legend>Force B (Defender in Siege):</legend>
-                          <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br> <br>
-                          <div class="12u$">
-                            <div class="select-wrapper">
-                              <select name="commandercategory2" id="commander_B_category">
-                                <option value="0">- Commander Bonus -</option>
-                                <option value="1">Brilliant Tactician</option>
-                                <option value="2">Vanguard Commander</option>
-                                <option value="3">Excellent Marcher</option>
-                                <option value="4">Man of the People</option>
-                                <option value="5">Master of the Field</option>
-                                <option value="6">Defensive Leader</option>
-                                <option value="7">Sand Warrior</option>
-                                <option value="8">Mountain Czar</option>
-                                <option value="9">Wood Devil</option>
-                                <option value="10">Hill Hero</option>
-                                <option value="11">Tundra Titan</option>
-                              </select>
-                            </div>
-                          </div>
-                          <input type="number" id="Force_B_Strength" value="2500"> Total number of soldiers.<br>
-                          <input type="number" id="Force_B_input_lightinf" value="20"> % light inf.<br>
-                          <input type="number" id="Force_B_input_heavyinf" value="20"> % heavy inf.<br>
-                          <input type="number" id="Force_B_input_rangedinf" value="20"> % ranged inf.<br>
-                          <input type="number" id="Force_B_input_lightcav" value="20"> % light cav.<br>
-                          <input type="number" id="Force_B_input_heavycav" value="20"> % heavy cav.<br>
-                          <input type="number" id="DV" value="1"> Defensive bonus from holdfast. <br>
-                          <br>
-                          <div class="4u 12u$(small)">
-                          <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked>
-                          <label for="Bfaction_type_North">North</label><br>
-                          <input type="radio" id="Bfaction_type_Vale" name="bfaction_type">
-                          <label for="Bfaction_type_Vale">Vale</label><br>
-                          <input type="radio" id="Bfaction_type_IronIsles" name="bfaction_type">
-                          <label for="Bfaction_type_IronIsles">Iron Isles</label><br>
-                          <input type="radio" id="Bfaction_type_Riverlands" name="bfaction_type">
-                          <label for="Bfaction_type_Riverlands">Riverlands</label><br>
-                          <input type="radio" id="Bfaction_type_Westerlands" name="bfaction_type">
-                          <label for="Bfaction_type_Westerlands">Westerlands</label><br>
-                          <input type="radio" id="Bfaction_type_Crownlands" name="bfaction_type">
-                          <label for="Bfaction_type_Crownlands">Crownlands</label><br>
-                          <input type="radio" id="Bfaction_type_Reach" name="bfaction_type">
-                          <label for="Bfaction_type_Reach">Reach</label><br>
-                          <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type">
-                          <label for="Bfaction_type_Stormlands">Stormlands</label><br>
-                          <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type">
-                          <label for="Bfaction_type_Dorne">Dorne</label>
-                          </div>
-                          <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
                           <br>
                           <div class="4u 12u$(small)">
                           <input type="radio" id="Combat_Type_Field" name="combattype" checked>

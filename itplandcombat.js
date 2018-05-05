@@ -438,7 +438,7 @@ document.getElementById('battleout').innerHTML += "Database Loaded. Determining 
 
   //End of Database
 
-
+//Main script
   // Determine the troop composition of Force A
   if (document.getElementById('Afaction_type_North').checked) {
     document.getElementById('battleout').innerHTML += ForceA + " is faction type North. <br />"
