@@ -56,8 +56,6 @@
               <br>
               <a href="#meleeautomator">Melee Automator</a>
               <br>
-              <a href="#movement">Movement Calculator</a>
-              <br>
               <a href="#landcombat">Land Combat Script</a>
               <br>
               <a href="#smut">Smut Generator</a>
@@ -222,78 +220,6 @@
                   </fieldset>
 
 
-                  <h3 id="movement">Movement Calcualtor</h3>
-                  <h4>Usage Instructions</h4>
-                  <p>Enter the relevant information in the appropriate boxes. If you do not specify values,<br>
-                  the program will probably not work<br>
-                  Hit "Calculate" to generate results below.</p>
-
-
-                  <fieldset id="MovementCalculatorInput">
-                    <form id="formid">
-                      <legend>Movement Calculator - Enter info to customize:</legend>
-                      <br>  
-                      <input type="number" name="tile" id="iFieldTiles" value="0"> Field tiles traversed<br>
-                      <input type="number" name="tile" id="iHillTiles" value="0"> Hill tiles traversed<br>
-                      <input type="number" name="tile" id="iForestTiles" value="0"> Forest tiles traversed<br>
-                      <input type="number" name="tile" id="iTundraTiles" value="0"> Tundra tiles traversed<br>
-                      <input type="number" name="tile" id="iMountainTiles" value="0"> Mountain tiles traversed<br>
-                      <input type="number" name="tile" id="iSwampTiles" value="0"> Swamp tiles traversed<br>
-                      <input type="number" name="tile" id="iDesertTiles" value="0"> Desert tiles traversed<br>
-                      <input type="number" name="tile" id="iOceanTiles" value="0"> Ocean tiles traversed (water movement only)<br>
-                      <br>
-                      <div class="4u 12u$(small)">
-                      <input type="radio" name="type" id="m1" value="land" checked>
-                      <label for="m1">Land Movement</label><br>
-                      <input type="radio" name="type" id="m2" value="water">
-                      <label for="m2">Water Movement</label>
-                      </div>
-                      <br>
-                      Units Traversing:<br>
-                      <input type="number" name="trooptype" id="iinf" value="1"> Infantry <br>
-                      <input type="number" name="trooptype" id="ihcav" value="0"> Heavy Cavalry<br>
-                      <input type="number" name="trooptype" id="ilcav" value="0"> Light Cavalry<br>
-                      <input type="number" name="trooptype" id="icog" value="0"> Cog/Flagship/Dromond<br>
-                      <input type="number" name="trooptype" id="igalley" value="0"> Galley/Longship/Ironship<br>
-                      <input type="number" name="trooptype" id="iIBlongship" value="0"> Ironborn Longship<br>
-                      <br>
-                      <input type="button" value="Calculate" onclick="movement()">
-                      <input type="button" value="Clear Results" onclick="cleartable()">
-                    </form>
-
-                  <h3>Results</h3>
-                    <table id="out">
-                    <tr>
-                      <th>Unit Type</th>
-                      <th>Time Cost (hours)</th>
-                    </tr>
-                    <tr>
-                      <td>Infantry</td>
-                      <td id="inftable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Heavy Cavalry</td>
-                      <td id="hctable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Light Cavalry</td>
-                      <td id="lctable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Cog/Flagship/Dromond</td>
-                      <td id="cogtable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Galley/Longship/Ironship</td>
-                      <td id="galleytable"> </td>
-                    </tr>
-                    <tr>
-                      <td>Ironborn Longship</td>
-                      <td id="IBLStable"> </td>
-                    </tr>
-                  </table>
-                    </fieldset>
-
                       <h3 id="landcombat">Land Combat</h3>
                       <h4>Usage Instructions</h4>
                       So far there are no sieges. This is purely land combat in the field.
@@ -320,6 +246,19 @@
                                 <option value="9">Wood Devil</option>
                                 <option value="10">Hill Hero</option>
                                 <option value="11">Tundra Titan</option>
+                              </select>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="12u$">
+                            <div class="select-wrapper">
+                              <select name="tacticcategory" id="Force_A_TacticID">
+                                <option value="0">- Combat Tactic -</option>
+                                <option value="1">Centre Focus</option>
+                                <option value="2">Flanking Focus</option>
+                                <option value="3">Hit and Run</option>
+                                <option value="4">Charge</option>
+                                <option value="5">Withdrawal</option>
                               </select>
                             </div>
                           </div>
@@ -369,6 +308,19 @@
                                 <option value="9">Wood Devil</option>
                                 <option value="10">Hill Hero</option>
                                 <option value="11">Tundra Titan</option>
+                              </select>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="12u$">
+                            <div class="select-wrapper">
+                              <select name="tacticcategory" id="Force_B_TacticID">
+                                <option value="0">- Combat Tactic -</option>
+                                <option value="1">Centre Focus</option>
+                                <option value="2">Flanking Focus</option>
+                                <option value="3">Hit and Run</option>
+                                <option value="4">Charge</option>
+                                <option value="5">Withdrawal</option>
                               </select>
                             </div>
                           </div>

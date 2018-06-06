@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+<style type="text/css">
+	#mousefollowdiv {position: absolute;}
+
+</style>
+
+
+<html>
+	<head>
+		<title>7K Map Coordinates</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">7K Map Coordinates <span>by hello_there2</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="sevenkingdoms.html">Seven Kingdoms</a></li>
+					<li><a href="internationalrelations.html">International Relations</a></li>
+					<li><a href="worldpowers.html">World Powers</a></li>
+					<li><a href="charactercreation.html">Broken character creator</a></li>
+				</ul>
+			</nav>
+
+	    <img id="map" src="images/cropped7kmap.png" alt="My Image">
+	    <div id="mousefollowdiv"><img id="image" src="images/red dot.png"/></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">
+				$(document).mousemove(function(e){
+				    $("#mousefollowdiv").css({left: (e.pageX - 10), top: (e.pageY - 10) });
+				});
+
+				// document.getElementByID("map").onclick=function(){
+				// 	document.getElementByID("mousefollowdiv").style.display="block";
+				// }
+
+				$(document).ready(function() {
+				    $("img").on("click", function(event) {
+				        var x = event.pageX - map.offsetLeft;
+				        var y = event.pageY - map.offsetTop;
+				        totalX = 103;
+				        totalY = 204;
+				        resolutionX = 1475;
+				        resolutionY = 3365;
+				        hexSize_x = resolutionX / totalX;
+				        hexSize_y = resolutionY / totalY;
+				        var xhex = Math.round(x / hexSize_x);
+				        var yhex = Math.round(0.5+(y/hexSize_y));
+				        alert("X Coordinate: " + x + " Y Coordinate: " + y + ". Hex coordinates: " + xhex + ", " + yhex);
+				    });
+				});
+			</script>
+
+	</body>
+</html>
