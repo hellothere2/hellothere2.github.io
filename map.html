@@ -6,7 +6,9 @@
 -->
 
 <style type="text/css">
-	#mousefollowdiv {position: absolute;}
+	#mousefollowdiv {position: absolute; z-index: 3}
+	#markers {position: absolute; z-index: 2;} /*top:0px; left:0px;*/
+	#map {position: absolute; top: 0px; left: 0px; z-index: 1;}
 
 </style>
 
@@ -36,8 +38,9 @@
 					<li><a href="charactercreation.html">Broken character creator</a></li>
 				</ul>
 			</nav>
-
+		
 	    <img id="map" src="images/cropped7kmap.png" alt="My Image">
+	    <img id="markers" src="images/marker.png" alt="King's Landing" style="left:930px;top:2428px;">
 	    <div id="mousefollowdiv"><img id="image" src="images/red dot.png"/></div>
 
 		<!-- Scripts -->
@@ -67,7 +70,7 @@
 				        hexSize_y = resolutionY / totalY;
 				        var xhex = Math.round(x / hexSize_x);
 				        var yhex = Math.round(0.5+(y/hexSize_y));
-				        alert("X Coordinate: " + x + " Y Coordinate: " + y + ". Hex coordinates: " + xhex + ", " + yhex);
+				        alert("X Coordinate: " + x + " Y Coordinate: " + y + ". Hex coordinates: " + xhex + ", " + yhex + "Marker coordinates =" + (x-23) + ", " + (y-58));
 				    });
 				});
 			</script>
