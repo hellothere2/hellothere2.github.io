@@ -52,7 +52,7 @@
         }
 </style>
 
-<button class="gbtn" onclick="ClearIdOutput(); UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateHair(); UpdateMouth(); UpdateBeard(); UpdateSpecial(); UpdateClothes(); UpdateHeadgear(); UpdateCheeks(); UpdateChin(); UpdateEar(); UpdateEyes();">GENERATE PORTRAIT</button>
+<button class="gbtn" onclick="UpdateBG(); UpdateBase(); UpdateNeck(); UpdateNose(); UpdateHair(); UpdateMouth(); UpdateBeard(); UpdateSpecial(); UpdateClothes(); UpdateHeadgear(); UpdateCheeks(); UpdateChin(); UpdateEar(); UpdateEyes();">GENERATE PORTRAIT</button>
 
 
 <html lang="en"> 
@@ -121,7 +121,6 @@
     <option value="scar2">Scar 2</option>
     <option value="scar3">Scar 3</option>
     <option value="scar4">Scar 4</option>
-    <option value="scar5">Scar 5</option>
     </select>
     <br>
     <legend style="color: white">Masks:</legend>
@@ -188,7 +187,7 @@
     <option value="bg6">Interior, Tables</option>
     <option value="bg7">Siege Camp</option>
     <option value="bg8">Green Fields</option>
-    <option value="bg9">Idk what this is supposed to be</option>
+    <option value="bg9">Gallows</option>
     <option value="bg10">Gothic Church Interior</option>
     <option value="bg11">Dunes</option>
     <option value="bg12">Green Fields 2</option>
@@ -1194,8 +1193,23 @@ Your browser does not support the HTML5 canvas tag.
     <img id="western_female_ear_2" width="416px" height="60px" src="characters\western_female\western_female_ear_2.png" style="display:none"/>
     <img id="western_female_ear_3" width="416px" height="60px" src="characters\western_female\western_female_ear_3.png" style="display:none"/>
 
-
 <script type="text/javascript">
+    window.onload = function() {
+        var canvas = document.getElementById("bgcanvas");
+        var ctx = canvas.getContext("2d");
+        var img = document.getElementById("backgrounds_image");
+        // context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight); 
+        //sourceX sourceY = coordinates of crop within image
+        //sourceWidth, sourceHeight = size of crop
+        //destX, destY = position on page
+        ctx.drawImage(img, 0, 0, 152, 152, 124, 164, 152, 152);
+    };
+</script>
+
+<script src="charactercreation.js"></script>
+
+
+<!-- <script type="text/javascript">
     
     window.onload = function() {
         var canvas = document.getElementById("bgcanvas");
@@ -6642,5 +6656,5 @@ Your browser does not support the HTML5 canvas tag.
     }
     ///4.430524084103069e+24 current combinations
   </script>
-
+ -->
 </html>

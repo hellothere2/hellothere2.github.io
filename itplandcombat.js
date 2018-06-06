@@ -426,6 +426,11 @@ function battlemechanics() {
 
   var Terrain = document.getElementById('terrainID').value; //Terrain type selection tree
 
+  var Force_A_Tactic = document.getElementById('Force_A_TacticID').value;
+  var Force_B_Tactic = document.getElementById('Force_B_TacticID').value;
+
+  var TacticBonusA = 0;
+  var TacticBonusB = 0;
 
 document.getElementById('battleout').innerHTML += "Loading Troop Composition Database... <br />";
 
@@ -934,36 +939,379 @@ document.getElementById('battleout').innerHTML += "Both forces make a roll based
 
 
 
-  //Force A Make a roll based on CV
+
+//Check for Tactics Bonuses
+
+    document.getElementById('battleout').innerHTML += "Checking for tactics bonuses or maluses...<br />"
+    document.getElementById('battleout').innerHTML += "Proccessing Terrain modifiers...<br />"
+
+    if (Force_A_Tactic == 1) { //centre
+        if (Terrain == 2){ //hills
+            TacticBonusA = TacticBonusA - 1;
+        } else if (Terrain == 4){ //mountains
+          TacticBonusA = TacticBonusA + 1;
+        }
+
+    } else if (Force_A_Tactic == 2){ //flanking focus
+      if (Terrain == 3){ //forests
+        TacticBonusA = TacticBonusA + 1;
+      } else if (Terrain == 4){ //mountains
+          TacticBonusA = TacticBonusA - 1;
+        }
+
+    } else if (Force_A_Tactic == 3){ //hit and run
+      if (Terrain == 2){ //hills
+        TacticBonusA = TacticBonusA + 1;
+      } else if (Terrain == 3){ //forests
+          TacticBonusA = TacticBonusA - 1;
+        }
+    }
+
+    else if (Force_A_Tactic == 4){ //charge
+      if (Terrain == 5){ //swamps
+        TacticBonusA = TacticBonusA - 1;
+      } else if (Terrain == 6){ //deserts
+          TacticBonusA = TacticBonusA + 1;
+        }
+    }
+
+    else if (Force_A_Tactic == 5){ //withdrawal
+      if (Terrain == 5){ //swamps
+        TacticBonusA = TacticBonusA + 1;
+      } else if (Terrain == 6){ //deserts
+          TacticBonusA = TacticBonusA - 1;
+        }
+    }
+
+    document.getElementById('battleout').innerHTML += ForceA + "'s terrain modifiers applied. <br />"
+
+    if (Force_B_Tactic == 1) { //centre
+        if (Terrain == 2){ //hills
+            TacticBonusB = TacticBonusB - 1;
+        } else if (Terrain == 4){ //mountains
+          TacticBonusB = TacticBonusB + 1;
+        }
+
+    } else if (Force_B_Tactic == 2){ //flanking focus
+      if (Terrain == 3){ //forests
+        TacticBonusB = TacticBonusB + 1;
+      } else if (Terrain == 4){ //mountains
+          TacticBonusB = TacticBonusB - 1;
+        }
+
+    } else if (Force_B_Tactic == 3){ //hit and run
+      if (Terrain == 2){ //hills
+        TacticBonusB = TacticBonusB + 1;
+      } else if (Terrain == 3){ //forests
+          TacticBonusB = TacticBonusB - 1;
+        }
+    }
+
+    else if (Force_B_Tactic == 4){ //charge
+      if (Terrain == 5){ //swamps
+        TacticBonusB = TacticBonusB - 1;
+      } else if (Terrain == 6){ //deserts
+          TacticBonusB = TacticBonusB + 1;
+        }
+    }
+
+    else if (Force_B_Tactic == 5){ //withdrawal
+      if (Terrain == 5){ //swamps
+        TacticBonusB = TacticBonusB + 1;
+      } else if (Terrain == 6){ //deserts
+          TacticBonusB = TacticBonusB - 1;
+        }
+    }
+
+    document.getElementById('battleout').innerHTML += ForceB + "'s terrain modifiers applied. <br />"
+
+    document.getElementById('battleout').innerHTML += ForceA + " currently has " + TacticBonusA + " modifier pts. <br />"
+    document.getElementById('battleout').innerHTML += ForceB + " currently has " + TacticBonusB + " modifier pts. <br />"
+
+
+    document.getElementById('battleout').innerHTML += "Proccessing Tactic modifiers...<br />"
+
+    if (Force_A_Tactic == Force_B_Tactic) { //same tactic negates the bonus
+      document.getElementById('battleout').innerHTML += "Both forces are using the same tactic, negating any modifiers.<br />"
+    } else if (Force_A_Tactic == 1 && Force_B_Tactic == 2) {
+      TacticBonusA = TacticBonusA + 2;
+      TacticBonusB = TacticBonusB - 2;
+    } else if (Force_A_Tactic == 1 && Force_B_Tactic == 3) {
+      TacticBonusA = TacticBonusA + 1;
+      TacticBonusB = TacticBonusB - 1;
+    } else if (Force_A_Tactic == 1 && Force_B_Tactic == 4) {
+      TacticBonusA = TacticBonusA - 1;
+      TacticBonusB = TacticBonusB + 1;
+    } else if (Force_A_Tactic == 1 && Force_B_Tactic == 5) {
+      TacticBonusA = TacticBonusA - 2;
+      TacticBonusB = TacticBonusB + 2;
+    } else if (Force_A_Tactic == 2 && Force_B_Tactic == 1) {
+      TacticBonusA = TacticBonusA - 2;
+      TacticBonusB = TacticBonusB + 2;
+    } else if (Force_A_Tactic == 2 && Force_B_Tactic == 3) {
+      TacticBonusA = TacticBonusA + 2;
+      TacticBonusB = TacticBonusB - 2;
+    } else if (Force_A_Tactic == 2 && Force_B_Tactic == 4) {
+      TacticBonusA = TacticBonusA + 1;
+      TacticBonusB = TacticBonusB - 1;
+    } else if (Force_A_Tactic == 2 && Force_B_Tactic == 5) {
+      TacticBonusA = TacticBonusA - 1;
+      TacticBonusB = TacticBonusB + 1;
+    } else if (Force_A_Tactic == 3 && Force_B_Tactic == 1) {
+      TacticBonusA = TacticBonusA - 1;
+      TacticBonusB = TacticBonusB + 1;
+    } else if (Force_A_Tactic == 3 && Force_B_Tactic == 2) {
+      TacticBonusA = TacticBonusA - 2;
+      TacticBonusB = TacticBonusB + 2;
+    } else if (Force_A_Tactic == 3 && Force_B_Tactic == 4) {
+      TacticBonusA = TacticBonusA + 2;
+      TacticBonusB = TacticBonusB - 2;
+    } else if (Force_A_Tactic == 3 && Force_B_Tactic == 5) {
+      TacticBonusA = TacticBonusA + 1;
+      TacticBonusB = TacticBonusB - 1;
+    } else if (Force_A_Tactic == 4 && Force_B_Tactic == 1) {
+      TacticBonusA = TacticBonusA + 1;
+      TacticBonusB = TacticBonusB - 1;
+    } else if (Force_A_Tactic == 4 && Force_B_Tactic == 2) {
+      TacticBonusA = TacticBonusA - 1;
+      TacticBonusB = TacticBonusB + 1;
+    } else if (Force_A_Tactic == 4 && Force_B_Tactic == 3) {
+      TacticBonusA = TacticBonusA - 2;
+      TacticBonusB = TacticBonusB + 2;
+    } else if (Force_A_Tactic == 4 && Force_B_Tactic == 5) {
+      TacticBonusA = TacticBonusA + 2;
+      TacticBonusB = TacticBonusB - 2;
+    } else if (Force_A_Tactic == 5 && Force_B_Tactic == 1) {
+      TacticBonusA = TacticBonusA + 2;
+      TacticBonusB = TacticBonusB - 2;
+    } else if (Force_A_Tactic == 5 && Force_B_Tactic == 2) {
+      TacticBonusA = TacticBonusA + 1;
+      TacticBonusB = TacticBonusB - 1;
+    } else if (Force_A_Tactic == 5 && Force_B_Tactic == 3) {
+      TacticBonusA = TacticBonusA - 1;
+      TacticBonusB = TacticBonusB + 1;
+    } else if (Force_A_Tactic == 5 && Force_B_Tactic == 4) {
+      TacticBonusA = TacticBonusA - 2;
+      TacticBonusB = TacticBonusB + 2;
+    }
+
+    document.getElementById('battleout').innerHTML += ForceA + "'s tactical modifiers applied. <br />"
+    document.getElementById('battleout').innerHTML += ForceB + "'s tactical modifiers applied. <br />"
+
+    document.getElementById('battleout').innerHTML += ForceA + " currently has " + TacticBonusA + " modifier pts. <br />"
+    document.getElementById('battleout').innerHTML += ForceB + " currently has " + TacticBonusB + " modifier pts. <br />"
+
+
+
+    document.getElementById('battleout').innerHTML += "Determining roll modification... <br />"
+
+    ///Let's do Force A first, then force B
+    if (TacticBonusA == 0){
+      //don't do anything
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is 0, nothing happens... <br />"
+    } else if (TacticBonusA == 1){
+      //add 1d3
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is 1, add 1d3... <br />"
+      bonusdieA = 3;
+    } else if (TacticBonusA == 2){
+      //add 1d5
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is 2, add 1d5... <br />"
+      bonusdieA = 5;
+    } else if (TacticBonusA == 3){
+      //add 1d8
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is 3, add 1d8... <br />"
+      bonusdieA = 8;
+    } else if (TacticBonusA > 3){ //Not supposed to happen. treat as a 3. add 1d8.
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is somehow greater than 3, which isn't supposed to happen. You broke my code? <br> Treat as a 3 and add 1d8... <br />"
+      bonusdieA = 8;
+    } else if (TacticBonusA == -1){
+      //remove 1d3
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is -1, remove 1d3... <br />"
+      bonusdieA = -3;
+    } else if (TacticBonusA == -2){
+      //remove 1d5
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is -2, remove 1d5... <br />"
+      bonusdieA = -5;
+    } else if (TacticBonusA == -3){
+      //remove 1d5
+      document.getElementById('battleout').innerHTML += ForceA + "'s bonus is -3, remove 1d8... <br />"
+      bonusdieA = -8;
+    }
+
+    document.getElementById('battleout').innerHTML += ForceA + " done. <br />"
+
+
+    ///Let's do Force B now
+    if (TacticBonusB == 0){
+      //don't do anything
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is 0, nothing happens... <br />"
+    } else if (TacticBonusB == 1){
+      //add 1d3
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is 1, add 1d3... <br />"
+      bonusdieB = 3;
+    } else if (TacticBonusB == 2){
+      //add 1d5
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is 2, add 1d5... <br />"
+      bonusdieB = 5;
+    } else if (TacticBonusB == 3){
+      //add 1d8
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is 3, add 1d8... <br />"
+      bonusdieB = 8;
+    } else if (TacticBonusB > 3){ //Not supposed to happen. treat as a 3. add 1d8.
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is somehow greater than 3, which isn't supposed to happen. You broke my code? <br> Treat as a 3 and add 1d8... <br />"
+      bonusdieB = 8;
+    } else if (TacticBonusB == -1){
+      //remove 1d3
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is -1, remove 1d3... <br />"
+      bonusdieB = -3;
+    } else if (TacticBonusB == -2){
+      //remove 1d5
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is -2, remove 1d5... <br />"
+      bonusdieB = -5;
+    } else if (TacticBonusB == -3){
+      //remove 1d5
+      document.getElementById('battleout').innerHTML += ForceB + "'s bonus is -3, remove 1d8... <br />"
+      bonusdieB = -8;
+    }
+
+    document.getElementById('battleout').innerHTML += ForceB + " done. <br />"
+
+    document.getElementById('battleout').innerHTML += "Applying modifiers to rolls. <br />"
+
+    var dicevaluea = 0;
+    var dicevalueb = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+//Force A Make a roll based on CV
 
   document.getElementById('battleout').innerHTML += ForceA + " makes a roll based on their CV. <br />";
 
   if (cv_a < 7.5) {
     document.getElementById('battleout').innerHTML += "Error: CV less than 7.5. <br />"
   } else if (cv_a < 12.5 && cv_a > 7.5) {
-    roll = Math.floor(Math.random() * (10 - 1 + 1) + 1);
-    document.getElementById('battleout').innerHTML += "1d10 <br />"
-    document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    dicevaluea = 10;
+    if (bonusdieA >= 1){
+      roll = Math.floor(Math.random() * (dicevaluea - 2 + 1) + 2);
+      document.getElementById('battleout').innerHTML += "1d10 + 1d" + bonusdieA + "<br />"
+    } else if (bonusdieA < 0){
+      dicevaluea = dicevaluea + bonusdieA; //neat little work around, we'll see if that actually works
+      roll = Math.floor(Math.random() * (dicevaluea - 1 + 1) + 1);
+      document.getElementById('battleout').innerHTML += "1d" + dicevaluea + "<br />"
+    } else {
+      roll = Math.floor(Math.random() * (dicevaluea - 1 + 1) + 1);
+      document.getElementById('battleout').innerHTML += "1d10 <br />"
+      document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    }
   } else if (cv_a < 17.5 && cv_a > 12.6) {
-    roll = Math.floor(Math.random() * (15 - 2 + 1) + 2);
-    document.getElementById('battleout').innerHTML += "1d10 + 1d5 <br />"
-    document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    dicevaluea = 15;
+    if (bonusdieA >= 1){
+      if (bonusdieA > 5){
+        roll = Math.floor(Math.random() * (dicevaluea - 3 + 1) + 3);
+        document.getElementById('battleout').innerHTML += "2d10 + 1d" + (bonusdieA-5) + "<br />"
+      } else {
+        roll = Math.floor(Math.random() * (dicevaluea - 2 + 1) + 2);
+        document.getElementById('battleout').innerHTML += "1d10 + 1d" + bonusdieA + "<br />"
+      }
+    } else if (bonusdieA < 0){
+      dicevaluea = dicevaluea + bonusdieA; //neat little work around, we'll see if that actually works
+      if (bonusdieA <= -5){
+        roll = Math.floor(Math.random() * (dicevaluea - 1 + 1) + 1);
+        document.getElementById('battleout').innerHTML += "1d" + dicevaluea + "<br />"
+      } else {
+        roll = Math.floor(Math.random() * (dicevaluea - 2 + 1) + 2);
+        document.getElementById('battleout').innerHTML += "1d10 + 1d" + dicevaluea + "<br />"
+      }
+    } else {
+      roll = Math.floor(Math.random() * (dicevaluea - 2 + 1) + 2);
+      document.getElementById('battleout').innerHTML += "1d10 + 1d5 <br />"
+      document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    }
   } else if (cv_a < 22.5 && cv_a > 17.6) {
-    roll = Math.floor(Math.random() * (20 - 2 + 1) + 2);
-    document.getElementById('battleout').innerHTML += "2d10 <br />"
-    document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    dicevaluea = 20;
+    if (bonusdieA >= 1){
+      roll = Math.floor(Math.random() * (dicevaluea - 3 + 1) + 3);
+      document.getElementById('battleout').innerHTML += "2d10 + 1d" + bonusdieA + "<br />"
+    } else if (bonusdieA < 0){
+      dicevaluea = dicevaluea + bonusdieA; //neat little work around, we'll see if that actually works
+      roll = Math.floor(Math.random() * (dicevaluea - 2 + 1) + 2);
+      document.getElementById('battleout').innerHTML += "1d10 + 1d" + (dicevaluea-10) + "<br />"
+    } else {
+      roll = Math.floor(Math.random() * (20 - 2 + 1) + 2);
+      document.getElementById('battleout').innerHTML += "2d10 <br />"
+      document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    }
   } else if (cv_a < 27.5 && cv_a > 22.6) {
-    roll = Math.floor(Math.random() * (25 - 3 + 1) + 3);
-    document.getElementById('battleout').innerHTML += "2d10 + 1d5 <br />"
-    document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    dicevaluea = 25;
+    if (bonusdieA >= 1){
+      if (bonusdieA > 5){
+        roll = Math.floor(Math.random() * (dicevaluea - 4 + 1) + 4);
+        document.getElementById('battleout').innerHTML += "3d10 + 1d" + (bonusdieA-5) + "<br />"
+      } else {
+        roll = Math.floor(Math.random() * (dicevaluea - 3 + 1) + 3);
+        document.getElementById('battleout').innerHTML += "2d10 + 1d" + bonusdieA + "<br />"
+      }
+    } else if (bonusdieA < 0){
+      dicevaluea = dicevaluea + bonusdieA; //neat little work around, we'll see if that actually works
+      if (bonusdieA <= -5){
+        roll = Math.floor(Math.random() * (dicevaluea - 2 + 1) + 2);
+        document.getElementById('battleout').innerHTML += "1d10 + 1d" + (dicevaluea-9) + "<br />"
+      } else {
+        roll = Math.floor(Math.random() * (dicevaluea - 3 + 1) + 3);
+        document.getElementById('battleout').innerHTML += "2d10 + 1d" + dicevaluea + "<br />"
+      }
+    } else {
+      roll = Math.floor(Math.random() * (25 - 3 + 1) + 3);
+      document.getElementById('battleout').innerHTML += "2d10 + 1d5 <br />"
+      document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    }
   } else if (cv_a < 32.5 && cv_a > 27.6) {
-    roll = Math.floor(Math.random() * (30 - 3 + 1) + 3);
-    document.getElementById('battleout').innerHTML += "3d10 <br />"
-    document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    dicevaluea = 30;
+    if (bonusdieA >= 1){
+      roll = Math.floor(Math.random() * (dicevaluea - 4 + 1) + 4);
+      document.getElementById('battleout').innerHTML += "3d10 + 1d" + bonusdieA + "<br />"
+    } else if (bonusdieA < 0){
+      dicevaluea = dicevaluea + bonusdieA; //neat little work around, we'll see if that actually works
+      roll = Math.floor(Math.random() * (dicevaluea - 3 + 1) + 3);
+      document.getElementById('battleout').innerHTML += "2d10 + 1d" + (dicevaluea-10) + "<br />"
+    } else {
+      roll = Math.floor(Math.random() * (30 - 3 + 1) + 3);
+      document.getElementById('battleout').innerHTML += "3d10 <br />"
+      document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    }
   } else if (cv_a < 37.5 && cv_a > 32.6) {
-    roll = Math.floor(Math.random() * (35 - 4 + 1) + 4);
-    document.getElementById('battleout').innerHTML += "3d10 + 1d5 <br />"
-    document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    dicevaluea = 35;
+    if (bonusdieA >= 1){
+      if (bonusdieA > 5){
+        roll = Math.floor(Math.random() * (dicevaluea - 5 + 1) + 5);
+        document.getElementById('battleout').innerHTML += "4d10 + 1d" + (bonusdieA-5) + "<br />"
+      } else {
+        roll = Math.floor(Math.random() * (dicevaluea - 4 + 1) + 4);
+        document.getElementById('battleout').innerHTML += "3d10 + 1d" + bonusdieA + "<br />"
+      }
+    } else if (bonusdieA < 0){
+      dicevaluea = dicevaluea + bonusdieA; //neat little work around, we'll see if that actually works
+      if (bonusdieA <= -5){
+        roll = Math.floor(Math.random() * (dicevaluea - 3 + 1) + 3);
+        document.getElementById('battleout').innerHTML += "2d10 + 1d" + (dicevaluea-9) + "<br />"
+      } else {
+        roll = Math.floor(Math.random() * (dicevaluea - 4 + 1) + 4);
+        document.getElementById('battleout').innerHTML += "3d10 + 1d" + dicevaluea + "<br />"
+      }
+    } else {
+      roll = Math.floor(Math.random() * (dicevaluea - 4 + 1) + 4);
+      document.getElementById('battleout').innerHTML += "3d10 + 1d5 <br />"
+      document.getElementById('battleout').innerHTML += "result = " + roll + " <br />"
+    } 
   } else if (cv_a < 42.5 && cv_a > 37.6) {
     roll = Math.floor(Math.random() * (40 - 4 + 1) + 4);
     document.getElementById('battleout').innerHTML += "4d10 <br />"
@@ -1089,6 +1437,82 @@ document.getElementById('battleout').innerHTML += "Both forces make a roll based
   } else if (cv_b > 92.5) {
     document.getElementById('battleout').innerHTML += "Error: CV is higher than 92.5. <br />"
   }
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 //Check for relevant Commander Bonuses

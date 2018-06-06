@@ -24,9 +24,15 @@
         <ul class="links">
           <li><a href="index.html">Home</a></li>
           <li><a href="sevenkingdoms.html">Seven Kingdoms</a></li>
+          <div style="color:grey;">- 
+              <a href="sevenkingdoms.html#duelautomator">Duel Automator</a></li><br>- 
+              <a href="sevenkingdoms.html#joustautomator">Joust Automator</a></li><br>- 
+              <a href="sevenkingdoms.html#meleeautomator">Melee Automator</a></li><br>- 
+              <a href="sevenkingdoms.html#landcombat">Land Combat</a></li><br>- 
+              <a href="sevenkingdoms.html#links">Links</a></li><br>
+          </div>
           <li><a href="internationalrelations.html">International Relations</a></li>
           <li><a href="worldpowers.html">World Powers</a></li>
-          <li><a href="charactercreation.html">Broken character creator</a></li>
         </ul>
       </nav>
 
@@ -47,9 +53,9 @@
           <div class="box">
             <div class="content">
               <header class="align-center">
-                <p>The real gud shiet</p>
                 <h2>Scripts</h2>
               </header>
+<<<<<<< HEAD
               <p><a href="#duelautomator">Duel Automator</a>
               <br>
               <a href="#joustautomator">Joust Automator</a>
@@ -60,6 +66,8 @@
               <br>
               <a href="#smut">Smut Generator</a>
               </p>
+=======
+>>>>>>> 113e147ea0e9b392284df372e1363ec68e2b27c6
               <h3 id="duelautomator">Duel Automator</h3>
               <p>Default HP value is 50, default skill bonus is 0. Duels function by rolling a d75 + Skill for each player (d50 if blunt weapons).<br>
                 The difference between the attack rolls is taken from the lower roll's HP pool.<br>
@@ -72,26 +80,33 @@
                 <fieldset id="DuelContestants">
                   <form>
                     <legend>Duel Contestants - Enter info to customize:</legend>
-                    Contestant 1 name:<br>
-                    <input type="text" id="firstname" value="Fighter A"><br>
-                    Contestant 1 health:<br>
-                    <input type="number" id="HPA" value="50"><br>
-                    Contestant 1 Skill bonus:<br>
-                    <input type="number" id="SkillA" value="1"><br>
-                    Contestant 2 name:<br>
-                    <input type="text" id="secondname" value="Fighter B"><br>
-                    Contestant 2 health:<br>
-                    <input type="number" id="HPB" value="50"><br>
-                    Contestant 2 Skill bonus:<br>
-                    <input type="number" id="SkillB" value="1"><br>
+                    <div class="row">
+                      <div class="6u 12u$(small)">
+                        Contestant 1 name:<br>
+                        <input type="text" id="duelistA_name" value="Duelist A"><br>
+                        Contestant 1 health:<br>
+                        <input type="number" id="duelistA_hp" value="50"><br>
+                        Contestant 1 Skill bonus:<br>
+                        <input type="number" id="duelistA_skill" value="1"><br>
+                      </div>
+                      <div class="6u 12u$(small)">
+                        Contestant 2 name:<br>
+                        <input type="text" id="duelistB_name" value="Duelist B"><br>
+                        Contestant 2 health:<br>
+                        <input type="number" id="duelistB_hp" value="50"><br>
+                        Contestant 2 Skill bonus:<br>
+                        <input type="number" id="duelistB_skill" value="1"><br>
+                      </div>
+                    </div>
+                    <br>
                     HP to stop duel at:<br>
                     <input type="number" id="Dueltype" value="0"> 0 = To the death<br>
                     <br>
                     <div class="4u 12u$(small)">
-                    <input type="radio" name="bluntduel" id="bF" value="75" checked>
-                    <label for="bF">Normal Weapons</label><br>
-                    <input type="radio" name="bluntduel" id="bT" value="50">
-                    <label for="bT">Blunt Weapons</label>
+                    <input type="radio" name="bluntduel" id="duel_normalWeapons" value="75" checked>
+                    <label for="duel_normalWeapons">Normal Weapons</label><br>
+                    <input type="radio" name="bluntduel" id="duel_bluntWeapons" value="50">
+                    <label for="duel_bluntWeapons">Blunt Weapons</label>
                     </div>
                     <input type="button" value="Submit Duel Values" onclick="dickbutt()">
                     <input type="button" value="Clear Results" onclick="clearduelresults()">
@@ -103,6 +118,18 @@
                 </fieldset>
 
 
+              </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
               <h3 id="joustautomator">Joust Automator</h3>
               <p>Default skill value is 0. Jousts function by rolling a d20 + Skill for each player.<br>
                 The difference between the rolls is used to determine what happens. This occurs until one player is forced to make a death save, until 7 tilts have passed, or until on of the contestants gets tired out. Death and serious injury is a possiblity in jousts.
@@ -124,45 +151,53 @@
               <fieldset id="JoustContestants">
                 <form>
                   <legend>Joust Contestants - Enter info to customize:</legend>
-                  Contestant 1 name:<br>
-                  <input type="text" id="JousterA" value="Jouster A"><br>
-                  Contestant 1 Skill bonus:<br>
-                  <input type="number" id="JousterSkillA" value="1"><br>
-                  Contestant 2 name:<br>
-                  <input type="text" id="JousterB" value="Jouster B"><br>
-                  Contestant 2 Skill bonus:<br>
-                  <input type="number" id="JousterSkillB" value="1"><br>
-                  <br>
-                  <div class="4u 12u$(small)">
-                  <input type="radio" name="malus" id="mal0" value="0" checked>
-                  <label for="mal0">Do not allow maluses to go below 0</label><br>
-                  <input type="radio" name="malus" id="malneg" value="-1000">
-                  <label for="malneg">Allow maluses to go negative</label>
+
+                  <div class="row">
+                    <div class="6u 12u$(small)">
+                      Contestant 1 name:<br>
+                      <input type="text" id="JousterA" value="Jouster A"><br>
+                      Contestant 1 Skill bonus:<br>
+                      <input type="number" id="JousterSkillA" value="1"><br>
+                    </div>
+                    <div class="6u 12u$(small)">
+                      Contestant 2 name:<br>
+                      <input type="text" id="JousterB" value="Jouster B"><br>
+                      Contestant 2 Skill bonus:<br>
+                      <input type="number" id="JousterSkillB" value="1"><br>
+                    </div>
+                  </div> <br>
+                  <div class="row">
+                    <div class="4u 12u$(small)">
+                      Allow maluses to go negative?<br>
+                      <input type="radio" name="malus" id="mal0" value="0" checked>
+                      <label for="mal0">No</label><br>
+                      <input type="radio" name="malus" id="malneg" value="-1000">
+                      <label for="malneg">Yes</label>
+                    </div>
+                    <div class="4u 12u$(small)">
+                      Roll injury saves when the difference between rolls is greater than or equal to...<br>
+                      <input type="radio" name="ds" id="ds19" value="19">
+                      <label for="ds19">19</label><br>
+                      <input type="radio" name="ds" id="ds18" value="18">
+                      <label for="ds18">18</label><br>
+                      <input type="radio" name="ds" id="ds17" value="17" checked>
+                      <label for="ds17">17</label><br>
+                      <input type="radio" name="ds" id="ds16" value="16">
+                      <label for="ds16">16</label>
+                    </div>
+                    <div class="4u 12u$(small)">
+                      On a D20 injury save, death occurs on between 1 and...<br>
+                      <input type="radio" name="dsdn" id="ds2" value="2">
+                      <label for="ds2">2</label><br>
+                      <input type="radio" name="dsdn" id="ds3" value="3">
+                      <label for="ds3">3</label><br>
+                      <input type="radio" name="dsdn" id="ds4" value="4" checked>
+                      <label for="ds4">4</label><br>
+                      <input type="radio" name="dsdn" id="ds5" value="5">
+                      <label for="ds5">5</label>
+                    </div>
                   </div>
-                  <br>
-                  Roll injury saves when the difference between rolls is greater than or equal to...<br>
-                  <div class="4u 12u$(small)">
-                  <input type="radio" name="ds" id="ds19" value="19">
-                  <label for="ds19">19</label><br>
-                  <input type="radio" name="ds" id="ds18" value="18">
-                  <label for="ds18">18</label><br>
-                  <input type="radio" name="ds" id="ds17" value="17" checked>
-                  <label for="ds17">17</label><br>
-                  <input type="radio" name="ds" id="ds16" value="16">
-                  <label for="ds16">16</label>
-                  </div>
-                  <br>
-                  On a D20 injury save, death occurs on between 1 and...<br>
-                  <div class="4u 12u$(small)">
-                  <input type="radio" name="dsdn" id="ds2" value="2">
-                  <label for="ds2">2</label><br>
-                  <input type="radio" name="dsdn" id="ds3" value="3">
-                  <label for="ds3">3</label><br>
-                  <input type="radio" name="dsdn" id="ds4" value="4" checked>
-                  <label for="ds4">4</label><br>
-                  <input type="radio" name="dsdn" id="ds5" value="5">
-                  <label for="ds5">5</label>
-                  </div>
+                  
                   <input type="button" value="Submit Joust Values" onclick="joust()">
                   <input type="button" value="Clear Results" onclick="clearjoustresults()">
                 </form>
@@ -171,8 +206,17 @@
                   <p> </p>
                   </div>
                 </fieldset>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <h3 id="meleeautomator">Melee Automator</h3>
+
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
+              <h3 id="meleeautomator">Melee Automator (broken - under maintainance)</h3>
                 <p>Melees function by rolling a d50 + Skill for each player (d75 if sharp weapons).<br>
                   If a contestant rolls lower than the specified threshold, they are eliminated from the melee.<br>
                   In order for the code to work, skill bonuses must not be greater than or equal to the threshold.
@@ -193,20 +237,22 @@
                     Dice Size:<br>
                     <input type="number" id="iWeaponStrength" value="50"> Minimum 4<br>
                     <br>
-                    Run a whole melee or just one round at a time?<br>
-                    <div class="4u 12u$(small)">
-                    <input type="radio" name="MeleeRadioButton" id="SingleRound">
-                    <label for="SingleRound">Run a single round</label><br>
-                    <input type="radio" name="MeleeRadioButton" id="MultipleRounds" checked>
-                    <label for="MultipleRounds">Run the full melee</label>
-                    </div>
-                    <br>
-                    Eliminate contestants via Threshold or by the lowest roll?<br>
-                    <div class="4u 12u$(small)">
-                    <input type="radio" name="MeleeRadioButton2" id="EliminateViaThreshold" checked>
-                    <label for="EliminateViaThreshold">Eliminate via Threshold</label><br>
-                    <input type="radio" name="MeleeRadioButton2" id="EliminateViaOther">
-                    <label for="EliminateViaOther">Eliminate the lowest roll</label>
+
+                    <div class="row">
+                      <div class="6u 12u$(small)">
+                        Run a whole melee or just one round at a time?<br>
+                        <input type="radio" name="MeleeRadioButton" id="SingleRound">
+                        <label for="SingleRound">Run a single round</label><br>
+                        <input type="radio" name="MeleeRadioButton" id="MultipleRounds" checked>
+                        <label for="MultipleRounds">Run the full melee</label>
+                      </div>
+                      <div class="6u 12u$(small)">
+                        Eliminate contestants via Threshold or by the lowest roll?<br>
+                        <input type="radio" name="MeleeRadioButton2" id="EliminateViaThreshold" checked>
+                        <label for="EliminateViaThreshold">Eliminate via Threshold</label><br>
+                        <input type="radio" name="MeleeRadioButton2" id="EliminateViaOther">
+                        <label for="EliminateViaOther">Eliminate the lowest roll</label>
+                      </div>
                     </div>
                     <input type="button" value="Generate Melee" onclick="melee()">
                     <input type="button" value="Clear Results" onclick="clearmeleeresults()">
@@ -218,9 +264,22 @@
 
                     </div>
                   </fieldset>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
+<<<<<<< HEAD
                       <h3 id="landcombat">Land Combat</h3>
+=======
+
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
+              <h3 id="landcombat">Land Combat</h3>
+>>>>>>> 113e147ea0e9b392284df372e1363ec68e2b27c6
                       <h4>Usage Instructions</h4>
                       So far there are no sieges. This is purely land combat in the field.
                       <br>Every troop has a CV (Combat Value) that is used to judge their strength in battle.
@@ -229,25 +288,66 @@
                       This script currently does not perform death or retreat checks, although it does provide the necessary information for you to do them yourself. These are required to be run after a battle takes place, depending on what happened. Click <a href="https://www.reddit.com/r/SevenKingdoms/wiki/land_combat">here</a> for the full rules and details.
                       <fieldset id="landcombatform">
                         <form>
-                          <legend>Force A:</legend>
-                          <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br> <br>
-                          <div class="12u$">
-                            <div class="select-wrapper">
-                              <select name="commandercategory" id="commander_A_category">
-                                <option value="0">- Commander Bonus -</option>
-                                <option value="1">Brilliant Tactician</option>
-                                <option value="2">Vanguard Commander</option>
-                                <option value="3">Excellent Marcher</option>
-                                <option value="4">Man of the People</option>
-                                <option value="5">Master of the Field</option>
-                                <option value="6">Defensive Leader</option>
-                                <option value="7">Sand Warrior</option>
-                                <option value="8">Mountain Czar</option>
-                                <option value="9">Wood Devil</option>
-                                <option value="10">Hill Hero</option>
-                                <option value="11">Tundra Titan</option>
-                              </select>
+                          <div class="row">
+                            <div class="6u 12u$(small)">
+                              <legend>Force A:</legend>
+                              <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br> <br>
+                              <div class="12u$">
+                                <div class="select-wrapper">
+                                  <select name="commandercategory" id="commander_A_category">
+                                    <option value="0">- Commander Bonus -</option>
+                                    <option value="1">Brilliant Tactician</option>
+                                    <option value="2">Vanguard Commander</option>
+                                    <option value="3">Excellent Marcher</option>
+                                    <option value="4">Man of the People</option>
+                                    <option value="5">Master of the Field</option>
+                                    <option value="6">Defensive Leader</option>
+                                    <option value="7">Sand Warrior</option>
+                                    <option value="8">Mountain Czar</option>
+                                    <option value="9">Wood Devil</option>
+                                    <option value="10">Hill Hero</option>
+                                    <option value="11">Tundra Titan</option>
+                                  </select>
+                                </div>
+                              </div>
+                              Total number of soldiers.<br>
+                              <input type="number" id="Force_A_Strength" value="2500">
+                              <br>Light inf. composition<br>
+                              <input type="number" id="Force_A_input_lightinf" value="20"> %
+                              <br>Heavy inf. composition<br>
+                              <input type="number" id="Force_A_input_heavyinf" value="20"> %
+                              <br>Ranged inf. composition<br>
+                              <input type="number" id="Force_A_input_rangedinf" value="20"> %
+                              <br>Light cav. composition<br>
+                              <input type="number" id="Force_A_input_lightcav" value="20"> %
+                              <br>Heavy cav. composition<br>
+                              <input type="number" id="Force_A_input_heavycav" value="20"> %
+                              <br>
+                              <div class="6u 12u$(small)">
+                                <br>
+                                <input type="radio" id="Afaction_type_North" name="afaction_type" checked>
+                                <label for="Afaction_type_North">North</label><br>
+                                <input type="radio" id="Afaction_type_Vale" name="afaction_type">
+                                <label for="Afaction_type_Vale">Vale</label><br>
+                                <input type="radio" id="Afaction_type_IronIsles" name="afaction_type">
+                                <label for="Afaction_type_IronIsles">Iron Isles</label><br>
+                                <input type="radio" id="Afaction_type_Riverlands" name="afaction_type">
+                                <label for="Afaction_type_Riverlands">Riverlands</label><br>
+                                <input type="radio" id="Afaction_type_Westerlands" name="afaction_type">
+                                <label for="Afaction_type_Westerlands">Westerlands</label><br>
+                                <input type="radio" id="Afaction_type_Crownlands" name="afaction_type">
+                                <label for="Afaction_type_Crownlands">Crownlands</label><br>
+                                <input type="radio" id="Afaction_type_Reach" name="afaction_type">
+                                <label for="Afaction_type_Reach">Reach</label><br>
+                                <input type="radio" id="Afaction_type_Stormlands" name="afaction_type">
+                                <label for="Afaction_type_Stormlands">Stormlands</label><br>
+                                <input type="radio" id="Afaction_type_Dorne" name="afaction_type">
+                                <label for="Afaction_type_Dorne">Dorne</label>
+                              </div>
+                              <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
+                              <br>
                             </div>
+<<<<<<< HEAD
                           </div>
                           <br>
                           <div class="12u$">
@@ -353,6 +453,73 @@
                           <label for="Bfaction_type_Dorne">Dorne</label>
                           </div>
                           <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
+=======
+
+
+
+
+                            <div class="6u 12u$(small)">
+                              <legend>Force B (defender in siege):</legend>
+                              <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br> <br>
+                              <div class="12u$">
+                                <div class="select-wrapper">
+                                  <select name="commandercategory" id="commander_B_category">
+                                    <option value="0">- Commander Bonus -</option>
+                                    <option value="1">Brilliant Tactician</option>
+                                    <option value="2">Vanguard Commander</option>
+                                    <option value="3">Excellent Marcher</option>
+                                    <option value="4">Man of the People</option>
+                                    <option value="5">Master of the Field</option>
+                                    <option value="6">Defensive Leader</option>
+                                    <option value="7">Sand Warrior</option>
+                                    <option value="8">Mountain Czar</option>
+                                    <option value="9">Wood Devil</option>
+                                    <option value="10">Hill Hero</option>
+                                    <option value="11">Tundra Titan</option>
+                                  </select>
+                                </div>
+                              </div>
+                              Total number of soldiers.<br>
+                              <input type="number" id="Force_B_Strength" value="2500">
+                              <br>DV<br>
+                              <input type="number" id="DV" value="2500">
+                              <br>Light inf. composition<br>
+                              <input type="number" id="Force_B_input_lightinf" value="20"> %
+                              <br>Heavy inf. composition<br>
+                              <input type="number" id="Force_B_input_heavyinf" value="20"> %
+                              <br>Ranged inf. composition<br>
+                              <input type="number" id="Force_B_input_rangedinf" value="20"> %
+                              <br>Light cav. composition<br>
+                              <input type="number" id="Force_B_input_lightcav" value="20"> %
+                              <br>Heavy cav. composition<br>
+                              <input type="number" id="Force_B_input_heavycav" value="20"> %
+                              <br>
+                              <div class="6u 12u$(small)">
+                                <br>
+                                <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked>
+                                <label for="Bfaction_type_North">North</label><br>
+                                <input type="radio" id="Bfaction_type_Vale" name="bfaction_type">
+                                <label for="Bfaction_type_Vale">Vale</label><br>
+                                <input type="radio" id="Bfaction_type_IronIsles" name="bfaction_type">
+                                <label for="Bfaction_type_IronIsles">Iron Isles</label><br>
+                                <input type="radio" id="Bfaction_type_Riverlands" name="bfaction_type">
+                                <label for="Bfaction_type_Riverlands">Riverlands</label><br>
+                                <input type="radio" id="Bfaction_type_Westerlands" name="bfaction_type">
+                                <label for="Bfaction_type_Westerlands">Westerlands</label><br>
+                                <input type="radio" id="Bfaction_type_Crownlands" name="bfaction_type">
+                                <label for="Bfaction_type_Crownlands">Crownlands</label><br>
+                                <input type="radio" id="Bfaction_type_Reach" name="bfaction_type">
+                                <label for="Bfaction_type_Reach">Reach</label><br>
+                                <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type">
+                                <label for="Bfaction_type_Stormlands">Stormlands</label><br>
+                                <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type">
+                                <label for="Bfaction_type_Dorne">Dorne</label>
+                              </div>
+                              <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
+                              <br>
+                            </div>
+                          </div>
+>>>>>>> 113e147ea0e9b392284df372e1363ec68e2b27c6
                           <br>
                           <div class="4u 12u$(small)">
                           <input type="radio" id="Combat_Type_Field" name="combattype" checked>
@@ -383,30 +550,21 @@
                           <div id="battleout"></div>
                         </fieldset>
                         <br>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
-                        <header>
-                          <h3 id="smut">Smut Generator<br></h3>
-                        </header>
-                        <main>
-                          <article>
-                          Generates a paragraph of godawful smut. If you need gay smut, just replace all the pronouns (her, him, his, hers, etc.)
-                            <div class="row">
-                              <div class="col-sm-offset-1 col-sm-10">
-                                <blockquote>“
-                                <span id="text">The feeling of his ectoplasm frothing down my throat got my clunge gunge flowing quicker than greased shit off a shiny shovel. The raiding of my Mavis Fritter was so vigorous, he soon found his sperm factories joining his spam javelin deep in my black hole. After having my gammon alley hammered, he then proceeded to slam my poo pipe. By now, my sperm socket was weeping like a hungry pig at a trough. When he removed his jebend from my other vagina, he was pleasantly surprised to see a butt nugget staring back as him. He knew I couldn't wait to consume the colon cobra off his cunt plunger.</span>”</blockquote>
-                                <button id="generate-button">Generate more</button></div>
-                            </div>
-                          </article>
-                        </main>
+      <section id="two" class="wrapper style2">
+        <div class="inner">
+          <div class="box">
+            <div class="content">
+              <div class="links">
 
-
-                        <br>
-                        <div class="links">
-                        <h2>Links</h2>
-
-
-
+                          <header class="align-center">
+                            <h2 id="links">Links</h2>
+                          </header>
 
                         <p>Welcome to my collection of quick links, compiled to provide convenience. Right now, it's basically only the sidebar links. Please let me know if you have other suggestions! Might as well have the website do more than one thing, right?<br>
                         ~Hello_There2</p>
@@ -470,13 +628,6 @@
                             <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/5uvhqn/meta_tag_usage_statistics/?ref=search_posts">Post tag usage statistics</a></dt>
                             <dt><a href="">Empty</a></dt>
                             </dl>
-
-
-
-
-
-
-              </div>
             </div>
           </div>
         </div>
@@ -506,508 +657,5 @@
       <script src="assets/js/main.js"></script>
       <script id="duel" src="duel.js"></script>
       <script id="itplandcombat" src="itplandcombat.js"></script>
-      <script type="text/javascript" charset="utf-8" async="" src="./Smut Generator _ Terrible erotic fiction at the click of a button_files/timeline.49f24b3ed4b1be2d087c97aca497c0d1.js.download"></script>
-      <script type="text/javascript" charset="utf-8" async="" src="./Smut Generator _ Terrible erotic fiction at the click of a button_files/button.b731e6c82269f70f6fc53634e044a4c6.js.download"></script>
-
   </body>
 </html>
-
-<script>
-
-  function parse_sentence(a){
-    for(var b,c,d,e,f,g="";a.length>0;)
-      if(b=a.indexOf("["),b>-1){
-        switch(g+=a.substr(0,b),a=a.substr(b+1),c=a.indexOf("]"),d=a.substr(0,c),e=d.split("-"),e[0]){case"verb":switch(f=vocab.verbs[e[1]],e[2]){case"root":g+=f[Math.floor(Math.random()*f.length)][0];
-        break;
-        case"past":g+=f[Math.floor(Math.random()*f.length)][1];
-        break;
-        case"present":g+=f[Math.floor(Math.random()*f.length)][2]}break;
-        case"noun":f=vocab.nouns[e[1]],g+=f[Math.floor(Math.random()*f.length)];
-        break;
-        case"simile":f=vocab.similes[e[1]],g+=f[Math.floor(Math.random()*f.length)]}a=a.substr(c+1)}else g+=a,a="";
-        return g
-  }
-
-  function generate(a){
-    var b="";sentences.sort(function(){return.5-Math.random()});for(var c=sentences.slice(0,a),d=0;a>d;d++)b=b+parse_sentence(c[d])+" ";return b.substr(0,b.length-1)
-  }
-
-  function update_text(){document.getElementById("text").innerHTML=generate(5)}
-
-  function init(){update_text();var a=document.getElementById("generate-button");a.addEventListener?a.addEventListener("click",function(){return update_text(),!1}):a.attachEvent("onclick",function(){return update_text(),!1})}
-
-  var vocab=
-  {verbs:
-    {sex:[
-      ["fuck","fucked","fucking"],
-      ["hammer","hammered","hammering"],
-      ["plow","plowed","plowing"],
-      ["pound","pounded","pounding"],
-      ["raid","raided","raiding"],
-      ["slam","slammed","slamming"],
-      ["thrust","thrusted","thrusting"]],
-      insert:[
-      ["plunge","plunged","plunging"],
-      ["probe","probed","probing"],
-      ["ram","rammed","ramming"],
-      ["shove","shoved","shoving"],
-      ["slide","slid","sliding"],
-      ["stuff","stuffed","stuffing"]],
-      squirt:[
-      ["eject","ejected","ejecting"],
-      ["flood","flooded","flooding"],
-      ["flow","flowed","flowing"],
-      ["gush","gushed","gushing"],
-      ["pour","poured","pouring"],
-      ["spit","spattered","spattering"],
-      ["splurge","splurged","splurging"],
-      ["spout","spouted","spouting"],
-      ["spray","sprayed","spraying"],
-      ["spritz","spritzed","spritzing"],
-      ["squirt","squirted","squirting"],
-      ["surge","surged","surging"]],
-      dribble:[["drain","drained","draining"],
-      ["dribble","dribbled","dribbling"],
-      ["drip","dripped","dripping"],
-      ["flow","flowed","flowing"],
-      ["foam","foamed","foaming"],
-      ["froth","frothed","frothing"],
-      ["haemorrhage","haemorrhaged","haemorrhaging"],
-      ["leach","leached","leaching"],
-      ["leak","leaked","leaking"],
-      ["ooze","oozed","oozing"],
-      ["seep","seeped","seeping"],
-      ["slime","slimed","sliming"],
-      ["slobber","slobbered","slobbering"],
-      ["trickle","trickled","trickling"],
-      ["weep","wept","weeping"]],
-      suck:[["chow down on","chowed down on","chowing down on"],
-      ["consume","consumed","consuming"],
-      ["devour","devoured","devouring"],
-      ["gobble","gobbled","gobbling"],
-      ["lap","lapped","lapping"],
-      ["suck","sucked","sucking"]],
-      defecate:[["arc","arced","arcing"],
-      ["blast","blasted","blasting"],
-      ["cop","copped","copping"],
-      ["crown","crowned","crowning"],
-      ["curl","curled","curling"],
-      ["cut","cut","cutting"],
-      ["drop","dropped","dropping"],
-      ["ease","eased out","easing out"],
-      ["extrude","extruded","extruding"],
-      ["launch","launched","launching"],
-      ["pinch off","pinched off","pinching off"],
-      ["pitch","pitched","pitching"],
-      ["roll","rolled","rolling"]],
-      shake:[["quake","quaked","quaking"],
-      ["quiver","quivered","quivering"]]
-    },
-    nouns:{
-      anus:["sailor's knot",
-      "black hole",
-      "brown eye",
-      "brown mile",
-      "chocolate starfish",
-      "fart valve",
-      "mud flap",
-      "mud gate",
-      "old dirt road",
-      "other vagina",
-      "Oxo orifice",
-      "poop chute",
-      "poop nerve",
-      "poo pipe",
-      "puckered brown eye",
-      "ring piece",
-      "rusty bullet hole",
-      "rusty soldier's shield",
-      "soft tight anus",
-      "shit winker",
-      "craftsman's entrance",
-      "turd cutter",
-      "turd-herder"],
-
-      breasts:["boobage",
-      "breasticles",
-      "breasts",
-      "cans",
-      "chesticles",
-      "chest puppies",
-      "droopies",
-      "fiery biscuits",
-      "love bubbles",
-      "mammaries",
-      "mosquito bites",
-      "rack",
-      "superdroopers",
-      "sweater puppies",
-      "tits",
-      "tatas",
-      "top bollocks",
-      "twin peaks"],
-
-      faeces:["butt nugget",
-      "colon cobra",
-      "corn-eyed butt snake",
-      "footlong fudge bullet",
-      "hardened fudge nugget",
-      "sewer trout",
-      "stink pickle",
-      "toilet twinkie",
-      "filthy peasant"],
-
-      insertable:['a 10 inch sword pommel',
-      "a broken piece of wood",
-      "a doll",
-      "a gerbil",
-      "a rat",
-      "a whetstone",
-      "a number of chillies",
-      "a squash",
-      "a carrot",
-      "an antique doorknob",
-      "a clenched fist"],
-
-      labia:["beef curtains",
-      "clap flaps",
-      "fishy flaps",
-      "flappy meal",
-      "furburger",
-      "hairy goblet",
-      "lunchmeat",
-      "meaty hangers",
-      "open-faced ham sandwich",
-      "panty hamster",
-      "piss flaps",
-      "purple cabbage",
-      "roast beef platter",
-      "spam castanets",
-      "fur triangle",
-      "vertical garden",
-      "vertical smile"],
-
-      lady_cum:["beige slime",
-      "clunge gunge",
-      "fallopian fish stock",
-      "flange custard",
-      "minge monsoon",
-      "minge mucus",
-      "pussy batter",
-      "sex wee",
-      "shrimp sap",
-      "spaff",
-      "tuna tunnel tears",
-      "vertical moisture"],
-      
-      masturbate:["audition the finger puppets",
-      "buff the muff",
-      "finger blast",
-      "fish for pearls",
-      "flick the bean",
-      "fluff the muff",
-      "get a stinky pinky",
-      "play the clitar",
-      "study cliterature",
-      "strum the banjo",
-      "stimulate the genitals through phalangetic motion",
-      "tune the tuna"],
-      
-      menstruation:["been on the rag",
-      "been riding the cloth pony",
-      "been surfing the crimson tide",
-      "been up on bricks",
-      "been walking the red carpet",
-      "had my redwings",
-      "had the painters in"],
-      
-      mouth:["cake hole",
-      "mouth",
-      "throat"],
-      
-      penis:["pink fat mast",
-      "ample cock",
-      "bald avenger",
-      "balony pony",
-      "bald-headed yogurt slinger",
-      "batter blaster",
-      "battering ram",
-      "blind butler",
-      "blood-engorged sperm cannon",
-      "blue-veined custard chucker",
-      "brie baton",
-      "clunger",
-      "cunt stretcher",
-      "cumtree",
-      "chubstep",
-      "chubby conquistador",
-      "cream reaper",
-      "cunt plunger",
-      "cheese-crusted cock",
-      "devil's bagpipe",
-      "eight inches of throbbing pink",
-      "greasy kebab skewer",
-      "greasy slimelight",
-      "gristle missile",
-      "giggle stick",
-      "huge penis",
-      "jebend",
-      "kebeb skewer",
-      "long-dong silver",
-      "love lollipop",
-      "love muscle",
-      "master of ceremonies",
-      "meaty member",
-      "muffbuster",
-      "mutton dagger",
-      "one-eyed monster",
-      "pink tractor beam",
-      "piss pipe",
-      "purple beaver buster",
-      "purple-headed trouser snake",
-      "ramrod",
-      "skeleton king",
-      "skin flute",
-      "slut slayer",
-      "spam dagger",
-      "spam javelin",
-      "stilton sword",
-      "sperminator",
-      "spunk-filled spam rocket",
-      "stilton spear",
-      "tallywacker",
-      "tenderloin truncheon",
-      "thrill drill",
-      "throbbing quim dagger",
-      "timed slimer",
-      "turgid terror truncheon",
-      "vein cane",
-      "veiny quim prod",
-      "womb raider",
-      "womb ferret",
-      "wensleydale wand",
-      "wrist-thick wand"],
-      
-      seepage:["porthole pudding",
-      "rectal stew",
-      "rectoplasm",
-      "sphincter sauce"],
-      
-      semen:["baby gravy",
-      "cock custard",
-      "cock snot",
-      "creamy load",
-      "ectoplasm",
-      "gentleman's relish",
-      "love mayonnaise",
-      "love piss",
-      "magician's wax",
-      "man fat",
-      "penis pudding",
-      "steamin' semen"],
-      
-      testes:["chin pounders",
-      "cherries",
-      "clock weights",
-      "family jewels",
-      "hairy walnuts",
-      "jingle-jangle jewellery",
-      "kids on a swing",
-      "love spuds",
-      "man berries",
-      "man marbles",
-      "salty protein grapes",
-      "scroto baggins",
-      "sperm factories",
-      "testes",
-      "trouser conkors",
-      "two amigos",
-      "wrecking balls"],
-      
-      vagina:["bearded haddock pasty",
-      "birth cannon",
-      "calamari cockring",
-      "carp cavity",
-      "chamber of squelch",
-      "chlamydia canal",
-      "clam-flavoured pothole",
-      "clearing in the woods",
-      "clunge pool",
-      "cock holster",
-      "cod canyon",
-      "cod cave",
-      "cod crater",
-      "cum dumpster",
-      "cunt",
-      "vagina",
-      "depravity cavity",
-      "enchilada of love",
-      "frilling pink bag",
-      "front bum",
-      "fuck gutter",
-      "fuck trench",
-      "furry cup",
-      "gammon alley",
-      "gaping clam cavern",
-      "gashtray",
-      "ground zero grotto",
-      "hatchet wound",
-      "herring hole",
-      "hot pocket",
-      "kipper dinghy",
-      "ladytown",
-      "meat purse",
-      "moose knuckle",
-      "mound of love pudding",
-      "municipal cockwash",
-      "one slice toaster",
-      "oyster ditch",
-      "penis pothole",
-      "pink velvet sausage wallet",
-      "quim",
-      "salmon slit",
-      "slime hole",
-      "soft-shelled tuna taco",
-      "shamevelope",
-      "shame portal",
-      "smush mitten",
-      "south mouth",
-      "sperm socket",
-      "split peach",
-      "spunk dungeon",
-      "stench trench",
-      "tuna canal",
-      "vaginal buffet",
-      "vibration station",
-      "vibrator crater",
-      "whispering eye",
-      "wizards sleeve",
-      "wunder down under"]
-    },
-
-    similes:{
-      dribble:["a fresh crack in a dam",
-      "a hungry pig at a trough",
-      "a jizz waterfall",
-      "a leaky roof",
-      "a rabid dog",
-      "a slavering dog",
-      "a slug in a salt mine",
-      "a Maester's mouth at the sight of a whore",
-      "the Trident during a thunderstorm",
-      "there was a midget inside with a bucket of water"],
-      
-      dry:["a silent sister's cunt",
-      "the sands of the Red Waste",
-      "a Dornish summer"],
-      
-      eat:["a bulldog eating porridge",
-      "a hungry lion",
-      "a pig at a trough"],
-      
-      fast:["a greased weasel shit",
-      "greased shit off a shiny shovel",
-      "snot off a whip"],
-      
-      promiscuous:["been besieged more times than the Wall",
-      "been impregnated more than Highgarden or High Hermitage",
-      "been more thoroughly destroyed than Castamere",
-      "fucked more than the Freys",
-      "had more hands up the ass than a mummer's puppet",
-      "seen more action than the Riverlands",
-      "seen more foreskins than the gods themselves",
-      "seen more helmets than a conqueror",
-      "seen more pricks than a second hand archery target",
-      "taken more poundings than the Wall",
-      "grinded more than a smith's wheel"],
-      
-      shake:["a rat on poison",
-      "a shitting dog",
-      "the ground under a thousand footsteps",
-      "thunder",
-      "a sail in high gale",
-      "the roar of a dragon",
-      "a thousand pots of wildfire"],
-      
-      sore:["a badly wrapped kebab",
-      "a blind cobbler's thumb",
-      "a bulldog licking piss from a thistle",
-      "a bucket of smashed crabs",
-      "a fool's pocket",
-      "an archery target",
-      "a dropped baby",
-      "a gutted trout",
-      "a bear's yawn",
-      "a horse's collar",
-      "a fat man in full plate",
-      "the Kingsroad after a royal tour",
-      "a rabid baboon's arse",
-      "a ripped out fireplace",
-      "a sand blasted tomato",
-      "a shot cat",
-      "a stamped bat",
-      "a spearman's knee",
-      "a twisted slipper",
-      "a wolf with its throat cut",
-      "badly battered road kill",
-      "a courier's saddlebags",
-      "the lips of the Master of Whispers",
-      "Harren the Black",
-      "Harenhal",
-      "the Castamere coat of arms",
-      "the south end of a badger going north"],
-      
-      sweat:["a blind lesbian in a fish shop",
-      "a black brother in a whorehouse",
-      "a merchant during inspection",
-      "a midget nun at a penguin shoot",
-      "a paedo during a prison riot",
-      "a pregnant silent sister",
-      "a black mouse in a snowy field",
-      "a whore in a confessional",
-      "a Lord recieving a royal summon",
-      "The Hound by the fire"],
-      
-      tight:["a camel's arsehole in a sandstorm",
-      "a mouse's ear",
-      "a man who has just seen a dragon"],
-      
-      wet:["a bathmaid's elbow",
-      "a spastic's chin",
-      "a well diggers arse",
-      "a summer in the Riverlands",
-      "an Ironborn ship",
-      "an otter's pocket"]
-    }
-  },
-      sentences=[
-      "The unrelenting orgasms from his [noun-penis] [verb-sex-present] her [noun-vagina] made her come so hard, she began sweating like [simile-sweat].",
-      "After having her [noun-vagina] [verb-sex-past], he then proceeded to [verb-sex-root] her [noun-anus].",
-      "The [verb-sex-present] made her [verb-squirt-root] her [noun-lady_cum] all over his [noun-penis].",
-      "By now, her [noun-vagina] was [verb-dribble-present] like [simile-dribble].",
-      "She couldn't wait to [verb-suck-root] the [noun-semen] from his [noun-penis].",
-      "Her [noun-vagina] trembled like [simile-shake].",
-      "Inserting [noun-insertable] into her [noun-vagina] got her [verb-squirt-present] [noun-lady_cum] faster than [simile-fast].",
-      "The [verb-sex-present] of her [noun-anus] was so vigorous, he soon found his [noun-testes] joining his [noun-penis] deep in her [noun-anus].",
-      "He munched on her [noun-labia], even though she'd [noun-menstruation] for the best part of last week.",
-      "He [verb-defecate-past] a giant [noun-faeces] on her [noun-breasts] just so he could [verb-suck-root] it up like [simile-eat].",
-      "With his [noun-penis] [verb-sex-present] deep into her [noun-vagina], the sensation of his [noun-penis] smashing her cervix made her [verb-shake-root] like [simile-shake].",
-      "When he removed his [noun-penis] from her [noun-anus], he was pleasantly surprised to see a [noun-faeces] staring back as him. He knew she couldn't wait to [verb-suck-root] the [noun-faeces] off his [noun-penis].",
-      "Within no time, she could feel the shitty [noun-semen] [verb-dribble-present] from her [noun-anus] and all over her [noun-labia].",
-      "Hours of [verb-sex-present] like this would leave any girl's [noun-labia] looking like [simile-sore], and she was no different!",
-      "The mixture of [noun-faeces] and [noun-semen] in her [noun-anus] created the delicious [noun-seepage] that he was so fond of.",
-      "Now, she had [simile-promiscuous], but the sight of his [noun-penis] made her [noun-lady_cum] [verb-dribble-root] like [simile-dribble].",
-      "The seemingly never-ending streams of [noun-semen] emanating from his [noun-penis] soon had her coated in a sweet wetness like [simile-wet].",
-      "She awoke the next morning with her [noun-vagina] still [verb-dribble-present]. She thought it was over but his [noun-penis] had other ideas.",
-      "With her [noun-labia] now much like [simile-sore], he thought it was time to start [verb-insert-present] her [noun-anus]. She wondered if now the time to tell him she really needed to [verb-defecate-root] a [noun-faeces]?",
-      "The feeling of his [noun-semen] [verb-dribble-present] down her throat got her [noun-lady_cum] flowing quicker than [simile-fast].",
-      "It was bliss having his [noun-penis] [verb-insert-past] inside her again; stuffing her [noun-vagina] with [noun-insertable] just didn't get her [noun-vagina] [verb-squirt-present] like it used to.",
-      "There was [noun-semen] [verb-dribble-present] from his [noun-penis] and she was wetter than [simile-wet]. They were ready for more.",
-      "Her [noun-mouth] was so full of [noun-penis] and [noun-semen], the [noun-semen] was [verb-dribble-present] down her chin and onto her [noun-breasts].",
-      "Leaving her undergarments sunny side up on the floor was the least of her worries as his [noun-penis] [verb-insert-past] deeper into her [noun-anus].",
-      "Some girls are happy just to [noun-masturbate] when they're alone, but she couldn't get off without having [noun-insertable] in her [noun-vagina] and [noun-insertable] up her [noun-anus].",
-      "If she didn't [noun-masturbate] to get her [noun-lady_cum] [verb-dribble-present] from her [noun-vagina], his [noun-penis] was going to leave her [noun-labia] resembling [simile-sore]."
-      ];
-
-      "loading"!=document.readyState?init():document.addEventListener?document.addEventListener("DOMContentLoaded",init()):document.attachEvent("onreadystatechange",function(){"loading"!=document.readyState&&init()});var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-33661234-1"]),_gaq.push(["_trackPageview"]),function(){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}();
-</script>
