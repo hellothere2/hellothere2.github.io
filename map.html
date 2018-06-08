@@ -9,6 +9,22 @@
 	#mousefollowdiv {position: absolute; z-index: 3}
 	#markers {position: absolute; z-index: 2;} /*top:0px; left:0px;*/
 	#map {position: absolute; top: 0px; left: 0px; z-index: 1;}
+	.image-wrapper {
+	position: absolute;
+	transform: translate(-50%, -50%);
+    opacity: 1;
+    z-index: 3 }
+    .dot {
+	  position: absolute;
+	  height: 25px;
+	  width: 25px;
+	  transform: translate(-50%, -50%);
+	  background-color: #000;
+	  border-radius: 50%;
+	  opacity: 1;
+	  z-index: 3;
+	  display: inline-block;
+	}
 
 </style>
 
@@ -38,10 +54,12 @@
 					<li><a href="charactercreation.html">Broken character creator</a></li>
 				</ul>
 			</nav>
-		
+		<a id="markers" href="#" class="button" style="left: 1475px" onclick="clearMarkers()">Clear Markers</a>
+		<a id="markers" href="#" class="button" style="left: 1475px; top: 3300px" onclick="clearMarkers()">Clear Markers</a>
 	    <img id="map" src="images/cropped7kmap.png" alt="My Image">
 	    <!-- <img id="markers" src="images/marker.png" alt="King's Landing" style="left:930px;top:2428px;"> -->
-	    <div id="mousefollowdiv"><img id="image" src="images/red dot.png"/></div>
+	    <div id="mousefollowdiv" style="background-color: white">This is a test</div>
+
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -50,13 +68,66 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript">
+				function Hex(x, y, hex_x, hex_y){
+					this.x = x;
+					this.y = y;
+					this.hex_x = hex_x;
+					this.hex_y = hex_y;
+				}
+
+				var HexStorage = ["placeholder"];
+				var HowManyMarkers = 0;
+
+				function clearMarkers(){
+					HexStorage = ["placeholder"]
+					while (HowManyMarkers > 0){
+						var element = document.getElementById("dots");
+						document.body.removeChild(element);
+						HowManyMarkers = HowManyMarkers - 1;
+					}
+				}
+
+				function getRandomColor() {
+				  var letters = '0123456789ABCDEF';
+				  var color = '#';
+				  for (var i = 0; i < 6; i++) {
+				    color += letters[Math.floor(Math.random() * 16)];
+				  }
+				  return color;
+				}
+
 				$(document).mousemove(function(e){
-				    $("#mousefollowdiv").css({left: (e.pageX - 10), top: (e.pageY - 10) });
+						var x = event.pageX - map.offsetLeft;
+				        var y = event.pageY - map.offsetTop;
+				        totalX = 103;
+				        totalY = 204;
+				        resolutionX = 1475;
+				        resolutionY = 3365;
+				        hexSize_x = resolutionX / totalX;
+				        hexSize_y = resolutionY / totalY;
+				        var xhex = Math.round(x / hexSize_x);
+				        var yhex = Math.round(0.5+(y/hexSize_y));
+				    $("#mousefollowdiv").css({left: (e.pageX + 30), top: (e.pageY - 00) });
+				    $("#mousefollowdiv").text("X: " + x + ", Y: " + y + " Hex #" + xhex + "," + yhex);
 				});
 
 				// document.getElementByID("map").onclick=function(){
 				// 	document.getElementByID("mousefollowdiv").style.display="block";
 				// }
+
+				$(function(){
+				    $(document).click(function(e){
+						var div = $('<span id="dots" class="dot">')
+							.css({
+								"left": (e.pageX - 0) + 'px',
+								"top": (e.pageY + 3) + 'px',
+								"background-color": getRandomColor()
+							})
+							// .append($('<img src="images/red dot.png" alt="myimage" />'))
+							.appendTo(document.body);
+							HowManyMarkers += 1;
+				    });
+				});
 
 				$(document).ready(function() {
 				    $("img").on("click", function(event) {
@@ -70,7 +141,11 @@
 				        hexSize_y = resolutionY / totalY;
 				        var xhex = Math.round(x / hexSize_x);
 				        var yhex = Math.round(0.5+(y/hexSize_y));
-				        alert("X Coordinate: " + x + " Y Coordinate: " + y + ". Hex coordinates: " + xhex + ", " + yhex); 
+				        var HexCoordinates = new Hex();
+					        HexCoordinates.x = x;
+					        HexCoordinates.y = y;
+					        HexCoordinates.hex_x = xhex;
+					        HexCoordinates.hex_y = yhex;
 				        // + "Marker coordinates =" + (x-23) + ", " + (y-58)
 				    });
 				});
