@@ -75,17 +75,9 @@
 					this.hex_y = hex_y;
 				}
 
-				var HexStorage = ["placeholder"];
+				var HexStorage_X = ["placeholder"];
+				var HexStorageY = ["placeholder"];
 				var HowManyMarkers = 0;
-
-				function clearMarkers(){
-					HexStorage = ["placeholder"]
-					while (HowManyMarkers > 0){
-						var element = document.getElementById("dots");
-						document.body.removeChild(element);
-						HowManyMarkers = HowManyMarkers - 1;
-					}
-				}
 
 				function getRandomColor() {
 				  var letters = '0123456789ABCDEF';
@@ -111,23 +103,39 @@
 				    $("#mousefollowdiv").text("X: " + x + ", Y: " + y + " Hex #" + xhex + "," + yhex);
 				});
 
-				// document.getElementByID("map").onclick=function(){
-				// 	document.getElementByID("mousefollowdiv").style.display="block";
-				// }
+				var removingStuff = false;
+
+				function clearMarkers(){
+					HexStorage_X = ["placeholder"];
+					HexStorage_y = ["placeholder"];
+					removingStuff = true;
+					while (HowManyMarkers > 0){
+						var element = document.getElementById("dots");
+						document.body.removeChild(element);
+						HowManyMarkers = HowManyMarkers - 1;
+						removingStuff = true;
+					}
+				}
 
 				$(function(){
 				    $(document).click(function(e){
-						var div = $('<span id="dots" class="dot">')
+				    	if (removingStuff != false){
+				    		clearMarkers();
+				    		removingStuff = false;
+				    	} else {
+				    		var div = $('<span id="dots" class="dot">')
 							.css({
 								"left": (e.pageX - 0) + 'px',
 								"top": (e.pageY + 3) + 'px',
 								"background-color": getRandomColor()
 							})
-							// .append($('<img src="images/red dot.png" alt="myimage" />'))
 							.appendTo(document.body);
 							HowManyMarkers += 1;
+				    	}	
 				    });
 				});
+
+
 
 				$(document).ready(function() {
 				    $("img").on("click", function(event) {
@@ -146,7 +154,8 @@
 					        HexCoordinates.y = y;
 					        HexCoordinates.hex_x = xhex;
 					        HexCoordinates.hex_y = yhex;
-				        // + "Marker coordinates =" + (x-23) + ", " + (y-58)
+					    HexStorage.push(HexCoordinates);
+					    alert(HexStorage);
 				    });
 				});
 			</script>
