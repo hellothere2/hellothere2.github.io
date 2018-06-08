@@ -8,7 +8,7 @@
 <style type="text/css">
 	#mousefollowdiv {position: absolute; z-index: 3}
 	#markers {position: absolute; z-index: 2;} /*top:0px; left:0px;*/
-	#map {position: absolute; top: 0px; left: 0px; z-index: 1;}
+	#map {position: absolute; top: 50px; left: 0px; z-index: 1;}
 	.image-wrapper {
 	position: absolute;
 	transform: translate(-50%, -50%);
@@ -55,7 +55,7 @@
 				</ul>
 			</nav>
 		<a id="markers" href="#" class="button" style="left: 1475px" onclick="clearMarkers()">Clear Markers</a>
-		<a id="markers" href="#" class="button" style="left: 1475px; top: 3300px" onclick="clearMarkers()">Clear Markers</a>
+		<a id="markers" href="#" class="button" style="left: 1475px; top: 3360px" onclick="clearMarkers()">Clear Markers</a>
 	    <img id="map" src="images/cropped7kmap.png" alt="My Image">
 	    <!-- <img id="markers" src="images/marker.png" alt="King's Landing" style="left:930px;top:2428px;"> -->
 	    <div id="mousefollowdiv" style="background-color: white">This is a test</div>
@@ -98,7 +98,7 @@
 
 				$(document).mousemove(function(e){
 						var x = event.pageX - map.offsetLeft;
-				        var y = event.pageY;
+				        var y = event.pageY - map.offsetTop;
 				        totalX = 103;
 				        totalY = 204;
 				        resolutionX = 1475;
