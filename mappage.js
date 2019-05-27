@@ -344,8 +344,8 @@ function loadText(){
 // 	var columns = 125;
 // 	var out = document.getElementById("out");
 // 	out.innerHTML = ""; //clear contents
-// 	var n = 60;
-// 	var m = 90;
+// 	var n = 70; //even
+// 	var m = 105; //odd
 // 	for (var i=4; i <= columns; i++) {
 // 		//for loop
 // 		out.innerHTML += ".hex-column-"+i+"{";
@@ -354,31 +354,18 @@ function loadText(){
 // 		if(i%2==0) {
 // 			//if it is divisable as an integer by two 
 // 			//is even
-// 			meg = n+60;
+// 			meg = n+70;
 // 			n = meg;
 // 			out.innerHTML += meg + "px;<br>";
-// 			out.innerHTML += "    margin-top: -341.7%;}<br>";
+// 			out.innerHTML += "    margin-top: -8060px;}<br>";
 // 		} else {
 // 			//it isn't divisable as an integer by two 
 // 			//is odd
-// 			mog = m+60;
+// 			mog = m+70;
 // 			m = mog
-// 			out.innerHTML += mog + "px;<br>    margin-top: -340.05%;}<br>";
+// 			out.innerHTML += mog + "px;<br>    margin-top: -8020px;}<br>";
 // 		}
 // 	}
-// }
-
-// .hex-column-1 {
-//     margin-left: 30px;
-//     margin-top: -340%;
-// }
-// .hex-column-2 {
-//     margin-left: 60px;
-//     margin-top: -341.7%;
-// }
-// .hex-column-3 {
-//     margin-left: 90px;
-//     margin-top: -340.05%;
 // }
 
 // window.onload=generateCSS;

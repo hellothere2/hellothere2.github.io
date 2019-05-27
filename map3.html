@@ -3,9 +3,16 @@
 <html>
 	<head>
 		<title>Map P.O.C.</title>
-		<link rel="stylesheet" type="text/css" href="hexgrid.css">
+		<!-- <link rel="stylesheet" type="text/css" href="hexgrid.css"> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script src="mappage.js"></script>
+		<script type="text/javascript">
+			var mac_externalcss='hexgrid_mac.css'; //Mac css file
+			var pc_externalcss='hexgrid.css';   //PC/default css file
+			var mactest=navigator.userAgent.indexOf("Mac")!=-1; //Check if using Mac
+			//Then write a stylesheet link based on if Mac or not
+			document.write('<link rel="stylesheet" type="text/css" href="'+ (mactest? mac_externalcss : pc_externalcss) +'">');
+		</script>
 	</head>
 	<body onmousemove="followCursor(event)" onclick="purpify(event)">
 		<div id="out">
