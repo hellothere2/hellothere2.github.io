@@ -1,0 +1,158 @@
+//ITP Land Combat
+
+//Now uses SevenKingdoms Values
+///https://www.reddit.com/r/SevenKingdoms/wiki/land_combat
+//https://www.reddit.com/r/SevenKingdoms/wiki/troop_compositions
+
+//North
+var troopcompositiondatabase_North00 = 25; //light INF Percentage
+var troopcompositiondatabase_North01 = 1; //light INF CV
+var troopcompositiondatabase_North02 = 1; //light INF ACV
+var troopcompositiondatabase_North10 = 25; //heavy INF Percentage
+var troopcompositiondatabase_North11 = 2.1; //heavy INF CV
+var troopcompositiondatabase_North12 = 2.1; //heavy INF ACV
+var troopcompositiondatabase_North20 = 25; //Ranged inf Percentage
+var troopcompositiondatabase_North21 = 1.7; //Ranged inf CV
+var troopcompositiondatabase_North22 = 2.2; //ranged inf ACV
+var troopcompositiondatabase_North30 = 20; //light cav Percentage
+var troopcompositiondatabase_North31 = 2; //light cav CV
+var troopcompositiondatabase_North32 = 1; //light cav ACV
+var troopcompositiondatabase_North40 = 5; //heavy cav Percentage
+var troopcompositiondatabase_North41 = 3; //heavy cav CV
+var troopcompositiondatabase_North42 = 2.1; //heavy cav ACV
+
+//Vale
+var troopcompositiondatabase_Vale00 = 30; //light INF Percentage
+var troopcompositiondatabase_Vale01 = 1; //light INF CV
+var troopcompositiondatabase_Vale02 = 1; //light INF ACV
+var troopcompositiondatabase_Vale10 = 20; //heavy INF Percentage
+var troopcompositiondatabase_Vale11 = 2.2; //heavy INF CV
+var troopcompositiondatabase_Vale12 = 2.2; //heavy INF ACV
+var troopcompositiondatabase_Vale20 = 25; //Ranged inf Percentage
+var troopcompositiondatabase_Vale21 = 1.8; //Ranged inf CV
+var troopcompositiondatabase_Vale22 = 2.3; //ranged inf ACV
+var troopcompositiondatabase_Vale30 = 15; //light cav Percentage
+var troopcompositiondatabase_Vale31 = 2.2; //light cav CV
+var troopcompositiondatabase_Vale32 = 1; //light cav ACV
+var troopcompositiondatabase_Vale40 = 10; //heavy cav Percentage
+var troopcompositiondatabase_Vale41 = 3.3; //heavy cav CV
+var troopcompositiondatabase_Vale42 = 2.2; //heavy cav ACV
+
+//Iron Isles
+var troopcompositiondatabase_IronIsles00 = 40; //light INF Percentage
+var troopcompositiondatabase_IronIsles01 = 2; //light INF CV
+var troopcompositiondatabase_IronIsles02 = 2; //light INF ACV
+var troopcompositiondatabase_IronIsles10 = 35; //heavy INF Percentage
+var troopcompositiondatabase_IronIsles11 = 2.5; //heavy INF CV
+var troopcompositiondatabase_IronIsles12 = 2.5; //heavy INF ACV
+var troopcompositiondatabase_IronIsles20 = 25; //Ranged inf Percentage
+var troopcompositiondatabase_IronIsles21 = 2.1; //Ranged inf CV
+var troopcompositiondatabase_IronIsles22 = 2.6; //ranged inf ACV
+var troopcompositiondatabase_IronIsles30 = 0; //light cav Percentage
+var troopcompositiondatabase_IronIsles31 = 0; //light cav CV
+var troopcompositiondatabase_IronIsles32 = 0; //light cav ACV
+var troopcompositiondatabase_IronIsles40 = 0; //heavy cav Percentage
+var troopcompositiondatabase_IronIsles41 = 0; //heavy cav CV
+var troopcompositiondatabase_IronIsles42 = 0; //heavy cav ACV
+
+//Riverlands
+var troopcompositiondatabase_Riverlands00 = 30; //light INF Percentage
+var troopcompositiondatabase_Riverlands01 = 1; //light INF CV
+var troopcompositiondatabase_Riverlands02 = 1; //light INF ACV
+var troopcompositiondatabase_Riverlands10 = 10; //heavy INF Percentage
+var troopcompositiondatabase_Riverlands11 = 2; //heavy INF CV
+var troopcompositiondatabase_Riverlands12 = 2; //heavy INF ACV
+var troopcompositiondatabase_Riverlands20 = 25; //Ranged inf Percentage
+var troopcompositiondatabase_Riverlands21 = 1.9; //Ranged inf CV
+var troopcompositiondatabase_Riverlands22 = 2.4; //ranged inf ACV
+var troopcompositiondatabase_Riverlands30 = 25; //light cav Percentage
+var troopcompositiondatabase_Riverlands31 = 2.1; //light cav CV
+var troopcompositiondatabase_Riverlands32 = 1; //light cav ACV
+var troopcompositiondatabase_Riverlands40 = 10; //heavy cav Percentage
+var troopcompositiondatabase_Riverlands41 = 3; //heavy cav CV
+var troopcompositiondatabase_Riverlands42 = 2.1; //heavy cav ACV
+
+//Westerlands
+var troopcompositiondatabase_Westerlands00 = 25; //light INF Percentage
+var troopcompositiondatabase_Westerlands01 = 1; //light INF CV
+var troopcompositiondatabase_Westerlands02 = 1; //light INF ACV
+var troopcompositiondatabase_Westerlands10 = 20; //heavy INF Percentage
+var troopcompositiondatabase_Westerlands11 = 2; //heavy INF CV
+var troopcompositiondatabase_Westerlands12 = 2; //heavy INF ACV
+var troopcompositiondatabase_Westerlands20 = 25; //Ranged inf Percentage
+var troopcompositiondatabase_Westerlands21 = 1.8; //Ranged inf CV
+var troopcompositiondatabase_Westerlands22 = 2.3; //ranged inf ACV
+var troopcompositiondatabase_Westerlands30 = 15; //light cav Percentage
+var troopcompositiondatabase_Westerlands31 = 2; //light cav CV
+var troopcompositiondatabase_Westerlands32 = 1; //light cav ACV
+var troopcompositiondatabase_Westerlands40 = 15; //heavy cav Percentage
+var troopcompositiondatabase_Westerlands41 = 3; //heavy cav CV
+var troopcompositiondatabase_Westerlands42 = 2; //heavy cav ACV
+
+//Crownlands
+var troopcompositiondatabase_Crownlands00 = 25; //light INF Percentage
+var troopcompositiondatabase_Crownlands01 = 1; //light INF CV
+var troopcompositiondatabase_Crownlands02 = 1; //light INF ACV
+var troopcompositiondatabase_Crownlands10 = 20; //heavy INF Percentage
+var troopcompositiondatabase_Crownlands11 = 2; //heavy INF CV
+var troopcompositiondatabase_Crownlands12 = 2; //heavy INF ACV
+var troopcompositiondatabase_Crownlands20 = 25; //Ranged inf Percentage
+var troopcompositiondatabase_Crownlands21 = 1.8; //Ranged inf CV
+var troopcompositiondatabase_Crownlands22 = 2.3; //ranged inf ACV
+var troopcompositiondatabase_Crownlands30 = 20; //light cav Percentage
+var troopcompositiondatabase_Crownlands31 = 2; //light cav CV
+var troopcompositiondatabase_Crownlands32 = 1; //light cav ACV
+var troopcompositiondatabase_Crownlands40 = 10; //heavy cav Percentage
+var troopcompositiondatabase_Crownlands41 = 3; //heavy cav CV
+var troopcompositiondatabase_Crownlands42 = 2; //heavy cav ACV
+
+//Reach
+var troopcompositiondatabase_Reach00 = 40; //light INF Percentage
+var troopcompositiondatabase_Reach01 = 1; //light INF CV
+var troopcompositiondatabase_Reach02 = 1; //light INF ACV
+var troopcompositiondatabase_Reach10 = 15; //heavy INF Percentage
+var troopcompositiondatabase_Reach11 = 2; //heavy INF CV
+var troopcompositiondatabase_Reach12 = 2; //heavy INF ACV
+var troopcompositiondatabase_Reach20 = 20; //Ranged inf Percentage
+var troopcompositiondatabase_Reach21 = 1.5; //Ranged inf CV
+var troopcompositiondatabase_Reach22 = 2; //ranged inf ACV
+var troopcompositiondatabase_Reach30 = 15; //light cav Percentage
+var troopcompositiondatabase_Reach31 = 2; //light cav CV
+var troopcompositiondatabase_Reach32 = 1; //light cav ACV
+var troopcompositiondatabase_Reach40 = 10; //heavy cav Percentage
+var troopcompositiondatabase_Reach41 = 3; //heavy cav CV
+var troopcompositiondatabase_Reach42 = 2; //heavy cav ACV
+
+//Stormlands
+var troopcompositiondatabase_Stormlands00 = 25; //light INF Percentage
+var troopcompositiondatabase_Stormlands01 = 1; //light INF CV
+var troopcompositiondatabase_Stormlands02 = 1; //light INF ACV
+var troopcompositiondatabase_Stormlands10 = 25; //heavy INF Percentage
+var troopcompositiondatabase_Stormlands11 = 2.2; //heavy INF CV
+var troopcompositiondatabase_Stormlands12 = 2.2; //heavy INF ACV
+var troopcompositiondatabase_Stormlands20 = 30; //Ranged inf Percentage
+var troopcompositiondatabase_Stormlands21 = 2; //Ranged inf CV
+var troopcompositiondatabase_Stormlands22 = 2.5; //ranged inf ACV
+var troopcompositiondatabase_Stormlands30 = 10; //light cav Percentage
+var troopcompositiondatabase_Stormlands31 = 2; //light cav CV
+var troopcompositiondatabase_Stormlands32 = 1; //light cav ACV
+var troopcompositiondatabase_Stormlands40 = 10; //heavy cav Percentage
+var troopcompositiondatabase_Stormlands41 = 3; //heavy cav CV
+var troopcompositiondatabase_Stormlands42 = 2.2; //heavy cav ACV
+
+//Dorne
+var troopcompositiondatabase_Dorne00 = 30; //light INF Percentage
+var troopcompositiondatabase_Dorne01 = 1.3; //light INF CV
+var troopcompositiondatabase_Dorne02 = 1.3; //light INF ACV
+var troopcompositiondatabase_Dorne10 = 5; //heavy INF Percentage
+var troopcompositiondatabase_Dorne11 = 2; //heavy INF CV
+var troopcompositiondatabase_Dorne12 = 2; //heavy INF ACV
+var troopcompositiondatabase_Dorne20 = 30; //Ranged inf Percentage
+var troopcompositiondatabase_Dorne21 = 1.8; //Ranged inf CV
+var troopcompositiondatabase_Dorne22 = 2.3; //ranged inf ACV
+var troopcompositiondatabase_Dorne30 = 30; //light cav Percentage
+var troopcompositiondatabase_Dorne31 = 2.4; //light cav CV
+var troopcompositiondatabase_Dorne32 = 1.3; //light cav ACV
+var troopcompositiondatabase_Dorne40 = 5; //heavy cav Percentage
+var troopcompositiondatabase_Dorne41 = 3; //heavy cav CV
+var troopcompositiondatabase_Dorne42 = 2; //heavy cav ACV

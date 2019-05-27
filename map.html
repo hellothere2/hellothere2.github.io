@@ -1,164 +1,105 @@
-<!DOCTYPE HTML>
-<!--
-	Hielo by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map</title>
+	<style type="text/css">
+		.coordinates{
+			position: absolute;
+			background-color: black;
+			color: white;
+			width: 75px;
+			height: 35px;
+			z-index: 1;
+		}
+		.map {
+			z-index: 0;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body onmousemove="showCoords(event)">
+	<img id="map" class="map" src="images/7krender.png">
+	<div id="demo" class="coordinates"></div>
+	<br>
+	<br>
+</body>
 
-<style type="text/css">
-	#mousefollowdiv {position: absolute; z-index: 3}
-	#markers {position: absolute; z-index: 2;} /*top:0px; left:0px;*/
-	#map {position: absolute; top: 50px; left: 0px; z-index: 1;}
-	.image-wrapper {
-	position: absolute;
-	transform: translate(-50%, -50%);
-    opacity: 1;
-    z-index: 3 }
-    .dot {
-	  position: absolute;
-	  height: 25px;
-	  width: 25px;
-	  transform: translate(-50%, -50%);
-	  background-color: #000;
-	  border-radius: 50%;
-	  opacity: 1;
-	  z-index: 3;
-	  display: inline-block;
+
+<script type="text/javascript">
+	///script
+	function showCoords(event) {
+		//Get Cursor-following div
+		var d = document.getElementById("demo");
+		//Retrieve relative cursor position
+		var x = event.screenX +document.documentElement.scrollLeft - 8;
+		var y = event.screenY + document.documentElement.scrollTop - 79;
+		//Offset position
+		var mxpos = x + 17;
+		var mypos = y + 20;
+		//Make div follow cursor
+		d.style.top = mypos +"px";
+		d.style.left = mxpos+"px";
+		//Create xy coordinates
+		var coor = x + ", " + y;
+		// HEXES //
+		//Fetch Hex Dimensions
+		var hexDimensionsX = 48; //X Dimensions of hex
+		var hexDimensionsY = 40; //Y dimensions of hex
+		//Create offset so that it measures by the centerpoint
+		var xHexOffset = hexDimensionsX/2; //x offset
+		var yHexOffset = hexDimensionsY/2; //y offset
+		//Grab current hex from x, y coords
+		var xOffset = x-xHexOffset;
+		var yOffset = y-yHexOffset;
+		var xh = xOffset/hexDimensionsX;
+		var yh = yOffset/hexDimensionsY; //true y
+
+
+		// var q = ((2/3)*x)/ hexDimensionsY; //column
+		// var r = (((-1/3)*x) + ((Math.sqrt(3)/3)*y))/hexDimensionsX; //row
+
+
+		// if(xh>=0.4 && xh<=0.8){
+		// 	//
+		// 	yh = yh + 0.5;
+		// }
+
+
+		//To two decimal places
+		xHex1 = xh.toFixed(2);
+		yHex1 = yh.toFixed(2);
+		//Round it to give an accurate hex
+		xHex2 = Math.round(xHex1);
+		yHex2 = Math.round(yHex1);
+
+		//Fetch hex results
+		var hexCoor = xHex1 + ", " + yHex1;
+		//Print results
+		d.innerHTML = coor + "<br> hex " + hexCoor;	
+}
+
+function cube_round(cube){
+	//
+	var rx = Math.round(cube.x);
+	var ry = Math.round(cube.y);
+	var rz = Math.round(cube.z);
+	///
+	var x_diff = Math.abs(rx - cube.x)
+	var y_diff = Math.abs(ry - cube.y)
+	var z_diff = Math.abs(rz - cube.z)
+
+	if(x_diff > y_diff && x_diff > z_diff){
+		//
+		rx = -ry-rz;
+	} else if(y_diff > z_diff){
+		//
+		ry = -rx-rz;
+	} else {
+		//
+		rz = -rx-ry;
 	}
 
-</style>
+}
 
-
-<html>
-	<head>
-		<title>7K Map Coordinates</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="subpage">
-
-		<!-- Header -->
-			<header id="header">
-				<div class="logo"><a href="index.html">7K Map Coordinates <span>by hello_there2</span></a></div>
-				<a href="#menu">Menu</a>
-			</header>
-
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="sevenkingdoms.html">Seven Kingdoms</a></li>
-					<li><a href="internationalrelations.html">International Relations</a></li>
-					<li><a href="worldpowers.html">World Powers</a></li>
-					<li><a href="charactercreation.html">Broken character creator</a></li>
-				</ul>
-			</nav>
-		<a id="markers" href="#" class="button" style="left: 1475px" onclick="clearMarkers()">Clear Markers</a>
-		<a id="markers" href="#" class="button" style="left: 1475px; top: 3360px" onclick="clearMarkers()">Clear Markers</a>
-	    <img id="map" src="images/cropped7kmap.png" alt="My Image">
-	    <!-- <img id="markers" src="images/marker.png" alt="King's Landing" style="left:930px;top:2428px;"> -->
-	    <div id="mousefollowdiv" style="background-color: white">This is a test</div>
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script type="text/javascript">
-				function Hex(x, y, hex_x, hex_y){
-					this.x = x;
-					this.y = y;
-					this.hex_x = hex_x;
-					this.hex_y = hex_y;
-				}
-
-				var HexStorage_X = ["placeholder"];
-				var HexStorage_Y = ["placeholder"];
-				var HowManyMarkers = 0;
-
-				function getRandomColor() {
-				  var letters = '0123456789ABCDEF';
-				  var color = '#';
-				  for (var i = 0; i < 6; i++) {
-				    color += letters[Math.floor(Math.random() * 16)];
-				  }
-				  return color;
-				}
-
-				$(document).mousemove(function(e){
-						var x = event.pageX - map.offsetLeft;
-				        var y = event.pageY - map.offsetTop;
-				        totalX = 103;
-				        totalY = 204;
-				        resolutionX = 1475;
-				        resolutionY = 3365;
-				        hexSize_x = resolutionX / totalX;
-				        hexSize_y = resolutionY / totalY;
-				        var xhex = Math.round(x / hexSize_x);
-				        var yhex = Math.round(0.5+(y/hexSize_y));
-				    $("#mousefollowdiv").css({left: (e.pageX + 30), top: (e.pageY - 00) });
-				    $("#mousefollowdiv").text("X: " + x + ", Y: " + y + " Hex #" + xhex + "," + yhex);
-				});
-
-				var removingStuff = false;
-
-				function clearMarkers(){
-					HexStorage_X = ["placeholder"];
-					HexStorage_y = ["placeholder"];
-					removingStuff = true;
-					while (HowManyMarkers > 0){
-						var element = document.getElementById("dots");
-						document.body.removeChild(element);
-						HowManyMarkers = HowManyMarkers - 1;
-						removingStuff = true;
-					}
-				}
-
-				$(function(){
-				    $(document).click(function(e){
-				    	if (removingStuff != false){
-				    		clearMarkers();
-				    		removingStuff = false;
-				    	} else {
-				    		var div = $('<span id="dots" class="dot">')
-							.css({
-								"left": (e.pageX - 0) + 'px',
-								"top": (e.pageY + 3) + 'px',
-								"background-color": getRandomColor()
-							})
-							.appendTo(document.body);
-							HowManyMarkers += 1;
-				    	}	
-				    });
-				});
-
-
-
-				$(document).ready(function() {
-				    $("img").on("click", function(event) {
-				        var x = event.pageX - map.offsetLeft;
-				        var y = event.pageY - map.offsetTop;
-				        totalX = 103;
-				        totalY = 204;
-				        resolutionX = 1475;
-				        resolutionY = 3365;
-				        hexSize_x = resolutionX / totalX;
-				        hexSize_y = resolutionY / totalY;
-				        var xhex = Math.round(x / hexSize_x);
-				        var yhex = Math.round(0.5+(y/hexSize_y));
-				        var HexCoordinates = new Hex();
-					        HexCoordinates.x = x;
-					        HexCoordinates.y = y;
-					        HexCoordinates.hex_x = xhex;
-					        HexCoordinates.hex_y = yhex;
-					    HexStorage_X.push(HexCoordinates.hex_x);
-					    HexStorage_Y.push(HexCoordinates.hex_y);
-				    });
-				});
-			</script>
-
-	</body>
+</script>
 </html>

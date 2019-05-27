@@ -1,158 +1,170 @@
 <!DOCTYPE HTML>
-<!--
-	Hielo by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
-		<title>HT2's Github</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<title>HelloThere2 - Main</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Load CSS, JS, and Icon -->
+		<link rel="stylesheet" href="css/stylesheet.css">
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+		<script src="js/scripts.js"></script>
+		<!-- Boot jQuery + Bootstrap -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</head>
-	<body>
-
-		<!-- Header -->
-			<header id="header" class="alt">
-				<div class="logo"><a href="index.html">Home <span>by hello_there2</span></a></div>
-				<a href="#menu">Menu</a>
-			</header>
-
-		<!-- Nav -->
-	      <nav id="menu">
-	        <ul class="links">
-	          <li><a href="index.html">Home</a></li>
-	          <li><a href="sevenkingdoms.html">Seven Kingdoms</a></li>
-	          <div style="color:grey;">- 
-	              <a href="sevenkingdoms.html#duelautomator">Duel Automator</a></li><br>- 
-	              <a href="sevenkingdoms.html#joustautomator">Joust Automator</a></li><br>- 
-	              <a href="sevenkingdoms.html#meleeautomator">Melee Automator</a></li><br>- 
-	              <a href="sevenkingdoms.html#landcombat">Land Combat</a></li><br>- 
-	              <a href="sevenkingdoms.html#links">Links</a></li><br>
-	          </div>
-	          <li><a href="internationalrelations.html">International Relations</a></li>
-	          <li><a href="worldpowers.html">World Powers</a></li>
-	        </ul>
-	      </nav>
-
-		<!-- Banner -->
-			<section class="banner full">
-				<article>
-					<img src="helioimages/slide01.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>A free responsive web site by <a href="https://reddit.com/u/hello_there2">hello_there2</a></p>
-							<h2>Hello There</h2>
-						</header>
+	<body data-spy="scroll" data-target="#fixedNavbar" data-offset="50" onload="update();">
+		<!--
+			MODALS
+		-->
+		<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="productModalTitle">Output</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
 					</div>
-				</article>
-				<article>
-					<img src="images/united_nations_flag_grunge.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>International Relations</p>
-							<h2>INTREL</h2>
-						</header>
+					<div class="modal-body">
+						<p>Output</p>
 					</div>
-				</article>
-				<article>
-					<img src="images/newsmapwallpaper.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>The biggest circlejerk of all time</p>
-							<h2>World Powers</h2>
-						</header>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
 					</div>
-				</article>
-				<article>
-					<img src="helioimages/slide04.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>Wedding Simulator 2k17</p>
-							<h2>7 Kingdoms</h2>
-						</header>
-					</div>
-				</article>
-			</section>
-
-		<!-- One -->
-			<section id="one" class="wrapper style2">
-				<div class="inner">
-					<div class="grid-style">
-
-						<div>
-							<div class="box">
-								<div class="image fit">
-									<img src="helioimages/pic02.jpg" alt="" />
-								</div>
-								<div class="content">
-									<header class="align-center">
-										<p>Wait I thought there were more than 7</p>
-										<h2>Seven Kingdoms</h2>
-									</header>
-									<p> Seven Kingdoms is a Role-Playing Game based on the universe of A Song of Ice and Fire by George R. R. Martin. It also happens to be the best place to find new Game of Thrones themed smut. Ever wanted to play medieval themed adult House? Ever want to send pointless letters and basically become a checkmark on a wedding list hundreds of players long? If so, this is the sub for you!</p>
-									<footer class="align-center">
-										<a href="sevenkingdoms.html" class="button alt">Learn More</a>
-									</footer>
-								</div>
+				</div>
+			</div>
+		</div>
+		<!--
+			NAVBAR
+		-->
+		<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+			<!-- navbar-light or navbar-dark ...  style="background-color: #e3f2fd;" -->
+			<a class="navbar-brand" href="#">Hello_There2's Github</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.html#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Services
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="sevenkingdoms.html">7K Duel Bots</a>
+							<a class="dropdown-item" href="7kcombat.html">7K Battle Calculator</a>
+							<a class="dropdown-item" href="#">Military Catalogue</a>
+							<a class="dropdown-item" href="#">Military Balance</a>
+							<a class="dropdown-item" href="internationalrelations.html">Resources</a>
+							<a class="dropdown-item" href="#">Cartography</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<!--
+			BANNER
+		-->
+		<div class="container">
+			<img class="banner_img" src="images/blurred-background-close-up-colors-1098515.jpg">
+			<hr>
+			<!--
+				ABOUT
+			-->
+			<div class="row">
+				<div class="col-lg">
+					<h1 id="about">About</h1>
+					<p>PerfectPigeons, located in Belgium, is the world's best pigeon breeding service. PerfectPigeons has been providing high-quality pigeons since 1647, with noteable clients such as Pope Francis (2013), House Medici circa 1700, and Pope Benedict XIV (1740-1758). Our business offers the world's finest pigeons, doves, and grooming services to some of the world's most influential people. We are able to handle extremely large transactions of several millions of dollars all over the world, so that you can trust where your money is going from the comfort of your home. Whether you are looking for a racing pigeon to win the world championship, a showbird worthy of a magazine cover, or a grooming service that you can trust, PerfectPigeons has got you covered. PerfectPigeons aims to offer our clients nothing less than perfect pigeons.</p>
+					<div id="carouselAbout" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carouselAbout" data-slide-to="0" class="active"></li>
+							<li data-target="#carouselAbout" data-slide-to="1"></li>
+							<li data-target="#carouselAbout" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="images/close-up-geography-globe-893126.jpg" class="d-block w-100" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="images/administration-architecture-art-161863.jpg" class="d-block w-100" alt="...">
+							</div>
+							<div class="carousel-item">
+								<img src="images/close-up-commerce-continent-335393.jpg" class="d-block w-100" alt="...">
 							</div>
 						</div>
-
-						<div>
-							<div class="box">
-								<div class="image fit">
-									<img src="helioimages/pic03.jpg" alt="" />
-								</div>
-								<div class="content">
-									<header class="align-center">
-										<p>The longest lasting wank session</p>
-										<h2>World Powers</h2>
-									</header>
-									<p> WorldPowers is a cooperative worldbuilding RP - that means that each player takes the helm of a country and leads it into a future entirely built by the interactions between one another. Basically the only thing this sub has going for it is that it has outlived the others. I mean they're all pretty shit anyways, it's just one massive circlejerk. None of them have any idea how anything actually works.</p>
-									<footer class="align-center">
-										<a href="worldpowers.html" class="button alt">Learn More</a>
-									</footer>
-								</div>
-							</div>
-						</div>
-
+						<a class="carousel-control-prev" href="#carouselAbout" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselAbout" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div> </div>
+			</section>
+			<hr>
+			<!--
+				PRODUCTS
+			-->
+			<section>
+				<div class="row">
+					<div class="col-lg">
+						<h1 id="services">Services</h1>
+						<p>This site provides a wide array of products and services, including customized automation scripts. I've provided some of my most popular services on this page. I try accomodate all kinds of specific needs to ensure that all of my users are satisfied with their experience on this website. For more details on these or other services, please <a href="https://www.reddit.com/user/Hello_There2/" target="_blank">message me</a>.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<h2>7K Duel/Joust Bot</h2>
+						<img class="product_image" src="images/armor-close-up-combat-161936.jpg">
+						<p class="product_desc">This is the oldest service on the website, but still reliable. This page contains a tool that will automate duels and jousts using the mechanics detailed on r/SevenKingdoms. Accurate results guaranteed in less than one second.</p>
+						<a href="#top" class="btn btn-primary">Visit</a>
+					</div>
+					<div class="col-sm">
+						<h2>7K Battle Calculator</h2>
+						<img class="product_image" src="images/ancient-architecture-buildings-1006094.jpg">
+						<p class="product_desc">Another old entry, this was built as an automator to help the SevenKingdoms mods quickly balance combat mechanics during development. The script was originally hooked up to run several million iterations from the same data, but was altered to fit player needs instead. This allows players to estimate the results of potential conflicts to better strategize.</p>
+						<a href="#top" class="btn btn-primary">Visit</a>
+					</div>
+					<div class="col-sm">
+						<h2>Military Catalogue</h2>
+						<img class="product_image" src="images/ammo-ammunition-army-886454.jpg">
+						<p class="product_desc">A compehensive catalogue of military equipment. Occassionally updated to encompass more entries. Current entries include: none.</p>
+						<a href="#top" class="btn btn-primary">Visit</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<h2>Military Balance</h2>
+						<img class="product_image" src="images/aeroplane-aircraft-airforce-87088.jpg">
+						<p class="product_desc">My newest service, this page attempts to describe the current global balance of powers.</p>
+						<a href="#top" class="btn btn-primary">Visit</a>
+					</div>
+					<div class="col-sm">
+						<h2>Resources</h2>
+						<img class="product_image" src="images/bookcase-books-bookshelves-256541.jpg">
+						<p class="product_desc">From books to statistics, this page is a collection of links that I find useful for either playing or moderating a powers-style game.</p>
+						<a href="internationalrelations.html" class="btn btn-primary">Visit</a>
+					</div>
+					<div class="col-sm">
+						<h2>Cartography</h2>
+						<img class="product_image" src="images/compass-equipment-guidance-1203808.jpg">
+						<p class="product_desc">Maps take up a lot of bandwidth, so I've collected all of the maps I have and put them onto a seperate page for you to browse and download.</p>
+						<a href="#top" class="btn btn-primary">Visit</a>
 					</div>
 				</div>
 			</section>
-
-		<!-- Two -->
-			<section id="two" class="wrapper style3">
-				<div class="inner">
-					<header class="align-center">
-						<p>"Get the fuck off my dick bitch"</p>
-						<h2>Cicero</h2>
-					</header>
-				</div>
-			</section>
-
-
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.facebook.com/howgreatmorgenthauart/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
-				<div class="copyright">
-					&copy; Go Fuck Yourself. All rights reserved.
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+			<hr>
+		</div>
 	</body>
 </html>

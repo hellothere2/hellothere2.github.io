@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>HelloThere2 - 7K Battle Calc</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load CSS, JS, and Icon -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="js/scripts.js"></script>
+    <script src="js/duel.js"></script>
+    <script src="js/itplandcombat.js"></script>
+    <!-- Boot jQuery + Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body data-spy="scroll" data-target="#fixedNavbar" data-offset="50" onload="update();">
+    <!--
+    MODALS
+    -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="productModalTitle">Output</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Output</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+    NAVBAR
+    -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+      <!-- navbar-light or navbar-dark ...  style="background-color: #e3f2fd;" -->
+      <a class="navbar-brand" href="#">Hello_There2's Github</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="sevenkingdoms.html">7K Duel Bots</a>
+              <a class="dropdown-item" href="7kcombat.html">7K Battle Calculator</a>
+              <a class="dropdown-item" href="#">Military Catalogue</a>
+              <a class="dropdown-item" href="#">Military Balance</a>
+              <a class="dropdown-item" href="internationalrelations.html">Resources</a>
+              <a class="dropdown-item" href="#">Cartography</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <!--
+      Battle Automator
+      -->
+      <section>
+        <div class="row">
+          <div class="col-lg">
+            <h1 id="landcombat">Land Combat</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg">
+            <p>So far there are no sieges. This is purely land combat in the field.</p>
+            <p>Every troop has a CV (Combat Value) that is used to judge their strength in battle.</p> 
+            <p>Troops are split up by five different types: light infantry, heavy infantry, ranged infantry, light cavalry, and heavy cavalry. Each type has a different CV, and infantry and cavalry have different movement speeds. Each region of Westeros has different amounts of each type of troop, and different CV values for those troop types. Some regions are missing certain troop types, or have other, unique ones.</p>
+            <p>All the troop compositions and CVs can be found <a href="https://www.reddit.com/r/SevenKingdoms/wiki/troopcomps">here</a>.</p>
+            <p>This script currently does not perform death or retreat checks, although it does provide the necessary information for you to do them yourself. These are required to be run after a battle takes place, depending on what happened. Click <a href="https://www.reddit.com/r/SevenKingdoms/wiki/land_combat">here</a> for the full rules and details.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg form-group">
+            <legend>Force A</legend>
+            <label class="bigLabel" for="Force_A_Name"><abbr title="Required field - usually the House name">Name of Force A</abbr></label>
+            <br>
+            <input class="inputs" type="text" id="Force_A_Name" placeholder="House A" required>
+            <br>
+            <div class="select-wrapper">
+              <select name="commandercategory" id="commander_A_category">
+                <option value="0">- Commander Bonus -</option>
+                <option value="1">Brilliant Tactician</option>
+                <option value="2">Vanguard Commander</option>
+                <option value="3">Excellent Marcher</option>
+                <option value="4">Man of the People</option>
+                <option value="5">Master of the Field</option>
+                <option value="6">Defensive Leader</option>
+                <option value="7">Sand Warrior</option>
+                <option value="8">Mountain Czar</option>
+                <option value="9">Wood Devil</option>
+                <option value="10">Hill Hero</option>
+                <option value="11">Tundra Titan</option>
+              </select>
+            </div>
+            <div class="select-wrapper">
+              <select name="tacticcategory" id="Force_A_TacticID">
+                <option value="0">- Combat Tactic -</option>
+                <option value="1">Centre Focus</option>
+                <option value="2">Flanking Focus</option>
+                <option value="3">Hit and Run</option>
+                <option value="4">Charge</option>
+                <option value="5">Withdrawal</option>
+              </select>
+            </div>
+            <label class="bigLabel" for="Force_A_Strength"><abbr title="Required field">Total number of soldiers</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_A_Strength" placeholder="2500" required>
+            <br>
+            <label class="bigLabel" for="Force_A_input_lightinf"><abbr title="Required Percentage">Light inf. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_A_input_lightinf" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_A_input_heavyinf"><abbr title="Required Percentage">Heavy inf. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_A_input_heavyinf" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_A_input_rangedinf"><abbr title="Required Percentage">Ranged inf. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_A_input_rangedinf" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_A_input_lightcav"><abbr title="Required Percentage">Light cav. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_A_input_lightcav" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_A_input_heavycav"><abbr title="Required Percentage">Heavy cav. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_A_input_heavycav" placeholder="20" required> %
+            <p class="spacer"></p>
+            <hr>
+            <label class="factionLabel"><abbr title="Required Field">Force A Faction</abbr></label>
+            <br>
+            <input type="radio" id="Afaction_type_North" name="afaction_type" checked>
+            <label class="bigLabel" for="Afaction_type_North">North</label><br>
+            <input type="radio" id="Afaction_type_Vale" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_Vale">Vale</label><br>
+            <input type="radio" id="Afaction_type_IronIsles" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_IronIsles">Iron Isles</label><br>
+            <input type="radio" id="Afaction_type_Riverlands" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_Riverlands">Riverlands</label><br>
+            <input type="radio" id="Afaction_type_Westerlands" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_Westerlands">Westerlands</label><br>
+            <input type="radio" id="Afaction_type_Crownlands" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_Crownlands">Crownlands</label><br>
+            <input type="radio" id="Afaction_type_Reach" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_Reach">Reach</label><br>
+            <input type="radio" id="Afaction_type_Stormlands" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_Stormlands">Stormlands</label><br>
+            <input type="radio" id="Afaction_type_Dorne" name="afaction_type">
+            <label class="bigLabel" for="Afaction_type_Dorne">Dorne</label>
+            <br>
+            <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
+            <hr>
+        </div>
+        <!-- 
+          FORCE B 
+        -->
+          <div class="col-lg form-group">
+            <legend>Force B</legend>
+            <label class="bigLabel" for="Force_B_Name"><abbr title="Required field - usually the House name">Name of Force B (defender during siege)</abbr></label>
+            <br>
+            <input class="inputs" type="text" id="Force_B_Name" placeholder="House B" required>
+            <br>
+            <div class="select-wrapper">
+              <select name="commandercategory" id="commander_B_category">
+                <option value="0">- Commander Bonus -</option>
+                <option value="1">Brilliant Tactician</option>
+                <option value="2">Vanguard Commander</option>
+                <option value="3">Excellent Marcher</option>
+                <option value="4">Man of the People</option>
+                <option value="5">Master of the Field</option>
+                <option value="6">Defensive Leader</option>
+                <option value="7">Sand Warrior</option>
+                <option value="8">Mountain Czar</option>
+                <option value="9">Wood Devil</option>
+                <option value="10">Hill Hero</option>
+                <option value="11">Tundra Titan</option>
+              </select>
+            </div>
+            <div class="select-wrapper">
+              <select name="tacticcategory" id="Force_B_TacticID">
+                <option value="0">- Combat Tactic -</option>
+                <option value="1">Centre Focus</option>
+                <option value="2">Flanking Focus</option>
+                <option value="3">Hit and Run</option>
+                <option value="4">Charge</option>
+                <option value="5">Withdrawal</option>
+              </select>
+            </div>
+            <label class="bigLabel" for="Force_B_Strength"><abbr title="Required field">Total number of soldiers</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_B_Strength" placeholder="2500" required>
+            <br>
+            <label class="bigLabel" for="Force_B_input_lightinf"><abbr title="Required Percentage">Light inf. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_B_input_lightinf" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_B_input_heavyinf"><abbr title="Required Percentage">Heavy inf. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_B_input_heavyinf" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_B_input_rangedinf"><abbr title="Required Percentage">Ranged inf. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_B_input_rangedinf" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_B_input_lightcav"><abbr title="Required Percentage">Light cav. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_B_input_lightcav" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="Force_B_input_heavycav"><abbr title="Required Percentage">Heavy cav. composition</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="Force_B_input_heavycav" placeholder="20" required> %
+            <br>
+            <label class="bigLabel" for="DV"><abbr title="Required Field">DV</abbr></label>
+            <br>
+            <input class="inputs" type="number" id="DV" placeholder="1" required>
+            <br>
+            <hr>
+            <label class="factionLabel"><abbr title="Required Field">Force B Faction</abbr></label>
+            <br>
+            <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked>
+            <label class="bigLabel" for="Bfaction_type_North">North</label><br>
+            <input type="radio" id="Bfaction_type_Vale" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_Vale">Vale</label><br>
+            <input type="radio" id="Bfaction_type_IronIsles" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_IronIsles">Iron Isles</label><br>
+            <input type="radio" id="Bfaction_type_Riverlands" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_Riverlands">Riverlands</label><br>
+            <input type="radio" id="Bfaction_type_Westerlands" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_Westerlands">Westerlands</label><br>
+            <input type="radio" id="Bfaction_type_Crownlands" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_Crownlands">Crownlands</label><br>
+            <input type="radio" id="Bfaction_type_Reach" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_Reach">Reach</label><br>
+            <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_Stormlands">Stormlands</label><br>
+            <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type">
+            <label class="bigLabel" for="Bfaction_type_Dorne">Dorne</label>
+            <br>
+            <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
+            <hr>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-lg form-group">
+            <input type="radio" id="Combat_Type_Field" name="combattype" checked>
+            <label for="Combat_Type_Field">Field Battle</label><br>
+            <input type="radio" id="Combat_Type_Siege" name="combattype">
+            <label for="Combat_Type_Siege">Siege Assault</label>
+            <div class="select-wrapper">
+              <select name="terraincategory" id="terrainID">
+                <option value="0">- Terrain -</option>
+                <option value="1">Grasslands</option>
+                <option value="2">Hills</option>
+                <option value="3">Forests</option>
+                <option value="4">Mountains</option>
+                <option value="5">Swamps</option>
+                <option value="6">Deserts</option>
+                <option value="7">Tundra</option>
+              </select>
+            </div>
+            <hr>
+            <input type="button" value="Submit" onclick="battlemechanics()">
+            <input type="button" value="Clear Results" onclick="clearresults()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg">
+            <hr>
+            <h2>Results</h2>
+            <div id="battleout">asdfasdfs</div>
+            <hr>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

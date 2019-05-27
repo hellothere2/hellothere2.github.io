@@ -1,661 +1,248 @@
 <!DOCTYPE HTML>
-<!--
-  Hielo by TEMPLATED
-  templated.co @templatedco
-  Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
   <head>
-    <title>SevenKingdoms</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <title>HelloThere2 - 7K Automators</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load CSS, JS, and Icon -->
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <script src="js/scripts.js"></script>
+    <script src="js/duel.js"></script>
+    <script src="js/itplandcombat.js"></script>
+    <!-- Boot jQuery + Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
-  <body class="subpage">
-
-    <!-- Header -->
-      <header id="header">
-        <div class="logo"><a href="index.html">SevenKingdoms <span>by hello_there2</span></a></div>
-        <a href="#menu">Menu</a>
-      </header>
-
-    <!-- Nav -->
-      <nav id="menu">
-        <ul class="links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="sevenkingdoms.html">Seven Kingdoms</a></li>
-          <div style="color:grey;">- 
-              <a href="sevenkingdoms.html#duelautomator">Duel Automator</a></li><br>- 
-              <a href="sevenkingdoms.html#joustautomator">Joust Automator</a></li><br>- 
-              <a href="sevenkingdoms.html#meleeautomator">Melee Automator</a></li><br>- 
-              <a href="sevenkingdoms.html#landcombat">Land Combat</a></li><br>- 
-              <a href="sevenkingdoms.html#links">Links</a></li><br>
+  <body data-spy="scroll" data-target="#fixedNavbar" data-offset="50" onload="update();">
+    <!--
+      MODALS
+    -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="productModalTitle">Output</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <li><a href="internationalrelations.html">International Relations</a></li>
-          <li><a href="worldpowers.html">World Powers</a></li>
-        </ul>
-      </nav>
-
-
-    <!-- One -->
-      <section id="One" class="wrapper style3">
-        <div class="inner">
-          <header class="align-center">
-            <p>Wedding Simulator 2017</p>
-            <h2>Seven Kingdoms</h2>
-          </header>
+          <div class="modal-body">
+            <p>Output</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+          </div>
         </div>
-      </section>
-
-    <!-- Two -->
-      <section id="two" class="wrapper style2">
-        <div class="inner">
-          <div class="box">
-            <div class="content">
-              <header class="align-center">
-                <h2>Scripts</h2>
-              </header>
-<<<<<<< HEAD
-              <p><a href="#duelautomator">Duel Automator</a>
-              <br>
-              <a href="#joustautomator">Joust Automator</a>
-              <br>
-              <a href="#meleeautomator">Melee Automator</a>
-              <br>
-              <a href="#landcombat">Land Combat Script</a>
-              <br>
-              <a href="#smut">Smut Generator</a>
-              </p>
-=======
->>>>>>> 113e147ea0e9b392284df372e1363ec68e2b27c6
-              <h3 id="duelautomator">Duel Automator</h3>
+      </div>
+    </div>
+    <!--
+      NAVBAR
+    -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+      <!-- navbar-light or navbar-dark ...  style="background-color: #e3f2fd;" -->
+      <a class="navbar-brand" href="#">Hello_There2's Github</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="sevenkingdoms.html">7K Duel Bots</a>
+              <a class="dropdown-item" href="7kcombat.html">7K Battle Calculator</a>
+              <a class="dropdown-item" href="#">Military Catalogue</a>
+              <a class="dropdown-item" href="#">Military Balance</a>
+              <a class="dropdown-item" href="internationalrelations.html">Resources</a>
+              <a class="dropdown-item" href="#">Cartography</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+        <!--
+          Duel Automator
+        -->
+        <section>
+          <div class="row">
+            <div class="col-lg">
+              <h1 id="duelautomator">Duel Automator</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg">
               <p>Default HP value is 50, default skill bonus is 0. Duels function by rolling a d75 + Skill for each player (d50 if blunt weapons).<br>
                 The difference between the attack rolls is taken from the lower roll's HP pool.<br>
                 This occurs until one player reaches the "HP to stop duel at" number OR LOWER.<br>
-                This means that you can still die in a friendly duel, since the other duelist could roll high<br>
-                and take away health past the target HP. <br>
-              </p>
-                <h4>Usage Instructions</h4>
-                <p>Enter the relevant DUEL information in the appropriate boxes. If you do not specify values, the program will automatically fill them in, and you might not like the results... Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the results :) </p>
-                <fieldset id="DuelContestants">
-                  <form>
-                    <legend>Duel Contestants - Enter info to customize:</legend>
-                    <div class="row">
-                      <div class="6u 12u$(small)">
-                        Contestant 1 name:<br>
-                        <input type="text" id="duelistA_name" value="Duelist A"><br>
-                        Contestant 1 health:<br>
-                        <input type="number" id="duelistA_hp" value="50"><br>
-                        Contestant 1 Skill bonus:<br>
-                        <input type="number" id="duelistA_skill" value="1"><br>
-                      </div>
-                      <div class="6u 12u$(small)">
-                        Contestant 2 name:<br>
-                        <input type="text" id="duelistB_name" value="Duelist B"><br>
-                        Contestant 2 health:<br>
-                        <input type="number" id="duelistB_hp" value="50"><br>
-                        Contestant 2 Skill bonus:<br>
-                        <input type="number" id="duelistB_skill" value="1"><br>
-                      </div>
-                    </div>
-                    <br>
-                    HP to stop duel at:<br>
-                    <input type="number" id="Dueltype" value="0"> 0 = To the death<br>
-                    <br>
-                    <div class="4u 12u$(small)">
-                    <input type="radio" name="bluntduel" id="duel_normalWeapons" value="75" checked>
-                    <label for="duel_normalWeapons">Normal Weapons</label><br>
-                    <input type="radio" name="bluntduel" id="duel_bluntWeapons" value="50">
-                    <label for="duel_bluntWeapons">Blunt Weapons</label>
-                    </div>
-                    <input type="button" value="Submit Duel Values" onclick="dickbutt()">
-                    <input type="button" value="Clear Results" onclick="clearduelresults()">
-                  </form>
-                  <h2>Results</h2>
-                  <div id="duelout">
-                  <p> </p>
-                  </div>
-                </fieldset>
-
-
-              </div>
+                This means that you can still die in a friendly duel, since the other duelist could roll high and take away health past the target HP. <br></p>
+              <h2>Usage Instructions</h2>
+              <p>Enter the relevant DUEL information in the appropriate boxes. Hit "Submit Duel Values" to generate a full DUEL. You can copy and paste the results :) </p>
+            </div>
+            <div class="col-lg">
+              <form name="duelContestants" class="duelForm" method="post">
+                <legend>Duel Contestants - Enter info to customize:</legend>
+                <label class="bigLabel" for="duelistA_name"><abbr title="Required field">Contestant 1</abbr></label>
+                <br>
+                <input class="inputs" type="text" id="duelistA_name" placeholder="Duelist A" required>
+                <br/>
+                <label class="bigLabel" for="duelistA_hp"><abbr title="Required field">Contestant 1 HP</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="duelistA_hp" placeholder="50" required>
+                <br/>
+                <label class="bigLabel" for="duelistA_hp"><abbr title="Required field">Contestant 1 Skill Bonus</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="duelistA_hp" placeholder="1" required>
+                <br/>
+                <hr>
+                <label class="bigLabel" for="duelistA_name"><abbr title="Required field">Contestant 2</abbr></label>
+                <br>
+                <input class="inputs" type="text" id="duelistB_name" placeholder="Duelist B" required>
+                <br/>
+                <label class="bigLabel" for="duelistB_hp"><abbr title="Required field">Contestant 2 HP</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="duelistB_hp" placeholder="50" required>
+                <br/>
+                <label class="bigLabel" for="duelistB_skill"><abbr title="Required field">Contestant 2 Skill Bonus</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="duelistB_skill" placeholder="1" required>
+                <br/>
+                <hr>
+                <label class="bigLabel" for="dueltype"><abbr title="HP contestants will yield at; 0=death">Stop Value</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="Dueltype" placeholder="0" required>
+                <hr>
+                <input class="inputs" type="radio" name="bluntDuel" id="duel_normalWeapons" value="75" required checked>
+                <label class="bigLabel" for="duel_normalWeapons"><abbr title="75">Normal Weapons</abbr></label>
+                <input class="inputs" type="radio" name="bluntDuel" id="duel_bluntWeapons" value="50" required>
+                <label class="bigLabel" for="duel_bluntWeapons"><abbr title="50">Blunt Weapons</abbr></label>
+                <hr>
+                <br>
+                <!-- Submit -->
+                <input type="button" class="btn btn-primary" value="Submit Duel Values" onclick="dickbutt()">
+                <input type="button" class="btn btn-secondary" value="Clear Results" onclick="clearduelresults()">
+              </form>
+            </div>
           </div>
-        </div>
-      </section>
-
-
-
-
-      <section id="two" class="wrapper style2">
-        <div class="inner">
-          <div class="box">
-            <div class="content">
-              <h3 id="joustautomator">Joust Automator</h3>
+          <div class="row">
+            <div class="col-lg">
+              <hr>
+              <h2>Results</h2>
+              <div id="duelout">asdfasdfs</div>
+              <hr>
+            </div>
+          </div>
+        </section>
+        <!--
+          Joust Automator
+        -->
+        <section>
+          <div class="row">
+            <div class="col-lg">
+              <h1 id="joustautomator">Joust Automator</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg">
               <p>Default skill value is 0. Jousts function by rolling a d20 + Skill for each player.<br>
-                The difference between the rolls is used to determine what happens. This occurs until one player is forced to make a death save, until 7 tilts have passed, or until on of the contestants gets tired out. Death and serious injury is a possiblity in jousts.
-              </p>
-
-
-              <h4>JOUST RULES</h4>
+                The difference between the rolls is used to determine what happens. This occurs until one player is forced to make a death save, until 7 tilts have passed, or until on of the contestants gets tired out. Death and serious injury is a possiblity in jousts.</p>
+              <h2>JOUST RULES</h2>
               <p>The standard settings should be:<br>
               Skill set to 0 on both jousters, maluses not allowed to go below zero, check for injuries on 17+, and death occurs between 1-4.</p>
-
               <a href="https://www.reddit.com/r/SevenKingdoms/comments/2vp30m/meta_new_jousting_rules_proposal_test/">LINK TO STANDARD JOUSTING RULES</a>
-
-                <h4>Usage Instructions</h4>
-              <p>Enter the relevant JOUST information in the appropriate boxes. If you do not specify values,<br>
-              the program will automatically fill them in, and you might not like the results...<br>
-              Hit "Submit Joust Values" to generate a full JOUST. You can copy and paste the results :) </p>
-
-
-              <fieldset id="JoustContestants">
-                <form>
-                  <legend>Joust Contestants - Enter info to customize:</legend>
-
-                  <div class="row">
-                    <div class="6u 12u$(small)">
-                      Contestant 1 name:<br>
-                      <input type="text" id="JousterA" value="Jouster A"><br>
-                      Contestant 1 Skill bonus:<br>
-                      <input type="number" id="JousterSkillA" value="1"><br>
-                    </div>
-                    <div class="6u 12u$(small)">
-                      Contestant 2 name:<br>
-                      <input type="text" id="JousterB" value="Jouster B"><br>
-                      Contestant 2 Skill bonus:<br>
-                      <input type="number" id="JousterSkillB" value="1"><br>
-                    </div>
-                  </div> <br>
-                  <div class="row">
-                    <div class="4u 12u$(small)">
-                      Allow maluses to go negative?<br>
-                      <input type="radio" name="malus" id="mal0" value="0" checked>
-                      <label for="mal0">No</label><br>
-                      <input type="radio" name="malus" id="malneg" value="-1000">
-                      <label for="malneg">Yes</label>
-                    </div>
-                    <div class="4u 12u$(small)">
-                      Roll injury saves when the difference between rolls is greater than or equal to...<br>
-                      <input type="radio" name="ds" id="ds19" value="19">
-                      <label for="ds19">19</label><br>
-                      <input type="radio" name="ds" id="ds18" value="18">
-                      <label for="ds18">18</label><br>
-                      <input type="radio" name="ds" id="ds17" value="17" checked>
-                      <label for="ds17">17</label><br>
-                      <input type="radio" name="ds" id="ds16" value="16">
-                      <label for="ds16">16</label>
-                    </div>
-                    <div class="4u 12u$(small)">
-                      On a D20 injury save, death occurs on between 1 and...<br>
-                      <input type="radio" name="dsdn" id="ds2" value="2">
-                      <label for="ds2">2</label><br>
-                      <input type="radio" name="dsdn" id="ds3" value="3">
-                      <label for="ds3">3</label><br>
-                      <input type="radio" name="dsdn" id="ds4" value="4" checked>
-                      <label for="ds4">4</label><br>
-                      <input type="radio" name="dsdn" id="ds5" value="5">
-                      <label for="ds5">5</label>
-                    </div>
-                  </div>
-                  
-                  <input type="button" value="Submit Joust Values" onclick="joust()">
-                  <input type="button" value="Clear Results" onclick="clearjoustresults()">
-                </form>
-                <h2>Results</h2>
-                  <div id="joustout">
-                  <p> </p>
-                  </div>
-                </fieldset>
+              <h2>Usage Instructions</h2>
+              <p>Enter the relevant JOUST information in the appropriate boxes. Hit "Submit Joust Values" to generate a full JOUST. You can copy and paste the results :) </p>
+            </div>
+            <div class="col-lg">
+              <form name="joustContestants" class="joustForm" method="post">
+                <legend>Joust Contestants - Enter info to customize:</legend>
+                <label class="bigLabel" for="JousterA"><abbr title="Required field">Contestant 1</abbr></label>
+                <br>
+                <input class="inputs" type="text" id="JousterA" placeholder="Jouster A" required>
+                <br/>
+                <label class="bigLabel" for="JousterSkillA"><abbr title="Required field">Contestant 1 Skill Bonus</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="JousterSkillA" placeholder="1" required>
+                <br/>
+                <hr>
+                <label class="bigLabel" for="JousterB"><abbr title="Required field">Contestant 2</abbr></label>
+                <br>
+                <input class="inputs" type="text" id="JousterB" placeholder="Jouster B" required>
+                <br/>
+                <label class="bigLabel" for="JousterSkillB"><abbr title="Required field">Contestant 2 Skill Bonus</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="JousterSkillB" placeholder="1" required>
+                <br/>
+                <hr>
+                <label class="bigLabel" for="dueltype"><abbr title="HP contestants will yield at; 0=death">Stop Value</abbr></label>
+                <br>
+                <input class="inputs" type="number" id="Dueltype" placeholder="0" required>
+                <hr>
+                <label class="bigLabel"><abbr title="Required field">Allow maluses to go negative?</abbr></label>
+                <br>
+                <input class="inputs" type="radio" name="malus" id="mal0" value="0" required checked>
+                <label class="bigLabel" for="mal0"><abbr title="Modifier limit = 0">No</abbr></label>
+                <input class="inputs" type="radio" name="malus" id="malneg" value="-1000" required>
+                <label class="bigLabel" for="malneg"><abbr title="Modifier limit = -1000">Yes</abbr></label>
+                <hr>
+                <br>
+                <label class="bigLabel"><abbr title="Required field">Roll injury saves when the difference between rolls is greater than or equal to...</abbr></label>
+                <br>
+                <input class="inputs" type="radio" name="ds" id="ds19" value="19" required>
+                <label class="bigLabel" for="ds19">19</label>
+                <br>
+                <input class="inputs" type="radio" name="ds" id="ds18" value="18" required>
+                <label class="bigLabel" for="ds18">18</label>
+                <br>
+                <input class="inputs" type="radio" name="ds" id="ds17" value="17" required checked>
+                <label class="bigLabel" for="ds17"><abbr title="Default">17</abbr></label>
+                <br>
+                <input class="inputs" type="radio" name="ds" id="ds16" value="16" required>
+                <label class="bigLabel" for="ds16">16</label>
+                <hr>
+                <br>
+                <label class="bigLabel"><abbr title="Required field">On a D20 injury save, death occurs on between 1 and...</abbr></label>
+                <br>
+                <input class="inputs" type="radio" name="dsdn" id="ds2" value="2" required>
+                <label class="bigLabel" for="ds19">2</label>
+                <br>
+                <input class="inputs" type="radio" name="dsdn" id="ds3" value="3" required>
+                <label class="bigLabel" for="ds3">3</label>
+                <br>
+                <input class="inputs" type="radio" name="dsdn" id="ds4" value="4" required checked>
+                <label class="bigLabel" for="ds4"><abbr title="Default">4</abbr></label>
+                <br>
+                <input class="inputs" type="radio" name="dsdn" id="ds5" value="5" required>
+                <label class="bigLabel" for="ds5">5</label>
+                <hr>
+                <br>
+                <!-- Submit -->
+                <input type="button" class="btn btn-primary" value="Submit Joust Values" onclick="joust()">
+                <input type="button" class="btn btn-secondary" value="Clear Results" onclick="clearjoustresults()">
+              </form>
             </div>
           </div>
-        </div>
-      </section>
-
-
-      <section id="two" class="wrapper style2">
-        <div class="inner">
-          <div class="box">
-            <div class="content">
-              <h3 id="meleeautomator">Melee Automator (broken - under maintainance)</h3>
-                <p>Melees function by rolling a d50 + Skill for each player (d75 if sharp weapons).<br>
-                  If a contestant rolls lower than the specified threshold, they are eliminated from the melee.<br>
-                  In order for the code to work, skill bonuses must not be greater than or equal to the threshold.
-                </p>
-                <h4>Usage Instructions</h4>
-                <p>
-                Enter the relevant MELEE information in the appropriate boxes.<br>
-                Hit "Generate Melee" to generate a MELEE. You can copy and paste the results :) </p>
-                <fieldset id="fieldset2">
-                  <form>
-                    <legend>Melee Contestants - Enter info to customize:</legend>
-                    <input type="number" id="member" name="member" value="3">Number of Members<br>
-                    <input type="button" id="filldetails" onclick="addFields()" value="Generate Fields"><br>
-                    Contestant Information<br>
-                    <div id="ContestantInputs"></div><br>
-                    Threshold:<br>
-                    <input type="number" id="iThreshold" value="2"> Minimum 2<br>
-                    Dice Size:<br>
-                    <input type="number" id="iWeaponStrength" value="50"> Minimum 4<br>
-                    <br>
-
-                    <div class="row">
-                      <div class="6u 12u$(small)">
-                        Run a whole melee or just one round at a time?<br>
-                        <input type="radio" name="MeleeRadioButton" id="SingleRound">
-                        <label for="SingleRound">Run a single round</label><br>
-                        <input type="radio" name="MeleeRadioButton" id="MultipleRounds" checked>
-                        <label for="MultipleRounds">Run the full melee</label>
-                      </div>
-                      <div class="6u 12u$(small)">
-                        Eliminate contestants via Threshold or by the lowest roll?<br>
-                        <input type="radio" name="MeleeRadioButton2" id="EliminateViaThreshold" checked>
-                        <label for="EliminateViaThreshold">Eliminate via Threshold</label><br>
-                        <input type="radio" name="MeleeRadioButton2" id="EliminateViaOther">
-                        <label for="EliminateViaOther">Eliminate the lowest roll</label>
-                      </div>
-                    </div>
-                    <input type="button" value="Generate Melee" onclick="melee()">
-                    <input type="button" value="Clear Results" onclick="clearmeleeresults()">
-                    </form>
-                    <h2>Results</h2>
-                    <div id="meleeout">
-
-                    <p> </p>
-
-                    </div>
-                  </fieldset>
+          <div class="row">
+            <div class="col-lg">
+              <hr>
+              <h2>Results</h2>
+              <div id="joustout">asdfasdfs</div>
             </div>
           </div>
-        </div>
-      </section>
-
-
-<<<<<<< HEAD
-                      <h3 id="landcombat">Land Combat</h3>
-=======
-
-      <section id="two" class="wrapper style2">
-        <div class="inner">
-          <div class="box">
-            <div class="content">
-              <h3 id="landcombat">Land Combat</h3>
->>>>>>> 113e147ea0e9b392284df372e1363ec68e2b27c6
-                      <h4>Usage Instructions</h4>
-                      So far there are no sieges. This is purely land combat in the field.
-                      <br>Every troop has a CV (Combat Value) that is used to judge their strength in battle.
-                      <br>Troops are split up by five different types: light infantry, heavy infantry, ranged infantry, light cavalry, and heavy cavalry. Each type has a different CV, and infantry and cavalry have different movement speeds. Each region of Westeros has different amounts of each type of troop, and different CV values for those troop types. Some regions are missing certain troop types, or have other, unique ones.<br>
-                      All the troop compositions and CVs can be found <a href="https://www.reddit.com/r/SevenKingdoms/wiki/troopcomps">here</a>. <br>
-                      This script currently does not perform death or retreat checks, although it does provide the necessary information for you to do them yourself. These are required to be run after a battle takes place, depending on what happened. Click <a href="https://www.reddit.com/r/SevenKingdoms/wiki/land_combat">here</a> for the full rules and details.
-                      <fieldset id="landcombatform">
-                        <form>
-                          <div class="row">
-                            <div class="6u 12u$(small)">
-                              <legend>Force A:</legend>
-                              <input type="text" id="Force_A_Name" value="House A"> Name of Force A (usually the House Name)<br> <br>
-                              <div class="12u$">
-                                <div class="select-wrapper">
-                                  <select name="commandercategory" id="commander_A_category">
-                                    <option value="0">- Commander Bonus -</option>
-                                    <option value="1">Brilliant Tactician</option>
-                                    <option value="2">Vanguard Commander</option>
-                                    <option value="3">Excellent Marcher</option>
-                                    <option value="4">Man of the People</option>
-                                    <option value="5">Master of the Field</option>
-                                    <option value="6">Defensive Leader</option>
-                                    <option value="7">Sand Warrior</option>
-                                    <option value="8">Mountain Czar</option>
-                                    <option value="9">Wood Devil</option>
-                                    <option value="10">Hill Hero</option>
-                                    <option value="11">Tundra Titan</option>
-                                  </select>
-                                </div>
-                              </div>
-                              Total number of soldiers.<br>
-                              <input type="number" id="Force_A_Strength" value="2500">
-                              <br>Light inf. composition<br>
-                              <input type="number" id="Force_A_input_lightinf" value="20"> %
-                              <br>Heavy inf. composition<br>
-                              <input type="number" id="Force_A_input_heavyinf" value="20"> %
-                              <br>Ranged inf. composition<br>
-                              <input type="number" id="Force_A_input_rangedinf" value="20"> %
-                              <br>Light cav. composition<br>
-                              <input type="number" id="Force_A_input_lightcav" value="20"> %
-                              <br>Heavy cav. composition<br>
-                              <input type="number" id="Force_A_input_heavycav" value="20"> %
-                              <br>
-                              <div class="6u 12u$(small)">
-                                <br>
-                                <input type="radio" id="Afaction_type_North" name="afaction_type" checked>
-                                <label for="Afaction_type_North">North</label><br>
-                                <input type="radio" id="Afaction_type_Vale" name="afaction_type">
-                                <label for="Afaction_type_Vale">Vale</label><br>
-                                <input type="radio" id="Afaction_type_IronIsles" name="afaction_type">
-                                <label for="Afaction_type_IronIsles">Iron Isles</label><br>
-                                <input type="radio" id="Afaction_type_Riverlands" name="afaction_type">
-                                <label for="Afaction_type_Riverlands">Riverlands</label><br>
-                                <input type="radio" id="Afaction_type_Westerlands" name="afaction_type">
-                                <label for="Afaction_type_Westerlands">Westerlands</label><br>
-                                <input type="radio" id="Afaction_type_Crownlands" name="afaction_type">
-                                <label for="Afaction_type_Crownlands">Crownlands</label><br>
-                                <input type="radio" id="Afaction_type_Reach" name="afaction_type">
-                                <label for="Afaction_type_Reach">Reach</label><br>
-                                <input type="radio" id="Afaction_type_Stormlands" name="afaction_type">
-                                <label for="Afaction_type_Stormlands">Stormlands</label><br>
-                                <input type="radio" id="Afaction_type_Dorne" name="afaction_type">
-                                <label for="Afaction_type_Dorne">Dorne</label>
-                              </div>
-                              <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
-                              <br>
-                            </div>
-<<<<<<< HEAD
-                          </div>
-                          <br>
-                          <div class="12u$">
-                            <div class="select-wrapper">
-                              <select name="tacticcategory" id="Force_A_TacticID">
-                                <option value="0">- Combat Tactic -</option>
-                                <option value="1">Centre Focus</option>
-                                <option value="2">Flanking Focus</option>
-                                <option value="3">Hit and Run</option>
-                                <option value="4">Charge</option>
-                                <option value="5">Withdrawal</option>
-                              </select>
-                            </div>
-                          </div>
-                          <input type="number" id="Force_A_Strength" value="2500"> Total number of soldiers.<br>
-                          <input type="number" id="Force_A_input_lightinf" value="20"> % light inf.<br>
-                          <input type="number" id="Force_A_input_heavyinf" value="20"> % heavy inf.<br>
-                          <input type="number" id="Force_A_input_rangedinf" value="20"> % ranged inf.<br>
-                          <input type="number" id="Force_A_input_lightcav" value="20"> % light cav.<br>
-                          <input type="number" id="Force_A_input_heavycav" value="20"> % heavy cav.<br>
-                          <br>
-                          <div class="4u 12u$(small)">
-                          <input type="radio" id="Afaction_type_North" name="afaction_type" checked>
-                          <label for="Afaction_type_North">North</label><br>
-                          <input type="radio" id="Afaction_type_Vale" name="afaction_type">
-                          <label for="Afaction_type_Vale">Vale</label><br>
-                          <input type="radio" id="Afaction_type_IronIsles" name="afaction_type">
-                          <label for="Afaction_type_IronIsles">Iron Isles</label><br>
-                          <input type="radio" id="Afaction_type_Riverlands" name="afaction_type">
-                          <label for="Afaction_type_Riverlands">Riverlands</label><br>
-                          <input type="radio" id="Afaction_type_Westerlands" name="afaction_type">
-                          <label for="Afaction_type_Westerlands">Westerlands</label><br>
-                          <input type="radio" id="Afaction_type_Crownlands" name="afaction_type">
-                          <label for="Afaction_type_Crownlands">Crownlands</label><br>
-                          <input type="radio" id="Afaction_type_Reach" name="afaction_type">
-                          <label for="Afaction_type_Reach">Reach</label><br>
-                          <input type="radio" id="Afaction_type_Stormlands" name="afaction_type">
-                          <label for="Afaction_type_Stormlands">Stormlands</label><br>
-                          <input type="radio" id="Afaction_type_Dorne" name="afaction_type">
-                          <label for="Afaction_type_Dorne">Dorne</label>
-                          </div>
-                          <input type="button" value="Standard Comp" onclick="A_StandardComp()"><br>
-                          <br>
-                          <legend>Force B (Defender in Siege):</legend>
-                          <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br> <br>
-                          <div class="12u$">
-                            <div class="select-wrapper">
-                              <select name="commandercategory2" id="commander_B_category">
-                                <option value="0">- Commander Bonus -</option>
-                                <option value="1">Brilliant Tactician</option>
-                                <option value="2">Vanguard Commander</option>
-                                <option value="3">Excellent Marcher</option>
-                                <option value="4">Man of the People</option>
-                                <option value="5">Master of the Field</option>
-                                <option value="6">Defensive Leader</option>
-                                <option value="7">Sand Warrior</option>
-                                <option value="8">Mountain Czar</option>
-                                <option value="9">Wood Devil</option>
-                                <option value="10">Hill Hero</option>
-                                <option value="11">Tundra Titan</option>
-                              </select>
-                            </div>
-                          </div>
-                          <br>
-                          <div class="12u$">
-                            <div class="select-wrapper">
-                              <select name="tacticcategory" id="Force_B_TacticID">
-                                <option value="0">- Combat Tactic -</option>
-                                <option value="1">Centre Focus</option>
-                                <option value="2">Flanking Focus</option>
-                                <option value="3">Hit and Run</option>
-                                <option value="4">Charge</option>
-                                <option value="5">Withdrawal</option>
-                              </select>
-                            </div>
-                          </div>
-                          <input type="number" id="Force_B_Strength" value="2500"> Total number of soldiers.<br>
-                          <input type="number" id="Force_B_input_lightinf" value="20"> % light inf.<br>
-                          <input type="number" id="Force_B_input_heavyinf" value="20"> % heavy inf.<br>
-                          <input type="number" id="Force_B_input_rangedinf" value="20"> % ranged inf.<br>
-                          <input type="number" id="Force_B_input_lightcav" value="20"> % light cav.<br>
-                          <input type="number" id="Force_B_input_heavycav" value="20"> % heavy cav.<br>
-                          <input type="number" id="DV" value="1"> Defensive bonus from holdfast. <br>
-                          <br>
-                          <div class="4u 12u$(small)">
-                          <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked>
-                          <label for="Bfaction_type_North">North</label><br>
-                          <input type="radio" id="Bfaction_type_Vale" name="bfaction_type">
-                          <label for="Bfaction_type_Vale">Vale</label><br>
-                          <input type="radio" id="Bfaction_type_IronIsles" name="bfaction_type">
-                          <label for="Bfaction_type_IronIsles">Iron Isles</label><br>
-                          <input type="radio" id="Bfaction_type_Riverlands" name="bfaction_type">
-                          <label for="Bfaction_type_Riverlands">Riverlands</label><br>
-                          <input type="radio" id="Bfaction_type_Westerlands" name="bfaction_type">
-                          <label for="Bfaction_type_Westerlands">Westerlands</label><br>
-                          <input type="radio" id="Bfaction_type_Crownlands" name="bfaction_type">
-                          <label for="Bfaction_type_Crownlands">Crownlands</label><br>
-                          <input type="radio" id="Bfaction_type_Reach" name="bfaction_type">
-                          <label for="Bfaction_type_Reach">Reach</label><br>
-                          <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type">
-                          <label for="Bfaction_type_Stormlands">Stormlands</label><br>
-                          <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type">
-                          <label for="Bfaction_type_Dorne">Dorne</label>
-                          </div>
-                          <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
-=======
-
-
-
-
-                            <div class="6u 12u$(small)">
-                              <legend>Force B (defender in siege):</legend>
-                              <input type="text" id="Force_B_Name" value="House B"> Name of Force B (usually the House Name)<br> <br>
-                              <div class="12u$">
-                                <div class="select-wrapper">
-                                  <select name="commandercategory" id="commander_B_category">
-                                    <option value="0">- Commander Bonus -</option>
-                                    <option value="1">Brilliant Tactician</option>
-                                    <option value="2">Vanguard Commander</option>
-                                    <option value="3">Excellent Marcher</option>
-                                    <option value="4">Man of the People</option>
-                                    <option value="5">Master of the Field</option>
-                                    <option value="6">Defensive Leader</option>
-                                    <option value="7">Sand Warrior</option>
-                                    <option value="8">Mountain Czar</option>
-                                    <option value="9">Wood Devil</option>
-                                    <option value="10">Hill Hero</option>
-                                    <option value="11">Tundra Titan</option>
-                                  </select>
-                                </div>
-                              </div>
-                              Total number of soldiers.<br>
-                              <input type="number" id="Force_B_Strength" value="2500">
-                              <br>DV<br>
-                              <input type="number" id="DV" value="2500">
-                              <br>Light inf. composition<br>
-                              <input type="number" id="Force_B_input_lightinf" value="20"> %
-                              <br>Heavy inf. composition<br>
-                              <input type="number" id="Force_B_input_heavyinf" value="20"> %
-                              <br>Ranged inf. composition<br>
-                              <input type="number" id="Force_B_input_rangedinf" value="20"> %
-                              <br>Light cav. composition<br>
-                              <input type="number" id="Force_B_input_lightcav" value="20"> %
-                              <br>Heavy cav. composition<br>
-                              <input type="number" id="Force_B_input_heavycav" value="20"> %
-                              <br>
-                              <div class="6u 12u$(small)">
-                                <br>
-                                <input type="radio" id="Bfaction_type_North" name="bfaction_type" checked>
-                                <label for="Bfaction_type_North">North</label><br>
-                                <input type="radio" id="Bfaction_type_Vale" name="bfaction_type">
-                                <label for="Bfaction_type_Vale">Vale</label><br>
-                                <input type="radio" id="Bfaction_type_IronIsles" name="bfaction_type">
-                                <label for="Bfaction_type_IronIsles">Iron Isles</label><br>
-                                <input type="radio" id="Bfaction_type_Riverlands" name="bfaction_type">
-                                <label for="Bfaction_type_Riverlands">Riverlands</label><br>
-                                <input type="radio" id="Bfaction_type_Westerlands" name="bfaction_type">
-                                <label for="Bfaction_type_Westerlands">Westerlands</label><br>
-                                <input type="radio" id="Bfaction_type_Crownlands" name="bfaction_type">
-                                <label for="Bfaction_type_Crownlands">Crownlands</label><br>
-                                <input type="radio" id="Bfaction_type_Reach" name="bfaction_type">
-                                <label for="Bfaction_type_Reach">Reach</label><br>
-                                <input type="radio" id="Bfaction_type_Stormlands" name="bfaction_type">
-                                <label for="Bfaction_type_Stormlands">Stormlands</label><br>
-                                <input type="radio" id="Bfaction_type_Dorne" name="bfaction_type">
-                                <label for="Bfaction_type_Dorne">Dorne</label>
-                              </div>
-                              <input type="button" value="Standard Comp" onclick="B_StandardComp()"><br>
-                              <br>
-                            </div>
-                          </div>
->>>>>>> 113e147ea0e9b392284df372e1363ec68e2b27c6
-                          <br>
-                          <div class="4u 12u$(small)">
-                          <input type="radio" id="Combat_Type_Field" name="combattype" checked>
-                          <label for="Combat_Type_Field">Field Battle</label><br>
-                          <input type="radio" id="Combat_Type_Siege" name="combattype">
-                          <label for="Combat_Type_Siege">Siege Assault</label>
-                          </div>
-                          <br>
-                          <div class="12u$">
-                            <div class="select-wrapper">
-                              <select name="terraincategory" id="terrainID">
-                                <option value="0">- Terrain -</option>
-                                <option value="1">Grasslands</option>
-                                <option value="2">Hills</option>
-                                <option value="3">Forests</option>
-                                <option value="4">Mountains</option>
-                                <option value="5">Swamps</option>
-                                <option value="6">Deserts</option>
-                                <option value="7">Tundra</option>
-                              </select>
-                            </div>
-                          </div>
-                          <br>
-                          <input type="button" value="Submit" onclick="battlemechanics()">
-                          <input type="button" value="Clear Results" onclick="clearresults()">
-                          </form>
-                          <h2>Results</h2>
-                          <div id="battleout"></div>
-                        </fieldset>
-                        <br>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <section id="two" class="wrapper style2">
-        <div class="inner">
-          <div class="box">
-            <div class="content">
-              <div class="links">
-
-                          <header class="align-center">
-                            <h2 id="links">Links</h2>
-                          </header>
-
-                        <p>Welcome to my collection of quick links, compiled to provide convenience. Right now, it's basically only the sidebar links. Please let me know if you have other suggestions! Might as well have the website do more than one thing, right?<br>
-                        ~Hello_There2</p>
-
-
-                          <h2>Claims and Characters</h2>
-                          <dl>
-
-                            <dt><a href="https://docs.google.com/spreadsheets/d/1fmTM7nBBAaeeHPycnqTKyGXNxOwLJ7QK8nUx0rVoD-o/edit?usp=sharing">Claims List</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/54oh89/wall_wall_beyond_secondary_characters_claim_post/">Wall And Beyond Claims</a></dt>
-                            <dt><a href="https://docs.google.com/spreadsheets/d/1RGzlyaXJlSaf1qAZ7YUXr8PDO_tP42MGBcYkJ1ZyNok/edit#gid=0">Available Single Characters</a></dt>
-                            <dt><a href="http://www.reddit.com/r/SevenKingdoms/wiki/houses">House Wikis</a></dt>
-                            <dt><a href="https://docs.google.com/spreadsheets/d/1nM5VIUBGDjGIhVE7P4XZTW6U6XEzDD6KHk4DbXEc5WQ/edit#gid=0">Player Almanac</a></dt>
-                            <dt><a href="https://docs.google.com/spreadsheets/d/1R1AiKMAC4RcuTZWzDWF1mBfgJrDZX7F2lAAadmWsfJE/edit">Appearance Almanac</a></dt>
-
-                          </dl>
-
-
-                          <h2>Game Resources</h2>
-                          <dl>
-
-                          <dt><a href="https://SevenKingdomsmap.github.io/">Game Map</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/4u1gdp/meta_beginners_guide/">Beginner's Guide</a></dt>
-                            <dt><a href="https://docs.google.com/spreadsheets/d/11_5NoLO6pC0Bq_erXxr6BpDUjiRjZvEXfnDQ0hgNRhE/edit?usp=sharing">Economy Sheet</a></dt>
-                            <dt><a href="https://docs.google.com/spreadsheets/d/1xom5-ZPrpPBFDx7i-SWanWbVt1ZLcuDOga2NRkRCbiU/edit?usp=sharing">Events Calendar</a></dt>
-                            <dt><a href="https://docs.google.com/spreadsheets/d/16pNrpEd5Dq7HukDjH8pYPVsdXYmxyoKtG6RQtz4Xq0w/edit?usp=sharing">Movement Calculator</a></dt>
-                            <dt><a href="https://communityoficeandfire.slack.com/">Community Slack Chat</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/4lz4hy/meta_list_of_slacks_slackbot_commands/">Slack Chat Slackbot Commands</a></dt>
-                          </dl>
-                            
-
-                          <h2>Rules</h2>
-                          <dl>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/wiki/index">Main Rules Page</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/wiki/land_combat">Land Combat</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/wiki/naval_combat">Naval Combat</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/wiki/econonomy">Economy and other misc.</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/wiki/calculations">Calculations Page</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/wiki/troopcomps">Troop Compositions</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/wiki/tags">Post Tags</a></dt>
-                            <dt><a href="https://docs.google.com/document/d/1jiepoW8V0YWOWbtcbbTUPhBxMCzqEqN_NJKT0_IPi6s/edit?usp=sharing">Moderator Code of Conduct</a></dt>
-                            <dt><a href="https://docs.google.com/document/d/15UhdwLikG2PNF0mfJDb9NgghkSNRdL4PVggwdcqu02c/edit?usp=sharing">Complaints Process</a></dt>
-                          </dl>
-                            
-
-                            <h2>Related</h2>
-                            <dl>
-                            <dt><a href="https://www.reddit.com/r/ASOIAF">A Song of Ice And Fire subreddit</a></dt>
-                            <dt><a href="https://www.reddit.com/r/IronThroneRP">IronThroneRP subreddit</a></dt>
-                            <dt><a href="https://www.reddit.com/r/FireAndBloodRP">FireAndBloodRP subreddit</a></dt>
-                            <dt><a href="https://www.reddit.com/r/GameOfThrones">Game of Thrones subreddit</a></dt>
-                            <dt><a href="https://www.reddit.com/r/CK2GameOfThrones">CK2 Game of Thrones mod subreddit</a></dt>
-                            <dt><a href="http://www.johnjennetteart.com/">John Jennete Art</a></dt>
-                            </dl>
-
-
-                            <h2>Useful Posts</h2>
-                            <dl>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/5v7fd0/meta_post_time_dispersion_statistics/">What time do most people post at?</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/4r06p2/meta_the_grand_script_bazaar/?ref=search_posts">JSfiddle Automation... the precursor to this site</a></dt>
-                            <dt><a href="https://www.reddit.com/r/SevenKingdoms/comments/5uvhqn/meta_tag_usage_statistics/?ref=search_posts">Post tag usage statistics</a></dt>
-                            <dt><a href="">Empty</a></dt>
-                            </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    <!-- Footer -->
-      <footer id="footer">
-        <div class="container">
-          <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="https://www.facebook.com/howgreatmorgenthauart/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-          </ul>
-        </div>
-        <div class="copyright">
-          &copy; Go Fuck Yourself. All rights reserved.
-        </div>
-      </footer>
-
-
-    <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.scrollex.min.js"></script>
-      <script src="assets/js/skel.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script>
-      <script id="duel" src="duel.js"></script>
-      <script id="itplandcombat" src="itplandcombat.js"></script>
+        </section>
+      </div>
   </body>
 </html>

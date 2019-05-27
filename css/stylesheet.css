@@ -1,0 +1,65 @@
+.banner_container {
+	width: 100%;
+	height: 50%;
+	margin-top: 1%;
+	display: inline-block;
+}
+
+.banner_img {
+	width: 100%;
+	height: auto;
+}
+
+.team_image {
+	width: 350px;
+	height: auto;
+	transition: transform .5s ease;
+}
+
+.about_image {
+	width: 1125px;
+	height: auto;
+}
+
+.product_image {
+	width: 300px;
+	height: auto;
+	transition: transform .5s ease;
+}
+
+.product_image:hover {
+	transform: scale(1.5);
+}
+
+.container {
+	position: relative;
+}
+
+body, html, .container {
+	height: 100%;
+}
+
+.parallax {
+	background-image: url("../images/analytics.jpg");
+	height: 75%;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 50px;
+}
+
+.product_desc {
+	text-align: justify;
+	width: 300px;
+	margin-top: 5px;
+}
+
+
+.factionLabel {
+	font-size: 20px;
+}
+
+.spacer {
+	margin-top: 79px;
+}
