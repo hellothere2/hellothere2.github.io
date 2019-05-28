@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <!-- &#x2B21; -->
-
-
 <html>
 	<head>
 		<title>Map P.O.C.</title>
@@ -9,9 +7,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script src="js/mappage.js"></script>
 		<script type="text/javascript">
-			var mac_externalcss='css/hexgrid_mac.css'; //Mac css file
-			var pc_externalcss='css/hexgrid.css';   //PC/default css file
-			var mactest=navigator.userAgent.indexOf("Mac")!=-1; //Check if using Mac
+			var mac_externalcss='css/hexgrid_mac.css';           //Mac css file
+			var pc_externalcss='css/hexgrid.css';                //PC/default css file
+			var mactest=navigator.userAgent.indexOf("Mac")!=-1;  //Check if using Mac
 			//Then write a stylesheet link based on if Mac or not
 			document.write('<link rel="stylesheet" type="text/css" href="'+ (mactest? mac_externalcss : pc_externalcss) +'">');
 		</script>
@@ -19,6 +17,13 @@
 	<body onmousemove="followCursor(event)" onclick="purpify(event)">
 		<div id="out">
 			<h2>Movement Info</h2>
+			<p>Usage Instructions: Use a mouse pointer to highlight a hex. The hex you hover over will be indicated by a floating coordinates box along with a red highlight for clarification.<br>
+			Clicking a hex will mark it purple and add it to the record of selected hexes. Once you're finished selecting hexes, click Copy Hexes to copy the Hex coordinates.<br>
+			You can let another person see what hexes you selected by pasting into a message. The other user can copy your hex codes and paste them into the textbox.<br>
+			Once finished, they should hit Load Hexes from Textbox. All of the hexes will be selected on their screen, and an alert will be given if the movement is invalid.<br>
+			There is no way to clear hexes, so entirely new selections or loading someone else's selection should be done by first refreshing the page and then proceeding through the steps.<br>
+			Clicking either of the buttons should be the last step performed on the page before you leave or refresh.
+			</p>
 			<button onclick="loadText()">Load Hexes From Textbox</button>
 			<br>
 			<textarea id="loadArea"></textarea>
