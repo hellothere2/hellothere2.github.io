@@ -2,8 +2,8 @@ function followCursor(event) {
 	//Get Cursor-following div
 	var d = document.getElementById("demo");
 	//Retrieve relative cursor position
-	var x = event.screenX+document.documentElement.scrollLeft-8;
-	var y = event.screenY+document.documentElement.scrollTop-79;
+	var x = event.clientX+document.documentElement.scrollLeft;
+	var y = event.clientY+document.documentElement.scrollTop;
 	//Offset position
 	var mxpos = x + 25;
 	var mypos = y + 25;
