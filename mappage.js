@@ -336,6 +336,33 @@ function loadText(){
 		document.getElementById("tOutputDst").innerHTML = dstC;
 		document.getElementById("tOutputSwp").innerHTML = swpC;
 		document.getElementById("cOutput").innerHTML += lHexCoordinates + ", ";
+		//Check hex adjacency
+		var twoParter = lHexCoordinates.split('.'); //split it in half
+		var nH = hInput2[i+1];
+		var nextHex = nH.trim();
+		var nextHexTwoParter = nextHex.split('.'); //split
+		//Check if the first part of the current hex and the next hex match
+		if (twoParter[0] > nextHexTwoParter[0]){
+			var diff1 = twoParter[0] - nextHexTwoParter[0];
+		} else {
+			var diff1 = nextHexTwoParter[0] - twoParter[0];
+		}
+		if (diff1 > 1){
+			//If it's more than 1 then they're not adjacent
+			alert("Movement invalid, non-adjacent hexes detected.");
+		} else {
+			//Columns are adjacent
+			//Check if the second part of the current hex
+			if (twoParter[1] > nextHexTwoParter[1]){
+				var diff2 = twoParter[1] - nextHexTwoParter[1];
+			} else {
+				var diff = nextHexTwoParter[1] - twoParter[1];
+			}
+			if (diff2 > 1){
+				//If it's more than 1 then they're not adjacent
+				alert("Movement invalid, non-adjacent hexes detected.");
+			}
+		}
 	}
 }
 
